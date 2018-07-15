@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="reveal.js," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Andy_z 's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="reveal.js  A framework for easily creating beautiful presentations using HTML. Check out the live demo. reveal.js comes with a broad range of features including nested slides, Markdown contents, PDF e">
+<meta name="keywords" content="reveal.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reveal.js">
+<meta property="og:url" content="http://yoururl.com/2018/04/25/reveal.js/index.html">
+<meta property="og:site_name" content="Andy_z &#39;s Blog">
+<meta property="og:description" content="reveal.js  A framework for easily creating beautiful presentations using HTML. Check out the live demo. reveal.js comes with a broad range of features including nested slides, Markdown contents, PDF e">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://travis-ci.org/hakimel/reveal.js.svg?branch=master">
+<meta property="og:image" content="https://s3.amazonaws.com/static.slid.es/images/slides-github-banner-320x40.png?1">
+<meta property="og:image" content="https://s3.amazonaws.com/hakim-static/reveal-js/pdf-print-settings-2.png">
+<meta property="og:updated_time" content="2018-04-25T17:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="reveal.js">
+<meta name="twitter:description" content="reveal.js  A framework for easily creating beautiful presentations using HTML. Check out the live demo. reveal.js comes with a broad range of features including nested slides, Markdown contents, PDF e">
+<meta name="twitter:image" content="https://travis-ci.org/hakimel/reveal.js.svg?branch=master">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoururl.com/2018/04/25/reveal.js/"/>
+
+
+
+
+
+  <title>reveal.js | Andy_z 's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/jjzhou012/jjzhou012.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Andy_z 's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding - Thinking - Sharing - Deep learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/04/25/reveal.js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">reveal.js</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T00:00:00+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reveal-js/" itemprop="url" rel="index">
+                    <span itemprop="name">reveal.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="reveal-js"><a href="#reveal-js" class="headerlink" title="reveal.js  "></a>reveal.js <a href="https://travis-ci.org/hakimel/reveal.js" target="_blank" rel="noopener"><img src="https://travis-ci.org/hakimel/reveal.js.svg?branch=master" alt="Build Status"></a> <a href="https://slides.com?ref=github" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/static.slid.es/images/slides-github-banner-320x40.png?1" alt="Slides" width="160" height="20"></a></h1><p>A framework for easily creating beautiful presentations using HTML. <a href="http://revealjs.com/" target="_blank" rel="noopener">Check out the live demo</a>.</p>
+<p>reveal.js comes with a broad range of features including <a href="https://github.com/hakimel/reveal.js#markup" target="_blank" rel="noopener">nested slides</a>, <a href="https://github.com/hakimel/reveal.js#markdown" target="_blank" rel="noopener">Markdown contents</a>, <a href="https://github.com/hakimel/reveal.js#pdf-export" target="_blank" rel="noopener">PDF export</a>, <a href="https://github.com/hakimel/reveal.js#speaker-notes" target="_blank" rel="noopener">speaker notes</a> and a <a href="https://github.com/hakimel/reveal.js#api" target="_blank" rel="noopener">JavaScript API</a>. There’s also a fully featured visual editor and platform for sharing reveal.js presentations at <a href="https://slides.com?ref=github" target="_blank" rel="noopener">slides.com</a>.</p>
+<h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
+<li><a href="#online-editor">Online Editor</a></li>
+<li><a href="#instructions">Instructions</a><ul>
+<li><a href="#markup">Markup</a></li>
+<li><a href="#markdown">Markdown</a></li>
+<li><a href="#element-attributes">Element Attributes</a></li>
+<li><a href="#slide-attributes">Slide Attributes</a></li>
+</ul>
+</li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#presentation-size">Presentation Size</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#ready-event">Ready Event</a></li>
+<li><a href="#auto-sliding">Auto-sliding</a></li>
+<li><a href="#keyboard-bindings">Keyboard Bindings</a></li>
+<li><a href="#touch-navigation">Touch Navigation</a></li>
+<li><a href="#lazy-loading">Lazy Loading</a></li>
+<li><a href="#api">API</a><ul>
+<li><a href="#slide-changed-event">Slide Changed Event</a></li>
+<li><a href="#presentation-state">Presentation State</a></li>
+<li><a href="#slide-states">Slide States</a></li>
+<li><a href="#slide-backgrounds">Slide Backgrounds</a></li>
+<li><a href="#parallax-background">Parallax Background</a></li>
+<li><a href="#slide-transitions">Slide Transitions</a></li>
+<li><a href="#internal-links">Internal links</a></li>
+<li><a href="#fragments">Fragments</a></li>
+<li><a href="#fragment-events">Fragment events</a></li>
+<li><a href="#code-syntax-highlighting">Code syntax highlighting</a></li>
+<li><a href="#slide-number">Slide number</a></li>
+<li><a href="#overview-mode">Overview mode</a></li>
+<li><a href="#fullscreen-mode">Fullscreen mode</a></li>
+<li><a href="#embedded-media">Embedded media</a></li>
+<li><a href="#stretching-elements">Stretching elements</a></li>
+<li><a href="#postmessage-api">postMessage API</a></li>
+</ul>
+</li>
+<li><a href="#pdf-export">PDF Export</a></li>
+<li><a href="#theming">Theming</a></li>
+<li><a href="#speaker-notes">Speaker Notes</a><ul>
+<li><a href="#share-and-print-speaker-notes">Share and Print Speaker Notes</a></li>
+<li><a href="#server-side-speaker-notes">Server Side Speaker Notes</a></li>
+</ul>
+</li>
+<li><a href="#multiplexing">Multiplexing</a><ul>
+<li><a href="#master-presentation">Master presentation</a></li>
+<li><a href="#client-presentation">Client presentation</a></li>
+<li><a href="#socketio-server">Socket.io server</a></li>
+</ul>
+</li>
+<li><a href="#mathjax">MathJax</a></li>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#basic-setup">Basic setup</a></li>
+<li><a href="#full-setup">Full setup</a></li>
+<li><a href="#folder-structure">Folder Structure</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+<h4 id="More-reading"><a href="#More-reading" class="headerlink" title="More reading"></a>More reading</h4><ul>
+<li><a href="https://github.com/hakimel/reveal.js/releases" target="_blank" rel="noopener">Changelog</a>: Up-to-date version history.</li>
+<li><a href="https://github.com/hakimel/reveal.js/wiki/Example-Presentations" target="_blank" rel="noopener">Examples</a>: Presentations created with reveal.js, add your own!</li>
+<li><a href="https://github.com/hakimel/reveal.js/wiki/Browser-Support" target="_blank" rel="noopener">Browser Support</a>: Explanation of browser support and fallbacks.</li>
+<li><a href="https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware" target="_blank" rel="noopener">Plugins</a>: A list of plugins that can be used to extend reveal.js.</li>
+</ul>
+<h2 id="Online-Editor"><a href="#Online-Editor" class="headerlink" title="Online Editor"></a>Online Editor</h2><p>Presentations are written using HTML or Markdown but there’s also an online editor for those of you who prefer a graphical interface. Give it a try at <a href="https://slides.com?ref=github" target="_blank" rel="noopener">https://slides.com</a>.</p>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><h3 id="Markup"><a href="#Markup" class="headerlink" title="Markup"></a>Markup</h3><p>Here’s a barebones example of a fully working reveal.js presentation:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/reveal.css"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/theme/white.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"reveal"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slides"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">section</span>&gt;</span>Slide 1<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">section</span>&gt;</span>Slide 2<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/reveal.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">			Reveal.initialize();</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>The presentation markup hierarchy needs to be <code>.reveal &gt; .slides &gt; section</code> where the <code>section</code> represents one slide and can be repeated indefinitely. If you place multiple <code>section</code> elements inside of another <code>section</code> they will be shown as vertical slides. The first of the vertical slides is the “root” of the others (at the top), and will be included in the horizontal sequence. For example:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"reveal"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slides"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">section</span>&gt;</span>Single Horizontal Slide<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">section</span>&gt;</span>Vertical Slide 1<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">section</span>&gt;</span>Vertical Slide 2<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><p>It’s possible to write your slides using Markdown. To enable Markdown, add the <code>data-markdown</code> attribute to your <code>&lt;section&gt;</code> elements and wrap the contents in a <code>&lt;textarea data-template&gt;</code> like the example below. You’ll also need to add the <code>plugin/markdown/marked.js</code> and <code>plugin/markdown/markdown.js</code> scripts (in that order) to your HTML file.</p>
+<p>This is based on <a href="https://gist.github.com/1343518" target="_blank" rel="noopener">data-markdown</a> from <a href="https://github.com/paulirish" target="_blank" rel="noopener">Paul Irish</a> modified to use <a href="https://github.com/chjj/marked" target="_blank" rel="noopener">marked</a> to support <a href="https://help.github.com/articles/github-flavored-markdown" target="_blank" rel="noopener">GitHub Flavored Markdown</a>. Sensitive to indentation (avoid mixing tabs and spaces) and line breaks (avoid consecutive breaks).</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-markdown</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">data-template</span>&gt;</span></span><br><span class="line">		## Page title</span><br><span class="line"></span><br><span class="line">		A paragraph with some text and a [link](http://hakim.se).</span><br><span class="line">	<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="External-Markdown"><a href="#External-Markdown" class="headerlink" title="External Markdown"></a>External Markdown</h4><p>You can write your content as a separate file and have reveal.js load it at runtime. Note the separator arguments which determine how slides are delimited in the external file: the <code>data-separator</code> attribute defines a regular expression for horizontal slides (defaults to <code>^\r?\n---\r?\n$</code>, a newline-bounded horizontal rule)  and <code>data-separator-vertical</code> defines vertical slides (disabled by default). The <code>data-separator-notes</code> attribute is a regular expression for specifying the beginning of the current slide’s speaker notes (defaults to <code>notes?:</code>). The <code>data-charset</code> attribute is optional and specifies which charset to use when loading the external file.</p>
+<p>When used locally, this feature requires that reveal.js <a href="#full-setup">runs from a local web server</a>.  The following example customises all available options:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-markdown</span>=<span class="string">"example.md"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">data-separator</span>=<span class="string">"^\n\n\n"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">data-separator-vertical</span>=<span class="string">"^\n\n"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">data-separator-notes</span>=<span class="string">"^Note:"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">data-charset</span>=<span class="string">"iso-8859-15"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        Note that Windows uses `\r\n` instead of `\n` as its linefeed character.</span></span><br><span class="line"><span class="comment">        For a regex that supports all operating systems, use `\r?\n` instead of `\n`.</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Element-Attributes"><a href="#Element-Attributes" class="headerlink" title="Element Attributes"></a>Element Attributes</h4><p>Special syntax (through HTML comments) is available for adding attributes to Markdown elements. This is useful for fragments, amongst other things.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-markdown</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/template"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">		- Item 1 <span class="comment">&lt;!-- .element: class="fragment" data-fragment-index="2" --&gt;</span></span></span><br><span class="line"><span class="xml">		- Item 2 <span class="comment">&lt;!-- .element: class="fragment" data-fragment-index="1" --&gt;</span></span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Slide-Attributes"><a href="#Slide-Attributes" class="headerlink" title="Slide Attributes"></a>Slide Attributes</h4><p>Special syntax (through HTML comments) is available for adding attributes to the slide <code>&lt;section&gt;</code> elements generated by your Markdown.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-markdown</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/template"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- .slide: data-background="#ff0000" --&gt;</span></span></span><br><span class="line"><span class="undefined">		Markdown content</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Configuring-marked"><a href="#Configuring-marked" class="headerlink" title="Configuring marked"></a>Configuring <em>marked</em></h4><p>We use <a href="https://github.com/chjj/marked" target="_blank" rel="noopener">marked</a> to parse Markdown. To customise marked’s rendering, you can pass in options when <a href="#configuration">configuring Reveal</a>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// Options which are passed into marked</span></span><br><span class="line">	<span class="comment">// See https://github.com/chjj/marked#options-1</span></span><br><span class="line">	markdown: &#123;</span><br><span class="line">		smartypants: <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>At the end of your page you need to initialize reveal by running the following code. Note that all configuration values are optional and will default to the values specified below.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Display presentation control arrows</span></span><br><span class="line">	controls: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Help the user learn the controls by providing hints, for example by</span></span><br><span class="line">	<span class="comment">// bouncing the down arrow when they first encounter a vertical slide</span></span><br><span class="line">	controlsTutorial: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Determines where controls appear, "edges" or "bottom-right"</span></span><br><span class="line">	controlsLayout: <span class="string">'bottom-right'</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Visibility rule for backwards navigation arrows; "faded", "hidden"</span></span><br><span class="line">	<span class="comment">// or "visible"</span></span><br><span class="line">	controlsBackArrows: <span class="string">'faded'</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Display a presentation progress bar</span></span><br><span class="line">	progress: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Set default timing of 2 minutes per slide</span></span><br><span class="line">	defaultTiming: <span class="number">120</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Display the page number of the current slide</span></span><br><span class="line">	slideNumber: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Push each slide change to the browser history</span></span><br><span class="line">	history: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Enable keyboard shortcuts for navigation</span></span><br><span class="line">	keyboard: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Enable the slide overview mode</span></span><br><span class="line">	overview: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Vertical centering of slides</span></span><br><span class="line">	center: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Enables touch navigation on devices with touch input</span></span><br><span class="line">	touch: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Loop the presentation</span></span><br><span class="line">	loop: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Change the presentation direction to be RTL</span></span><br><span class="line">	rtl: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Randomizes the order of slides each time the presentation loads</span></span><br><span class="line">	shuffle: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Turns fragments on and off globally</span></span><br><span class="line">	fragments: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Flags if the presentation is running in an embedded mode,</span></span><br><span class="line">	<span class="comment">// i.e. contained within a limited portion of the screen</span></span><br><span class="line">	embedded: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Flags if we should show a help overlay when the questionmark</span></span><br><span class="line">	<span class="comment">// key is pressed</span></span><br><span class="line">	help: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Flags if speaker notes should be visible to all viewers</span></span><br><span class="line">	showNotes: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Global override for autoplaying embedded media (video/audio/iframe)</span></span><br><span class="line">	<span class="comment">// - null: Media will only autoplay if data-autoplay is present</span></span><br><span class="line">	<span class="comment">// - true: All media will autoplay, regardless of individual setting</span></span><br><span class="line">	<span class="comment">// - false: No media will autoplay, regardless of individual setting</span></span><br><span class="line">	autoPlayMedia: <span class="literal">null</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Number of milliseconds between automatically proceeding to the</span></span><br><span class="line">	<span class="comment">// next slide, disabled when set to 0, this value can be overwritten</span></span><br><span class="line">	<span class="comment">// by using a data-autoslide attribute on your slides</span></span><br><span class="line">	autoSlide: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Stop auto-sliding after user input</span></span><br><span class="line">	autoSlideStoppable: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Use this method for navigation when auto-sliding</span></span><br><span class="line">	autoSlideMethod: Reveal.navigateNext,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Enable slide navigation via mouse wheel</span></span><br><span class="line">	mouseWheel: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Hides the address bar on mobile devices</span></span><br><span class="line">	hideAddressBar: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Opens links in an iframe preview overlay</span></span><br><span class="line">	<span class="comment">// Add `data-preview-link` and `data-preview-link="false"` to customise each link</span></span><br><span class="line">	<span class="comment">// individually</span></span><br><span class="line">	previewLinks: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Transition style</span></span><br><span class="line">	transition: <span class="string">'slide'</span>, <span class="comment">// none/fade/slide/convex/concave/zoom</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Transition speed</span></span><br><span class="line">	transitionSpeed: <span class="string">'default'</span>, <span class="comment">// default/fast/slow</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Transition style for full page slide backgrounds</span></span><br><span class="line">	backgroundTransition: <span class="string">'fade'</span>, <span class="comment">// none/fade/slide/convex/concave/zoom</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Number of slides away from the current that are visible</span></span><br><span class="line">	viewDistance: <span class="number">3</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Parallax background image</span></span><br><span class="line">	parallaxBackgroundImage: <span class="string">''</span>, <span class="comment">// e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Parallax background size</span></span><br><span class="line">	parallaxBackgroundSize: <span class="string">''</span>, <span class="comment">// CSS syntax, e.g. "2100px 900px"</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Number of pixels to move the parallax background per slide</span></span><br><span class="line">	<span class="comment">// - Calculated automatically unless specified</span></span><br><span class="line">	<span class="comment">// - Set to 0 to disable movement along an axis</span></span><br><span class="line">	parallaxBackgroundHorizontal: <span class="literal">null</span>,</span><br><span class="line">	parallaxBackgroundVertical: <span class="literal">null</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// The display mode that will be used to show slides</span></span><br><span class="line">	display: <span class="string">'block'</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>The configuration can be updated after initialization using the <code>configure</code> method:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Turn autoSlide off</span></span><br><span class="line">Reveal.configure(&#123; <span class="attr">autoSlide</span>: <span class="number">0</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Start auto-sliding every 5s</span></span><br><span class="line">Reveal.configure(&#123; <span class="attr">autoSlide</span>: <span class="number">5000</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Presentation-Size"><a href="#Presentation-Size" class="headerlink" title="Presentation Size"></a>Presentation Size</h3><p>All presentations have a normal size, that is, the resolution at which they are authored. The framework will automatically scale presentations uniformly based on this size to ensure that everything fits on any given display or viewport.</p>
+<p>See below for a list of configuration options related to sizing, including default values:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// The "normal" size of the presentation, aspect ratio will be preserved</span></span><br><span class="line">	<span class="comment">// when the presentation is scaled to fit different resolutions. Can be</span></span><br><span class="line">	<span class="comment">// specified using percentage units.</span></span><br><span class="line">	width: <span class="number">960</span>,</span><br><span class="line">	height: <span class="number">700</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Factor of the display size that should remain empty around the content</span></span><br><span class="line">	margin: <span class="number">0.1</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Bounds for smallest/largest possible scale to apply to content</span></span><br><span class="line">	minScale: <span class="number">0.2</span>,</span><br><span class="line">	maxScale: <span class="number">1.5</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>If you wish to disable this behavior and do your own scaling (e.g. using media queries), try these settings:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">	width: <span class="string">"100%"</span>,</span><br><span class="line">	height: <span class="string">"100%"</span>,</span><br><span class="line">	margin: <span class="number">0</span>,</span><br><span class="line">	minScale: <span class="number">1</span>,</span><br><span class="line">	maxScale: <span class="number">1</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>Reveal.js doesn’t <em>rely</em> on any third party scripts to work but a few optional libraries are included by default. These libraries are loaded as dependencies in the order they appear, for example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	dependencies: [</span><br><span class="line">		<span class="comment">// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'lib/js/classList.js'</span>, <span class="attr">condition</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> !<span class="built_in">document</span>.body.classList; &#125; &#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Interpret Markdown in &lt;section&gt; elements</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/markdown/marked.js'</span>, <span class="attr">condition</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> !!<span class="built_in">document</span>.querySelector( <span class="string">'[data-markdown]'</span> ); &#125; &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/markdown/markdown.js'</span>, <span class="attr">condition</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> !!<span class="built_in">document</span>.querySelector( <span class="string">'[data-markdown]'</span> ); &#125; &#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Syntax highlight for &lt;code&gt; elements</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/highlight/highlight.js'</span>, <span class="attr">async</span>: <span class="literal">true</span>, <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; hljs.initHighlightingOnLoad(); &#125; &#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Zoom in and out with Alt+click</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/zoom-js/zoom.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Speaker notes</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/notes/notes.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">// MathJax</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/math/math.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>You can add your own extensions using the same syntax. The following properties are available for each dependency object:</p>
+<ul>
+<li><strong>src</strong>: Path to the script to load</li>
+<li><strong>async</strong>: [optional] Flags if the script should load after reveal.js has started, defaults to false</li>
+<li><strong>callback</strong>: [optional] Function to execute when the script has loaded</li>
+<li><strong>condition</strong>: [optional] Function which must return true for the script to be loaded</li>
+</ul>
+<p>To load these dependencies, reveal.js requires <a href="http://headjs.com/" target="_blank" rel="noopener">head.js</a> <em>(a script loading library)</em> to be loaded before reveal.js.</p>
+<h3 id="Ready-Event"><a href="#Ready-Event" class="headerlink" title="Ready Event"></a>Ready Event</h3><p>A <code>ready</code> event is fired when reveal.js has loaded all non-async dependencies and is ready to start navigating. To check if reveal.js is already ‘ready’ you can call <code>Reveal.isReady()</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Reveal.addEventListener( <span class="string">'ready'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">	<span class="comment">// event.currentSlide, event.indexh, event.indexv</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+<p>Note that we also add a <code>.ready</code> class to the <code>.reveal</code> element so that you can hook into this with CSS.</p>
+<h3 id="Auto-sliding"><a href="#Auto-sliding" class="headerlink" title="Auto-sliding"></a>Auto-sliding</h3><p>Presentations can be configured to progress through slides automatically, without any user input. To enable this you will need to tell the framework how many milliseconds it should wait between slides:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Slide every five seconds</span></span><br><span class="line">Reveal.configure(&#123;</span><br><span class="line">  autoSlide: <span class="number">5000</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>When this is turned on a control element will appear that enables users to pause and resume auto-sliding. Alternatively, sliding can be paused or resumed by pressing »A« on the keyboard. Sliding is paused automatically as soon as the user starts navigating. You can disable these controls by specifying <code>autoSlideStoppable: false</code> in your reveal.js config.</p>
+<p>You can also override the slide duration for individual slides and fragments by using the <code>data-autoslide</code> attribute:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-autoslide</span>=<span class="string">"2000"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>After 2 seconds the first fragment will be shown.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment"</span> <span class="attr">data-autoslide</span>=<span class="string">"10000"</span>&gt;</span>After 10 seconds the next fragment will be shown.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment"</span>&gt;</span>Now, the fragment is displayed for 2 seconds before the next slide is shown.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>To override the method used for navigation when auto-sliding, you can specify the <code>autoSlideMethod</code> setting. To only navigate along the top layer and ignore vertical slides, set this to <code>Reveal.navigateRight</code>.</p>
+<p>Whenever the auto-slide mode is resumed or paused the <code>autoslideresumed</code> and <code>autoslidepaused</code> events are fired.</p>
+<h3 id="Keyboard-Bindings"><a href="#Keyboard-Bindings" class="headerlink" title="Keyboard Bindings"></a>Keyboard Bindings</h3><p>If you’re unhappy with any of the default keyboard bindings you can override them using the <code>keyboard</code> config option:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Reveal.configure(&#123;</span><br><span class="line">  keyboard: &#123;</span><br><span class="line">    <span class="number">13</span>: <span class="string">'next'</span>, <span class="comment">// go to the next slide when the ENTER key is pressed</span></span><br><span class="line">    <span class="number">27</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="comment">// do something custom when ESC is pressed</span></span><br><span class="line">    <span class="number">32</span>: <span class="literal">null</span> <span class="comment">// don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Touch-Navigation"><a href="#Touch-Navigation" class="headerlink" title="Touch Navigation"></a>Touch Navigation</h3><p>You can swipe to navigate through a presentation on any touch-enabled device. Horizontal swipes change between horizontal slides, vertical swipes change between vertical slides. If you wish to disable this you can set the <code>touch</code> config option to false when initializing reveal.js.</p>
+<p>If there’s some part of your content that needs to remain accessible to touch events you’ll need to highlight this by adding a <code>data-prevent-swipe</code> attribute to the element. One common example where this is useful is elements that need to be scrolled.</p>
+<h3 id="Lazy-Loading"><a href="#Lazy-Loading" class="headerlink" title="Lazy Loading"></a>Lazy Loading</h3><p>When working on presentation with a lot of media or iframe content it’s important to load lazily. Lazy loading means that reveal.js will only load content for the few slides nearest to the current slide. The number of slides that are preloaded is determined by the <code>viewDistance</code> configuration option.</p>
+<p>To enable lazy loading all you need to do is change your <code>src</code> attributes to <code>data-src</code> as shown below. This is supported for image, video, audio and iframe elements. Lazy loaded iframes will also unload when the containing slide is no longer visible.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"image.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">data-src</span>=<span class="string">"http://hakim.se"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">data-src</span>=<span class="string">"video.webm"</span> <span class="attr">type</span>=<span class="string">"video/webm"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">data-src</span>=<span class="string">"video.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>The <code>Reveal</code> object exposes a JavaScript API for controlling navigation and reading state:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Navigation</span></span><br><span class="line">Reveal.slide( indexh, indexv, indexf );</span><br><span class="line">Reveal.left();</span><br><span class="line">Reveal.right();</span><br><span class="line">Reveal.up();</span><br><span class="line">Reveal.down();</span><br><span class="line">Reveal.prev();</span><br><span class="line">Reveal.next();</span><br><span class="line">Reveal.prevFragment();</span><br><span class="line">Reveal.nextFragment();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Randomize the order of slides</span></span><br><span class="line">Reveal.shuffle();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Toggle presentation states, optionally pass true/false to force on/off</span></span><br><span class="line">Reveal.toggleOverview();</span><br><span class="line">Reveal.togglePause();</span><br><span class="line">Reveal.toggleAutoSlide();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Shows a help overlay with keyboard shortcuts, optionally pass true/false</span></span><br><span class="line"><span class="comment">// to force on/off</span></span><br><span class="line">Reveal.toggleHelp();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Change a config value at runtime</span></span><br><span class="line">Reveal.configure(&#123; <span class="attr">controls</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns the present configuration options</span></span><br><span class="line">Reveal.getConfig();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Fetch the current scale of the presentation</span></span><br><span class="line">Reveal.getScale();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Retrieves the previous and current slide elements</span></span><br><span class="line">Reveal.getPreviousSlide();</span><br><span class="line">Reveal.getCurrentSlide();</span><br><span class="line"></span><br><span class="line">Reveal.getIndices();        <span class="comment">// &#123; h: 0, v: 0, f: 0 &#125;</span></span><br><span class="line">Reveal.getSlidePastCount();</span><br><span class="line">Reveal.getProgress();       <span class="comment">// (0 == first slide, 1 == last slide)</span></span><br><span class="line">Reveal.getSlides();         <span class="comment">// Array of all slides</span></span><br><span class="line">Reveal.getTotalSlides();    <span class="comment">// Total number of slides</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns the speaker notes for the current slide</span></span><br><span class="line">Reveal.getSlideNotes();</span><br><span class="line"></span><br><span class="line"><span class="comment">// State checks</span></span><br><span class="line">Reveal.isFirstSlide();</span><br><span class="line">Reveal.isLastSlide();</span><br><span class="line">Reveal.isOverview();</span><br><span class="line">Reveal.isPaused();</span><br><span class="line">Reveal.isAutoSliding();</span><br></pre></td></tr></table></figure>
+<h3 id="Slide-Changed-Event"><a href="#Slide-Changed-Event" class="headerlink" title="Slide Changed Event"></a>Slide Changed Event</h3><p>A <code>slidechanged</code> event is fired each time the slide is changed (regardless of state). The event object holds the index values of the current slide as well as a reference to the previous and current slide HTML nodes.</p>
+<p>Some libraries, like MathJax (see <a href="https://github.com/hakimel/reveal.js/issues/226#issuecomment-10261609" target="_blank" rel="noopener">#226</a>), get confused by the transforms and display states of slides. Often times, this can be fixed by calling their update or render function from this callback.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Reveal.addEventListener( <span class="string">'slidechanged'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">	<span class="comment">// event.previousSlide, event.currentSlide, event.indexh, event.indexv</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+<h3 id="Presentation-State"><a href="#Presentation-State" class="headerlink" title="Presentation State"></a>Presentation State</h3><p>The presentation’s current state can be fetched by using the <code>getState</code> method. A state object contains all of the information required to put the presentation back as it was when <code>getState</code> was first called. Sort of like a snapshot. It’s a simple object that can easily be stringified and persisted or sent over the wire.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Reveal.slide( <span class="number">1</span> );</span><br><span class="line"><span class="comment">// we're on slide 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> state = Reveal.getState();</span><br><span class="line"></span><br><span class="line">Reveal.slide( <span class="number">3</span> );</span><br><span class="line"><span class="comment">// we're on slide 3</span></span><br><span class="line"></span><br><span class="line">Reveal.setState( state );</span><br><span class="line"><span class="comment">// we're back on slide 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="Slide-States"><a href="#Slide-States" class="headerlink" title="Slide States"></a>Slide States</h3><p>If you set <code>data-state=&quot;somestate&quot;</code> on a slide <code>&lt;section&gt;</code>, “somestate” will be applied as a class on the document element when that slide is opened. This allows you to apply broad style changes to the page based on the active slide.</p>
+<p>Furthermore you can also listen to these changes in state via JavaScript:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Reveal.addEventListener( <span class="string">'somestate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// <span class="doctag">TODO:</span> Sprinkle magic</span></span><br><span class="line">&#125;, <span class="literal">false</span> );</span><br></pre></td></tr></table></figure>
+<h3 id="Slide-Backgrounds"><a href="#Slide-Backgrounds" class="headerlink" title="Slide Backgrounds"></a>Slide Backgrounds</h3><p>Slides are contained within a limited portion of the screen by default to allow them to fit any display and scale uniformly. You can apply full page backgrounds outside of the slide area by adding a <code>data-background</code> attribute to your <code>&lt;section&gt;</code> elements. Four different types of backgrounds are supported: color, image, video and iframe.</p>
+<h4 id="Color-Backgrounds"><a href="#Color-Backgrounds" class="headerlink" title="Color Backgrounds"></a>Color Backgrounds</h4><p>All CSS color formats are supported, including hex values, keywords, <code>rgba()</code> or <code>hsl()</code>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-color</span>=<span class="string">"#ff0000"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Color<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Image-Backgrounds"><a href="#Image-Backgrounds" class="headerlink" title="Image Backgrounds"></a>Image Backgrounds</h4><p>By default, background images are resized to cover the full page. Available options:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">data-background-image</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">URL of the image to show. GIFs restart when the slide opens.</td>
+</tr>
+<tr>
+<td style="text-align:left">data-background-size</td>
+<td style="text-align:left">cover</td>
+<td style="text-align:left">See <a href="https://developer.mozilla.org/docs/Web/CSS/background-size" target="_blank" rel="noopener">background-size</a> on MDN.</td>
+</tr>
+<tr>
+<td style="text-align:left">data-background-position</td>
+<td style="text-align:left">center</td>
+<td style="text-align:left">See <a href="https://developer.mozilla.org/docs/Web/CSS/background-position" target="_blank" rel="noopener">background-position</a> on MDN.</td>
+</tr>
+<tr>
+<td style="text-align:left">data-background-repeat</td>
+<td style="text-align:left">no-repeat</td>
+<td style="text-align:left">See <a href="https://developer.mozilla.org/docs/Web/CSS/background-repeat" target="_blank" rel="noopener">background-repeat</a> on MDN.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-image</span>=<span class="string">"http://example.com/image.png"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Image<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-image</span>=<span class="string">"http://example.com/image.png"</span> <span class="attr">data-background-size</span>=<span class="string">"100px"</span> <span class="attr">data-background-repeat</span>=<span class="string">"repeat"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>This background image will be sized to 100px and repeated<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Video-Backgrounds"><a href="#Video-Backgrounds" class="headerlink" title="Video Backgrounds"></a>Video Backgrounds</h4><p>Automatically plays a full size video behind the slide.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">data-background-video</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">A single video source, or a comma separated list of video sources.</td>
+</tr>
+<tr>
+<td style="text-align:left">data-background-video-loop</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">Flags if the video should play repeatedly.</td>
+</tr>
+<tr>
+<td style="text-align:left">data-background-video-muted</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">Flags if the audio should be muted.</td>
+</tr>
+<tr>
+<td style="text-align:left">data-background-size</td>
+<td style="text-align:left">cover</td>
+<td style="text-align:left">Use <code>cover</code> for full screen and some cropping or <code>contain</code> for letterboxing.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-video</span>=<span class="string">"https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"</span> <span class="attr">data-background-video-loop</span> <span class="attr">data-background-video-muted</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Video<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Iframe-Backgrounds"><a href="#Iframe-Backgrounds" class="headerlink" title="Iframe Backgrounds"></a>Iframe Backgrounds</h4><p>Embeds a web page as a slide background that covers 100% of the reveal.js width and height. The iframe is in the background layer, behind your slides, and as such it’s not possible to interact with it by default. To make your background interactive, you can add the <code>data-background-interactive</code> attribute.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-iframe</span>=<span class="string">"https://slides.com"</span> <span class="attr">data-background-interactive</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Iframe<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Background-Transitions"><a href="#Background-Transitions" class="headerlink" title="Background Transitions"></a>Background Transitions</h4><p>Backgrounds transition using a fade animation by default. This can be changed to a linear sliding transition by passing <code>backgroundTransition: &#39;slide&#39;</code> to the <code>Reveal.initialize()</code> call. Alternatively you can set <code>data-background-transition</code> on any section with a background to override that specific transition.</p>
+<h3 id="Parallax-Background"><a href="#Parallax-Background" class="headerlink" title="Parallax Background"></a>Parallax Background</h3><p>If you want to use a parallax scrolling background, set the first two properties below when initializing reveal.js (the other two are optional).</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Parallax background image</span></span><br><span class="line">	parallaxBackgroundImage: <span class="string">''</span>, <span class="comment">// e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Parallax background size</span></span><br><span class="line">	parallaxBackgroundSize: <span class="string">''</span>, <span class="comment">// CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Number of pixels to move the parallax background per slide</span></span><br><span class="line">	<span class="comment">// - Calculated automatically unless specified</span></span><br><span class="line">	<span class="comment">// - Set to 0 to disable movement along an axis</span></span><br><span class="line">	parallaxBackgroundHorizontal: <span class="number">200</span>,</span><br><span class="line">	parallaxBackgroundVertical: <span class="number">50</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Make sure that the background size is much bigger than screen size to allow for some scrolling. <a href="http://revealjs.com/?parallaxBackgroundImage=https%3A%2F%2Fs3.amazonaws.com%2Fhakim-static%2Freveal-js%2Freveal-parallax-1.jpg&amp;parallaxBackgroundSize=2100px%20900px" target="_blank" rel="noopener">View example</a>.</p>
+<h3 id="Slide-Transitions"><a href="#Slide-Transitions" class="headerlink" title="Slide Transitions"></a>Slide Transitions</h3><p>The global presentation transition is set using the <code>transition</code> config value. You can override the global transition for a specific slide by using the <code>data-transition</code> attribute:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition</span>=<span class="string">"zoom"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>This slide will override the presentation transition and zoom!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition-speed</span>=<span class="string">"fast"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Choose from three transition speeds: default, fast or slow!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>You can also use different in and out transitions for the same slide:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">    The train goes on …</span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">    and on …</span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition</span>=<span class="string">"slide-in fade-out"</span>&gt;</span></span><br><span class="line">    and stops.</span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition</span>=<span class="string">"fade-in slide-out"</span>&gt;</span></span><br><span class="line">    (Passengers entering and leaving)</span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-transition</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">    And it starts again.</span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Internal-links"><a href="#Internal-links" class="headerlink" title="Internal links"></a>Internal links</h3><p>It’s easy to link between slides. The first example below targets the index of another slide whereas the second targets a slide with an ID attribute (<code>&lt;section id=&quot;some-slide&quot;&gt;</code>):</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/2/2"</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/some-slide"</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>You can also add relative navigation links, similar to the built in reveal.js controls, by appending one of the following classes on any element. Note that each element is automatically given an <code>enabled</code> class when it’s a valid navigation route based on the current slide.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"navigate-left"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"navigate-right"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"navigate-up"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"navigate-down"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"navigate-prev"</span>&gt;</span> <span class="comment">&lt;!-- Previous vertical or horizontal slide --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"navigate-next"</span>&gt;</span> <span class="comment">&lt;!-- Next vertical or horizontal slide --&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Fragments"><a href="#Fragments" class="headerlink" title="Fragments"></a>Fragments</h3><p>Fragments are used to highlight individual elements on a slide. Every element with the class <code>fragment</code> will be stepped through before moving on to the next slide. Here’s an example: <a href="http://revealjs.com/#/fragments" target="_blank" rel="noopener">http://revealjs.com/#/fragments</a></p>
+<p>The default fragment style is to start out invisible and fade in. This style can be changed by appending a different class to the fragment:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment grow"</span>&gt;</span>grow<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment shrink"</span>&gt;</span>shrink<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment fade-out"</span>&gt;</span>fade-out<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment fade-up"</span>&gt;</span>fade-up (also down, left and right!)<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment current-visible"</span>&gt;</span>visible only once<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment highlight-current-blue"</span>&gt;</span>blue only once<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment highlight-red"</span>&gt;</span>highlight-red<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment highlight-green"</span>&gt;</span>highlight-green<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment highlight-blue"</span>&gt;</span>highlight-blue<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Multiple fragments can be applied to the same element sequentially by wrapping it, this will fade in the text on the first step and fade it back out on the second.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fragment fade-in"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fragment fade-out"</span>&gt;</span>I'll fade in, then out<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The display order of fragments can be controlled using the <code>data-fragment-index</code> attribute.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment"</span> <span class="attr">data-fragment-index</span>=<span class="string">"3"</span>&gt;</span>Appears last<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment"</span> <span class="attr">data-fragment-index</span>=<span class="string">"1"</span>&gt;</span>Appears first<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fragment"</span> <span class="attr">data-fragment-index</span>=<span class="string">"2"</span>&gt;</span>Appears second<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Fragment-events"><a href="#Fragment-events" class="headerlink" title="Fragment events"></a>Fragment events</h3><p>When a slide fragment is either shown or hidden reveal.js will dispatch an event.</p>
+<p>Some libraries, like MathJax (see #505), get confused by the initially hidden fragment elements. Often times this can be fixed by calling their update or render function from this callback.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Reveal.addEventListener( <span class="string">'fragmentshown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">	<span class="comment">// event.fragment = the fragment DOM element</span></span><br><span class="line">&#125; );</span><br><span class="line">Reveal.addEventListener( <span class="string">'fragmenthidden'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">	<span class="comment">// event.fragment = the fragment DOM element</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+<h3 id="Code-syntax-highlighting"><a href="#Code-syntax-highlighting" class="headerlink" title="Code syntax highlighting"></a>Code syntax highlighting</h3><p>By default, Reveal is configured with <a href="https://highlightjs.org/" target="_blank" rel="noopener">highlight.js</a> for code syntax highlighting. To enable syntax highlighting, you’ll have to load the highlight plugin (<a href="plugin/highlight/highlight.js">plugin/highlight/highlight.js</a>) and a highlight.js CSS theme (Reveal comes packaged with the zenburn theme: <a href="lib/css/zenburn.css">lib/css/zenburn.css</a>).</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// More info https://github.com/hakimel/reveal.js#dependencies</span></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/highlight/highlight.js'</span>, <span class="attr">async</span>: <span class="literal">true</span>, <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; hljs.initHighlightingOnLoad(); &#125; &#125;,</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Below is an example with clojure code that will be syntax highlighted. When the <code>data-trim</code> attribute is present, surrounding whitespace is automatically removed.  HTML will be escaped by default. To avoid this, for example if you are using <code>&lt;mark&gt;</code> to call out a line of code, add the <code>data-noescape</code> attribute to the <code>&lt;code&gt;</code> element.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span> <span class="attr">data-trim</span> <span class="attr">data-noescape</span>&gt;</span></span><br><span class="line">(def lazy-fib</span><br><span class="line">  (concat</span><br><span class="line">   [0 1]</span><br><span class="line">   <span class="tag">&lt;<span class="name">mark</span>&gt;</span>((fn rfib [a b]<span class="tag">&lt;/<span class="name">mark</span>&gt;</span></span><br><span class="line">        (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))</span><br><span class="line">	<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Slide-number"><a href="#Slide-number" class="headerlink" title="Slide number"></a>Slide number</h3><p>If you would like to display the page number of the current slide you can do so using the <code>slideNumber</code> and <code>showSlideNumber</code> configuration values.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Shows the slide number using default formatting</span></span><br><span class="line">Reveal.configure(&#123; <span class="attr">slideNumber</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Slide number formatting can be configured using these variables:</span></span><br><span class="line"><span class="comment">//  "h.v": 	horizontal . vertical slide number (default)</span></span><br><span class="line"><span class="comment">//  "h/v": 	horizontal / vertical slide number</span></span><br><span class="line"><span class="comment">//    "c": 	flattened slide number</span></span><br><span class="line"><span class="comment">//  "c/t": 	flattened slide number / total slides</span></span><br><span class="line">Reveal.configure(&#123; <span class="attr">slideNumber</span>: <span class="string">'c/t'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Control which views the slide number displays on using the "showSlideNumber" value:</span></span><br><span class="line"><span class="comment">//     "all": show on all views (default)</span></span><br><span class="line"><span class="comment">// "speaker": only show slide numbers on speaker notes view</span></span><br><span class="line"><span class="comment">//   "print": only show slide numbers when printing to PDF</span></span><br><span class="line">Reveal.configure(&#123; <span class="attr">showSlideNumber</span>: <span class="string">'speaker'</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Overview-mode"><a href="#Overview-mode" class="headerlink" title="Overview mode"></a>Overview mode</h3><p>Press »ESC« or »O« keys to toggle the overview mode on and off. While you’re in this mode, you can still navigate between slides,<br>as if you were at 1,000 feet above your presentation. The overview mode comes with a few API hooks:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Reveal.addEventListener( <span class="string">'overviewshown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123; <span class="comment">/* ... */</span> &#125; );</span><br><span class="line">Reveal.addEventListener( <span class="string">'overviewhidden'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123; <span class="comment">/* ... */</span> &#125; );</span><br><span class="line"></span><br><span class="line"><span class="comment">// Toggle the overview mode programmatically</span></span><br><span class="line">Reveal.toggleOverview();</span><br></pre></td></tr></table></figure>
+<h3 id="Fullscreen-mode"><a href="#Fullscreen-mode" class="headerlink" title="Fullscreen mode"></a>Fullscreen mode</h3><p>Just press »F« on your keyboard to show your presentation in fullscreen mode. Press the »ESC« key to exit fullscreen mode.</p>
+<h3 id="Embedded-media"><a href="#Embedded-media" class="headerlink" title="Embedded media"></a>Embedded media</h3><p>Add <code>data-autoplay</code> to your media element if you want it to automatically start playing when the slide is shown:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">data-autoplay</span> <span class="attr">src</span>=<span class="string">"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If you want to enable or disable autoplay globally, for all embedded media, you can use the <code>autoPlayMedia</code> configuration option. If you set this to <code>true</code> ALL media will autoplay regardless of individual <code>data-autoplay</code> attributes. If you initialize with <code>autoPlayMedia: false</code> NO media will autoplay.</p>
+<p>Note that embedded HTML5 <code>&lt;video&gt;</code>/<code>&lt;audio&gt;</code> and YouTube/Vimeo iframes are automatically paused when you navigate away from a slide. This can be disabled by decorating your element with a <code>data-ignore</code> attribute.</p>
+<h3 id="Embedded-iframes"><a href="#Embedded-iframes" class="headerlink" title="Embedded iframes"></a>Embedded iframes</h3><p>reveal.js automatically pushes two <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage" target="_blank" rel="noopener">post messages</a> to embedded iframes. <code>slide:start</code> when the slide containing the iframe is made visible and <code>slide:stop</code> when it is hidden.</p>
+<h3 id="Stretching-elements"><a href="#Stretching-elements" class="headerlink" title="Stretching elements"></a>Stretching elements</h3><p>Sometimes it’s desirable to have an element, like an image or video, stretch to consume as much space as possible within a given slide. This can be done by adding the <code>.stretch</code> class to an element as seen below:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>This video will use up the remaining space on the slide<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">"stretch"</span> <span class="attr">src</span>=<span class="string">"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Limitations:</p>
+<ul>
+<li>Only direct descendants of a slide section can be stretched</li>
+<li>Only one descendant per slide section can be stretched</li>
+</ul>
+<h3 id="postMessage-API"><a href="#postMessage-API" class="headerlink" title="postMessage API"></a>postMessage API</h3><p>The framework has a built-in postMessage API that can be used when communicating with a presentation inside of another window. Here’s an example showing how you’d make a reveal.js instance in the given window proceed to slide 2:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">window</span>&gt;.postMessage( <span class="built_in">JSON</span>.stringify(&#123; <span class="attr">method</span>: <span class="string">'slide'</span>, <span class="attr">args</span>: [ <span class="number">2</span> ] &#125;), <span class="string">'*'</span> );</span><br></pre></td></tr></table></figure>
+<p>When reveal.js runs inside of an iframe it can optionally bubble all of its events to the parent. Bubbled events are stringified JSON with three fields: namespace, eventName and state. Here’s how you subscribe to them from the parent window:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener( <span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse( event.data );</span><br><span class="line">	<span class="keyword">if</span>( data.namespace === <span class="string">'reveal'</span> &amp;&amp; data.eventName ===<span class="string">'slidechanged'</span> ) &#123;</span><br><span class="line">		<span class="comment">// Slide changed, see data.state for slide number</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+<p>This cross-window messaging can be toggled on or off using configuration flags.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Exposes the reveal.js API through window.postMessage</span></span><br><span class="line">	postMessage: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Dispatches all reveal.js events to the parent window through postMessage</span></span><br><span class="line">	postMessageEvents: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="PDF-Export"><a href="#PDF-Export" class="headerlink" title="PDF Export"></a>PDF Export</h2><p>Presentations can be exported to PDF via a special print stylesheet. This feature requires that you use <a href="http://google.com/chrome" target="_blank" rel="noopener">Google Chrome</a> or <a href="https://www.chromium.org/Home" target="_blank" rel="noopener">Chromium</a> and to be serving the presentation from a webserver.<br>Here’s an example of an exported presentation that’s been uploaded to SlideShare: <a href="http://www.slideshare.net/hakimel/revealjs-300" target="_blank" rel="noopener">http://www.slideshare.net/hakimel/revealjs-300</a>.</p>
+<h3 id="Page-size"><a href="#Page-size" class="headerlink" title="Page size"></a>Page size</h3><p>Export dimensions are inferred from the configured <a href="#presentation-size">presentation size</a>. Slides that are too tall to fit within a single page will expand onto multiple pages. You can limit how many pages a slide may expand onto using the <code>pdfMaxPagesPerSlide</code> config option, for example <code>Reveal.configure({ pdfMaxPagesPerSlide: 1 })</code> ensures that no slide ever grows to more than one printed page.</p>
+<h3 id="Print-stylesheet"><a href="#Print-stylesheet" class="headerlink" title="Print stylesheet"></a>Print stylesheet</h3><p>To enable the PDF print capability in your presentation, the special print stylesheet at <a href="https://github.com/hakimel/reveal.js/blob/master/css/print/pdf.css" target="_blank" rel="noopener">/css/print/pdf.css</a> must be loaded. The default index.html file handles this for you when <code>print-pdf</code> is included in the query string. If you’re using a different HTML template, you can add this to your HEAD:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> link = <span class="built_in">document</span>.createElement( <span class="string">'link'</span> );</span></span><br><span class="line"><span class="javascript">	link.rel = <span class="string">'stylesheet'</span>;</span></span><br><span class="line"><span class="javascript">	link.type = <span class="string">'text/css'</span>;</span></span><br><span class="line"><span class="javascript">	link.href = <span class="built_in">window</span>.location.search.match( <span class="regexp">/print-pdf/gi</span> ) ? <span class="string">'css/print/pdf.css'</span> : <span class="string">'css/print/paper.css'</span>;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.getElementsByTagName( <span class="string">'head'</span> )[<span class="number">0</span>].appendChild( link );</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Instructions-1"><a href="#Instructions-1" class="headerlink" title="Instructions"></a>Instructions</h3><ol>
+<li>Open your presentation with <code>print-pdf</code> included in the query string i.e. <a href="http://localhost:8000/?print-pdf" target="_blank" rel="noopener">http://localhost:8000/?print-pdf</a>. You can test this with <a href="http://revealjs.com?print-pdf" target="_blank" rel="noopener">revealjs.com?print-pdf</a>.<ul>
+<li>If you want to include <a href="#speaker-notes">speaker notes</a> in your export, you can append <code>showNotes=true</code> to the query string: <a href="http://localhost:8000/?print-pdf&amp;showNotes=true" target="_blank" rel="noopener">http://localhost:8000/?print-pdf&amp;showNotes=true</a></li>
+</ul>
+</li>
+<li>Open the in-browser print dialog (CTRL/CMD+P).</li>
+<li>Change the <strong>Destination</strong> setting to <strong>Save as PDF</strong>.</li>
+<li>Change the <strong>Layout</strong> to <strong>Landscape</strong>.</li>
+<li>Change the <strong>Margins</strong> to <strong>None</strong>.</li>
+<li>Enable the <strong>Background graphics</strong> option.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p><img src="https://s3.amazonaws.com/hakim-static/reveal-js/pdf-print-settings-2.png" alt="Chrome Print Settings"></p>
+<p>Alternatively you can use the <a href="https://github.com/astefanutti/decktape" target="_blank" rel="noopener">decktape</a> project.</p>
+<h2 id="Theming"><a href="#Theming" class="headerlink" title="Theming"></a>Theming</h2><p>The framework comes with a few different themes included:</p>
+<ul>
+<li>black: Black background, white text, blue links (default theme)</li>
+<li>white: White background, black text, blue links</li>
+<li>league: Gray background, white text, blue links (default theme for reveal.js &lt; 3.0.0)</li>
+<li>beige: Beige background, dark text, brown links</li>
+<li>sky: Blue background, thin dark text, blue links</li>
+<li>night: Black background, thick white text, orange links</li>
+<li>serif: Cappuccino background, gray text, brown links</li>
+<li>simple: White background, black text, blue links</li>
+<li>solarized: Cream-colored background, dark green text, blue links</li>
+</ul>
+<p>Each theme is available as a separate stylesheet. To change theme you will need to replace <strong>black</strong> below with your desired theme name in index.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/theme/black.css"</span> <span class="attr">id</span>=<span class="string">"theme"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If you want to add a theme of your own see the instructions here: <a href="https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md" target="_blank" rel="noopener">/css/theme/README.md</a>.</p>
+<h2 id="Speaker-Notes"><a href="#Speaker-Notes" class="headerlink" title="Speaker Notes"></a>Speaker Notes</h2><p>reveal.js comes with a speaker notes plugin which can be used to present per-slide notes in a separate browser window. The notes window also gives you a preview of the next upcoming slide so it may be helpful even if you haven’t written any notes. Press the »S« key on your keyboard to open the notes window.</p>
+<p>A speaker timer starts as soon as the speaker view is opened. You can reset it to 00:00:00 at any time by simply clicking/tapping on it.</p>
+<p>Notes are defined by appending an <code>&lt;aside&gt;</code> element to a slide as seen below. You can add the <code>data-markdown</code> attribute to the aside element if you prefer writing notes using Markdown.</p>
+<p>Alternatively you can add your notes in a <code>data-notes</code> attribute on the slide. Like <code>&lt;section data-notes=&quot;Something important&quot;&gt;&lt;/section&gt;</code>.</p>
+<p>When used locally, this feature requires that reveal.js <a href="#full-setup">runs from a local web server</a>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Some Slide<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">aside</span> <span class="attr">class</span>=<span class="string">"notes"</span>&gt;</span></span><br><span class="line">		Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).</span><br><span class="line">	<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If you’re using the external Markdown plugin, you can add notes with the help of a special delimiter:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-markdown</span>=<span class="string">"example.md"</span> <span class="attr">data-separator</span>=<span class="string">"^\n\n\n"</span> <span class="attr">data-separator-vertical</span>=<span class="string">"^\n\n"</span> <span class="attr">data-separator-notes</span>=<span class="string">"^Note:"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"></span><br><span class="line"># Title</span><br><span class="line">## Sub-title</span><br><span class="line"></span><br><span class="line">Here is some content...</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line">This will only display in the notes window.</span><br></pre></td></tr></table></figure>
+<h4 id="Share-and-Print-Speaker-Notes"><a href="#Share-and-Print-Speaker-Notes" class="headerlink" title="Share and Print Speaker Notes"></a>Share and Print Speaker Notes</h4><p>Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the <code>showNotes</code> configuration value set to <code>true</code>. Notes will appear along the bottom of the presentations.</p>
+<p>When <code>showNotes</code> is enabled notes are also included when you <a href="https://github.com/hakimel/reveal.js#pdf-export" target="_blank" rel="noopener">export to PDF</a>. By default, notes are printed in a semi-transparent box on top of the slide. If you’d rather print them on a separate page after the slide, set <code>showNotes: &quot;separate-page&quot;</code>.</p>
+<h4 id="Speaker-notes-clock-and-timers"><a href="#Speaker-notes-clock-and-timers" class="headerlink" title="Speaker notes clock and timers"></a>Speaker notes clock and timers</h4><p>The speaker notes window will also show:</p>
+<ul>
+<li>Time elapsed since the beginning of the presentation.  If you hover the mouse above this section, a timer reset button will appear.</li>
+<li>Current wall-clock time</li>
+<li>(Optionally) a pacing timer which indicates whether the current pace of the presentation is on track for the right timing (shown in green), and if not, whether the presenter should speed up (shown in red) or has the luxury of slowing down (blue).</li>
+</ul>
+<p>The pacing timer can be enabled by configuring by the <code>defaultTiming</code> parameter in the <code>Reveal</code> configuration block, which specifies the number of seconds per slide.  120 can be a reasonable rule of thumb.  Timings can also be given per slide <code>&lt;section&gt;</code> by setting the <code>data-timing</code> attribute.  Both values are in numbers of seconds.</p>
+<h2 id="Server-Side-Speaker-Notes"><a href="#Server-Side-Speaker-Notes" class="headerlink" title="Server Side Speaker Notes"></a>Server Side Speaker Notes</h2><p>In some cases it can be desirable to run notes on a separate device from the one you’re presenting on. The Node.js-based notes plugin lets you do this using the same note definitions as its client side counterpart. Include the required scripts by adding the following dependencies:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'socket.io/socket.io.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/notes-server/client.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Then:</p>
+<ol>
+<li>Install <a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (4.0.0 or later)</li>
+<li>Run <code>npm install</code></li>
+<li>Run <code>node plugin/notes-server</code></li>
+</ol>
+<h2 id="Multiplexing"><a href="#Multiplexing" class="headerlink" title="Multiplexing"></a>Multiplexing</h2><p>The multiplex plugin allows your audience to view the slides of the presentation you are controlling on their own phone, tablet or laptop. As the master presentation navigates the slides, all client presentations will update in real time. See a demo at <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a>.</p>
+<p>The multiplex plugin needs the following 3 things to operate:</p>
+<ol>
+<li>Master presentation that has control</li>
+<li>Client presentations that follow the master</li>
+<li>Socket.io server to broadcast events from the master to the clients</li>
+</ol>
+<h4 id="Master-presentation"><a href="#Master-presentation" class="headerlink" title="Master presentation"></a>Master presentation</h4><p>Served from a static file server accessible (preferably) only to the presenter. This need only be on your (the presenter’s) computer. (It’s safer to run the master presentation from your own computer, so if the venue’s Internet goes down it doesn’t stop the show.) An example would be to execute the following commands in the directory of your master presentation:</p>
+<ol>
+<li><code>npm install node-static</code></li>
+<li><code>static</code></li>
+</ol>
+<p>If you want to use the speaker notes plugin with your master presentation then make sure you have the speaker notes plugin configured correctly along with the configuration shown below, then execute <code>node plugin/notes-server</code> in the directory of your master presentation. The configuration below will cause it to connect to the socket.io server as a master, as well as launch your speaker-notes/static-file server.</p>
+<p>You can then access your master presentation at <code>http://localhost:1947</code></p>
+<p>Example configuration:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// other options...</span></span><br><span class="line"></span><br><span class="line">	multiplex: &#123;</span><br><span class="line">		<span class="comment">// Example values. To generate your own, see the socket.io server instructions.</span></span><br><span class="line">		secret: <span class="string">'13652805320794272084'</span>, <span class="comment">// Obtained from the socket.io server. Gives this (the master) control of the presentation</span></span><br><span class="line">		id: <span class="string">'1ea875674b17ca76'</span>, <span class="comment">// Obtained from socket.io server</span></span><br><span class="line">		url: <span class="string">'https://reveal-js-multiplex-ccjbegmaii.now.sh'</span> <span class="comment">// Location of socket.io server</span></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Don't forget to add the dependencies</span></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'//cdn.socket.io/socket.io-1.3.5.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/multiplex/master.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">// and if you want speaker notes</span></span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/notes-server/client.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// other dependencies...</span></span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Client-presentation"><a href="#Client-presentation" class="headerlink" title="Client presentation"></a>Client presentation</h4><p>Served from a publicly accessible static file server. Examples include: GitHub Pages, Amazon S3, Dreamhost, Akamai, etc. The more reliable, the better. Your audience can then access the client presentation via <code>http://example.com/path/to/presentation/client/index.html</code>, with the configuration below causing them to connect to the socket.io server as clients.</p>
+<p>Example configuration:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// other options...</span></span><br><span class="line"></span><br><span class="line">	multiplex: &#123;</span><br><span class="line">		<span class="comment">// Example values. To generate your own, see the socket.io server instructions.</span></span><br><span class="line">		secret: <span class="literal">null</span>, <span class="comment">// null so the clients do not have control of the master presentation</span></span><br><span class="line">		id: <span class="string">'1ea875674b17ca76'</span>, <span class="comment">// id, obtained from socket.io server</span></span><br><span class="line">		url: <span class="string">'https://reveal-js-multiplex-ccjbegmaii.now.sh'</span> <span class="comment">// Location of socket.io server</span></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Don't forget to add the dependencies</span></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'//cdn.socket.io/socket.io-1.3.5.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/multiplex/client.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// other dependencies...</span></span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Socket-io-server"><a href="#Socket-io-server" class="headerlink" title="Socket.io server"></a>Socket.io server</h4><p>Server that receives the <code>slideChanged</code> events from the master presentation and broadcasts them out to the connected client presentations. This needs to be publicly accessible. You can run your own socket.io server with the commands:</p>
+<ol>
+<li><code>npm install</code></li>
+<li><code>node plugin/multiplex</code></li>
+</ol>
+<p>Or you can use the socket.io server at <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a>.</p>
+<p>You’ll need to generate a unique secret and token pair for your master and client presentations. To do so, visit <code>http://example.com/token</code>, where <code>http://example.com</code> is the location of your socket.io server. Or if you’re going to use the socket.io server at <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a>, visit <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/token" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/token</a>.</p>
+<p>You are very welcome to point your presentations at the Socket.io server running at <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a>, but availability and stability are not guaranteed.</p>
+<p>For anything mission critical I recommend you run your own server. The easiest way to do this is by installing <a href="https://zeit.co/now" target="_blank" rel="noopener">now</a>. With that installed, deploying your own Multiplex server is as easy running the following command from the reveal.js folder: <code>now plugin/multiplex</code>.</p>
+<h5 id="socket-io-server-as-file-static-server"><a href="#socket-io-server-as-file-static-server" class="headerlink" title="socket.io server as file static server"></a>socket.io server as file static server</h5><p>The socket.io server can play the role of static file server for your client presentation, as in the example at <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a>. (Open <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a> in two browsers. Navigate through the slides on one, and the other will update to match.)</p>
+<p>Example configuration:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// other options...</span></span><br><span class="line"></span><br><span class="line">	multiplex: &#123;</span><br><span class="line">		<span class="comment">// Example values. To generate your own, see the socket.io server instructions.</span></span><br><span class="line">		secret: <span class="literal">null</span>, <span class="comment">// null so the clients do not have control of the master presentation</span></span><br><span class="line">		id: <span class="string">'1ea875674b17ca76'</span>, <span class="comment">// id, obtained from socket.io server</span></span><br><span class="line">		url: <span class="string">'example.com:80'</span> <span class="comment">// Location of your socket.io server</span></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Don't forget to add the dependencies</span></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'//cdn.socket.io/socket.io-1.3.5.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/multiplex/client.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// other dependencies...</span></span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
+<p>It can also play the role of static file server for your master presentation and client presentations at the same time (as long as you don’t want to use speaker notes). (Open <a href="https://reveal-js-multiplex-ccjbegmaii.now.sh/" target="_blank" rel="noopener">https://reveal-js-multiplex-ccjbegmaii.now.sh/</a> in two browsers. Navigate through the slides on one, and the other will update to match. Navigate through the slides on the second, and the first will update to match.) This is probably not desirable, because you don’t want your audience to mess with your slides while you’re presenting. ;)</p>
+<p>Example configuration:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// other options...</span></span><br><span class="line"></span><br><span class="line">	multiplex: &#123;</span><br><span class="line">		<span class="comment">// Example values. To generate your own, see the socket.io server instructions.</span></span><br><span class="line">		secret: <span class="string">'13652805320794272084'</span>, <span class="comment">// Obtained from the socket.io server. Gives this (the master) control of the presentation</span></span><br><span class="line">		id: <span class="string">'1ea875674b17ca76'</span>, <span class="comment">// Obtained from socket.io server</span></span><br><span class="line">		url: <span class="string">'example.com:80'</span> <span class="comment">// Location of your socket.io server</span></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Don't forget to add the dependencies</span></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'//cdn.socket.io/socket.io-1.3.5.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/multiplex/master.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/multiplex/client.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// other dependencies...</span></span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h2><p>If you want to display math equations in your presentation you can easily do so by including this plugin. The plugin is a very thin wrapper around the <a href="http://www.mathjax.org/" target="_blank" rel="noopener">MathJax</a> library. To use it you’ll need to include it as a reveal.js dependency, <a href="#dependencies">find our more about dependencies here</a>.</p>
+<p>The plugin defaults to using <a href="http://en.wikipedia.org/wiki/LaTeX" target="_blank" rel="noopener">LaTeX</a> but that can be adjusted through the <code>math</code> configuration object. Note that MathJax is loaded from a remote server. If you want to use it offline you’ll need to download a copy of the library and adjust the <code>mathjax</code> configuration value.</p>
+<p>Below is an example of how the plugin can be configured. If you don’t intend to change these values you do not need to include the <code>math</code> config object at all.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Reveal.initialize(&#123;</span><br><span class="line">	<span class="comment">// other options ...</span></span><br><span class="line"></span><br><span class="line">	math: &#123;</span><br><span class="line">		mathjax: <span class="string">'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js'</span>,</span><br><span class="line">		config: <span class="string">'TeX-AMS_HTML-full'</span>  <span class="comment">// See http://docs.mathjax.org/en/latest/config-files.html</span></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	dependencies: [</span><br><span class="line">		&#123; <span class="attr">src</span>: <span class="string">'plugin/math/math.js'</span>, <span class="attr">async</span>: <span class="literal">true</span> &#125;</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Read MathJax’s documentation if you need <a href="http://docs.mathjax.org/en/latest/start.html#secure-access-to-the-cdn" target="_blank" rel="noopener">HTTPS delivery</a> or serving of <a href="http://docs.mathjax.org/en/latest/configuration.html#loading-mathjax-from-the-cdn" target="_blank" rel="noopener">specific versions</a> for stability.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>The <strong>basic setup</strong> is for authoring presentations only. The <strong>full setup</strong> gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.</p>
+<h3 id="Basic-setup"><a href="#Basic-setup" class="headerlink" title="Basic setup"></a>Basic setup</h3><p>The core of reveal.js is very easy to install. You’ll simply need to download a copy of this repository and open the index.html file directly in your browser.</p>
+<ol>
+<li>Download the latest version of reveal.js from <a href="https://github.com/hakimel/reveal.js/releases" target="_blank" rel="noopener">https://github.com/hakimel/reveal.js/releases</a></li>
+<li>Unzip and replace the example contents in index.html with your own</li>
+<li>Open index.html in a browser to view it</li>
+</ol>
+<h3 id="Full-setup"><a href="#Full-setup" class="headerlink" title="Full setup"></a>Full setup</h3><p>Some reveal.js features, like external Markdown and speaker notes, require that presentations run from a local web server. The following instructions will set up such a server as well as all of the development tasks needed to make edits to the reveal.js source code.</p>
+<ol>
+<li><p>Install <a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (4.0.0 or later)</p>
+</li>
+<li><p>Clone the reveal.js repository</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/hakimel/reveal.js.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Navigate to the reveal.js folder</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> reveal.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install dependencies</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Serve the presentation and monitor source files for changes</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Open <a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a> to view your presentation</p>
+<p>You can change the port by using <code>npm start -- --port=8001</code>.</p>
+</li>
+</ol>
+<h3 id="Folder-Structure"><a href="#Folder-Structure" class="headerlink" title="Folder Structure"></a>Folder Structure</h3><ul>
+<li><strong>css/</strong> Core styles without which the project does not function</li>
+<li><strong>js/</strong> Like above but for JavaScript</li>
+<li><strong>plugin/</strong> Components that have been developed as extensions to reveal.js</li>
+<li><strong>lib/</strong> All other third party assets (JavaScript, CSS, fonts)</li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT licensed</p>
+<p>Copyright (C) 2017 Hakim El Hattab, <a href="http://hakim.se" target="_blank" rel="noopener">http://hakim.se</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/reveal-js/" rel="tag"><i class="fa fa-tag"></i> reveal.js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/18/python：对象引用、可变性（二）/" rel="next" title="python：对象引用、可变性（二）">
+                <i class="fa fa-chevron-left"></i> python：对象引用、可变性（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/26/4.25-report/" rel="prev" title="4.25实验进度汇报">
+                4.25实验进度汇报 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg"
+                alt="Andy_z" />
+            
+              <p class="site-author-name" itemprop="name">Andy_z</p>
+              <p class="site-description motion-element" itemprop="description">About some of my learning summary, translation of thesis...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reveal-js"><span class="nav-number">1.</span> <span class="nav-text">reveal.js  </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-contents"><span class="nav-number">1.1.</span> <span class="nav-text">Table of contents</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#More-reading"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">More reading</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Online-Editor"><span class="nav-number">1.2.</span> <span class="nav-text">Online Editor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instructions"><span class="nav-number">1.3.</span> <span class="nav-text">Instructions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Markup"><span class="nav-number">1.3.1.</span> <span class="nav-text">Markup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown"><span class="nav-number">1.3.2.</span> <span class="nav-text">Markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#External-Markdown"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">External Markdown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-Attributes"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Element Attributes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slide-Attributes"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">Slide Attributes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configuring-marked"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">Configuring marked</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">1.3.3.</span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Presentation-Size"><span class="nav-number">1.3.4.</span> <span class="nav-text">Presentation Size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependencies"><span class="nav-number">1.3.5.</span> <span class="nav-text">Dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ready-Event"><span class="nav-number">1.3.6.</span> <span class="nav-text">Ready Event</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Auto-sliding"><span class="nav-number">1.3.7.</span> <span class="nav-text">Auto-sliding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard-Bindings"><span class="nav-number">1.3.8.</span> <span class="nav-text">Keyboard Bindings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Touch-Navigation"><span class="nav-number">1.3.9.</span> <span class="nav-text">Touch Navigation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lazy-Loading"><span class="nav-number">1.3.10.</span> <span class="nav-text">Lazy Loading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.3.11.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-Changed-Event"><span class="nav-number">1.3.12.</span> <span class="nav-text">Slide Changed Event</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Presentation-State"><span class="nav-number">1.3.13.</span> <span class="nav-text">Presentation State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-States"><span class="nav-number">1.3.14.</span> <span class="nav-text">Slide States</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-Backgrounds"><span class="nav-number">1.3.15.</span> <span class="nav-text">Slide Backgrounds</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Color-Backgrounds"><span class="nav-number">1.3.15.1.</span> <span class="nav-text">Color Backgrounds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Image-Backgrounds"><span class="nav-number">1.3.15.2.</span> <span class="nav-text">Image Backgrounds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Video-Backgrounds"><span class="nav-number">1.3.15.3.</span> <span class="nav-text">Video Backgrounds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Iframe-Backgrounds"><span class="nav-number">1.3.15.4.</span> <span class="nav-text">Iframe Backgrounds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Background-Transitions"><span class="nav-number">1.3.15.5.</span> <span class="nav-text">Background Transitions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallax-Background"><span class="nav-number">1.3.16.</span> <span class="nav-text">Parallax Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-Transitions"><span class="nav-number">1.3.17.</span> <span class="nav-text">Slide Transitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Internal-links"><span class="nav-number">1.3.18.</span> <span class="nav-text">Internal links</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragments"><span class="nav-number">1.3.19.</span> <span class="nav-text">Fragments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-events"><span class="nav-number">1.3.20.</span> <span class="nav-text">Fragment events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-syntax-highlighting"><span class="nav-number">1.3.21.</span> <span class="nav-text">Code syntax highlighting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-number"><span class="nav-number">1.3.22.</span> <span class="nav-text">Slide number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview-mode"><span class="nav-number">1.3.23.</span> <span class="nav-text">Overview mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fullscreen-mode"><span class="nav-number">1.3.24.</span> <span class="nav-text">Fullscreen mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedded-media"><span class="nav-number">1.3.25.</span> <span class="nav-text">Embedded media</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedded-iframes"><span class="nav-number">1.3.26.</span> <span class="nav-text">Embedded iframes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stretching-elements"><span class="nav-number">1.3.27.</span> <span class="nav-text">Stretching elements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#postMessage-API"><span class="nav-number">1.3.28.</span> <span class="nav-text">postMessage API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PDF-Export"><span class="nav-number">1.4.</span> <span class="nav-text">PDF Export</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Page-size"><span class="nav-number">1.4.1.</span> <span class="nav-text">Page size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Print-stylesheet"><span class="nav-number">1.4.2.</span> <span class="nav-text">Print stylesheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Instructions-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">Instructions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Theming"><span class="nav-number">1.5.</span> <span class="nav-text">Theming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Speaker-Notes"><span class="nav-number">1.6.</span> <span class="nav-text">Speaker Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Share-and-Print-Speaker-Notes"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">Share and Print Speaker Notes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Speaker-notes-clock-and-timers"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">Speaker notes clock and timers</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Server-Side-Speaker-Notes"><span class="nav-number">1.7.</span> <span class="nav-text">Server Side Speaker Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiplexing"><span class="nav-number">1.8.</span> <span class="nav-text">Multiplexing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master-presentation"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">Master presentation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Client-presentation"><span class="nav-number">1.8.0.2.</span> <span class="nav-text">Client presentation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Socket-io-server"><span class="nav-number">1.8.0.3.</span> <span class="nav-text">Socket.io server</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#socket-io-server-as-file-static-server"><span class="nav-number">1.8.0.3.1.</span> <span class="nav-text">socket.io server as file static server</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MathJax"><span class="nav-number">1.9.</span> <span class="nav-text">MathJax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.10.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-setup"><span class="nav-number">1.10.1.</span> <span class="nav-text">Basic setup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-setup"><span class="nav-number">1.10.2.</span> <span class="nav-text">Full setup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Folder-Structure"><span class="nav-number">1.10.3.</span> <span class="nav-text">Folder Structure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#License"><span class="nav-number">1.11.</span> <span class="nav-text">License</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy_z</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Deep learning,Adversarial attack,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Andy_z 's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="作者：Andyz翻译文献：DeepFool: a simple and accurate method to fool deep neural networks^^: 红色小字为作者自己的小白理解，如有错误，请谅解。欢迎纠正！  _^ 符号说明    符号 说明     $x$ 原始图像   $r$ 扰动   $\hat{k}(x)$ 预测标签   $Δ(x;\hat{k})$ $\hat{k}">
+<meta name="keywords" content="Deep learning,Adversarial attack,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepFool">
+<meta property="og:url" content="http://yoururl.com/2018/07/15/Deep Fool/index.html">
+<meta property="og:site_name" content="Andy_z &#39;s Blog">
+<meta property="og:description" content="作者：Andyz翻译文献：DeepFool: a simple and accurate method to fool deep neural networks^^: 红色小字为作者自己的小白理解，如有错误，请谅解。欢迎纠正！  _^ 符号说明    符号 说明     $x$ 原始图像   $r$ 扰动   $\hat{k}(x)$ 预测标签   $Δ(x;\hat{k})$ $\hat{k}">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/76583305.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/47575515.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/85167736.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/35279198.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/81096955.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/66140912.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/44616336.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/11841802.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/22804987.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/88045331.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/19503473.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/15536386.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/98947187.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/47701062.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/9476430.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/96929609.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-14/82983733.jpg">
+<meta property="og:updated_time" content="2018-03-14T07:20:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DeepFool">
+<meta name="twitter:description" content="作者：Andyz翻译文献：DeepFool: a simple and accurate method to fool deep neural networks^^: 红色小字为作者自己的小白理解，如有错误，请谅解。欢迎纠正！  _^ 符号说明    符号 说明     $x$ 原始图像   $r$ 扰动   $\hat{k}(x)$ 预测标签   $Δ(x;\hat{k})$ $\hat{k}">
+<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-13/76583305.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoururl.com/2018/07/15/Deep Fool/"/>
+
+
+
+
+
+  <title>DeepFool | Andy_z 's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/jjzhou012/jjzhou012.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Andy_z 's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding - Thinking - Sharing - Deep learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/07/15/Deep Fool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DeepFool</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T10:15:32+08:00">
+                2018-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
+                    <span itemprop="name">对抗攻击</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>作者：Andy<em>z<br>翻译文献：<a href="https://arxiv.org/abs/1511.04599" target="_blank" rel="noopener">DeepFool: a simple and accurate method to fool deep neural networks</a><br>^</em>^: 红色小字为作者自己的小白理解，如有错误，请谅解。欢迎纠正！</p>
+</blockquote>
+<p><sup><a href="#fn__^" id="reffn__^">_^</a></sup></p>
+<h1 id="符号说明"><a href="#符号说明" class="headerlink" title="符号说明"></a>符号说明</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x$</td>
+<td>原始图像</td>
+</tr>
+<tr>
+<td>$r$</td>
+<td>扰动</td>
+</tr>
+<tr>
+<td>$\hat{k}(x)$</td>
+<td>预测标签</td>
+</tr>
+<tr>
+<td>$Δ(x;\hat{k})$</td>
+<td>$\hat{k}$ 在点 $x$ 处的鲁棒性</td>
+</tr>
+<tr>
+<td>$\mathbb{E}_x$</td>
+<td>数据分布期望</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&emsp;&emsp;对于给定分类器，定义对抗扰动:</p>
+<script type="math/tex; mode=display">
+∆(x;
+\hat{k}) := \min_r ||r||_2 \;\; s.t.\; \hat{k}(x + r) ≠ \hat{k}(x),
+
+\tag{1}</script><p>&emsp;&emsp;分类器的鲁棒性定义为：</p>
+<script type="math/tex; mode=display">
+ρ_{adv}(\hat{k}) = \mathbb{E}_x \,\frac{∆(x;\hat{k})}{ ||x||_2},
+\tag{2}</script><h1 id="对于二分类器的DeepFool"><a href="#对于二分类器的DeepFool" class="headerlink" title="对于二分类器的DeepFool"></a>对于二分类器的DeepFool</h1><p>&emsp;&emsp;多分类器可以看作是二值分类器的集合，因此先研究二分类器算法。</p>
+<ul>
+<li><p>我们假设 $\hat{k}(x) = sign(f(x))$ ，其中 $f$ 是一个任意的标量值图像分类函数，$f:\mathbb{R}^n \rightarrow \mathbb{R}$ 。<br>用 ${\scr F}=^\Delta={x:f(x)=0}$ 表示 $f$ 的零水平集。<br>首先分析当 $f$ 是一个<a href="https://baike.baidu.com/item/%E4%BB%BF%E5%B0%84%E5%87%BD%E6%95%B0/9276178?fr=aladdin" target="_blank" rel="noopener">仿射</a>分类器 $f(x)=w^Tx+b$ ，然后推导出一般算法，该算法可应用于任何可微二值分类器 $f$。</p>
+</li>
+<li><p>当 $f$ 是仿射的分类器时，$f$ 在 $x_0$ 点处的鲁棒性: $\Delta (x_0;f)$ ，等于从 $x_0$ 到分离仿射超平面 ${\scr F}={x:w^Tx+b=0}$ 的距离（见图2），</p>
+</li>
+</ul>
+<blockquote>
+<p>之后，我们通过 $f$ 或其相应的离散映射 $\hat{k}$ 来引用分类器。 因此，$ρ<em>{adv}(\hat{k})=ρ</em>{adv}(f) 和 Δ(x; \hat{k})=Δ(x; f)$。</p>
+</blockquote>
+<center><font color="#0099ff" size="2" face="黑体">图2：线性二值分类器的对抗样本 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/76583305.jpg" alt=""></p>
+<ul>
+<li>改变分类器决策的最小扰动对应于 $x_0$ 到 ${\scr F}$ 上的正交投影。  由下列封闭式公式给出：<script type="math/tex; mode=display">
+r_∗(x_0) := arg \min ||r||_2   
+\;\;s.t. \;sign(f(x_0 + r))  \not= sign(f(x_0))
+= −\frac{f(x_0)}{\sideset{}{^2_2}{||w||}}w,
+\tag{3}</script></li>
+</ul>
+<blockquote>
+<font color="#FF0000" size="2" face="黑体">[^_^]:推导参考支持向量机概念。</font>
+
+
+</blockquote>
+<ul>
+<li>现在假设 $f$ 是一般的二元可微分类器，我们采用迭代过程来估计鲁棒性 $\Delta (x_0;f)$ ，具体而言，在每次迭代中，$f$ 围绕当前点 $x_i$线性化，并且线性化分类器的最小扰动被计算为:<script type="math/tex; mode=display">
+arg \min_{r_i} ||r_i||_2 \;\;s.t.\; f(x_i) + ∇f(x_i)^Tr_i = 0,
+\tag{4}</script></li>
+</ul>
+<blockquote>
+<font color="#FF0000" size="2" face="黑体">[^_^]:梯度方向即为垂直超平面的方向，也就是超平面的法线上方向，可以最快达到分类边界。</font>
+
+</blockquote>
+<ul>
+<li>算法的迭代 $i$ 中的扰动 $r<em>i$ 是使用方程（3）中的封闭形式解来计算的，并且在下一个迭代 $x</em>{i + 1}$ 被更新。当 $x_{i + 1}$ 改变分类器的符号时，该算法停止。</li>
+</ul>
+<center><font color="#0099ff" size="2" face="黑体">算法1：二值分类器的DeepFool算法 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/47575515.jpg" alt=""></p>
+<center><font color="#0099ff" size="2" face="黑体">图3：算法1的几何图示 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/85167736.jpg" alt=""></p>
+<blockquote>
+<p>  当 $n=2$ 时，假设 $x_0∈ \mathbb{R}^n$ 。 绿色平面是 $x→f(x_0)+∇f(x_0)^T(x−x_0)$ 的图形，与分类器函数 $x→f(x)$ 相切。橙色线表示 $f(x_0) + ∇f(x_0)^T(x-x_0) = 0$ ， $x_0$ 投影到 $\mathbb{R}^n$ 的橙色超平面进一步得到 $x_1$ 。</p>
+</blockquote>
+<p>&emsp;&emsp;以上算法经常能收敛到零水平集 ${\scr F}$ 。但为了到达分类边界的另一边，最后的扰动向量 $\hat{r}$ 需要乘 $1+η$，且 $η≪1$ 。在后续实验中 $η=0.02$ 。</p>
+<h1 id="对于多分类器的DeepFool"><a href="#对于多分类器的DeepFool" class="headerlink" title="对于多分类器的DeepFool"></a>对于多分类器的DeepFool</h1><p>&emsp;&emsp;将DeepFool方法推广到多分类器。多分类器最常用的方法是 <a href="http://blog.csdn.net/u013082989/article/details/53001746" target="_blank" rel="noopener">one-vs-all</a>(一对多)。因此基于该分类方案提出方法。</p>
+<ul>
+<li>在该方案中，分类器有 $c$ 类输出， 因此分类器能被定义为 $f: \mathbb{R}^n \rightarrow \mathbb{R}^c$  。分类是通过以下映射完成的：<script type="math/tex; mode=display">
+\hat{k}(x)=arg\max_k \;f_k(x),
+\tag{5}</script>&emsp;&emsp;&emsp; $f_k(x)$ 是 $f(x)$ 对应于第 $k$ 类的输出。</li>
+</ul>
+<p>&emsp;&emsp;与二分类情况类似，我们首先提出了线性情况的建议方法，然后将其推广到其他分类器。</p>
+<h2 id="仿射多分类器"><a href="#仿射多分类器" class="headerlink" title="仿射多分类器"></a>仿射多分类器</h2><ul>
+<li>$f(x)$ 是仿射分类器，$f(x)=W^T+b$ 。映射 $\hat{k}$ 是“one-vs-all”分类方案的结果。欺骗分类器的最小扰动表示如下：<script type="math/tex; mode=display">
+arg \min_r||r||_2 \;\;s.t.\;∃k : \sideset{}{^T_k}w(x_0+r)+b_k ≥ \sideset{}{^T_{\hat{k}(x_0)}}w(x_0 + r)+b_{\hat{k}(x_0)},
+\tag{6}</script></li>
+</ul>
+<blockquote>
+<font color="#FF0000" size="2" face="黑体">[^_^]:计算最小扰动，首先要保证分类与原始点产生变化(即扰动导致分类结果变化)，那么约束条件就是，存在一类，使得这一类的分类置信度大于 原始预测的置信度</font>
+
+</blockquote>
+<p>&emsp;&emsp;&emsp; $w_k$ 是 $W$ 的第 $k$ 列。从几何上看，上述问题对应于计算 $x_0$ 和 凸多面体 $P$ 的补集的距离：</p>
+<script type="math/tex; mode=display">
+P=\bigcap_{k=1}^{c}\{x:f_{\hat{k}(x_0)}(x)≥ f_k(x)\},
+\tag{7}</script><p>&emsp;&emsp;&emsp;其中， $x_0$ 落在 $P$ 内部。距离用 $dist(x_0,P^c)$ 表示。 多面体 $P$ 定义了 $f$ 输出标签 $\hat{k}(x_0)$ 的范围。 设置如图4所示：</p>
+<center><font color="#0099ff" size="2" face="黑体">图4：仿射多分类器输出标签空间区域 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/35279198.jpg" alt=""></p>
+<blockquote>
+<p>若 $x_0$ 属于类别4，令 ${\scr F}_k={x:f_k(x)-f_4(x)=0}$ 。这些超平面用实线表示，P的边界用绿色虚线表示。</p>
+</blockquote>
+<ul>
+<li>定义 $\hat{l}(x_0)$ 为离 $P$ 的边界最近的超平面(如图4中的 $\hat{l}(x_0)=3$)。 $\hat{l}(x_0)$ 计算如下：</li>
+</ul>
+<script type="math/tex; mode=display">\hat{l}(x_0)=arg \min_{k\not={\hat{k}(x_0)}}\frac{|f_k(x_0)-f_{\hat{k}(x_0)}(x_0)|}{||w_k-w_{\hat{k}(x_0)}||_2}.
+\tag{8}</script><p>&emsp;&emsp;&emsp;最小扰动 $r_*(x_0)$ 是把 $x_0$ 投影到超平面的向量：</p>
+<script type="math/tex; mode=display">
+r_*(x_0)=\frac{|f_{\hat{l}(x_0)}(x_0)-f_{\hat{k}(x_0)}(x_0)|}{\sideset{}{^2_2}{||w_{\hat{l}(x_0)}-w_{\hat{k}(x_0)}||}}(w_{\hat{l}(x_0)}-w_{\hat{k}(x_0)}).
+\tag{9}</script><p>&emsp;&emsp;&emsp;换句话说，我们在 $P$ 的面上发现了 $x_0$ 的最近投影。</p>
+<h2 id="一般多分类器"><a href="#一般多分类器" class="headerlink" title="一般多分类器"></a>一般多分类器</h2><p>&emsp;&emsp;现在将DeepFool算法扩展到一般的多分类器。</p>
+<ul>
+<li>对于一般的非线性分类器，式(7)中的集合 $P$ 描述的分类器输出标签 $\hat{k}(x_0)$ 的区域空间不再是一个多面体。在二分类情况下解释迭代的线性过程，我们用一个多面体 $\tilde{P}_i$ 在迭代次数 $i$ 下近似集合 $P$ 。<script type="math/tex; mode=display">
+\tilde{P}_i= \bigcap_{k=1}^{c}\{x:f_k(x_i)-f_{\hat{k}(x_0)}(x_i) + ∇f_k(x_i)^Tx-∇f_{\hat{k}(x_0)}(x_i)^Tx≤0\}.
+\tag{10}</script></li>
+</ul>
+<center><font color="#0099ff" size="2" face="黑体">图5：非线性多分类器输出标签区域空间 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/81096955.jpg" alt=""></p>
+<ul>
+<li><p>随后用 $dist(x_i,\sideset{}{_i^c}{\tilde{P}})$ 在迭代次数 $i$ 下近似 $x_i$ 到 $P$ 补集的距离。算法的每次迭代中，到达多面体 $\tilde{P}_i$ 边界的扰动向量被计算，当前预测更新。</p>
+<p>该算法在算法2中给出。应该注意，所提出的算法以<a href="http://www.52ml.net/10359.html" target="_blank" rel="noopener">贪心</a>方式运行，并且不能保证收敛于(1)中的最佳扰动。 然而，我们在实践中观察到，我们的算法产生非常小的扰动，这被认为是最小扰动的良好近似。</p>
+</li>
+</ul>
+<center><font color="#0099ff" size="2" face="黑体">算法2：多分类器的DeepFool算法</font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/66140912.jpg" alt=""></p>
+<p>&emsp;&emsp;应该指出的是，DeepFool的优化策略与现有的优化技术密切相关。 在二分类情况下，它可以看作牛顿迭代算法，用于在欠定情况下找到非线性方程组的根。 这种算法被称为正常流量法。 我们在二分类情况下的算法可以被看作是梯度下降算法，具有在每次迭代时自动选择的自适应步长。 算法2中的线性化也类似于序列凸规划，其中约束在每一步被线性化。</p>
+<h2 id="拓展到-L-p-范数"><a href="#拓展到-L-p-范数" class="headerlink" title="拓展到 $L_p$ 范数"></a>拓展到 $L_p$ 范数</h2><p>&emsp;&emsp;我们已经用 $L_2$ 范数计算了扰动。我们的框架不限制选择，提出的算法可以调节，用任何 $L_p$ 范数  $(p∈[1,∞])$ 来寻找最小对抗扰动。</p>
+<ul>
+<li>为此，算法2中第10行和第11行的更新步骤必须分别由以下更新代替：</li>
+</ul>
+<script type="math/tex; mode=display">
+\hat{l}\leftarrow arg\min_{k\not=\hat{k}(x_0)}\frac{|f'_k|}{||w'_k||_q},
+\tag{11}</script><script type="math/tex; mode=display">
+r_i\leftarrow\frac{|f'_{\hat{l}}|}{\sideset{}{^q_q}{||w'_{\hat{l}}||}}|w'_{\hat{l}}|^{q-1}\bigodot sign(w'_{\hat{l}}),
+\tag{12}</script><p>&emsp;&emsp;&emsp; $\bigodot$ 是逐点乘积，$q=\frac{p}{p-1}$ 。当 $p=∞$ 时(即 $l_∞$ 范数)， 更新步骤变成：</p>
+<script type="math/tex; mode=display">
+\hat{l}\leftarrow arg\min_{k\not=\hat{k}(x_0)}\frac{|f'_k|}{||w'_k||_1},
+\tag{13}</script><script type="math/tex; mode=display">
+r_i\leftarrow\frac{|f'_{\hat{l}}|}{||w'_{\hat{l}}||_1} sign(w'_{\hat{l}}),
+\tag{14}</script><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>&emsp;&emsp;我们现在在应用于MNIST，CIFAR-10和ImageNet图像分类数据集的深度卷积神经网络架构上测试我们的DeepFool算法。 我们考虑以下深度神经网络架构：</p>
+<ul>
+<li><p><strong>MNIST</strong>：一个双层全连接网络和一个双层LeNet卷积神经网络结构。 这两个网络都是使用MatConvNet包通过SGD进行训练。</p>
+</li>
+<li><p><strong>CIFAR-10</strong>：我们训练了三层LeNet架构，以及网络网络（NIN）架构。</p>
+</li>
+<li><p><strong>ILSVRC 2012</strong>：我们使用了CaffeNet 和GoogLeNet预训练模型</p>
+</li>
+</ul>
+<p>&emsp;&emsp;为了评估分类器 $f$ 的对抗扰动的鲁棒性， 定义平均鲁棒性 $\hat{ρ}_{adv}(f)$ :</p>
+<script type="math/tex; mode=display">
+\hat{ρ}_{adv}(f)=\frac{1}{|{\scr D}|}\sum_{x∈{\scr D}}\frac{||\hat{r}(x)||_2}{||x||_2},
+\tag{15}</script><p>其中，$\hat{r}(x)$ 是使用DeepFool得到的预测最小扰动 ， ${\scr D}$ 代表测试集。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>&emsp;&emsp;我们在表1中呈现了使用不同方法计算的每个分类器的准确度和平均鲁棒性 $\hatρ_{adv}$ 。 我们还显示了每种方法计算一个对抗样本所需的运行时间。 可以看出，DeepFool估计的扰动比使用竞争方法计算的扰动更小（因此更接近于(1)中定义的最小扰动）。 例如，使用DeepFool获得的平均扰动比FGSM估计的平均扰动低5倍。 在ILSVRC2012挑战数据集上，平均扰动比FGSM小一个数量级。 此外，与<a href="https://arxiv.org/abs/1312.6199" target="_blank" rel="noopener">18</a>中的方法相比，所提出的方法也产生更小的扰动矢量， 所提出的方法因此在检测可能欺骗神经网络的方向上更精确。 因此，DeepFool可以用作精确评估分类器鲁棒性的有用工具。</p>
+<center><font color="#0099ff" size="2" face="黑体">表一：不同分类器在不同数据集的对抗鲁棒性 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/44616336.jpg" alt=""></p>
+<blockquote>
+<p>每个方法计算一个样本所需的时间在时间栏中给出。 时间是在2015年中的MacBook Pro上计算的，无需CUDA支持。 星号标记表示使用GTX 750 Ti GPU计算的值。[4]:FGSM</p>
+</blockquote>
+<p>&emsp;&emsp;在复杂性方面，所提出的方法比[18]中提出的标准方法快得多。事实上，虽然[18]方法涉及到一系列目标函数的代价最小化，但我们经验性地观察到，DeepFool在少数迭代（即小于3）中收敛于愚弄分类器的扰动向量。因此，与现有技术方法相比，所提出的方法达到更精确的扰动矢量，同时在计算上是有效的。这使得它很容易被用作基线方法来估计大规模数据集上非常深的神经网络的鲁棒性。在这种情况下，我们首先对大规模ImageNet数据集上最先进的分类器的鲁棒性进行量化评估。可以看出，尽管测试精度非常高，但这些方法对对抗扰动极不稳定：幅度比原始图像小1000倍的扰动足以欺骗最先进的深度神经网络。</p>
+<center><font color="#0099ff" size="2" face="黑体">图6：对抗扰动的样本对比 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-13/11841802.jpg" alt=""></p>
+<p>&emsp;&emsp;第一行：被分类为 $\hat{k}(x)=$ “鲸鱼”的原始图像 $x$ 。<br>&emsp;&emsp;第二行：被分类为 $\hat{k}(x+r)=$ “乌龟”的图像 $x + r$ 以及由DeepFool计算出的相应扰动 $r$ 。<br>&emsp;&emsp;第三行：被分类为“乌龟”的图像以及由FGSM计算出的相应扰动。 DeepFool导致更小的扰动。</p>
+<p>&emsp;&emsp;可以观察到，DeepFool 产生难以察觉的对抗扰动，而FGSM输出具有更高范数的扰动图像。</p>
+<ul>
+<li>注意到，当扰动用最大范数计算时，上述结论依然成立： DeepFool 较其他方法生成更小的对抗扰动。</li>
+</ul>
+<center><font color="#0099ff" size="2" face="黑体">表2：对抗扰动的最大范数鲁棒性 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/22804987.jpg" alt=""></p>
+<blockquote>
+<p>分别基于DeepFool(最小的 $l<em>∞$ 扰动)和FGSM的四个不同网络的 $\sideset{}{^∞</em>{adv}}{\hat{ρ}}$ 值， 错误分类率达到90%</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\sideset{}{^∞_{adv}}{\hat{ρ}}(f)=\frac{1}{|{\scr D}|} \sum_{x\in{\scr D}}\frac{||\hat{r}(x)||_∞}{||x||_∞},</script><p>&emsp;&emsp;其中  $\hat{r}(x)$  分别使用DeepFool( $p =∞$ ，参见3.3节)和快速梯度符号法计算。</p>
+<h3 id="使用对抗样本进行微调"><a href="#使用对抗样本进行微调" class="headerlink" title="使用对抗样本进行微调"></a>使用对抗样本进行微调</h3><p>&emsp;&emsp;在本节中，我们对表1中的对抗样本所用的网络进行微调，为MNIST和CIFAR-10任务构建更鲁棒的分类器。具体来说，对于每个网络，我们进行了两个实验：<br>&emsp;&emsp;(1)在DeepFool的对抗样本中微调网络，<br>&emsp;&emsp;(2)在快速梯度符号对抗样本上微调网络。<br>我们通过执行另外5个训练周期对网络进行微调，仅在扰动的训练集上减少了50％的学习速率。对于每个实验，所有5个额外的周期使用相同的训练数据。为了完整性，我们还对原始数据执行了5个额外的周期。图7a至图7d显示了不同微调策略的 $\hat{ρ}<em>{adv}$ 的演变，其中鲁棒性 $\hat{ρ}</em>{adv}$ 是使用DeepFool估算的，因为这是最准确的方法，如表1所示。观察到即使在一个额外周期之后，对DeepFool对抗样本的微调也增强了网络对对抗扰动的鲁棒性。例如，MNIST网络的鲁棒性提高了50％，NIN的鲁棒性提高了约40％。  </p>
+<center><font color="#0099ff" size="2" face="黑体">图7：微调效果 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/88045331.jpg" alt=""></p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/19503473.jpg" alt=""></p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/15536386.jpg" alt=""></p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/98947187.jpg" alt=""></p>
+<p>&emsp;&emsp;另一方面，令人惊讶的是，FGSM可能会导致网络的对抗扰动鲁棒性下降。我们推测这种行为是由于使用FGSM估计的扰动远远大于最小对抗扰动。用过度扰动的图像微调网络会降低网络对对抗扰动的鲁棒性。为了验证这个假设，我们在图8中比较了一个网络的对抗鲁棒性，这个网络用DeepFool获得的对抗样本进行了微调，其中扰动的范数被故意乘以 $α= 1,2,3$ 。</p>
+<center><font color="#0099ff" size="2" face="黑体">图8：调整扰动范数对鲁棒性的影响 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/47701062.jpg" alt=""></p>
+<p>&emsp;&emsp;有趣的是，我们看到通过放大对抗性扰动的范数，微调网络的鲁棒性降低。这可以解释为什么过度扰动的图像会降低MNIST网络的鲁棒性：这些扰动可能真的改变数据的类别，因此基于这些样本进行的微调可能导致鲁棒性的下降（有关说明，请参见图9） 。这证实了我们的假设，并进一步显示了设计精确方法来计算最小扰动的重要性。</p>
+<center><font color="#0099ff" size="2" face="黑体">图9：不同 α 值带来的图片数字识别类型的改变</font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/9476430.jpg" alt=""></p>
+<blockquote>
+<p>原始图像被识别为 “1”，DeepFool 扰动图像被识别为”7”。</p>
+</blockquote>
+<p>&emsp;&emsp;表3列出了微调网络的精度。 可以看出，使用DeepFool进行微调可以提高网络的准确性。 相反，使用FGSM进行微调导致了我们所有实验中测试精度的降低。 这证实了FGSM输出一些不太可能出现在测试数据中的过度扰动图像。 因此，它降低了该方法的性能，因为它充当正则化器而不代表原始数据的分布。 这种效应类似于几何数据增强方案，其中原始样本的大变换对泛化具有相反的效果。</p>
+<center><font color="#0099ff" size="2" face="黑体">表3：微调网络精度 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/96929609.jpg" alt=""></p>
+<blockquote>
+<p>微调后的网络测试错误率（五个周期后）。 每列对应于不同类型的增强扰动。</p>
+</blockquote>
+<p>&emsp;&emsp;为了强调对最小扰动的正确估计的重要性，我们现在表明使用近似方法可能导致关于网络的对抗鲁棒性的错误结论。 我们对快速梯度符号对抗样本中的NIN分类器进行了微调。 我们遵循前面描述的程序，但是这次我们将学习率降低了90％。 我们已经使用DeepFool和FGSM评估了此网络在不同额外周期的对抗鲁棒性。 如图10所示，红线 夸大了训练对对抗样本的影响。 此外，它不足以证明在第一个额外周期失去鲁棒性。</p>
+<center><font color="#0099ff" size="2" face="黑体">图10：正则化的鲁棒性 </font></center>
+
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-14/82983733.jpg" alt=""></p>
+<blockquote>
+<p>如何用不同的方法判断对抗鲁棒性。 这些值通过原始网络的相应 $\hat{ρ}_{adv}$ 进行归一化。</p>
+</blockquote>
+<p>&emsp;&emsp;这些观察结果证实，使用准确的工具来衡量分类器的鲁棒性对于得出有关网络鲁棒性的结论是至关重要的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-learning/" rel="tag"><i class="fa fa-tag"></i> Deep learning</a>
+          
+            <a href="/tags/Adversarial-attack/" rel="tag"><i class="fa fa-tag"></i> Adversarial attack</a>
+          
+            <a href="/tags/Translation/" rel="tag"><i class="fa fa-tag"></i> Translation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/15/hello-world/" rel="next" title="draft">
+                <i class="fa fa-chevron-left"></i> draft
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/FaceNet 官方WiKi解读/" rel="prev" title="TensorFlow环境 人脸识别 FaceNet 应用（二）:FaceNet官方WiKi解读">
+                TensorFlow环境 人脸识别 FaceNet 应用（二）:FaceNet官方WiKi解读 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg"
+                alt="Andy_z" />
+            
+              <p class="site-author-name" itemprop="name">Andy_z</p>
+              <p class="site-description motion-element" itemprop="description">About some of my learning summary, translation of thesis...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#符号说明"><span class="nav-number">1.</span> <span class="nav-text">符号说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对于二分类器的DeepFool"><span class="nav-number">2.</span> <span class="nav-text">对于二分类器的DeepFool</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对于多分类器的DeepFool"><span class="nav-number">3.</span> <span class="nav-text">对于多分类器的DeepFool</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#仿射多分类器"><span class="nav-number">3.1.</span> <span class="nav-text">仿射多分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般多分类器"><span class="nav-number">3.2.</span> <span class="nav-text">一般多分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展到-L-p-范数"><span class="nav-number">3.3.</span> <span class="nav-text">拓展到 $L_p$ 范数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验"><span class="nav-number">4.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">4.1.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">4.2.</span> <span class="nav-text">结论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用对抗样本进行微调"><span class="nav-number">4.2.1.</span> <span class="nav-text">使用对抗样本进行微调</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy_z</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

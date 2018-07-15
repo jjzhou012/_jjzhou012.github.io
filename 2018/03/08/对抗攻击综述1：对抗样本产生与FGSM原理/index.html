@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Deep learning,Adversarial attack,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Andy_z 's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="对抗攻击综述(1)：对抗样本产生与FGSM原理 作者：Andy_z阅读文献：EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES  1 &amp;emsp;对抗样本的线性解释&amp;emsp;在许多问题中，单个输入特征的精度是有限的。  例如，数字图像每个像素通常只使用8位，因此它们会丢弃低于动态范围1/255的所有信息。   如果扰动 $η$ 的每个元素小于特征的精度，">
+<meta name="keywords" content="Deep learning,Adversarial attack,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test">
+<meta property="og:url" content="http://yoururl.com/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/index.html">
+<meta property="og:site_name" content="Andy_z &#39;s Blog">
+<meta property="og:description" content="对抗攻击综述(1)：对抗样本产生与FGSM原理 作者：Andy_z阅读文献：EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES  1 &amp;emsp;对抗样本的线性解释&amp;emsp;在许多问题中，单个输入特征的精度是有限的。  例如，数字图像每个像素通常只使用8位，因此它们会丢弃低于动态范围1/255的所有信息。   如果扰动 $η$ 的每个元素小于特征的精度，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/83037047.jpg-Watermark">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/65793832.jpg-Watermark">
+<meta property="og:updated_time" content="2018-03-12T10:53:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="test">
+<meta name="twitter:description" content="对抗攻击综述(1)：对抗样本产生与FGSM原理 作者：Andy_z阅读文献：EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES  1 &amp;emsp;对抗样本的线性解释&amp;emsp;在许多问题中，单个输入特征的精度是有限的。  例如，数字图像每个像素通常只使用8位，因此它们会丢弃低于动态范围1/255的所有信息。   如果扰动 $η$ 的每个元素小于特征的精度，">
+<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoururl.com/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/"/>
+
+
+
+
+
+  <title>test | Andy_z 's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/jjzhou012/jjzhou012.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Andy_z 's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding - Thinking - Sharing - Deep learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">test</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T18:38:04+08:00">
+                2018-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
+                    <span itemprop="name">对抗攻击</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="对抗攻击综述-1-：对抗样本产生与FGSM原理"><a href="#对抗攻击综述-1-：对抗样本产生与FGSM原理" class="headerlink" title="对抗攻击综述(1)：对抗样本产生与FGSM原理"></a>对抗攻击综述(1)：对抗样本产生与FGSM原理</h1><blockquote>
+<p>作者：Andy_z<br>阅读文献：<a href="https://arxiv.org/abs/1412.6572" target="_blank" rel="noopener">EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES</a></p>
+</blockquote>
+<h2 id="1-emsp-对抗样本的线性解释"><a href="#1-emsp-对抗样本的线性解释" class="headerlink" title="1 &emsp;对抗样本的线性解释"></a>1 &emsp;对抗样本的线性解释</h2><p>&emsp;<strong>在许多问题中，单个输入特征的精度是有限的。</strong></p>
+<ul>
+<li>例如，数字图像每个像素通常只使用8位，因此它们会丢弃低于动态范围1/255的所有信息。  </li>
+<li>如果扰动 $η$ 的每个元素小于特征的精度，则分类器对输入$x$和对抗输入 $x ̃=x+η$ 产生相同结果。<br>存在足够小的 $ε$，只要 $‖η‖_∞&lt;ε$，分类器就会分配给$x$和$x ̃$相同的类。  </li>
+</ul>
+<p>&emsp;考虑一个权值向量 $w$ 和一个对抗样本 $x ̃$ 的点积：  </p>
+<script type="math/tex; mode=display">
+w^Tx ̃=w^Tx+w^Tη</script><ul>
+<li><p>对抗扰动导致激活增长 $w^Tη$ 。令 $η=sign(w)$ ，我们可以最大化这个增量。 如果 $n$ 维权重向量 $w$ 的元素的平均值是 $m$ ，则激活将增加 $εmn$ 。  </p>
+<blockquote>
+<font color="#0099ff" size="2" face="黑体">[^_^]: 令扰动 $η$ 和权值向量 $w$ 各元素的符号相同，内积    $w^Tη$ 可最大化</font>  
+</blockquote>
+</li>
+<li><p>由于 $‖η‖_∞$ 不随维数变化而变化，但扰动 $η$ 引起的激活变化 $εmn$ 可随 $n$ 增加而线性增加。因此对于高维问题，对输入进行许多无限小的变化， 输出会产生一次大的变化。  </p>
+</li>
+</ul>
+<p>&emsp;这个解释表明，<strong>如果一个简单的线性模型的输入具有足够的维度，它可能会有对抗样本。</strong> 基于线性的假设更简单，也可以解释为什么softmax回归容易受到对抗样本的影响。</p>
+<picture>
+
+<blockquote>
+<p><a href="http://blog.csdn.net/Suan2014/article/details/77162042" target="_blank" rel="noopener">激活函数</a>:Sigmoid,Tanh,ReLu,softplus,softmax</p>
+</blockquote>
+<h2 id="2-emsp-非线性模型的线性扰动"><a href="#2-emsp-非线性模型的线性扰动" class="headerlink" title="2 &emsp;非线性模型的线性扰动"></a>2 &emsp;非线性模型的线性扰动</h2><p>&emsp;对抗样本的线性视图提出了一种快速生成对抗样本的方法。<br>&emsp;更复杂的非线性模型如sigmoid网络经过仔细调整，将其大部分时间花费在非饱和，更线性的机制中，因而也会受到对抗扰动。</p>
+<ul>
+<li>快速梯度符号法（FGSM）：<picture>
+
+</picture></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$θ$</td>
+<td>模型参数</td>
+</tr>
+<tr>
+<td>$x$</td>
+<td>模型输入</td>
+</tr>
+<tr>
+<td>$y$</td>
+<td>关于x的目标</td>
+</tr>
+<tr>
+<td>$J(θ,x,y)$</td>
+<td>损失函数  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&emsp;将损失函数线性化为  $θ$ 的当前值，得到最优的最大范数约束扰动</p>
+<script type="math/tex; mode=display">
+η=εsign(∇_xJ(θ,x,y))</script><p>&emsp;称之为产生对抗样本的“快速梯度符号法”。 请注意，可以使用反向传播有效地计算所需的梯度。  </p>
+<ul>
+<li>FGSM在各种模型上的效果 :  </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$ε$</th>
+<th>0.25</th>
+<th>0.25</th>
+<th>0.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>测试集</td>
+<td>MNIST</td>
+<td>MNIST</td>
+<td>CIFAR-10预</td>
+</tr>
+<tr>
+<td>分类器</td>
+<td>softmax</td>
+<td>maxout</td>
+<td>maxout</td>
+</tr>
+<tr>
+<td>错误率</td>
+<td>99.9％</td>
+<td>89.4％</td>
+<td>87.15％</td>
+</tr>
+<tr>
+<td>平均置信度</td>
+<td>79.3％</td>
+<td>97.6％</td>
+<td>96.6％</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><a href="https://github.com/lisa-lab/pylearn2/tree/master/pylearn2/scripts/papers/maxout" target="_blank" rel="noopener">预处理代码</a>: 其产生大约0.5的标准偏差。</p>
+</blockquote>
+<p>&emsp;其他生成对抗样本的简单方法也是可能的。 例如，我们还发现<strong>在梯度方向上以小角度旋转</strong> $x$ 也能可靠地产生对抗样本。</p>
+<ul>
+<li>在ImageNet上应用GoogLeNet的快速对抗样本生成演示：  </li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark" alt=""><br>对抗样本：</p>
+<script type="math/tex; mode=display">
+x ̃=x+εsign(∇_xJ(θ,x,y))</script><picture>
+
+<p>&emsp;通过添加一个不可察的小矢量，其元素等于损失函数梯度的元素的符号，可以改变GoogLeNet的图像分类。这里，$ε$ 对应于GoogLeNet转换为实数后8位图像编码的最小位数的大小， 因等于0.007。  </p>
+<h2 id="3-emsp-反对权值衰减的线性模型对抗训练"><a href="#3-emsp-反对权值衰减的线性模型对抗训练" class="headerlink" title="3.&emsp;反对权值衰减的线性模型对抗训练"></a>3.&emsp;反对权值衰减的线性模型对抗训练</h2><p>&emsp;可以考虑的最简单的模型是逻辑回归。 在这种情况下，快速梯度符号方法是准确的。 通过案例来了解如何在简单的设置中生成对抗样本。  </p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/83037047.jpg-Watermark" alt=""></p>
+<p>&emsp;图2：应用于逻辑回归的FGSM<br>&emsp;a）在MNIST上训练的逻辑回归模型的权重。<br>&emsp;b）在MNIST上训练的逻辑回归模型的权重的符号。 这是最佳的扰动。 尽管该模型的容量较低并且很适合，但这种扰动不容易被人察觉。<br>&emsp;c）MNIST数据集中的 3和 7 样本。 在这些例子中，逻辑回归模型在3与7的区分任务上有1.6％的错误率。<br>&emsp;d）Logistic回归模型的FGSM对抗样本，$ε=0.25$ 。 在这些样本中，逻辑回归模型的误差率为99％。</p>
+<ul>
+<li>如果训练一个简单的模型来识别标签 $y∈{-1,1}$  ，其中  <script type="math/tex; mode=display">
+P(y=1)=σ(w^Tx+b)</script>&emsp; $σ(z)$ 是逻辑sigmoid函数，使用梯度下降法训练，<script type="math/tex; mode=display">
+E_{x,y∽p_{data}}ζ(-y(w^Tx+b))</script>&emsp;其中 $ζ(z)=log(1+exp(z))$ 是softplus方程。根据梯度符号扰动，可以推导出一个简单的分析形式，用于训练 $x$ 的最坏情况对抗扰动，而不是 $x$ 本身。 请注意，梯度的符号只是 $-sign(x)$ ，而 $w^Tsign(w)=‖w‖_1$ 。 逻辑回归的对抗版本因此最小化为：  <script type="math/tex; mode=display">
+E_{x,y∽p_{data}}ζ(y(ε‖w‖_1-w^Tx-b))</script>&emsp;这与 $L^1$ <a href="http://blog.csdn.net/jinping_shi/article/details/52433975" target="_blank" rel="noopener">正则化</a>有些相似。 但是，有一些重要的区别。</li>
+</ul>
+<blockquote>
+<font color="#0099ff" size="2" face="黑体"> [正则化]:采用正则化方法会自动削弱不重要的特征变量，自动从许多的特征变量中”提取“重要的特征变量，减小特征变量的数量级。这个方法非常有效，当我们有很多特征变量时，其中每一个变量都能对预测产生一点影响。</font>
+
+</blockquote>
+<ul>
+<li>最重要的是，在训练期间将 $L^1$ 惩罚从模型的激活中减去，而不是增加到训练损失。 这意味着如果模型学习 $ζ$ 饱和充分置信，惩罚最终会开始消失。 这并不一定会发生 - 在欠拟合下，对抗训练只会使得更加欠拟合。 因此，我们可以将 $L^1$ <a href="https://www.cnblogs.com/lindaxin/p/7998334.html" target="_blank" rel="noopener">权值衰减</a>视为比对抗训练更坏的情况，因为它在好的边界不能解除激活。</li>
+</ul>
+<blockquote>
+<font color="#0099ff" size="2" face="黑体"> [权值衰减]：在每次迭代过程中以某个小因子降低每个权值，这等效于修改E的定义，加入一个与网络权值的总量相应的惩罚项。此方法的动机是保持权值较小，避免weight decay,从而使学习过程向着复杂决策面的反方向偏。</font>  
+
+</blockquote>
+<ul>
+<li>如果我们将逻辑回归移出多分类softmax回归， $L^1$ 权重衰减变得更加严重，因为它将每个softmax的输出视为独立扰动，事实上，通常不可能找到与所有类的权重向量相关联的 $η$ 。在具有多个隐藏单元的深度网络的情况下，权重衰减高估了扰动可实现的损害。由于 $L^1$ 权重衰减高估了攻击可以造成的伤害量，因此有必要使用比与我们的特征精度相关联的 $ε$ 更小的 $L^1$ 权重衰减系数。</li>
+<li>当在MNIST上训练maxout网络时，我们使用对抗训练获得了良好的结果 。当 权重衰减应用于第一层时，我们发现 $ε=0.0025$的系数太大，也会导致模型在训练集上超过5％的误差。较小的重量衰减系数可以实现成功训练，但没有获得正则化的效果。</li>
+</ul>
+<blockquote>
+<p><a href="http://blog.csdn.net/hjimce/article/details/50414467" target="_blank" rel="noopener">maxout</a></p>
+</blockquote>
+<h2 id="4-emsp-深度网络的对抗训练"><a href="#4-emsp-深度网络的对抗训练" class="headerlink" title="4&emsp;深度网络的对抗训练"></a>4&emsp;深度网络的对抗训练</h2><p>&emsp;与浅层线性模型不同，深层网络至少能够体现抵抗对抗扰动的功能。<a href="https://www.jianshu.com/p/52e773d47338" target="_blank" rel="noopener">泛逼近理论</a>表示，只要隐藏层允许有足够的单元，具有至少一个隐藏层的神经网络可以表示任意精度的任何函数。 浅层线性模型不能在训练点附近变得恒定，同时也对不同的训练点产生不同的输出。</p>
+<ul>
+<li>作者发现基于FGSM的对抗目标函数训练是一种有效的正则化方法：<script type="math/tex; mode=display">
+J ̃(θ,x,y)=αJ(θ,x,y)+(1-α)J(θ,x+εsign(∇_xJ(θ,x,y)))</script>&emsp;在所有的实验中，使用 $α=0.5$。 用这种方法来训练一个<strong>被<a href="http://blog.csdn.net/hjimce/article/details/50413257" target="_blank" rel="noopener">dropout</a>规范化的maxout网络</strong>：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型是否经过对抗训练</th>
+<th>未经过</th>
+<th>经过</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>错误率</td>
+<td>0.94％</td>
+<td>0.84％  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&emsp;观察到在训练集上的对抗样本中没有达到零错误率。作者通过进行两项更改来解决这个问题。首先，使模型更大，每层使用1600个单元，而不是原来的maxout网络使用的240个单元，使用<a href="https://deeplearning4j.org/cn/earlystopping" target="_blank" rel="noopener">early stopping</a>，并且当验证集错误率经过100个周期后未减少时终止学习。实验发现：  </p>
+<ul>
+<li>如果没有对抗训练，会导致模型轻微过拟合，并在测试集中获得1.14％的错误率  </li>
+<li>通过对抗训练，验证集错误率随着时间的推移而趋于平稳，并且进展缓慢。<br>虽然验证集错误非常平坦，但对抗验证集错误不是。  </li>
+</ul>
+<p>&emsp;因此，我们对对抗验证集误差使用了early stopping。用这个标准选择训练的周期数量，对所有60,000个样本进行再训练。对于随机数发生器使用不同的<a href="http://blog.csdn.net/linzch3/article/details/58220569" target="_blank" rel="noopener">seed</a>进行五次不同的训练，用于选择训练样本的mini_batches，初始化模型权重以及生成五个实验的dropout，  </p>
+<blockquote>
+<font color="#0099ff" size="2" face="黑体">seed() 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed()值，则每次生成的随即数都相同，如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同。</font>  
+
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>实验对比</th>
+<th>1-4</th>
+<th>5</th>
+<th>MNIST排列不变版本</th>
+<th>微调DBM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>误差率</td>
+<td>0.77％</td>
+<td>0.83％</td>
+<td>0.782％</td>
+<td>0.79％   </td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>对抗训练过的模型表现出更强的鲁棒性。  </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>对抗样本生成来源</th>
+<th>原始模型</th>
+<th>原始模型</th>
+<th>dropour规范化新模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>识别模型</td>
+<td>原始模型</td>
+<td>对抗训练模型</td>
+<td>原始模型</td>
+</tr>
+<tr>
+<td>错误率</td>
+<td>89.4%</td>
+<td>19.6％</td>
+<td>40.9%  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>学习模型的权重发生了显着变化，对抗训练模型的权重明显更加局部化和可解释</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/65793832.jpg-Watermark" alt=""></p>
+<p>图3：在MNIST上训练的maxout网络的权重可视化。 每行显示单个maxout单元的过滤器。 左）原始模型。 右）对抗训练过的模型。</p>
+<ul>
+<li>事实上，在许多情况下，噪声会导致较低的目标函数值。 可以将对抗训练视为在噪声输入集合中进行硬性样本挖掘，以便通过仅考虑强烈抵制分类的那些噪点来更有效地进行训练。</li>
+</ul>
+<p>&emsp;作为控制实验，作者训练了一个带有噪声的maxout网络，每个像素被随机添加噪声 $±ε$，或者将 $U∈(-ε,ε)$ 中的噪声添加到每个像素。<br>&emsp;在FGSM对抗样本中的分类情况：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>噪声类型</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>错误率</td>
+<td>86.2%</td>
+<td>90.4%</td>
+</tr>
+<tr>
+<td>置信度</td>
+<td>97.3%</td>
+<td>97.8%  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="5-emsp-不同种类的模型容量"><a href="#5-emsp-不同种类的模型容量" class="headerlink" title="5&emsp;不同种类的模型容量"></a>5&emsp;不同种类的模型容量</h2><p>&emsp;对抗样本的存在似乎与直觉相反的一个原因是，我们大多数人对高维空间的直觉很差。 我们生活在三个维度中，所以我们不习惯在数百个维度中添加小的扰动来产生巨大的效果。 还有另一种方式，我们的直觉不能很好的为我们服务。 许多人认为低容量的模型无法做出许多不同的置信预测。这是不正确的。</p>
+<ul>
+<li><p>符合直觉的低容量模型，例如浅层RBF网络：</p>
+<script type="math/tex; mode=display">
+p(y=1|x)=exp({(x-μ)^T}β(x-μ))</script><p>只能有把握地预测在 $μ$ 附近存在正类。 在其他地方，它们默认预测类别不存在，或者具有低置信度的预测。  </p>
+</li>
+<li><p>RBF网络自然不受对抗样本的影响，因为当它们被愚弄时，置信度很低。 使用FGSM生成的对抗样本，$ε=0.25$ ，没有隐藏层的浅RBF网络在MNIST上获得55.4％的错误率。 然而，它对错误样本的置信度只有1.2％。 它对干净测试样本的平均置信度是60.6％。 我们不能指望一个容量如此低的模型在空间的所有点上都能得到正确的答案，但它确实可以通过在它无法识别的点上大大减少置信度，从而做出相对正确的回应。</p>
+</li>
+<li><p>但是，RBF单元对于任何重要的转换都不是不变的，所以它们不能一概而论。 我们可以将线性单元和RBF单元视为准确-召回权衡曲线上的不同点。 线性单位通过响应某个方向上的每个输入来实现高召回率，但由于在不熟悉的情况下响应过强可能会导致精度低。 RBF单元通过仅响应空间中的特定点来实现高精度，但是这样做会牺牲召回率。  </p>
+</li>
+</ul>
+<h2 id="6-emsp-对抗样本的泛化能力"><a href="#6-emsp-对抗样本的泛化能力" class="headerlink" title="6&emsp;对抗样本的泛化能力"></a>6&emsp;对抗样本的泛化能力</h2><p>&emsp;对抗样本的一个有趣方面是，<strong>为其中一个模型生成的样本经常能被其他模型错误分类，即使它们具有不同的架构或在不相交的训练集上进行训练。 而且，当这些不同的模型将一个对抗样本错误分类时，他们经常会归为同一类。</strong> 基于极端非线性和过度拟合的解释不能轻易解释这种行为 - 为什么多余的容量过剩的极端非线性模型始终以相同的方式标记分布外的点？ 这种行为尤其令人惊讶，从这样的假设来看，对抗样本就像实数空间中的有理数分布，因为在这种观点中，对抗样本很常见，但只发生在非常精确的位置。</p>
+<ul>
+<li><p>在线性观点下，对抗样本出现在宽泛的子空间中。 方向 $η$ 只需要具有损失函数梯度的正点积， $ε$ 只需要足够大。 图4显示了这种现象。 通过追踪出不同的值 $ε$  ，我们发现对抗样本出现在由FGSM方法定义的1-D子空间的连续区域中，而不是离散的。 这就解释了为什么对抗样本非常丰富，为什么一个分类器错误分类的样本具有相当高的可能性被另一个分类器错误分类。</p>
+<picture>
+</picture></li>
+<li><p>为了解释为什么多个分类器将对抗样本分类为同一个类，我们假设用当前方法训练的神经网络都类似于在相同训练集上学习的线性分类器。 这个参考分类器在训练集的不同子集上训练时能够学习大致相同的分类权重，这仅仅是因为机器学习算法能够泛化。 基础分类权重的稳定性反过来又会导致对抗样本的稳定性。</p>
+</li>
+</ul>
+<p>&emsp;为了检验这个假设，我们在深度maxout网络上生成了对抗样本，并使用浅softmax网络和浅RBF网络对这些样本进行了分类。在由maxout网络误分类的样本中，</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>分类模型</th>
+<th>softmax网络</th>
+<th>浅层RBF网络</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>预测</td>
+<td>54.6%</td>
+<td>16.0%</td>
+</tr>
+<tr>
+<td>回归预测</td>
+<td>84.6%</td>
+<td>54.3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&emsp;这些数字很大程度上是由不同模型的差错率驱动的。如果我们不把注意力放在两种模型比较出错的情况下，softmax回归预测84.6％的时间是maxout类别，而RBF网络只能预测maxout类别的时间为54.3％。为了比较，RBF网络可以预测softmax回归的时间为53.6％，所以它对自己的行为确实具有强大的线性分量。我们的假设并不能解释所有maxou网络的错误或者所有模型中泛化的错误，但很明显，其中很大一部分与线性行为一致是跨模型泛化的主要原因。</p>
+<h2 id="7-emsp-讨论总结"><a href="#7-emsp-讨论总结" class="headerlink" title="7&emsp;讨论总结"></a>7&emsp;讨论总结</h2><ul>
+<li><p>对抗样本可以解释为高维点积的一个特性。 它们是模型过于线性而非非线性的结果。</p>
+</li>
+<li><p>横跨不同模型的对抗样本的泛化可以解释为对抗扰动与模型的权重向量高度一致，并且不同模型在被训练执行相同任务时学习相似函数。</p>
+</li>
+<li><p>扰动的方向，而不是空间中的特定点。 空间并不是充满了对抗样本，它们像实数中的有理数一样分布。</p>
+</li>
+<li>因为它是最重要的方向，所以对抗干扰会在不同的干净样本上泛化。</li>
+<li>我们引入了一系列快速生成对抗样本的方法。</li>
+<li>我们已经证明，对抗训练可以导致正则化; 甚至比dropout更加正则化。</li>
+<li>我们的运行控制实验未能用更简单但效率更低的正则化器重现此效应，包括 $L^1$ 权重衰减和增加噪音。</li>
+<li>易于优化的模型易于受到干扰。</li>
+<li>线性模型缺乏抵抗对抗扰动的能力; 只有具有隐藏层的结构（泛逼近定理适用）应该被训练来抵抗对抗扰动。</li>
+<li>RBF网络对对抗样本有抗性。</li>
+<li>训练模型化输入分布的模型不能抵抗对抗样本。</li>
+<li>集成方法不能抵抗对抗样本。</li>
+</ul>
+</picture></picture>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-learning/" rel="tag"><i class="fa fa-tag"></i> Deep learning</a>
+          
+            <a href="/tags/Adversarial-attack/" rel="tag"><i class="fa fa-tag"></i> Adversarial attack</a>
+          
+            <a href="/tags/Translation/" rel="tag"><i class="fa fa-tag"></i> Translation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/08/Adversarial attack methods/" rel="next" title="The Adversarial Attacks methods">
+                <i class="fa fa-chevron-left"></i> The Adversarial Attacks methods
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/12/JSMA/" rel="prev" title="JSMA">
+                JSMA <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg"
+                alt="Andy_z" />
+            
+              <p class="site-author-name" itemprop="name">Andy_z</p>
+              <p class="site-description motion-element" itemprop="description">About some of my learning summary, translation of thesis...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对抗攻击综述-1-：对抗样本产生与FGSM原理"><span class="nav-number">1.</span> <span class="nav-text">对抗攻击综述(1)：对抗样本产生与FGSM原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-emsp-对抗样本的线性解释"><span class="nav-number">1.1.</span> <span class="nav-text">1  对抗样本的线性解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-emsp-非线性模型的线性扰动"><span class="nav-number">1.2.</span> <span class="nav-text">2  非线性模型的线性扰动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-emsp-反对权值衰减的线性模型对抗训练"><span class="nav-number">1.3.</span> <span class="nav-text">3. 反对权值衰减的线性模型对抗训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-emsp-深度网络的对抗训练"><span class="nav-number">1.4.</span> <span class="nav-text">4 深度网络的对抗训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-emsp-不同种类的模型容量"><span class="nav-number">1.5.</span> <span class="nav-text">5 不同种类的模型容量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-emsp-对抗样本的泛化能力"><span class="nav-number">1.6.</span> <span class="nav-text">6 对抗样本的泛化能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-emsp-讨论总结"><span class="nav-number">1.7.</span> <span class="nav-text">7 讨论总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy_z</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

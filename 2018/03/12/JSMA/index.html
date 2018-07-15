@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Deep learning,Adversarial attack,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Andy_z 's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="作者：Andy_z翻译文献：The Limitations of Deep Learning in Adversarial Settings  1.&amp;emsp;研究一个简单的神经网络2.&amp;emsp;推广到前馈深度神经网络    符号 注释     $X$ 良性样本   $X^*$ 对抗样本   $Y^*$ 目标输出   $F$ 非循环前馈DNN   $γ$ 最大失真参数     $θ$ 特征变化">
+<meta name="keywords" content="Deep learning,Adversarial attack,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSMA">
+<meta property="og:url" content="http://yoururl.com/2018/03/12/JSMA/index.html">
+<meta property="og:site_name" content="Andy_z &#39;s Blog">
+<meta property="og:description" content="作者：Andy_z翻译文献：The Limitations of Deep Learning in Adversarial Settings  1.&amp;emsp;研究一个简单的神经网络2.&amp;emsp;推广到前馈深度神经网络    符号 注释     $X$ 良性样本   $X^*$ 对抗样本   $Y^*$ 目标输出   $F$ 非循环前馈DNN   $γ$ 最大失真参数     $θ$ 特征变化">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/13991477.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/58575062.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/68721235.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/51759725.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/98084428.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/32845154.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/33588992.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/86366637.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/3583770.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/76963465.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/78631019.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/22786902.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/10161483.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/83317984.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/61993056.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/87138047.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/1594025.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/37082866.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/60081174.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/29250443.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/64566307.jpg">
+<meta property="og:updated_time" content="2018-03-12T12:35:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSMA">
+<meta name="twitter:description" content="作者：Andy_z翻译文献：The Limitations of Deep Learning in Adversarial Settings  1.&amp;emsp;研究一个简单的神经网络2.&amp;emsp;推广到前馈深度神经网络    符号 注释     $X$ 良性样本   $X^*$ 对抗样本   $Y^*$ 目标输出   $F$ 非循环前馈DNN   $γ$ 最大失真参数     $θ$ 特征变化">
+<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/13991477.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoururl.com/2018/03/12/JSMA/"/>
+
+
+
+
+
+  <title>JSMA | Andy_z 's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/jjzhou012/jjzhou012.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Andy_z 's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding - Thinking - Sharing - Deep learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/03/12/JSMA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JSMA</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T00:24:04+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
+                    <span itemprop="name">对抗攻击</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>作者：Andy_z<br>翻译文献：<a href="https://arxiv.org/abs/1511.07528" target="_blank" rel="noopener">The Limitations of Deep Learning in Adversarial Settings</a></p>
+</blockquote>
+<h1 id="1-emsp-研究一个简单的神经网络"><a href="#1-emsp-研究一个简单的神经网络" class="headerlink" title="1.&emsp;研究一个简单的神经网络"></a>1.&emsp;研究一个简单的神经网络</h1><h1 id="2-emsp-推广到前馈深度神经网络"><a href="#2-emsp-推广到前馈深度神经网络" class="headerlink" title="2.&emsp;推广到前馈深度神经网络"></a>2.&emsp;推广到前馈深度神经网络</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$X$</td>
+<td>良性样本</td>
+</tr>
+<tr>
+<td>$X^*$</td>
+<td>对抗样本</td>
+</tr>
+<tr>
+<td>$Y^*$</td>
+<td>目标输出</td>
+</tr>
+<tr>
+<td>$F$</td>
+<td>非循环前馈DNN</td>
+</tr>
+<tr>
+<td>$γ$</td>
+<td>最大失真参数  </td>
+</tr>
+<tr>
+<td>$θ$</td>
+<td>特征变化参数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-1-emsp-算法1"><a href="#2-1-emsp-算法1" class="headerlink" title="2.1&emsp;算法1"></a>2.1&emsp;算法1</h2><p>&emsp;算法1显示了构建对抗样本的过程，经历三个基本过程</p>
+<ul>
+<li>计算正向导数 $∇F(X^*)$</li>
+<li>基于导数构造显著图$S$</li>
+<li>利用θ修改输入特征 $i_{max}$。重复该过程直到网络输出 $Y^*$ 或达到最大失真 $γ$</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/13991477.jpg" alt=""></p>
+<h3 id="2-1-1-emsp-深度神经网络的正向导数："><a href="#2-1-1-emsp-深度神经网络的正向导数：" class="headerlink" title="2.1.1&emsp;深度神经网络的正向导数："></a>2.1.1&emsp;深度神经网络的正向导数：</h3><p>&emsp;第一步是计算给定样本$X$ 的正向导数。如前所述，它由下式给出：</p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/58575062.jpg" alt=""></p>
+<ul>
+<li><p>对应于神经网络在训练过程中学习到的函数的雅可比矩阵。<br>正向导数计算梯度类似于反向传播计算梯度，但有两个重要的区别：<br>a. 直接取网络的导数，而不是取其代价函数，<br>b. 区分输入特征而不是网络参数。<br>不是向后传播梯度，而是向前传播它们，因为这样就可以找到导致网络输出发生重大变化的输入成分。</p>
+</li>
+<li><p>递归地区分每个隐藏层 $k∈2..n$</p>
+</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/68721235.jpg" alt=""><br>&emsp;&emsp;&emsp;其中$H<em>k$是隐藏层$k$的输出矢量，$f</em>{k,j}$ 是输出神经元$j$在$k$层的激活函数。</p>
+<ul>
+<li>应用链式规则，我们可以写出一系列关于 $k∈2..n$ 的公式</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/51759725.jpg" alt=""></p>
+<p>&emsp;&emsp;&emsp;因此可以表示 $\frac{\partial^{}{H_n}}{\partial {x_i}^{}}$  ,</p>
+<ul>
+<li>输出神经元$j$  表达式计算：<script type="math/tex; mode=display">
+F_j(X) = f_{n+1,j}(W_{n+1,j}\cdot H_n+b_{n+1,j})</script></li>
+</ul>
+<p>&emsp;&emsp;&emsp;再次应用链规则来获得：</p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/98084428.jpg" alt=""></p>
+<h3 id="2-1-2-emsp-对抗显著图"><a href="#2-1-2-emsp-对抗显著图" class="headerlink" title="2.1.2&emsp;对抗显著图"></a>2.1.2&emsp;对抗显著图</h3><p>&emsp;构建对抗显著图。这些图表明攻击应该干扰哪些输入特征，以便最有效地实现网络输出的所需变化，并且是使攻击者能够产生大范围的对抗样本的多功能工具。</p>
+<ul>
+<li><p>用作分类器的网络，其输出是概率最大的类别，其中最终的预测类别值对应于具有最高概率的分量：</p>
+<script type="math/tex; mode=display">
+label(X)=arg\,\min_jF_j(X)</script></li>
+<li><p>显著图是基于正向导数的，因为这给攻击者神经网络错误分类给定样本的信息。<br>更确切地说，攻击者想要误分类样本$X$，分配 目标类别 $t≠label(X)$ 。 为此，必须增加由 $F$ 给出的目标类 $t$ 的概率 $F_t(X)$ ，而所有其他类 $j ≠ t$ 的概率 $F_j(X)$ 减小，直到</p>
+<script type="math/tex; mode=display">
+t=arg\,\min_jF_j(X)</script><p>&emsp;&emsp;&emsp; 攻击者可以通过使用以下显著图 $S(X,t)$  来增加输入特征实现这一点：</p>
+</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/32845154.jpg" alt=""></p>
+<ul>
+<li>其中 $i$ 是输入特征。 第一行指定的条件会拒绝具有负目标导数或其他类的总体正导数的输入分量。<br>$\frac{\partial^{}{F<em>t(X)}}{\partial {X_i}^{}}$  应该为正，以便当特征 $X_i$ 增加时 $F_t(X)$ 增加。同时，${\sum</em>{j≠t}}\frac{\partial^{}{F_j(X)}}{\partial {X_i}^{}}$ 需要为负才能减少或保持不变。</li>
+<li>第二行的结果允许我们把所有其他的正向导数分量一起考虑，这样可以很容易地比较 $S(X,t)[i]$ 的所有输入特征。</li>
+<li><strong>$S(X,t)[i]$ 的高值对应于将增加目标类或者显着减少其他类或者两者皆有的输入特征。</strong> 通过增加这些特征，攻击最终将样本误分类到目标类别中。</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/33588992.jpg" alt=""></p>
+<pre><code>LeNet架构的784维输入的显着图。 784输入尺寸reshape为对应于28x28图像像素。大的绝对值对应于受干扰时对输出有显着影响的特征。
+</code></pre><ul>
+<li>引入一个额外的图，它与方程式(8)中给出的相对应，通过寻找攻击者应该减少的特征来实现误分类。唯一的区别在于对正向导数值的约束以及第二行绝对值的位置：</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/86366637.jpg" alt=""></p>
+<h3 id="2-1-3-emsp-修改样本："><a href="#2-1-3-emsp-修改样本：" class="headerlink" title="2.1.3&emsp;修改样本："></a>2.1.3&emsp;修改样本：</h3><p>&emsp;一旦输入特征已经被对抗性显著图识别，就需要被扰乱以实现攻击者的目标。 这是算法1每次迭代的最后一步，所选特征被扰动的数量（算法1中的$θ$）也是问题特定的。 我们在之后讨论如何在计算机视觉应用中设置这个参数。 最后，通过参数 $γ$来指定最大迭代次数，这相当于样本中允许的最大失真。 它限制了改变的特征的数量以制造对抗样本，并且可以取任何小于特征数量的正整数值。找到正确的 $γ$ 值需要考虑人类对对抗样本的感知失真的影响,太多的失真可能会导致对抗样本容易被人类识别。</p>
+<h1 id="3-emsp-方法应用"><a href="#3-emsp-方法应用" class="headerlink" title="3.&emsp;方法应用"></a>3.&emsp;方法应用</h1><p>&emsp;我们使用三种工具正式描述了一类由前馈DNN误分类的制作对抗样本的算法：正向导数，对抗显著图和制作算法。 我们现在将这些工具应用于用于计算机视觉分类任务的DNN：手写数字识别。 实验显示，我们的算法成功地将来自任何源类的对抗样本制作成任何给定目标类别，对于这个应用来说，这意味着任何数字可以被扰乱，使得它被误分类为任何其他数字。</p>
+<h2 id="3-1-emsp-算法二"><a href="#3-1-emsp-算法二" class="headerlink" title="3.1&emsp;算法二"></a>3.1&emsp;算法二</h2><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/3583770.jpg" alt=""></p>
+<p>&emsp;给定网络$F$，算法2通过扰动由saliency_map选择的 <strong>两个输入特征（即，像素强度）$p_1$ 和 $p_2$ 来迭代地修改样本</strong> 。 使用DNN的正向导数 $∇F(X^*)$ 在算法的每次迭代之间构建和更新显著图。 当满足以下条件之一时，该算法停止：</p>
+<p>&emsp;&emsp;      （1）对抗样本被DNN分类为目标类别$t$<br>&emsp;&emsp;      （2）已达到最大迭代次数max_iter，<br>&emsp;&emsp;      （3）特征搜索域 $Γ$  是空的</p>
+<p>&emsp;制作算法由三个参数进行微调：</p>
+<ul>
+<li><p>最大失真$γ$：这个定义了什么时候该算法应该停止修改样本以达到对抗目标类别。 以百分比表示的最大失真对应于制作对抗样本时要修改的像素的最大数量，并因此如下设置最大迭代次数 $max_iter=\frac{784.γ}{2.100}$ （每次迭代修改2个像素）：</p>
+</li>
+<li><p>显著图：子程序saliency_map生成一个图，定义哪个输入要素将在迭代过程中被修改。 用于生成显著图的策略随着所考虑的DNN所处理的数据的性质以及对抗目标而变化。 我们在后面的算法3中提供了一个子例程。</p>
+</li>
+<li><p><strong>每次迭代的特征变化$θ$</strong>：一旦使用显著图选择了输入特征，它们必须被修改。 引入这些特征的变化 $θ$ 是攻击者必须设置的另一个参数，与它使用的显著图一致。</p>
+</li>
+</ul>
+<h2 id="3-2-emsp-策略一：通过增加像素强度来制作"><a href="#3-2-emsp-策略一：通过增加像素强度来制作" class="headerlink" title="3.2&emsp;策略一：通过增加像素强度来制作"></a>3.2&emsp;策略一：通过增加像素强度来制作</h2><p>&emsp;制作对抗样本的第一个策略是基于增加一些像素的强度。 为了达到这个目的，我们从MNIST测试集中选取了10个手写数字样本，每个数字类别从0到9。  所有像素强度以θ= +1增加。</p>
+<ul>
+<li>对抗显著图用来制作算法，选择可以增加的像素对，这是在等式(8)的一般分类情况下引入的图应用。该图旨在利用下面的heuristic算法去寻找像素对 $(p_1，p_2)$ :</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/76963465.jpg" alt=""></p>
+<p>&emsp;&emsp;&emsp;这种启发式搜索能够增加目标类输出的像素对，同时减少所有其他类输出的总和。</p>
+<ul>
+<li><p><strong>显著图考虑像素对而不考虑单个像素，因为一次选择一个像素太严格，并且很少像素满足公式8中描述的启发式搜索标准。</strong> 搜索像素对更可能匹配条件，因为 其中一个像素可以补偿另一个像素的微小缺陷。 我们来考虑一个简单的例子：$p_1$的目标导数为5，其他类的导数总和等于0.1，而 $p_2$ 作为目标导数等于-0.5，其他类导数的总和等于-6。 单独地，这些像素与公式(8)中所述的显著图的标准不匹配，但是组合起来，该对确实与公式(10)中定义的显着性标准匹配。</p>
+</li>
+<li><p>算法3给出了相应的子程序saliency_map的伪代码。</p>
+</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/78631019.jpg" alt=""></p>
+<p>&emsp;该算法能够为所有90个源 - 目标类对创建成功的对抗样本。</p>
+<ul>
+<li>下图显示了获得的90个对抗样品以及用于制造它们的10个原始样品。</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/22786902.jpg" alt=""></p>
+<pre><code>原始样本在对角线上找到。 行i和列j上的样本，当i ≠ j时，是从最初被归类为源类别i的图像制作的样本，将被错误分类为目标类别j。
+</code></pre><ul>
+<li>在空输入（所以像素设置为0强度）上运行制作算法，并针对从0到9的每个类别制作一个对抗样本。下所示的不同样本展示了对抗显著图如何识别与一个类中分类有关的输入特征：</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/10161483.jpg" alt=""></p>
+<pre><code>有趣的是，对于类别0，2，3和5可以清楚地识别目标数字。
+</code></pre><h2 id="3-3-emsp-策略二：通过降低像素强度来制作"><a href="#3-3-emsp-策略二：通过降低像素强度来制作" class="headerlink" title="3.3&emsp;策略二：通过降低像素强度来制作"></a>3.3&emsp;策略二：通过降低像素强度来制作</h2><p>&emsp;第二种对抗策略通过 $θ=-1$ 来减小像素强度。 与公式(10)中所写的公式相同，但约束条件不同：乘法运算的左操作数现在被约束为负，右操作数为正。 在本文前面的章节中也会介绍这种启发式算法，它可以搜索使目标类输出增加，同时减少所有其他类输出总和的像素对。</p>
+<ul>
+<li>该算法能够为所有源 - 目标类对创建成功的对抗样本。 下图显示了获得的90个对抗样品以及用于制造它们的10个原始样品。 要观察的是，通过降低像素强度引入的失真似乎很难被人眼检测到。</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/83317984.jpg" alt=""></p>
+<h1 id="4-emsp-评估"><a href="#4-emsp-评估" class="headerlink" title="4.&emsp;评估"></a>4.&emsp;评估</h1><h2 id="4-1-emsp-生成大量对抗样本"><a href="#4-1-emsp-生成大量对抗样本" class="headerlink" title="4.1&emsp;生成大量对抗样本"></a>4.1&emsp;生成大量对抗样本</h2><p>&emsp;设计一组实验来评估MNIST数据集中的所有合法样本是否可以被攻击者利用来产生对抗样本。</p>
+<h3 id="4-1-1-emsp-实验设计"><a href="#4-1-1-emsp-实验设计" class="headerlink" title="4.1.1&emsp;实验设计"></a>4.1.1&emsp;实验设计</h3><ul>
+<li><p>样本集：<br>我们在三组10,000个样本上运行我们的制作算法，每个样本提取自三个MNIST训练，验证和测试集中的一个。对于这些样本中的每一个，我们制作了9个对立样本，每个样本都归类于与原始类别不同的9个目标类别之一。因此，我们为每组生成了9万个样本，总共有27万个对抗样本。</p>
+</li>
+<li><p>参数设置：<br>我们将最大失真设为 $γ= 14.5％$ ，像素强度增加 $θ= + 1$。</p>
+</li>
+<li><p>评价指标：<br>a. 成功率$τ$被定义为由DNN成功分类为对抗目标类别的对抗样本的百分比。<br>b. 失真被定义为在合法样本中修改以获得对抗样本的像素的百分比。换句话说，就是为了获得对抗样本而修改的输入特征的百分比。</p>
+</li>
+</ul>
+<h3 id="4-1-2-emsp-实验结果与讨论"><a href="#4-1-2-emsp-实验结果与讨论" class="headerlink" title="4.1.2&emsp;实验结果与讨论"></a>4.1.2&emsp;实验结果与讨论</h3><p>&emsp;我们计算两个平均失真值：一个考虑所有样本，另一个考虑成功的样本:</p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/61993056.jpg" alt=""></p>
+<ul>
+<li><p>平均成功率为$97.10％$，所有对抗样本的平均失真率为$4.44％$，成功对抗样本的平均失真率为 $4.02％$ 。<br>这意味着为了制作成功的对抗样本而修改的像素的平均数量是784个像素中的32个。<br>第一个失真数字较高，因为它包含了不成功的样本。</p>
+</li>
+<li><p>我们还研究了使用降低显著图制作9,000个对抗样本。 我们发现成功率 $τ= 64.7％$ 较低，平均失真 $ε= 3.62％$ 略低。<br>同样，减小像素强度在产生期望的对抗行为方面不如递增像素强度成功。 直觉上，这可以理解，因为消除像素减少了信息熵，从而使DNN难以提取分类样本所需的信息。 强度变化的绝对值越大，DNN越可靠地错误分类。</p>
+</li>
+</ul>
+<h2 id="4-2-emsp-量化硬度和建立防御机制"><a href="#4-2-emsp-量化硬度和建立防御机制" class="headerlink" title="4.2&emsp;量化硬度和建立防御机制"></a>4.2&emsp;量化硬度和建立防御机制</h2><p>&emsp;在前面的实验中，270,000个对抗样本中约有2.9％没有成功制作。这表明有些样本比其他样本更难开发。<br>&emsp;此外，所报告的失真数据在所有对抗样本上取平均值，但不是所有样本都需要相同的失真才能被错误分类。<br>因此，我们现在研究不同样品的硬度以量化这些现象。 我们的目标是确定哪些源 - 目标类对最容易被利用，以及不同的源 - 目标类对之间的相似性。 类对是一对源类和目标类。 这个硬度指标使我们能够为建立防御机制奠定基础。</p>
+<h3 id="4-2-1-emsp-类对研究"><a href="#4-2-1-emsp-类对研究" class="headerlink" title="4.2.1&emsp;类对研究"></a>4.2.1&emsp;类对研究</h3><ul>
+<li>使用前面实验中制作的9万个对抗样本，从10,000个样本 的MNIST测试集。</li>
+<li>在下图中，我们绘制成功率矩阵，表示哪对最成功。 <strong>较深的阴影对应于较高的成功率</strong> 。这些行对应于每个源类的成功率，而列对应于每个目标类的成功率。</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/87138047.jpg" alt="">  </p>
+<pre><code>如果按行读取矩阵，可以感觉到类0，2和8很难制作，而类1，7和9很容易制作。 类似地，按照列的方式读取矩阵，可以看出，类1和类7很难制作，而类0,8和9容易制作。
+</code></pre><ul>
+<li>下图，报告了源 - 目标类对的 <strong>成功样本的平均失真ε</strong></li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/1594025.jpg" alt=""></p>
+<ul>
+<li>有趣的是，<strong>需要较低失真的类对应于前一个矩阵中成功率较高的类</strong> 。 例如，对应于等级1的列与最高失真相关联，并且是前一个矩阵中成功率最低的列。 实际上，<strong>类对的平均失真越高，该类对中的样本越有可能达到最大失真，从而产生不成功的对抗样本</strong> 。</li>
+</ul>
+<h3 id="4-2-2-emsp-硬度测量"><a href="#4-2-2-emsp-硬度测量" class="headerlink" title="4.2.2&emsp;硬度测量"></a>4.2.2&emsp;硬度测量</h3><p>&emsp;分析结果表明一些源 - 目标类对不如其他类容易制作对抗样本。 这与防御者有关，他们正在寻找哪一类DNN最容易遭受对抗攻击。我们将这一指标称为<strong>目标类别相对于给定源类别的硬度</strong>。 它将类对 $(s，t)$ 的平均失真相对于其成功率进行标准化：</p>
+<script type="math/tex; mode=display">
+H(s,t)=\int_τ {ε(s, t, τ )} \,{\rm d}τ</script><p>&emsp;其中 $ε(s，t，τ)$ 是相应成功率 $τ$ 的一组样本的平均失真。<br>&emsp;最大失真的集合给出了一系列 $k∈1..K$  的对 $(εk，τk)$。因此，用于计算源 - 目标类对的硬度的实际公式可以从梯形规则导出：</p>
+<script type="math/tex; mode=display">
+H(s,t)≈\sum_{k=1}^{K-1}\;(τ_{k+1}-τ_k)\,\frac{ε(s, t, τ_{k+1}) + ε(s, t, τ_k)}{2}</script><ul>
+<li><p>我们使用算法中的一组 $K = 9$ 的最大失真值<br>$Υ∈{0.3,1.3,2.6,5.1,7.7,10.2,12.8,25.5,38.3}％$ 计算所有类别的硬度值。 对于每个最大失真值$Y$，平均失真$ε$和成功率$τ$在9,000个对抗样本上被平均。</p>
+</li>
+<li><p>下图显示了所有类对 $(s, t) ∈ {0..9}^<br>2$ 的硬度值 $H(s,t)$。<br>源 - 目标类对的硬度矩阵。较深阴影对应难以实现错误分类的样本。</p>
+</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/37082866.jpg" alt=""></p>
+<pre><code>观察到矩阵的形状与上图中绘制的平均失真矩阵类似。但是，硬度测量更精确，因为它使用一系列最大失真。
+</code></pre><h3 id="4-2-3-emsp-对抗距离"><a href="#4-2-3-emsp-对抗距离" class="headerlink" title="4.2.3&emsp;对抗距离"></a>4.2.3&emsp;对抗距离</h3><p>&emsp;样本$X$到类别$t$的对抗距离，并将其写为$A(X，t)$。 它估计样本 $X$ 和目标分类之间的距离。 我们将距离定义为：</p>
+<script type="math/tex; mode=display">
+A(X,t)=1-\frac{1}{M}\,\sum_{i∈0..M}{1_{S(X,t)[i]>0}}</script><p>&emsp;其中 $1_E$ 是事件 $E$ 的指示函数（即当且仅当 $E$ 为真时为1）。 简而言之，$A(X,t)$ 是在算法2的第一次迭代中计算的 $X$ 的对抗显著图中的非零元素的归一化数目。对抗距离越接近 1，样本 $X$ 在目标分类 $t$ 中将更难以错误分类。</p>
+<ul>
+<li>图15：使用1000个样本计算的,每个源 - 目标类对的 平均对抗距离。</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/60081174.jpg" alt=""></p>
+<p>&emsp;上图证实了这个公式是凭经验确定的。它说明了每个源 - 目标类对的平均对抗距离的值，使得可以很容易地将平均值与硬度矩阵进行比较。 为了计算它，我们稍微改变公式，以对特征对进行求和，反映我们在验证过程中所做的观察。</p>
+<ul>
+<li>这种类间距离的概念直观地定义了网络F与对抗性扰动的鲁棒性的度量。 建议如下定义：<script type="math/tex; mode=display">
+R(F)=\min_{(X,t)}\,A(X,t)</script></li>
+</ul>
+<h2 id="4-3-emsp-研究人类对对抗样本的感知"><a href="#4-3-emsp-研究人类对对抗样本的感知" class="headerlink" title="4.3&emsp;研究人类对对抗样本的感知"></a>4.3&emsp;研究人类对对抗样本的感知</h2><p>&emsp;对抗样本不仅要被深度神经网络误分类为目标类别，而且还要在视觉上被人类分类为源类别。</p>
+<ul>
+<li><p>第一个实验旨在确定输入数据的基线感知率。<br>从原始MNIST数据集中的222个未改变的样本中随机挑选了3个呈现给74个参与者。 参与者将97.4％的样本确定为数字，正确分类95.3％的数字样本。</p>
+</li>
+<li><p>第二组实验试图评估失真量（$ε$）如何影响人的感知。 在这里，184名参与者被呈现总共1707个不同程度的失真（强度增加$θ= + 1$）样本。 实验显示，在低于阈值（ $ε= 14.29％$ 变形）的情况下，参与者能够将样本确定为数字（95％），并且正确地将它们分类（90％），准确度略微低于未改变的样本。 在高于阈值的失真率下，分类率急剧下降（71％）。</p>
+</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/29250443.jpg" alt=""></p>
+<ul>
+<li>最后一组实验评估了强度变化（$θ$）对感知的影响，如图17所示.203名参与者准确地确定了5,355个样本数字（96％）并正确分类（95％）。 在绝对强度较高（$θ= -1$ 和 $θ= +1$ ）时，特定的数字分类略有下降（90.5％和90％），但是数字的识别基本没有变化。</li>
+</ul>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/64566307.jpg" alt=""></p>
+<pre><code>改变特征失真强度提供了更好的结果：在-0.7≤θ≤+ 0.7时，人类以基本上与原始样本数据相同的速率对样本数据进行分类。
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-learning/" rel="tag"><i class="fa fa-tag"></i> Deep learning</a>
+          
+            <a href="/tags/Adversarial-attack/" rel="tag"><i class="fa fa-tag"></i> Adversarial attack</a>
+          
+            <a href="/tags/Translation/" rel="tag"><i class="fa fa-tag"></i> Translation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/18/python对象引用/" rel="prev" title="python：对象引用、可变性（一）">
+                python：对象引用、可变性（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg"
+                alt="Andy_z" />
+            
+              <p class="site-author-name" itemprop="name">Andy_z</p>
+              <p class="site-description motion-element" itemprop="description">About some of my learning summary, translation of thesis...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-emsp-研究一个简单的神经网络"><span class="nav-number">1.</span> <span class="nav-text">1. 研究一个简单的神经网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-emsp-推广到前馈深度神经网络"><span class="nav-number">2.</span> <span class="nav-text">2. 推广到前馈深度神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-emsp-算法1"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 算法1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-emsp-深度神经网络的正向导数："><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 深度神经网络的正向导数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-emsp-对抗显著图"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2 对抗显著图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-emsp-修改样本："><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3 修改样本：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-emsp-方法应用"><span class="nav-number">3.</span> <span class="nav-text">3. 方法应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-emsp-算法二"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 算法二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-emsp-策略一：通过增加像素强度来制作"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 策略一：通过增加像素强度来制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-emsp-策略二：通过降低像素强度来制作"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 策略二：通过降低像素强度来制作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-emsp-评估"><span class="nav-number">4.</span> <span class="nav-text">4. 评估</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-emsp-生成大量对抗样本"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 生成大量对抗样本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-emsp-实验设计"><span class="nav-number">4.1.1.</span> <span class="nav-text">4.1.1 实验设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-emsp-实验结果与讨论"><span class="nav-number">4.1.2.</span> <span class="nav-text">4.1.2 实验结果与讨论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-emsp-量化硬度和建立防御机制"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 量化硬度和建立防御机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-emsp-类对研究"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1 类对研究</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-emsp-硬度测量"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2 硬度测量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-emsp-对抗距离"><span class="nav-number">4.2.3.</span> <span class="nav-text">4.2.3 对抗距离</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-emsp-研究人类对对抗样本的感知"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 研究人类对对抗样本的感知</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy_z</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

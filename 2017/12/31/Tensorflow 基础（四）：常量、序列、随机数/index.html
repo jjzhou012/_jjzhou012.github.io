@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Tensorflow," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Andy_z 's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="常数值张量Tensorflow 提供了几种可用于生成常量的操作。 1import tensorflow as tf tf.zeros1234tf.zeros(       shape,                 # 整数、整数元组或类型为int32的1维Tensor的列表。       dtype=tf.float32,      # 结果Tensor中元素的类型。       name=N">
+<meta name="keywords" content="Tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow 基础（四）：常量、序列、随机数">
+<meta property="og:url" content="http://yoururl.com/2017/12/31/Tensorflow 基础（四）：常量、序列、随机数/index.html">
+<meta property="og:site_name" content="Andy_z &#39;s Blog">
+<meta property="og:description" content="常数值张量Tensorflow 提供了几种可用于生成常量的操作。 1import tensorflow as tf tf.zeros1234tf.zeros(       shape,                 # 整数、整数元组或类型为int32的1维Tensor的列表。       dtype=tf.float32,      # 结果Tensor中元素的类型。       name=N">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-24T12:08:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tensorflow 基础（四）：常量、序列、随机数">
+<meta name="twitter:description" content="常数值张量Tensorflow 提供了几种可用于生成常量的操作。 1import tensorflow as tf tf.zeros1234tf.zeros(       shape,                 # 整数、整数元组或类型为int32的1维Tensor的列表。       dtype=tf.float32,      # 结果Tensor中元素的类型。       name=N">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoururl.com/2017/12/31/Tensorflow 基础（四）：常量、序列、随机数/"/>
+
+
+
+
+
+  <title>Tensorflow 基础（四）：常量、序列、随机数 | Andy_z 's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/jjzhou012/jjzhou012.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Andy_z 's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding - Thinking - Sharing - Deep learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2017/12/31/Tensorflow 基础（四）：常量、序列、随机数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Tensorflow 基础（四）：常量、序列、随机数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T00:00:00+08:00">
+                2017-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="常数值张量"><a href="#常数值张量" class="headerlink" title="常数值张量"></a>常数值张量</h2><p>Tensorflow 提供了几种可用于生成常量的操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<h4 id="tf-zeros"><a href="#tf-zeros" class="headerlink" title="tf.zeros"></a>tf.zeros</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.zeros(</span><br><span class="line">       shape,                 <span class="comment"># 整数、整数元组或类型为int32的1维Tensor的列表。</span></span><br><span class="line">       dtype=tf.float32,      <span class="comment"># 结果Tensor中元素的类型。</span></span><br><span class="line">       name=<span class="keyword">None</span>)             <span class="comment"># 操作的名称(optional)</span></span><br></pre></td></tr></table></figure>
+<p>Creates a tensor with all elements set to zero.<br>创建一个所有元素都为零的张量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.zeros(shape=[<span class="number">2</span>, <span class="number">3</span>], dtype=tf.float32, name=<span class="string">'a'</span>)     <span class="comment"># [[0. 0. 0.], [0. 0. 0.]]</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;tf.Tensor &#39;a_3:0&#39; shape=(2, 3) dtype=float32&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.zeros(shape=[<span class="number">2</span>, <span class="number">3</span>], dtype=tf.float32, name=<span class="string">'a'</span>))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[0. 0. 0.]
+ [0. 0. 0.]]
+</code></pre><h4 id="tf-zeros-like"><a href="#tf-zeros-like" class="headerlink" title="tf.zeros_like"></a>tf.zeros_like</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tf.zeros_like(</span><br><span class="line">    tensor,              <span class="comment"># 给定张量        </span></span><br><span class="line">    dtype=<span class="keyword">None</span>,          <span class="comment"># 返回的张量的类型，必须是以下类型之一：float16，float32，float64，int8，uint8，int16，uint16，int32，int64，complex64，complex128，bool或string。</span></span><br><span class="line">    name=<span class="keyword">None</span>,            </span><br><span class="line">    optimize=<span class="keyword">True</span>)       <span class="comment"># 如果为true，则尝试静态确定“张量”的形状并将其编码为常量。</span></span><br></pre></td></tr></table></figure>
+<p>给定一个张量（tensor），该操作返回具有相同类型和形状的张量,所有元素设置为零。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor = tf.constant([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">tf.zeros_like(tensor, dtype=tf.int32)                   <span class="comment"># [[0 0 0], [0 0 0]]</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;tf.Tensor &#39;zeros_like:0&#39; shape=(2, 3) dtype=int32&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.zeros_like(tensor))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[0 0 0]
+ [0 0 0]]
+</code></pre><h4 id="tf-ones"><a href="#tf-ones" class="headerlink" title="tf.ones"></a>tf.ones</h4><p>类似于 tf.zeros() ，创建一个所有元素都为1的张量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.ones([<span class="number">2</span>, <span class="number">3</span>], tf.int32)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;tf.Tensor &#39;ones_4:0&#39; shape=(2, 3) dtype=int32&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.ones(shape=[<span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1. 1. 1.]
+ [1. 1. 1.]]
+</code></pre><h4 id="tf-ones-like"><a href="#tf-ones-like" class="headerlink" title="tf.ones_like"></a>tf.ones_like</h4><p>类似于tf.zeros_like(), 给定一个张量（tensor），该操作返回具有相同类型和形状的张量,所有元素设置为1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tensor = tf.constant([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.ones_like(tensor))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1 1 1]
+ [1 1 1]]
+</code></pre><h4 id="tf-fill"><a href="#tf-fill" class="headerlink" title="tf.fill"></a>tf.fill</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.fill(</span><br><span class="line">    dims,           <span class="comment"># int32, int64. 1-D</span></span><br><span class="line">    value,          <span class="comment"># 0-D (scalar)</span></span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>Creates a tensor filled with a scalar value.<br>创建一个张量，所有元素为指定标量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.fill([<span class="number">2</span>, <span class="number">3</span>], <span class="number">9</span>))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[9 9 9]
+ [9 9 9]]
+</code></pre><h4 id="tf-constant"><a href="#tf-constant" class="headerlink" title="tf.constant"></a>tf.constant</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tf.constant(</span><br><span class="line">    value, </span><br><span class="line">    dtype=<span class="keyword">None</span>, </span><br><span class="line">    shape=<span class="keyword">None</span>, </span><br><span class="line">    name=<span class="string">'Const'</span>, </span><br><span class="line">    verify_shape=<span class="keyword">False</span>)       <span class="comment"># 布尔值，用于验证值的形状。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Constant 1-D Tensor populated with value list.</span></span><br><span class="line">tensor = tf.constant([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>])        <span class="comment"># [1 2 3 4 5 6 7]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Constant 2-D tensor populated with scalar value -1.</span></span><br><span class="line">tensor = tf.constant(<span class="number">-1.0</span>, shape=[<span class="number">2</span>, <span class="number">3</span>])           <span class="comment"># [[-1. -1. -1.], [-1. -1. -1.]]</span></span><br></pre></td></tr></table></figure>
+<h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><h4 id="tf-linspace-tf-lin-space"><a href="#tf-linspace-tf-lin-space" class="headerlink" title="tf.linspace (tf.lin_space)"></a>tf.linspace (tf.lin_space)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tf.linspace(</span><br><span class="line">    start,              <span class="comment"># 张量。必须是以下类型之一：float32，float64。范围中的第一项。</span></span><br><span class="line">    stop,               <span class="comment"># 张量。必须和 start 具有相同的类型。范围中的最后一项。</span></span><br><span class="line">    num,                <span class="comment"># 张量。必须是以下类型之一：int32，int64。要生成的值的数量。  (项数)</span></span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>均分计算指令，在间隔中生成值。   （一维）<br>从一开始就生成 num 平均间隔值的序列。如果 num &gt; 1，则序列中的值通过 stop - start / num - 1 增加，因此最后一个是完全停止的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.linspace(<span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">5</span>, name=<span class="string">"linespace"</span>))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 1.    3.25  5.5   7.75 10.  ]
+</code></pre><h4 id="tf-range"><a href="#tf-range" class="headerlink" title="tf.range"></a>tf.range</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tf.range(</span><br><span class="line">    start,          <span class="comment"># 0-D Tensor（标量）。如果 limit 不是 None，则作为该范围中的第一个条目；否则，作为范围限制，并且第一项默认为0。          </span></span><br><span class="line">    limit=<span class="keyword">None</span>,     <span class="comment"># 0-D Tensor（标量）。序列上限，具有排他性。如果没有，则默认值为 start，但是该范围的第一个条目默认为0。</span></span><br><span class="line">    delta=<span class="number">1</span>,        <span class="comment"># 0-D Tensor（标量）。递增 start 的数字。默认为1。</span></span><br><span class="line">    dtype=<span class="keyword">None</span>,     <span class="comment"># 结果张量的元素的类型。</span></span><br><span class="line">    name=<span class="string">'range'</span>)</span><br></pre></td></tr></table></figure>
+<p>创建一个数字序列，该数字开始于 start 并且将 delta 增量扩展到不包括 limit 的序列。</p>
+<p>除非明确提供，否则得到的张量的 dtype 是从输入中推断出来的。</p>
+<p>相当于 np.arange</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">start = <span class="number">3</span></span><br><span class="line">limit = <span class="number">18</span></span><br><span class="line">delta = <span class="number">3</span></span><br><span class="line">tf.range(start, limit, delta)     <span class="comment"># [3, 6, 9, 12, 15]</span></span><br><span class="line"></span><br><span class="line">start = <span class="number">3</span></span><br><span class="line">limit = <span class="number">1</span></span><br><span class="line">delta = <span class="number">-0.5</span></span><br><span class="line">tf.range(start, limit, delta)     <span class="comment"># [3, 2.5, 2, 1.5]</span></span><br><span class="line"></span><br><span class="line">limit = <span class="number">5</span></span><br><span class="line">tf.range(limit)                   <span class="comment"># [0, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line">start = <span class="number">5</span></span><br><span class="line">limit = <span class="keyword">None</span></span><br><span class="line">delta = <span class="number">2</span></span><br><span class="line">tf.range(start, limit, delta)     <span class="comment"># [0 2 4]</span></span><br></pre></td></tr></table></figure>
+<h2 id="随机张量"><a href="#随机张量" class="headerlink" title="随机张量"></a>随机张量</h2><h4 id="tf-random-normal"><a href="#tf-random-normal" class="headerlink" title="tf.random_normal"></a>tf.random_normal</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tf.random_normal(</span><br><span class="line">    shape,                 <span class="comment"># 一维整数张量或 Python 数组。输出张量的形状。</span></span><br><span class="line">    mean=<span class="number">0.0</span>,              <span class="comment"># dtype 类型的0-D张量或 Python 值。正态分布的均值。</span></span><br><span class="line">    stddev=<span class="number">1.0</span>,            <span class="comment"># dtype 类型的0-D张量或 Python 值。正态分布的标准差。</span></span><br><span class="line">    dtype=tf.float32, </span><br><span class="line">    seed=<span class="keyword">None</span>,             <span class="comment"># 一个 Python 整数。用于为分发创建一个随机种子。查看 tf.set_random_seed 行为。</span></span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>正态分布：<br>产生服从正态分布的随机数</p>
+<h4 id="tf-truncated-normal"><a href="#tf-truncated-normal" class="headerlink" title="tf.truncated_normal"></a>tf.truncated_normal</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tf.truncated_normal(</span><br><span class="line">    shape,                <span class="comment"># 一维整数张量或 Python 数组，输出张量的形状。</span></span><br><span class="line">    mean=<span class="number">0.0</span>,             <span class="comment"># dtype 类型的 0-D 张量或 Python 值，截断正态分布的均值。</span></span><br><span class="line">    stddev=<span class="number">1.0</span>,           <span class="comment"># dtype 类型的 0-D 张量或 Python 值，截断前正态分布的标准偏差。</span></span><br><span class="line">    dtype=tf.float32, </span><br><span class="line">    seed=<span class="keyword">None</span>,            <span class="comment"># 一个 Python 整数。用于为分发创建随机种子。</span></span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>截断正态分布：<br>生成的值遵循具有指定平均值和标准偏差的正态分布，不同之处在于其平均值大于 2 个标准差的值将被丢弃并重新选择。</p>
+<h4 id="tf-random-uniform"><a href="#tf-random-uniform" class="headerlink" title="tf.random_uniform"></a>tf.random_uniform</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tf.random_uniform(</span><br><span class="line">    shape,                <span class="comment"># 一维整数张量或 Python 数组。输出张量的形状。</span></span><br><span class="line">    minval=<span class="number">0</span>,             <span class="comment"># dtype 类型的 0-D 张量或 Python 值；生成的随机值范围的下限；默认为0。</span></span><br><span class="line">    maxval=<span class="keyword">None</span>,          <span class="comment"># dtype 类型的 0-D 张量或 Python 值。要生成的随机值范围的上限。如果 dtype 是浮点，则默认为1 。</span></span><br><span class="line">    dtype=tf.float32,     <span class="comment"># 输出的类型：float16、float32、float64、int32、orint64。</span></span><br><span class="line">    seed=<span class="keyword">None</span>, </span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>均匀分布：<br>产生服从均匀分布的随机数</p>
+<p>可能引发的异常：</p>
+<ul>
+<li>ValueError：如果 dtype 是整数并且 maxval 没有被指定。</li>
+</ul>
+<h4 id="tf-random-shuffle"><a href="#tf-random-shuffle" class="headerlink" title="tf.random_shuffle"></a>tf.random_shuffle</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.random_shuffle(</span><br><span class="line">    value,                <span class="comment"># 将被打乱的张量。</span></span><br><span class="line">    seed=<span class="keyword">None</span>, </span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>随机地将张量沿其第一维度打乱。</p>
+<p>张量沿着维度0被重新打乱，使得每个 value[j] 被映射到唯一一个 output[i]。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">value = [[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">         [<span class="number">3</span>,<span class="number">4</span>],</span><br><span class="line">         [<span class="number">5</span>,<span class="number">6</span>]]</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(tf.random_shuffle(value)))</span><br></pre></td></tr></table></figure>
+<pre><code>[[3 4]
+ [1 2]
+ [5 6]]
+</code></pre><h4 id="tf-random-crop"><a href="#tf-random-crop" class="headerlink" title="tf.random_crop"></a>tf.random_crop</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tf.random_crop(</span><br><span class="line">    value,          <span class="comment"># 被裁减张量</span></span><br><span class="line">    size,           <span class="comment"># 一维张量，大小等级为 value。裁剪尺寸</span></span><br><span class="line">    seed=<span class="keyword">None</span>, </span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>随机地将张量裁剪为给定的大小。</strong><br>以一致选择的偏移量将一个形状 size 部分从 value 中切出。需要的条件：value.shape &gt;= size。  _<br>如果大小不能裁剪，请传递该维度的完整大小。例如，可以使用 size = [crop_height, crop_width, 3] 裁剪 RGB 图像。</p>
+<p>返回：</p>
+<p>与 value 具有相同的秩并且与 size 具有相同形状的裁剪张量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">value = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">         [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">         [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]]</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(tf.random_crop(value, size=[<span class="number">1</span>,<span class="number">2</span>])))</span><br></pre></td></tr></table></figure>
+<pre><code>[[2 3]]
+</code></pre><h4 id="tf-multinomial"><a href="#tf-multinomial" class="headerlink" title="tf.multinomial"></a>tf.multinomial</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tf.multinomial(</span><br><span class="line">    logits,                     <span class="comment"># 形状为 [batch_size, num_classes] 的二维张量；每个切片：[i, :] 表示所有类的非标准化对数概率。</span></span><br><span class="line">    num_samples,                <span class="comment"># 0维张量。为每行切片绘制的独立样本数。</span></span><br><span class="line">    seed=<span class="keyword">None</span>, </span><br><span class="line">    name=<span class="keyword">None</span>, </span><br><span class="line">    output_dtype=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>从多项分布中绘制样本。</p>
+<p>返回值：</p>
+<p>返回绘制样品的形状 [batch_size, num_samples]。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a =[[<span class="number">0.2</span>,<span class="number">0.3</span>,<span class="number">0.5</span>],</span><br><span class="line">    [<span class="number">0.1</span>,<span class="number">0.8</span>,<span class="number">0.1</span>]]</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(tf.multinomial(a,<span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<pre><code>[[2]
+ [1]]
+</code></pre><p>tf.multinomial根据分布概率的大小随机返回矩阵a在轴1上的序列号</p>
+<h4 id="tf-random-gamma"><a href="#tf-random-gamma" class="headerlink" title="tf.random_gamma"></a>tf.random_gamma</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tf.random_gamma(</span><br><span class="line">    shape,                <span class="comment"># 一维整数张量或 Python 数组。输出样本的形状是按照 alpha/beta-parameterized 分布绘制的。</span></span><br><span class="line">    alpha,                <span class="comment"># 一个张量或者 Python 值或者 dtype 类型的 N-D 数组。alpha 提供描述要采样的 gamma distribution(s) 的形状 parameter(s)；必须可以播放 beta。</span></span><br><span class="line">    beta=<span class="keyword">None</span>,            <span class="comment"># 一个张量或者 Python 值或者 dtype 类型的 N-D 数组；默认为1；beta 提供要采样的 gamma distribution(s) 的反比例 parameter(s)。必须可以播放alpha。</span></span><br><span class="line">    dtype=tf.float32,     <span class="comment"># alpha、beta 的类型，输出：float16，float32 或 float64。</span></span><br><span class="line">    seed=<span class="keyword">None</span>,      </span><br><span class="line">    name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>从每个给定的 Gamma 分布 中绘制 shape 样本。</p>
+<p>alpha 是描述 distribution(s) 的形状参数，并且 beta 是反比例参数（s）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">samples = tf.random_gamma([<span class="number">10</span>], [<span class="number">0.5</span>, <span class="number">1.5</span>]) </span><br><span class="line"><span class="comment"># samples 的形状为[10, 2], 其中每个 slice [:, 0] 和 [:, 1] 表示从每个分布中抽取的样本</span></span><br><span class="line"></span><br><span class="line">samples = tf.random_gamma([<span class="number">7</span>, <span class="number">5</span>], [<span class="number">0.5</span>, <span class="number">1.5</span>]) </span><br><span class="line"><span class="comment"># samples 形状为[7, 5, 2], 其中每个 slice [:, :, 0] 和 [:, :, 1] 表示从两个分布中的每一个中抽取 7x5 个样本</span></span><br><span class="line"></span><br><span class="line">samples = tf.random_gamma([<span class="number">30</span>], [[<span class="number">1.</span>],[<span class="number">3.</span>],[<span class="number">5.</span>]], beta=[[<span class="number">3.</span>, <span class="number">4.</span>]]) </span><br><span class="line"><span class="comment"># samples 形状为 [30, 3, 2], 每个 3x2 分布有30个样本</span></span><br></pre></td></tr></table></figure>
+<h4 id="tf-set-random-seed"><a href="#tf-set-random-seed" class="headerlink" title="tf.set_random_seed"></a>tf.set_random_seed</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.set_random_seed(seed)</span><br></pre></td></tr></table></figure>
+<p>设置图形级随机seed。</p>
+<p>可以从两个seed中获得依赖随机seed的操作：图形级seed和操作级seed。</p>
+<p>它与操作级别seed的交互如下：</p>
+<ul>
+<li>如果既没有设置图层级也没有设置操作级别的seed：则使用随机seed进行该操作。</li>
+<li>如果设置了图形级seed，但操作seed没有设置：系统确定性地选择与图形级seed结合的操作seed，以便获得唯一的随机序列。</li>
+<li>如果未设置图形级seed，但设置了操作seed：使用默认的图层seed和指定的操作seed来确定随机序列。</li>
+<li>如果图层级seed和操作seed都被设置：则两个seed将一起用于确定随机序列。</li>
+</ul>
+<p>要在会话中生成不同的序列，请不要设置图层级别seed或操作级别seed：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = tf.random_uniform([<span class="number">1</span>])</span><br><span class="line">b = tf.random_normal([<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Session 1"</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess1:</span><br><span class="line">  print(sess1.run(a))  <span class="comment"># generates 'A1'</span></span><br><span class="line">  print(sess1.run(a))  <span class="comment"># generates 'A2'</span></span><br><span class="line">  print(sess1.run(b))  <span class="comment"># generates 'B1'</span></span><br><span class="line">  print(sess1.run(b))  <span class="comment"># generates 'B2'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Session 2"</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess2:</span><br><span class="line">  print(sess2.run(a))  <span class="comment"># generates 'A3'</span></span><br><span class="line">  print(sess2.run(a))  <span class="comment"># generates 'A4'</span></span><br><span class="line">  print(sess2.run(b))  <span class="comment"># generates 'B3'</span></span><br><span class="line">  print(sess2.run(b))  <span class="comment"># generates 'B4'</span></span><br></pre></td></tr></table></figure>
+<pre><code>Session 1
+[0.87216747]
+[0.40237963]
+[-0.10062262]
+[0.25310454]
+Session 2
+[0.87216747]
+[0.40237963]
+[-0.10062262]
+[0.25310454]
+</code></pre><p>要为会话中的操作生成相同的可重复序列，请为操作设置seed：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a = tf.random_uniform([<span class="number">1</span>], seed=<span class="number">1</span>)           <span class="comment"># 设置操作级seed</span></span><br><span class="line">b = tf.random_normal([<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Repeatedly running this block with the same graph will generate the same</span></span><br><span class="line"><span class="comment"># sequence of values for 'a', but different sequences of values for 'b'.</span></span><br><span class="line">print(<span class="string">"Session 1"</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess1:</span><br><span class="line">  print(sess1.run(a))  <span class="comment"># generates 'A1'</span></span><br><span class="line">  print(sess1.run(a))  <span class="comment"># generates 'A2'</span></span><br><span class="line">  print(sess1.run(b))  <span class="comment"># generates 'B1'</span></span><br><span class="line">  print(sess1.run(b))  <span class="comment"># generates 'B2'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Session 2"</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess2:</span><br><span class="line">  print(sess2.run(a))  <span class="comment"># generates 'A1'</span></span><br><span class="line">  print(sess2.run(a))  <span class="comment"># generates 'A2'</span></span><br><span class="line">  print(sess2.run(b))  <span class="comment"># generates 'B3'</span></span><br><span class="line">  print(sess2.run(b))  <span class="comment"># generates 'B4'</span></span><br></pre></td></tr></table></figure>
+<pre><code>Session 1
+[0.6041111]
+[0.00114214]
+[1.3846052]
+[1.846501]
+Session 2
+[0.6041111]
+[0.00114214]
+[1.3846052]
+[1.846501]
+</code></pre><p>要使所有操作生成的随机序列在会话中可重复，请设置图形级别seed：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tf.set_random_seed(<span class="number">-1</span>)                     <span class="comment"># 设置图层级seed， </span></span><br><span class="line">a = tf.random_uniform([<span class="number">1</span>])  </span><br><span class="line">b = tf.random_normal([<span class="number">1</span>])  </span><br><span class="line">print(<span class="string">"Session 1"</span>)  </span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess1:  </span><br><span class="line">    print(sess1.run(a))  <span class="comment"># generates 'A1'  </span></span><br><span class="line">    print(sess1.run(a))  <span class="comment"># generates 'A2'  </span></span><br><span class="line">    print(sess1.run(b))  <span class="comment"># generates 'B1'  </span></span><br><span class="line">    print(sess1.run(b))  <span class="comment"># generates 'B2'  </span></span><br><span class="line">print(<span class="string">"Session 2"</span>)  </span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess2:  </span><br><span class="line">    print(sess2.run(a))  <span class="comment"># generates 'A1'  </span></span><br><span class="line">    print(sess2.run(a))  <span class="comment"># generates 'A2'  </span></span><br><span class="line">    print(sess2.run(b))  <span class="comment"># generates 'B1'  </span></span><br><span class="line">    print(sess2.run(b))  <span class="comment"># generates 'B2</span></span><br></pre></td></tr></table></figure>
+<pre><code>Session 1
+[0.81278324]
+[0.54907525]
+[2.5903077]
+[-0.97699815]
+Session 2
+[0.81278324]
+[0.54907525]
+[2.5903077]
+[-0.97699815]
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tensorflow/" rel="tag"><i class="fa fa-tag"></i> Tensorflow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/30/adversaria-正确分类-对抗样本-鲁棒性/" rel="next" title="Using Tensorflow to Realize the Simple Adversarial sample">
+                <i class="fa fa-chevron-left"></i> Using Tensorflow to Realize the Simple Adversarial sample
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/31/Tensorflow 基础（五）：神经网络参数与模型训练/" rel="prev" title="Tensorflow 基础（五）：神经网络参数与模型训练">
+                Tensorflow 基础（五）：神经网络参数与模型训练 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg"
+                alt="Andy_z" />
+            
+              <p class="site-author-name" itemprop="name">Andy_z</p>
+              <p class="site-description motion-element" itemprop="description">About some of my learning summary, translation of thesis...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常数值张量"><span class="nav-number">1.</span> <span class="nav-text">常数值张量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-zeros"><span class="nav-number">1.0.1.</span> <span class="nav-text">tf.zeros</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-zeros-like"><span class="nav-number">1.0.2.</span> <span class="nav-text">tf.zeros_like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-ones"><span class="nav-number">1.0.3.</span> <span class="nav-text">tf.ones</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-ones-like"><span class="nav-number">1.0.4.</span> <span class="nav-text">tf.ones_like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-fill"><span class="nav-number">1.0.5.</span> <span class="nav-text">tf.fill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-constant"><span class="nav-number">1.0.6.</span> <span class="nav-text">tf.constant</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列"><span class="nav-number">2.</span> <span class="nav-text">序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-linspace-tf-lin-space"><span class="nav-number">2.0.1.</span> <span class="nav-text">tf.linspace (tf.lin_space)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-range"><span class="nav-number">2.0.2.</span> <span class="nav-text">tf.range</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机张量"><span class="nav-number">3.</span> <span class="nav-text">随机张量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-random-normal"><span class="nav-number">3.0.1.</span> <span class="nav-text">tf.random_normal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-truncated-normal"><span class="nav-number">3.0.2.</span> <span class="nav-text">tf.truncated_normal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-random-uniform"><span class="nav-number">3.0.3.</span> <span class="nav-text">tf.random_uniform</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-random-shuffle"><span class="nav-number">3.0.4.</span> <span class="nav-text">tf.random_shuffle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-random-crop"><span class="nav-number">3.0.5.</span> <span class="nav-text">tf.random_crop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-multinomial"><span class="nav-number">3.0.6.</span> <span class="nav-text">tf.multinomial</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-random-gamma"><span class="nav-number">3.0.7.</span> <span class="nav-text">tf.random_gamma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-set-random-seed"><span class="nav-number">3.0.8.</span> <span class="nav-text">tf.set_random_seed</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy_z</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
