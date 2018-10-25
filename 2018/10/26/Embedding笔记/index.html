@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
 <meta property="og:description" content="TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546  三元组： $(h,{\scr l},t)$ relationships are represented as translations in the embedding space embedding之后， 头部实体embeddin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoururl.com/2018/10/26/Embedding笔记/images/transE_model.png">
-<meta property="og:image" content="http://yoururl.com/2018/10/26/Embedding笔记/images/transE_code.png">
-<meta property="og:updated_time" content="2018-10-25T16:24:37.750Z">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-10-26/49115592.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-10-26/15816135.jpg">
+<meta property="og:updated_time" content="2018-10-25T16:29:55.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Knowledge Graph： 知识表示之 TransE 模型">
 <meta name="twitter:description" content="TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546  三元组： $(h,{\scr l},t)$ relationships are represented as translations in the embedding space embedding之后， 头部实体embeddin">
-<meta name="twitter:image" content="http://yoururl.com/2018/10/26/Embedding笔记/images/transE_model.png">
+<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-10-26/49115592.jpg">
 
 
 
@@ -364,7 +364,7 @@
 <li>embedding之后， 头部实体embedding加上关系embedding，更接近与尾部实体embedding</li>
 <li>依赖于简化的参数集，只学习每个实体和每个关系的一个<strong>低维向量</strong></li>
 </ul>
-<p><img src="images/transE_model.png" alt=""></p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-10-26/49115592.jpg" alt=""></p>
 <p>学习实体和关系间的向量嵌入</p>
 <ul>
 <li>训练集 $S$: 包含三元组 $(h,{\scr l},t)$， 实体 $h,t\in E(实体集)$, 关系 ${\scr l} \in L(关系集)$；</li>
@@ -388,7 +388,7 @@ S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \i
 <li>对生成的负样本进行筛选过滤，若该负样本原本存在于知识库，则重新生成；  </li>
 <li>然后，有人认为，生成负样本时不应该完全随机，而是应该选择与被替换实体类型相似的实体来进行替换；</li>
 </ul>
-<h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><p><img src="images/transE_code.png" alt=""></p>
+<h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-10-26/15816135.jpg" alt=""></p>
 <h3 id="transE局限性"><a href="#transE局限性" class="headerlink" title="transE局限性"></a>transE局限性</h3><p>明天再说</p>
 
       
