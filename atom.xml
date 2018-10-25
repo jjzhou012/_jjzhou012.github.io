@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoururl.com/"/>
-  <updated>2018-03-20T08:07:06.000Z</updated>
+  <updated>2018-10-25T16:24:37.750Z</updated>
   <id>http://yoururl.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Knowledge Graph： 知识表示之 TransE 模型</title>
+    <link href="http://yoururl.com/2018/10/26/Embedding%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoururl.com/2018/10/26/Embedding笔记/</id>
+    <published>2018-10-25T16:24:00.000Z</published>
+    <updated>2018-10-25T16:24:37.750Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a></p><ul><li>三元组： $(h,{\scr l},t)$</li><li>relationships are represented as <strong>translations in the embedding space</strong></li><li>embedding之后， 头部实体embedding加上关系embedding，更接近与尾部实体embedding</li><li>依赖于简化的参数集，只学习每个实体和每个关系的一个<strong>低维向量</strong></li></ul><p><img src="images/transE_model.png" alt=""></p><p>学习实体和关系间的向量嵌入</p><ul><li>训练集 $S$: 包含三元组 $(h,{\scr l},t)$， 实体 $h,t\in E(实体集)$, 关系 ${\scr l} \in L(关系集)$；</li><li>embeddings 在 $\Bbb R^k$ 中取值</li><li>${\boldsymbol h}+{\scr l}\approx {\boldsymbol t}$ , ${\boldsymbol t}$ 应该为 ${\boldsymbol h}+{\scr l}$ 的最邻近， 然后 ${\boldsymbol h}+{\scr l}$ 与其他的 $t$ 尽可能远；  这里的“接近”程度可以用 $L_1$或$L_2$范数衡量；<br>理想状态下一个正确的三元组的embedding 之间存在 $h+{\scr l}=t$ 的关系，错误的三元组没有；</li><li>利用基于能量的框架，三元组的势能表示为 $d(h, {\scr l}, t)=||h+{\scr l}-t||_2$ ， 正确的三元组势能越低越好，错误的三元组势能越高越好；</li></ul><h3 id="目标函数：-带negative-sample的max-margin损失函数"><a href="#目标函数：-带negative-sample的max-margin损失函数" class="headerlink" title="目标函数： 带negative sample的max margin损失函数"></a>目标函数： 带negative sample的max margin损失函数</h3><p>训练方法：margin-based ranking criterion</p><script type="math/tex; mode=display">{\cal L}=\sum_{(h,{\scr l},t)\in S} \sum_{(h',{\scr l},t')\in S'_{(h,{\scr l}, t)}} [\gamma + d(h+{\scr l}, t)-d(h'+{\scr l}, t') ]_+</script><script type="math/tex; mode=display">d(h, {\scr l}, t)=||h+{\scr l}-t||_2</script><ul><li>$S$: 正确三元组集合</li><li>$S’$: 错误三元组集合</li><li>$\gamma$: margin 距离超参数，表示正负样本之间的距离，常数;</li><li>$[x]_+$: $max(0,x)$</li></ul><p>最小化loss可以使正样本势能越低，负样本势能越高，但两者的能量差距达到一定程度 $\gamma$ 就足够了， 再大loss也只是0；</p><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><script type="math/tex; mode=display">S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \in E\}</script><ul><li>对于三元组 $(h,{\scr l},t)$， 随机使用知识库中的某个实体 $h’$ 替换 $h$，或用某个实体 $t’$ 替换 $t$, 得到两个负样本 $(h’,{\scr l},t)$ 和 $(h,{\scr l},t’)$;  </li><li>对生成的负样本进行筛选过滤，若该负样本原本存在于知识库，则重新生成；  </li><li>然后，有人认为，生成负样本时不应该完全随机，而是应该选择与被替换实体类型相似的实体来进行替换；</li></ul><h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><p><img src="images/transE_code.png" alt=""></p><h3 id="transE局限性"><a href="#transE局限性" class="headerlink" title="transE局限性"></a>transE局限性</h3><p>明天再说</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;TransE&quot;&gt;&lt;a href=&quot;#TransE&quot; class=&quot;headerlink&quot; title=&quot;TransE&quot;&gt;&lt;/a&gt;TransE&lt;/h1&gt;&lt;p&gt;论文地址：&lt;a href=&quot;https://www.aaai.org/ocs/index.php/AAAI/
+      
+    
+    </summary>
+    
+      <category term="Knowledge Graph" scheme="http://yoururl.com/categories/Knowledge-Graph/"/>
+    
+    
+      <category term="Knowledge Graph" scheme="http://yoururl.com/tags/Knowledge-Graph/"/>
+    
+  </entry>
   
   <entry>
     <title>TensorFlow环境 人脸识别 FaceNet 应用（一）:FaceNet安装与验证测试集</title>
@@ -555,31 +580,6 @@
       
         &lt;p&gt;神经网络模型的效果和优化目标是通过损失函数（loss function）来定义的。&lt;/p&gt;
 &lt;h2 id=&quot;经典损失函数&quot;&gt;&lt;a href=&quot;#经典损失函数&quot; class=&quot;headerlink&quot; title=&quot;经典损失函数&quot;&gt;&lt;/a&gt;经典损失函数&lt;/h2&gt;&lt;p&gt;分类问题和
-      
-    
-    </summary>
-    
-      <category term="Tensorflow" scheme="http://yoururl.com/categories/Tensorflow/"/>
-    
-    
-      <category term="Tensorflow" scheme="http://yoururl.com/tags/Tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow 基础（六）：激活函数</title>
-    <link href="http://yoururl.com/2018/01/01/Tensorflow%20%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20/"/>
-    <id>http://yoururl.com/2018/01/01/Tensorflow 基础（六）：激活函数 /</id>
-    <published>2017-12-31T16:00:00.000Z</published>
-    <updated>2018-05-01T01:46:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="线性模型的局限性"><a href="#线性模型的局限性" class="headerlink" title="线性模型的局限性"></a>线性模型的局限性</h2><p>只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有区别，都是线性模型。然而线性模型能解决的问题有限。<br>对于线性可分问题，线性模型能很好的解决。对于线性不可分问题，线性模型无法很好的解决。</p><h2 id="激活函数实现去线性化"><a href="#激活函数实现去线性化" class="headerlink" title="激活函数实现去线性化"></a>激活函数实现去线性化</h2><p>常用激活函数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure><ul><li><h3 id="sigmod函数"><a href="#sigmod函数" class="headerlink" title="sigmod函数"></a>sigmod函数</h3></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.sigmoid(x, name=<span class="keyword">None</span>)</span><br><span class="line">tf.sigmoid(x, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure><p>$\sigma(x) = \frac{1}{1+e^{-x}}$<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-4-25/67504493.jpg" alt=""></p><p>sigmoid 是使用范围最广的一类激活函数，具有指数函数形状，它在物理意义上最为接近生物神经元。此外，(0, 1) 的输出还可以被表示作概率，或用于输入的归一化，代表性的如Sigmoid交叉熵损失函数。  </p><p>然而，sigmoid也有其自身的缺陷，最明显的就是饱和性。从上图可以看到，其两侧导数逐渐趋近于0   </p><script type="math/tex; mode=display">\lim_{x\rightarrow+\infty} f'(x) = 0</script><p>具有这种性质的称为软饱和激活函数。具体的，饱和又可分为左饱和与右饱和。与软饱和对应的是硬饱和, 即   </p><script type="math/tex; mode=display">f'(x)=0 ,当 |x|>c, 其中c为常数。</script><p>sigmoid 的软饱和性，使得深度神经网络在二三十年里一直难以有效的训练，是阻碍神经网络发展的重要原因。  </p><p>sigmod函数缺陷：  </p><ul><li><p>当输入稍微远离了坐标原点，函数的梯度就变得很小了，几乎为零。在神经网络反向传播的过程中，我们都是通过微分的链式法则来计算各个权重w的微分的。当反向传播经过了sigmod函数，这个链条上的微分就很小很小了，况且还可能经过很多个sigmod函数，最后会导致权重w对损失函数几乎没影响，这样不利于权重的优化，这个问题叫做<strong>梯度饱和</strong>，也可以叫<strong>梯度弥散</strong>。  </p></li><li><p>函数输出不是以0为中心的，这样会使权重更新效率降低。  </p></li><li><p>sigmod函数要进行指数运算，这个对于计算机来说是比较慢的。</p></li><li><h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.tanh(x, name=<span class="keyword">None</span>)</span><br><span class="line">tf.tanh(x, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure><p>$f(x)= \frac{1-e^{-2x}}{1+e^{-2x}}$<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-4-25/57956950.jpg" alt=""></p><p>tanh是双曲正切函数，tanh函数和sigmod函数的曲线是比较相近的。<br>首先相同的是，这两个函数在输入很大或是很小的时候，输出都几乎平滑，梯度很小，不利于权重更新；<br>不同的是输出区间，tanh的输出区间是在(-1,1)之间，而且整个函数是以0为中心的，这个特点比sigmod的好。它的输出均值是0，使得其收敛速度要比sigmoid快，减少迭代次数。</p><ul><li><h3 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h3></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.relu(features, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure><p>$f(x)=max(0,x)$<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-4-25/49197637.jpg" alt=""></p><p>ReLU(Rectified Linear Unit)函数是目前比较火的一个激活函数，相比于sigmod函数和tanh函数，它有以下几个优点：  </p><ul><li><p>在输入为正数的时候，不存在梯度饱和问题。  </p></li><li><p>计算速度要快很多。ReLU函数只有线性关系，不管是前向传播还是反向传播，都比sigmod和tanh要快很多。（sigmod和tanh要计算指数，计算速度会比较慢）  </p></li></ul><p>缺点：  </p><ul><li><p>当输入是负数的时候，ReLU是完全不被激活的，这就表明一旦输入到了负数，ReLU就会死掉（神经元死亡）。这样在前向传播过程中，还不算什么问题，有的区域是敏感的，有的是不敏感的。但是到了反向传播过程中，输入负数，梯度就会完全到0，这个和sigmod函数、tanh函数有一样的问题。  </p></li><li><p>ReLU函数也不是以0为中心的函数。</p></li><li><h3 id="PReLU函数"><a href="#PReLU函数" class="headerlink" title="PReLU函数"></a>PReLU函数</h3></li></ul><p>针对在x&lt;0的硬饱和问题，我们对ReLU做出相应的改进，使得<br>$f(x)=max(ax,x)$<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-4-25/61645564.jpg" alt=""></p><p>PReLU也是针对ReLU的一个改进型，在负数区域内，PReLU有一个很小的斜率，这样也可以避免ReLU死掉。<br>相比于ELU，PReLU在负数区域内是线性运算，斜率虽然小，但是不会趋于0，这算是一定的优势吧。  </p><p>其中a是可学习参数。当a为固定的非零较小数(0.01)时，它等价于LeakyReLU；当它为0时，PReLU等价于ReLU。<br>它的后向传播计算如下：  </p><script type="math/tex; mode=display">\frac{\partial E}{\partial x_i}=\begin{cases}         a_i \frac{\partial E}{\partial y_i} , & if\ x_i \leq 0  \\         \frac{\partial E}{\partial y_i} , & if\ x_i > 0    \end{cases}</script><p>参数$a$的更新公式如下：    </p><script type="math/tex; mode=display">\frac{\partial E}{\partial a_i}=\begin{cases}         \sum_{x_i} \ x_i \frac{\partial E}{\partial y_i} , & if\ x_i \leq 0  \\         0 , & if\ x_i > 0    \end{cases}</script><p>leakyRelu 的 Tensorflow 实现：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LeakyRelu</span><span class="params">(x, leak=<span class="number">0.2</span>, name=<span class="string">"LeakyRelu"</span>)</span>:</span>      <span class="comment"># leak ：a</span></span><br><span class="line">     <span class="keyword">with</span> tf.variable_scope(name):</span><br><span class="line">         f1 = <span class="number">0.5</span> * (<span class="number">1</span> + leak)</span><br><span class="line">         f2 = <span class="number">0.5</span> * (<span class="number">1</span> - leak)</span><br><span class="line">         <span class="keyword">return</span> f1 * x + f2 * tf.abs(x)</span><br></pre></td></tr></table></figure><ul><li><h3 id="ELU函数"><a href="#ELU函数" class="headerlink" title="ELU函数"></a>ELU函数</h3></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.elu(features, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure><p>$f(x)=\begin{cases}<br>        x, &amp; x &gt; 0  \<br>        \alpha (e^x - 1) , &amp; \ x \leq 0<br>    \end{cases}$<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-4-25/4301753.jpg" alt=""></p><p>ELU函数是针对ReLU函数的一个改进型，相比于ReLU函数，在输入为负数的情况下，是有一定的输出的，而且这部分输出还具有一定的抗干扰能力。这样可以消除ReLU死掉的问题，不过还是有梯度饱和和指数运算的问题。</p><ul><li><h3 id="softplus"><a href="#softplus" class="headerlink" title="softplus"></a>softplus</h3></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.softplus(features, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure><p>$ f(x)=log(1+e^x) $<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-4-26/18385609.jpg" alt=""></p><p>softplus函数可以用来产生正态分布的 $β$ 和 $σ$ 参数，因为它的范围是 $(0,∞)$ 。当处理包含sigmoid函数的表达式时它也经常出现。softplus函数名字来源于它是另外一个函数的平滑(或”软化”)形式，这个函数是 $x+=max(0,x)$ 。softplus 是对 ReLU 的平滑逼近的解析函数形式。</p><ul><li><h3 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h3></li></ul><p>$f(x)=max(\sideset{}{^T_1}wx+b_1, \sideset{}{^T_2}wx+b_2,…,\sideset{}{^T_n}wx+b_n )$<br>maxout网络能够近似任意连续函数，且当w2,b2,…,wn,bn为0时，退化为ReLU。Maxout能够缓解梯度消失，同时又规避了ReLU神经元死亡的缺点，但增加了参数和计算量。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;线性模型的局限性&quot;&gt;&lt;a href=&quot;#线性模型的局限性&quot; class=&quot;headerlink&quot; title=&quot;线性模型的局限性&quot;&gt;&lt;/a&gt;线性模型的局限性&lt;/h2&gt;&lt;p&gt;只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有区别，都是线性模型。然
       
     
     </summary>
