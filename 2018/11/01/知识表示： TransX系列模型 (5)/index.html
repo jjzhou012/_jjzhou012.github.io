@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/13704280.jpg">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/66484391.jpg">
-<meta property="og:updated_time" content="2018-11-01T08:00:58.614Z">
+<meta property="og:updated_time" content="2018-11-01T08:06:40.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Knowledge Graph: 知识表示之 TransX 模型">
 <meta name="twitter:description" content="TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组： $(h,{\scr l},t)$ embedding之后， 头部实体embedding加上关系embedding，更接近与尾部实体embedding 依赖于简化的参数集，只学习每个实体和每个关系的一个低维向量">
@@ -413,7 +413,7 @@ S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \i
 {\bf t_{\bot} } = {\bf t} - {\bf w}_r^T {\bf h}{\bf w}_r</script></li>
 </ul>
 <blockquote>
-<p>推导： 嵌入向量在超平面法向量上的投影长度，再乘上法向量方向向量：<br>$d=\frac{|{\bf w}_r^Th|}{||{\bf w}||} \cdot \frac{ {\bf w}_r}{||{\bf w}||}=\frac{ {\bf w}_r^T{\bf h}{\bf w}_r}{||{\bf w}^2||}={\bf w}_r^T{\bf h}{\bf w}_r$</p>
+<p>推导： 嵌入向量在超平面法向量上的投影长度，再乘上法向量方向向量：<br>$d=\frac{|{\bf w}_r^Th|}{||{\bf w}||} \cdot \frac { {\bf w}_r}{||{\bf w}||}=\frac { {\bf w}_r^T{\bf h}{\bf w}_r}{||{\bf w}^2||}={\bf w}_r^T{\bf h}{\bf w}_r$</p>
 </blockquote>
 <p>最终得分函数：</p>
 <script type="math/tex; mode=display">
