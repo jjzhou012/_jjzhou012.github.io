@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/29360105.jpg">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/66484391.jpg">
-<meta property="og:updated_time" content="2019-01-26T07:41:12.880Z">
+<meta property="og:updated_time" content="2019-01-26T07:52:11.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之TransD模型">
 <meta name="twitter:description" content="TransD论文地址: http://www.aclweb.org/anthology/P15-1067 TransR /CTransR模型存在的问题：  对于一种关系，所有实体共享一样的映射矩阵${\bf M}_r$。然而被同一个关系链接的实体拥有不同的类型和属性，这些差异需要用不同的映射来体现； 实体与关系间的映射是可逆的，没有理由只通过关系来构建映射矩阵； 矩阵向量乘法运算，参数多，模型运算">
@@ -389,10 +389,11 @@
 <p>定义向量在关系空间的投影：<br>$$<br>{\bf h_{\perp} }={\bf M}_{rh} {\bf h}<br>$$</p>
 <p>$$<br>{\bf t_{\perp} }={\bf M}_{rt} {\bf t}<br>$$</p>
 <p>得分函数：</p>
-<p>$$<br>f_r({\bf h,t})=-||{\bf h}<em>{\perp}+{\bf r}-{\bf t}</em>{\perp}||_2^2<br>$$</p>
+<p>$$<br>f_r({\bf h,t})= -|| {\bf h}<em>{\perp} + {\bf r}-{\bf t}</em>{\perp}||_2^2<br>$$</p>
 <ul>
-<li>限制条件：  $||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||<em>2 \leq 1, ||{\bf h}</em>{\perp}||<em>2 \leq 1,||{\bf t}</em>{\perp}||_2 \leq 1$</li>
+<li>限制条件：  </li>
 </ul>
+<p>$$<br>||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||<em>2 \leq 1, ||{\bf h}</em>{\perp}||<em>2 \leq 1, ||{\bf t}</em>{\perp}||_2 \leq 1<br>$$</p>
 <h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>假设训练集中有$n_t$个三元组，用$(h_i,r_i,t_i)(i=1,2,…,n_t)$表示第$i$个三元组。</p>
 <p>每个三元组有标签$y_i$表示三元组的正负性质：<br>$$<br>\Delta = {(h_j,r_j,t_j)|y_j=1}<br>$$</p>
 <p>$$<br>\Delta’ = {(h_j,r_j,t_j)|y_j=0}<br>$$</p>
