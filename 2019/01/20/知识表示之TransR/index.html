@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Tensorflow," />
+  <meta name="keywords" content="Knowledge graph," />
 
 
 
@@ -81,18 +81,23 @@
 
 
 
-<meta name="description" content="定义计算12345import tensorflow as tfa = tf.constant([1.0, 2.0], name=&quot;a&quot;)b = tf.constant([3.0, 4.0], name=&quot;b&quot;)result = a + bprint(result) Tensor(&amp;quot;add_1:0&amp;quot;, shape=(2,), dtype=float32) 查看计算图通过 tf.">
-<meta name="keywords" content="Tensorflow">
+<meta name="description" content="TransR论文地址: http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/ 模型改进TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。   对每个三元组，实体">
+<meta name="keywords" content="Knowledge graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow 基础（一）： 计算图和张量">
-<meta property="og:url" content="http://yoururl.com/2017/12/30/Tensorflow 基础（一）：计算图和张量/index.html">
+<meta property="og:title" content="知识图谱：知识表示之TransR模型">
+<meta property="og:url" content="http://yoururl.com/2019/01/20/知识表示之TransR/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="定义计算12345import tensorflow as tfa = tf.constant([1.0, 2.0], name=&quot;a&quot;)b = tf.constant([3.0, 4.0], name=&quot;b&quot;)result = a + bprint(result) Tensor(&amp;quot;add_1:0&amp;quot;, shape=(2,), dtype=float32) 查看计算图通过 tf.">
+<meta property="og:description" content="TransR论文地址: http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/ 模型改进TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。   对每个三元组，实体">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-20T17:37:38.000Z">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/90156033.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/26332401.jpg">
+<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/12579440.jpg">
+<meta property="og:updated_time" content="2019-01-26T07:36:05.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorflow 基础（一）： 计算图和张量">
-<meta name="twitter:description" content="定义计算12345import tensorflow as tfa = tf.constant([1.0, 2.0], name=&quot;a&quot;)b = tf.constant([3.0, 4.0], name=&quot;b&quot;)result = a + bprint(result) Tensor(&amp;quot;add_1:0&amp;quot;, shape=(2,), dtype=float32) 查看计算图通过 tf.">
+<meta name="twitter:title" content="知识图谱：知识表示之TransR模型">
+<meta name="twitter:description" content="TransR论文地址: http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/ 模型改进TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。   对每个三元组，实体">
+<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg">
 
 
 
@@ -122,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoururl.com/2017/12/30/Tensorflow 基础（一）：计算图和张量/"/>
+  <link rel="canonical" href="http://yoururl.com/2019/01/20/知识表示之TransR/"/>
 
 
 
 
 
-  <title>Tensorflow 基础（一）： 计算图和张量 | Andy_z 's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>知识图谱：知识表示之TransR模型 | Andy_z 's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -265,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2017/12/30/Tensorflow 基础（一）：计算图和张量/">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2019/01/20/知识表示之TransR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Andy_z">
@@ -282,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tensorflow 基础（一）： 计算图和张量</h1>
+          <h1 class="post-title" itemprop="name headline">知识图谱：知识表示之TransR模型</h1>
         
 
         <div class="post-meta">
@@ -294,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T00:00:00+08:00">
-                2017-12-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T00:03:00+08:00">
+                2019-01-20
               </time>
             
 
@@ -317,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tensorflow/" itemprop="url" rel="index">
-                    <span itemprop="name">Tensorflow</span>
+                  <a href="/categories/知识图谱/" itemprop="url" rel="index">
+                    <span itemprop="name">知识图谱</span>
                   </a>
                 </span>
 
@@ -354,89 +359,62 @@
       
 
       
-        <h2 id="定义计算"><a href="#定义计算" class="headerlink" title="定义计算"></a>定义计算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>, <span class="number">2.0</span>], name=<span class="string">"a"</span>)</span><br><span class="line">b = tf.constant([<span class="number">3.0</span>, <span class="number">4.0</span>], name=<span class="string">"b"</span>)</span><br><span class="line">result = a + b</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;add_1:0&quot;, shape=(2,), dtype=float32)
-</code></pre><h2 id="查看计算图"><a href="#查看计算图" class="headerlink" title="查看计算图"></a>查看计算图</h2><p>通过 tf.get_default_graph() 可以获得当前默认计算图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过a.graph可以查看张量所属的计算图。因为无特殊指定，该计算图应该等于当前所属计算图。下面操作的输出值为True.</span></span><br><span class="line">print(a.graph <span class="keyword">is</span> tf.get_default_graph())</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><h2 id="不同计算图上定义和使用变量"><a href="#不同计算图上定义和使用变量" class="headerlink" title="不同计算图上定义和使用变量"></a>不同计算图上定义和使用变量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g1 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g1.as_default():</span><br><span class="line">    <span class="comment"># 在计算图g1中定义变量‘v’，并设置初始值为0；</span></span><br><span class="line">    v = tf.get_variable(<span class="string">"v"</span>, initializer=tf.zeros_initializer(dtype=tf.float32),shape=[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在计算图g1中读取变量"v" 的取值</span></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g1) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.global_variables_initializer().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">""</span>, reuse=<span class="keyword">True</span>):</span><br><span class="line">        <span class="comment"># 在计算图g1中，变量"v"取值应该为0，所以输出为[0.]</span></span><br><span class="line">        print(sess.run(tf.get_variable(<span class="string">"v"</span>)))</span><br></pre></td></tr></table></figure>
-<pre><code>[0.]
-</code></pre><h2 id="张量"><a href="#张量" class="headerlink" title="张量"></a>张量</h2><p>tensorflow中所有数据以张量形式表示。<br>从功能角度，张量可以理解为多维数组。零阶张量表示标量（scalar），也就是一个数；一阶张量表示向量（vector），也就是一维数组；第n阶张量可以理解为n维数组。</p>
-<p>但是，张量在tensorflow中的实现不是采用数组形式，它只是对tf运算结果的引用，并未保存真正的数字，而是<strong>保存得到数字的计算过程</strong>。<br>以向量加法为例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>, <span class="number">2.0</span>], name=<span class="string">"a"</span>)</span><br><span class="line">b = tf.constant([<span class="number">3.0</span>, <span class="number">4.0</span>], name=<span class="string">"b"</span>)</span><br><span class="line">result = a + b</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;add_2:0&quot;, shape=(2,), dtype=float32)
-</code></pre><p>运行以上代码并不会得到运算结果，而是得到对结果的一个引用。Tensorflow的计算结果不是一个具体数字，而是一个张量结构。<br>一个张量中主要保存了3个属性： 名字（name）、维度（shape）和类型（type）。</p>
+        <h1 id="TransR"><a href="#TransR" class="headerlink" title="TransR"></a>TransR</h1><p>论文地址: <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/" target="_blank" rel="noopener">http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/</a></p>
+<h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p>TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。</p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg" alt=""></p>
 <ul>
-<li>name 属性不仅是一个张量的唯一标识符，也给出了一个张量是如何运算出来的。</li>
+<li>对每个三元组，实体空间中的实体首先通过运算 $M_r$ 映射到与它相关的 $r$ 关系空间, 保证 ${\bf h}_r + r \approx {\bf t}_r$ , 关系特定投影可以使实际持有该关系(表示为彩色圆圈)的头/尾实体彼此靠近，也可以使不持有该关系(表示为彩色三角形)的头/尾实体远离。</li>
+<li>TransR对每个关系$r$都分配了一个空间${\bf M}_r \in R^{k \times d}$。</li>
+<li>特定关系下，头尾实体会表现不同的模式；</li>
 </ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>提出了一种新的方法，<strong>在不同的空间中建模实体和关系</strong>，即，<strong>实体空间</strong>和<strong>关系空间</strong>，并在关系空间中进行转换，因此命名为TransR。</p>
+<h3 id="TransR-1"><a href="#TransR-1" class="headerlink" title="TransR"></a>TransR</h3><p>TransR 模型中，对每一个三元组，实体嵌入 ${\bf h,t} \in {\Bbb R}^k$ , 关系嵌入 ${ {\bf r} \in {\Bbb R}^d}$, 两个空间的维度不一定相同（属于不同空间）。  </p>
+<ul>
+<li>对每一个关系$r$，定义一个投影矩阵 ${\bf M}_r \in {\Bbb R}^{k \times d}$, 将实体从实体空间投影到关系空间：</li>
+</ul>
+<script type="math/tex; mode=display">
+{ {\bf h_r} = {\bf hM}_r}</script><script type="math/tex; mode=display">
+{ {\bf t_r} = {\bf tM}_r}</script><ul>
+<li><p>得分函数：</p>
+<script type="math/tex; mode=display">
+f_r(h,t)=||{ {\bf h}_r} + {\bf r} - {\bf t}_r||_2^2</script></li>
+<li><p>实体和关系嵌入的范数约束  </p>
+<script type="math/tex; mode=display">
+||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1</script></li>
+</ul>
+<h3 id="Cluster-based-TransR-CTransR"><a href="#Cluster-based-TransR-CTransR" class="headerlink" title="Cluster-based TransR (CTransR)"></a>Cluster-based TransR (CTransR)</h3><p>上述模型包括TransE, TransH和TransR，仅仅通过单个的关系向量还不足以建立从头实体到尾实体的所有转移，<strong>即对于同一条关系$r$  来讲，$r$ 具有多种语义上的表示</strong>。为了更好地建模这些关系，引入了<strong>分段线性回归</strong>的思想来扩展TransR。</p>
+<ul>
+<li><p>对于一个特定的关系$r$，把训练数据中的所有实体对 $(h, t)$ 聚类到多个组中，每个组中的实体对都期望表现出相似的$r$关系。其中所有实体对$(h,t)$通过的向量偏移$(h−t)$来聚类；</p>
 <blockquote>
-<p>Tensorflow 的计算都可以通过计算图的模型来建立，计算图上的每一个节点代表了一个计算，计算的结果保存于张量中。因此，张量对应于计算图上节点所代表的计算结果。张量的命名可以通过“node：src_output”的形式给出，其中，node 为节点名称，src_output 表示当前张量来自节点的第几个输出。<br>例如，上述代码段的Print结果“add：0”说明了，result 这个张量是计算节点“add”的第一个输出结果（编号从0开始）。</p>
+<p>为什么根据$(h-t)$(也就是$r$)就能聚类:</p>
+<p> CTransR考虑的问题是对一个关系只用一个表示无法体现这一种关系的多义性，比如关系（location location contains）其实包含country-city、country-university、continent-country等多种含义。</p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/90156033.jpg" alt=""></p>
+<p>原文提到，这里的$h,t$是经过TRansE模型预训练得到的: </p>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/26332401.jpg" alt=""></p>
+<hr>
+<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/12579440.jpg" alt=""></p>
+<p> 而TransE模型的映射是唯一（one to one）的，大关系下的不同子关系通过映射后其实是不同的向量表示，那么$(h-t)$的结果也不相同，根据不同的结果可以用来进行聚类。</p>
 </blockquote>
-<ul>
-<li>shape 属性描述了一个张量的维度信息。</li>
-</ul>
-<blockquote>
-<p>例如样例中，shape=（2，）说明张量 result 是一个一维数组，数组长度为2。</p>
-</blockquote>
-<ul>
-<li>type 属性指定了一个张量的唯一类型。Tensorflow 会对参与运算的所有张量进行类型检查，类型不匹配时会报错。</li>
-</ul>
-<p>例如以下程序：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = tf.constant([<span class="number">1</span>, <span class="number">2</span>], name=<span class="string">"a"</span>)</span><br><span class="line">b = tf.constant([<span class="number">3.0</span>, <span class="number">4.0</span>], name=<span class="string">"b"</span>)</span><br><span class="line">result = a + b</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<pre><code>---------------------------------------------------------------------------
-
-ValueError                                Traceback (most recent call last)
-
-&lt;ipython-input-7-6c6716a1266b&gt; in &lt;module&gt;()
-      1 a = tf.constant([1, 2], name=&quot;a&quot;)
-      2 b = tf.constant([3.0, 4.0], name=&quot;b&quot;)
-----&gt; 3 result = a + b
-      4 print(result)
-
-
-d:\Anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py in binary_op_wrapper(x, y)
-    923       if not isinstance(y, sparse_tensor.SparseTensor):
-    924         try:
---&gt; 925           y = ops.convert_to_tensor(y, dtype=x.dtype.base_dtype, name=&quot;y&quot;)
-    926         except TypeError:
-    927           # If the RHS is not a tensor, it might be a tensor aware object
-
-
-d:\Anaconda3\lib\site-packages\tensorflow\python\framework\ops.py in convert_to_tensor(value, dtype, name, preferred_dtype)
-    944       name=name,
-    945       preferred_dtype=preferred_dtype,
---&gt; 946       as_ref=False)
-    947 
-    948 
-
-
-d:\Anaconda3\lib\site-packages\tensorflow\python\framework\ops.py in internal_convert_to_tensor(value, dtype, name, as_ref, preferred_dtype, ctx)
-   1034 
-   1035     if ret is None:
--&gt; 1036       ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
-   1037 
-   1038     if ret is NotImplemented:
-
-
-d:\Anaconda3\lib\site-packages\tensorflow\python\framework\ops.py in _TensorTensorConversionFunction(t, dtype, name, as_ref)
-    877     raise ValueError(
-    878         &quot;Tensor conversion requested dtype %s for Tensor with dtype %s: %r&quot; %
---&gt; 879         (dtype.name, t.dtype.name, str(t)))
-    880   return t
-    881 
-
-
-ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float32: &#39;Tensor(&quot;b_3:0&quot;, shape=(2,), dtype=float32)&#39;
-</code></pre><p>需要指定 a 为实数类型，计算才不会报错：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1</span>, <span class="number">2</span>], name=<span class="string">'a'</span>, dtype=tf.float32)</span><br><span class="line">b = tf.constant([<span class="number">3.0</span>, <span class="number">4.0</span>], name=<span class="string">'b'</span>)</span><br><span class="line">result = a + b</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;add_1:0&quot;, shape=(2,), dtype=float32)
-</code></pre><h2 id="张量的使用"><a href="#张量的使用" class="headerlink" title="张量的使用"></a>张量的使用</h2><ul>
-<li><p>对中间计算结果的引用。</p>
 </li>
-<li><p>当计算图构造完成后，张量可以用来获取计算结果。</p>
+<li><p>对每一个簇, 学习一个<strong>分离关系向量</strong> ${\bf r}_c$ ，对每种关系，学习投影矩阵 ${\bf M}_r$</p>
+</li>
+<li><p>定义实体和关系的投影向量为：</p>
 </li>
 </ul>
+<script type="math/tex; mode=display">
+{ {\bf h}_{r,c} = {\bf hM}_r}</script><script type="math/tex; mode=display">
+{ {\bf t}_{r,c} = {\bf tM}_r}</script><ul>
+<li>得分函数：</li>
+</ul>
+<script type="math/tex; mode=display">
+f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}_c - {\bf t}_{r,c}||_2^2 + \alpha ||{\bf r}_c - {\bf r}||_2^2</script><p>$||{\bf r}_c - {\bf r}||_2^2$ 这一项确保群特异性关系向量 ${\bf r}_c$ 距离原始关系向量 ${\bf r}$ 不太远， $\alpha$ 控制约束效果</p>
+<ul>
+<li>实体和关系嵌入的范数约束  </li>
+</ul>
+<script type="math/tex; mode=display">
+||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1</script><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>损失函数：</p>
+<script type="math/tex; mode=display">
+{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h',r,t')\in \Delta'} max (0, \gamma + f_r(h, t)-f_{r}(h, t) )</script><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>为首尾实体替换分配不同的概率。对于那些1- n、n -1和n -n关系，给“one”设置更高的概率，产生假阴性样本的机会将会减少</p>
 
       
     </div>
@@ -454,7 +432,7 @@ ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float3
       
         <div class="post-tags">
           
-            <a href="/tags/Tensorflow/" rel="tag"><i class="fa fa-tag"></i> Tensorflow</a>
+            <a href="/tags/Knowledge-graph/" rel="tag"><i class="fa fa-tag"></i> Knowledge graph</a>
           
         </div>
       
@@ -467,8 +445,8 @@ ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float3
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/25/test_new_PC/" rel="next" title="Linux 常用命令整理">
-                <i class="fa fa-chevron-left"></i> Linux 常用命令整理
+              <a href="/2019/01/20/知识表示之TransH/" rel="next" title="知识图谱：知识表示之TransH模型">
+                <i class="fa fa-chevron-left"></i> 知识图谱：知识表示之TransH模型
               </a>
             
           </div>
@@ -476,10 +454,6 @@ ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float3
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/30/Tensorflow 基础（二）：运行模型----会话/" rel="prev" title="Tensorflow 基础（二）： 运行模型---会话">
-                Tensorflow 基础（二）： 运行模型---会话 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,7 +596,7 @@ ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float3
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义计算"><span class="nav-number">1.</span> <span class="nav-text">定义计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看计算图"><span class="nav-number">2.</span> <span class="nav-text">查看计算图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同计算图上定义和使用变量"><span class="nav-number">3.</span> <span class="nav-text">不同计算图上定义和使用变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#张量"><span class="nav-number">4.</span> <span class="nav-text">张量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#张量的使用"><span class="nav-number">5.</span> <span class="nav-text">张量的使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TransR"><span class="nav-number">1.</span> <span class="nav-text">TransR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型改进"><span class="nav-number">1.1.</span> <span class="nav-text">模型改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TransR-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">TransR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cluster-based-TransR-CTransR"><span class="nav-number">1.2.2.</span> <span class="nav-text">Cluster-based TransR (CTransR)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程"><span class="nav-number">1.3.</span> <span class="nav-text">训练过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本生成"><span class="nav-number">1.3.1.</span> <span class="nav-text">负样本生成</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
