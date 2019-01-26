@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoururl.com/"/>
-  <updated>2019-01-26T05:27:24.729Z</updated>
+  <updated>2019-01-26T05:28:54.313Z</updated>
   <id>http://yoururl.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoururl.com/2019/01/26/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
     <id>http://yoururl.com/2019/01/26/新建文本文档/</id>
     <published>2019-01-26T05:24:09.554Z</published>
-    <updated>2019-01-26T05:27:24.729Z</updated>
+    <updated>2019-01-26T05:28:54.313Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><h2 id="TransE局限性"><a href="#TransE局限性" class="headerlink" title="TransE局限性"></a>TransE局限性</h2><p>考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：</p><ul><li>若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$;</li><li>若 $\forall i \in {0,…,m},(h_i,r,t)\in \Delta$ , $r$是一个N-1映射，且 $h_0=…=h_m$;<br>类似的，$\forall i \in {0,…,m},(h,r,t_i)\in \Delta$ , $r$是一个1-N映射，且 $t_0=…=t_m$;  </li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;负样本生成&quot;&gt;&lt;a href=&quot;#负样本生成&quot; class=&quot;headerlink&quot; title=&quot;负样本生成&quot;&gt;&lt;/a&gt;负样本生成&lt;/h3&gt;
+        &lt;h3 id=&quot;负样本生成&quot;&gt;&lt;a href=&quot;#负样本生成&quot; class=&quot;headerlink&quot; title=&quot;负样本生成&quot;&gt;&lt;/a&gt;负样本生成&lt;/h3&gt;&lt;h2 id=&quot;TransE局限性&quot;&gt;&lt;a href=&quot;#TransE局限性&quot; class=&quot;headerlink&quot; ti
       
     
     </summary>

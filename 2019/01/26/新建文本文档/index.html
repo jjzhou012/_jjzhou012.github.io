@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="负样本生成">
+<meta name="description" content="负样本生成TransE局限性考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：  若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$; 若 $\for">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Andy_z &#39;s Blog">
 <meta property="og:url" content="http://yoururl.com/2019/01/26/新建文本文档/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="负样本生成">
+<meta property="og:description" content="负样本生成TransE局限性考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：  若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$; 若 $\for">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-26T05:27:24.729Z">
+<meta property="og:updated_time" content="2019-01-26T05:28:54.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andy_z &#39;s Blog">
-<meta name="twitter:description" content="负样本生成">
+<meta name="twitter:description" content="负样本生成TransE局限性考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：  若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$; 若 $\for">
 
 
 
@@ -331,7 +331,12 @@
       
 
       
-        <h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3>
+        <h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><h2 id="TransE局限性"><a href="#TransE局限性" class="headerlink" title="TransE局限性"></a>TransE局限性</h2><p>考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：</p>
+<ul>
+<li>若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$;</li>
+<li>若 $\forall i \in {0,…,m},(h_i,r,t)\in \Delta$ , $r$是一个N-1映射，且 $h_0=…=h_m$;<br>类似的，$\forall i \in {0,…,m},(h,r,t_i)\in \Delta$ , $r$是一个1-N映射，且 $t_0=…=t_m$;  </li>
+</ul>
+
       
     </div>
     
@@ -506,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本生成"><span class="nav-number">1.</span> <span class="nav-text">负样本生成</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本生成"><span class="nav-number">1.</span> <span class="nav-text">负样本生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TransE局限性"><span class="nav-number"></span> <span class="nav-text">TransE局限性</span></a></div>
             
 
           </div>
