@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoururl.com/"/>
-  <updated>2019-01-26T05:49:46.260Z</updated>
+  <updated>2019-01-26T05:50:53.975Z</updated>
   <id>http://yoururl.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>知识图谱：知识表示之TransH模型</title>
     <link href="http://yoururl.com/2019/01/20/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E4%B9%8BTransH/"/>
     <id>http://yoururl.com/2019/01/20/知识表示之TransH/</id>
-    <published>2019-01-19T16:01:00.000Z</published>
-    <updated>2019-01-26T05:49:46.260Z</updated>
+    <published>2019-01-19T16:02:00.000Z</published>
+    <updated>2019-01-26T05:50:53.975Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TransH"><a href="#TransH" class="headerlink" title="TransH"></a>TransH</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a></p><h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/58905342.jpg" alt=""></p><p>将特定关系的转移向量 $d_r$ 放置于特定关系的超平面 $w_r$ ,而不是映射到相同的实体嵌入空间；  </p><p>对于三元组 $(h,r,t)$，嵌入向量 ${\bf h}$ 和 ${\bf t}$ 投影到超平面 ${\bf w<em>r}$ , 投影被表示为 ${\bf h</em>\bot}$ 和 ${\bf t<em>\bot}$ 。投影 ${\bf h</em>\bot}$ 和 ${\bf t_\bot}$ 能被转移向量 ${\bf d_r}$ 连接， 当三元组为正样本时有更低的错误率，为负样本时错误率上升；   </p>]]></content>
     
