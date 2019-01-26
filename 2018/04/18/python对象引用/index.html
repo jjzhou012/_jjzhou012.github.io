@@ -377,7 +377,7 @@ TypeError                                 Traceback (most recent call last)
 ----&gt; 1 y = Cizmo() * 10
 
 
-TypeError: unsupported operand type(s) for *: &#39;Cizmo&#39; and &#39;int&#39;
+TypeError: unsupported operand type(s) for *: &apos;Cizmo&apos; and &apos;int&apos;
 </code></pre><p>在尝试求积之前会先创建一个Cimzo实例，一定不会先创建变量y。</p>
 <p>变量只是标注，可以为对象添加多个标注，相当于别名。</p>
 <h3 id="标识、相等性、别名"><a href="#标识、相等性、别名" class="headerlink" title="标识、相等性、别名"></a>标识、相等性、别名</h3><p>ex3 同一对象可以有多个标注，就是别名:</p>
@@ -387,7 +387,7 @@ TypeError: unsupported operand type(s) for *: &#39;Cizmo&#39; and &#39;int&#39;
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id(lewis), id(charles)</span><br></pre></td></tr></table></figure>
 <pre><code>(2471747375368, 2471747375368)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lewis[<span class="string">'balance'</span>] = <span class="number">950</span></span><br><span class="line">charles</span><br></pre></td></tr></table></figure>
-<pre><code>{&#39;balance&#39;: 950, &#39;born&#39;: &#39;1892&#39;, &#39;name&#39;: &#39;charles L. Dodgson&#39;}
+<pre><code>{&apos;balance&apos;: 950, &apos;born&apos;: &apos;1892&apos;, &apos;name&apos;: &apos;charles L. Dodgson&apos;}
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alex = &#123;<span class="string">'balance'</span>: <span class="number">950</span>, <span class="string">'born'</span>: <span class="string">'1892'</span>, <span class="string">'name'</span>: <span class="string">'charles L. Dodgson'</span>&#125;</span><br><span class="line">alex == charles</span><br></pre></td></tr></table></figure>
 <pre><code>True
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alex <span class="keyword">is</span> <span class="keyword">not</span> charles</span><br></pre></td></tr></table></figure>
@@ -440,9 +440,9 @@ l2: [3, [44, 33, 22], (1, 2, 3, 33, 22)]
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">bus1 = bus([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line">bus2 = copy.copy(bus1)        <span class="comment"># 浅复制</span></span><br><span class="line">bus3 = copy.deepcopy(bus1)    <span class="comment"># 深复制</span></span><br><span class="line">id(bus1), id(bus2), id(bus3)   <span class="comment"># 创建三个不同的实例</span></span><br></pre></td></tr></table></figure>
 <pre><code>(2464686488488, 2464686489216, 2464686487872)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bus1.drop(<span class="string">'A'</span>)</span><br><span class="line">bus2.passengers        <span class="comment"># bus1,bus2 共享同一个列表对象，因为 bus2 是 bus1 的浅复制副本</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
+<pre><code>[&apos;B&apos;, &apos;C&apos;, &apos;D&apos;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bus3.passengers        <span class="comment"># bus3 是 bus1 的深复制副本， 它的passengers属性指代另一个列表</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
+<pre><code>[&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id(bus1.passengers), id(bus2.passengers), id(bus3.passengers)</span><br></pre></td></tr></table></figure>
 <pre><code>(2464687364872, 2464687364872, 2464685576712)
 </code></pre><p>Note： 一般来说，深复制并不简单。若对象有循环引用，算法会进入无限循环。 deepcopy会记住已经复制的对象， 因此能优雅的处理循环引用。</p>
@@ -575,7 +575,7 @@ l2: [3, [44, 33, 22], (1, 2, 3, 33, 22)]
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

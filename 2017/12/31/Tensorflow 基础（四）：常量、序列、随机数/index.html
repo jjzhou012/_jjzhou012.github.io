@@ -359,20 +359,20 @@
 <h4 id="tf-zeros"><a href="#tf-zeros" class="headerlink" title="tf.zeros"></a>tf.zeros</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.zeros(</span><br><span class="line">       shape,                 <span class="comment"># 整数、整数元组或类型为int32的1维Tensor的列表。</span></span><br><span class="line">       dtype=tf.float32,      <span class="comment"># 结果Tensor中元素的类型。</span></span><br><span class="line">       name=<span class="keyword">None</span>)             <span class="comment"># 操作的名称(optional)</span></span><br></pre></td></tr></table></figure>
 <p>Creates a tensor with all elements set to zero.<br>创建一个所有元素都为零的张量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.zeros(shape=[<span class="number">2</span>, <span class="number">3</span>], dtype=tf.float32, name=<span class="string">'a'</span>)     <span class="comment"># [[0. 0. 0.], [0. 0. 0.]]</span></span><br></pre></td></tr></table></figure>
-<pre><code>&lt;tf.Tensor &#39;a_3:0&#39; shape=(2, 3) dtype=float32&gt;
+<pre><code>&lt;tf.Tensor &apos;a_3:0&apos; shape=(2, 3) dtype=float32&gt;
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.zeros(shape=[<span class="number">2</span>, <span class="number">3</span>], dtype=tf.float32, name=<span class="string">'a'</span>))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
 <pre><code>[[0. 0. 0.]
  [0. 0. 0.]]
 </code></pre><h4 id="tf-zeros-like"><a href="#tf-zeros-like" class="headerlink" title="tf.zeros_like"></a>tf.zeros_like</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tf.zeros_like(</span><br><span class="line">    tensor,              <span class="comment"># 给定张量        </span></span><br><span class="line">    dtype=<span class="keyword">None</span>,          <span class="comment"># 返回的张量的类型，必须是以下类型之一：float16，float32，float64，int8，uint8，int16，uint16，int32，int64，complex64，complex128，bool或string。</span></span><br><span class="line">    name=<span class="keyword">None</span>,            </span><br><span class="line">    optimize=<span class="keyword">True</span>)       <span class="comment"># 如果为true，则尝试静态确定“张量”的形状并将其编码为常量。</span></span><br></pre></td></tr></table></figure>
 <p>给定一个张量（tensor），该操作返回具有相同类型和形状的张量,所有元素设置为零。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor = tf.constant([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">tf.zeros_like(tensor, dtype=tf.int32)                   <span class="comment"># [[0 0 0], [0 0 0]]</span></span><br></pre></td></tr></table></figure>
-<pre><code>&lt;tf.Tensor &#39;zeros_like:0&#39; shape=(2, 3) dtype=int32&gt;
+<pre><code>&lt;tf.Tensor &apos;zeros_like:0&apos; shape=(2, 3) dtype=int32&gt;
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.zeros_like(tensor))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
 <pre><code>[[0 0 0]
  [0 0 0]]
 </code></pre><h4 id="tf-ones"><a href="#tf-ones" class="headerlink" title="tf.ones"></a>tf.ones</h4><p>类似于 tf.zeros() ，创建一个所有元素都为1的张量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.ones([<span class="number">2</span>, <span class="number">3</span>], tf.int32)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;tf.Tensor &#39;ones_4:0&#39; shape=(2, 3) dtype=int32&gt;
+<pre><code>&lt;tf.Tensor &apos;ones_4:0&apos; shape=(2, 3) dtype=int32&gt;
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    a = sess.run(tf.ones(shape=[<span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
 <pre><code>[[1. 1. 1.]
  [1. 1. 1.]]
@@ -600,7 +600,7 @@ Session 2
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

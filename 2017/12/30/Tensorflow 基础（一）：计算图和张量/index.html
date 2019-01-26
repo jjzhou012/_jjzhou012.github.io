@@ -427,7 +427,7 @@ d:\Anaconda3\lib\site-packages\tensorflow\python\framework\ops.py in _TensorTens
     881 
 
 
-ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float32: &#39;Tensor(&quot;b_3:0&quot;, shape=(2,), dtype=float32)&#39;
+ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float32: &apos;Tensor(&quot;b_3:0&quot;, shape=(2,), dtype=float32)&apos;
 </code></pre><p>需要指定 a 为实数类型，计算才不会报错：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1</span>, <span class="number">2</span>], name=<span class="string">'a'</span>, dtype=tf.float32)</span><br><span class="line">b = tf.constant([<span class="number">3.0</span>, <span class="number">4.0</span>], name=<span class="string">'b'</span>)</span><br><span class="line">result = a + b</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
 <pre><code>Tensor(&quot;add_1:0&quot;, shape=(2,), dtype=float32)
@@ -560,7 +560,7 @@ ValueError: Tensor conversion requested dtype int32 for Tensor with dtype float3
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

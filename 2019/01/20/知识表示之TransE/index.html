@@ -371,10 +371,9 @@
 <li>${\bf h}+{\scr l}\approx {\bf t}$ , ${\bf t}$ 应该为 ${\bf h}+{\scr l}$ 的最邻近， 然后 ${\bf h}+{\scr l}$ 与其他的 $t$ 尽可能远；  这里的“接近”程度可以用 $L_1$或$L_2$范数衡量；<br>理想状态下一个正确的三元组的embedding 之间存在 ${\bf h}+{\scr l}={\bf t}$ 的关系，错误的三元组没有；</li>
 <li>利用基于能量的框架，三元组的势能表示为 $d(h, {\scr l}, t)=||h+{\scr l}-t||_2$ ， 正确的三元组势能越低越好，错误的三元组势能越高越好；</li>
 </ul>
-<h2 id="损失函数："><a href="#损失函数：" class="headerlink" title="损失函数："></a>损失函数：</h2><h3 id="带negative-sample的max-margin损失函数"><a href="#带negative-sample的max-margin损失函数" class="headerlink" title="带negative sample的max margin损失函数"></a>带negative sample的max margin损失函数</h3><p>训练方法：margin-based ranking criterion</p>
-<script type="math/tex; mode=display">
-{\cal L}=\sum_{(h,{\scr l},t)\in S} \sum_{(h',{\scr l},t')\in S'_{(h,{\scr l}, t)} } [\gamma + d(h+{\scr l}, t)-d(h'+{\scr l}, t') ]_+</script><script type="math/tex; mode=display">
-d(h, {\scr l}, t)=||h+{\scr l}-t||_2</script><ul>
+<h2 id="损失函数："><a href="#损失函数：" class="headerlink" title="损失函数："></a>损失函数：</h2><h3 id="带negative-sample的max-margin损失函数"><a href="#带negative-sample的max-margin损失函数" class="headerlink" title="带negative sample的max margin损失函数"></a>带negative sample的max margin损失函数</h3><p>训练方法：margin-based ranking criterion<br>$$<br>{\cal L}=\sum_{(h,{\scr l},t)\in S} \sum_{(h’,{\scr l},t’)\in S’<em>{(h,{\scr l}, t)} } [\gamma + d(h+{\scr l}, t)-d(h’+{\scr l}, t’) ]</em>+<br>$$</p>
+<p>$$<br>d(h, {\scr l}, t)=||h+{\scr l}-t||_2<br>$$</p>
+<ul>
 <li>$S$: 正确三元组集合</li>
 <li>$S’$: 错误三元组集合</li>
 <li>$\gamma$: margin 距离超参数，表示正负样本之间的距离，常数;</li>
@@ -383,8 +382,8 @@ d(h, {\scr l}, t)=||h+{\scr l}-t||_2</script><ul>
 <blockquote>
 <p>最小化loss可以使正样本势能越低，负样本势能越高，但两者的能量差距达到一定程度 $\gamma$ 就足够了， 再大loss也只是0；</p>
 </blockquote>
-<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><script type="math/tex; mode=display">
-S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \in E\}</script><ul>
+<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>$$<br>S’_{(h,{\scr l},t)} = {(h’,{\scr l},t)|h’\in E}\bigcup {(h,{\scr l},t’)|t’ \in E}<br>$$</p>
+<ul>
 <li>对于三元组 $(h,{\scr l},t)$， 随机使用知识库中的某个实体 $h’$ 替换 $h$，或用某个实体 $t’$ 替换 $t$, 得到两个负样本 $(h’,{\scr l},t)$ 和 $(h,{\scr l},t’)$;  </li>
 <li>对生成的负样本进行筛选过滤，若该负样本原本存在于知识库，则重新生成；  </li>
 <li>然后，有人认为，生成负样本时不应该完全随机，而是应该选择与被替换实体类型相似的实体来进行替换；</li>
@@ -439,8 +438,8 @@ S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \i
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/20/知识表示之TransD/" rel="prev" title="知识图谱：知识表示之TransD模型">
-                知识图谱：知识表示之TransD模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/20/知识表示之TransH/" rel="prev" title="知识图谱：知识表示之TransH模型">
+                知识图谱：知识表示之TransH模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -522,7 +521,7 @@ S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \i
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

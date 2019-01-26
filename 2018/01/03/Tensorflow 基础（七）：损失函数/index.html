@@ -363,44 +363,36 @@
 <li>结构风险损失函数: 指经验风险损失函数加上正则项。  </li>
 </ul>
 <p>通常表示为如下： </p>
-<script type="math/tex; mode=display">
-    \theta^* = argmin\ \frac{1}{N} \sum_{i=1}^{N} L(y_i,f(x_i; \theta_i)) + \lambda \Phi(\theta)</script><h3 id="0-1-损失函数"><a href="#0-1-损失函数" class="headerlink" title="0-1 损失函数"></a>0-1 损失函数</h3><p>0-1损失是指，预测值和目标值不相等为1，否则为0：   </p>
-<script type="math/tex; mode=display">
-L(Y,f(X))=\begin{cases}  
-    1, & Y \neq f(X)  \\
-     0, & Y = f(X)    
-       \end{cases}</script><p>该损失函数不考虑预测值和真实值的误差程度，也就是只要预测错误，预测错误差一点和差很多是一样的。</p>
+<p>$$<br>    \theta^* = argmin\ \frac{1}{N} \sum_{i=1}^{N} L(y_i,f(x_i; \theta_i)) + \lambda \Phi(\theta)<br>$$</p>
+<h3 id="0-1-损失函数"><a href="#0-1-损失函数" class="headerlink" title="0-1 损失函数"></a>0-1 损失函数</h3><p>0-1损失是指，预测值和目标值不相等为1，否则为0：<br>$$<br>L(Y,f(X))=\begin{cases}<br>    1, &amp; Y \neq f(X)  \<br>     0, &amp; Y = f(X)<br>       \end{cases}<br>$$  </p>
+<p>该损失函数不考虑预测值和真实值的误差程度，也就是只要预测错误，预测错误差一点和差很多是一样的。</p>
 <p>感知机就是用的这种损失函数。但是由于相等这个条件太过严格，因此我们可以放宽条件，即满足 $|Y−f(X)|&lt;T$ 时认为相等。   </p>
-<script type="math/tex; mode=display">
-L(Y,f(X))=\begin{cases}  
-    1, & |Y-f(X)| \geq T  \\
-     0, & |Y-f(X)| < T    
-       \end{cases}</script><h3 id="绝对值损失函数"><a href="#绝对值损失函数" class="headerlink" title="绝对值损失函数"></a>绝对值损失函数</h3><script type="math/tex; mode=display">
-L(Y,f(X))=|Y-f(X)|</script><p>可用于回归</p>
+<p>$$<br>L(Y,f(X))=\begin{cases}<br>    1, &amp; |Y-f(X)| \geq T  \<br>     0, &amp; |Y-f(X)| &lt; T<br>       \end{cases}<br>$$</p>
+<h3 id="绝对值损失函数"><a href="#绝对值损失函数" class="headerlink" title="绝对值损失函数"></a>绝对值损失函数</h3><p>$$<br>L(Y,f(X))=|Y-f(X)|<br>$$  </p>
+<p>可用于回归</p>
 <h3 id="平方损失函数"><a href="#平方损失函数" class="headerlink" title="平方损失函数"></a>平方损失函数</h3><p>最小二乘法是线性回归的一种方法，它将回归的问题转化为了凸优化的问题。最小二乘法的基本原则是：<strong>最优拟合曲线应该使得所有点到回归直线的距离和最小</strong>。通常用欧几里得距离进行距离的度量。平方损失的损失函数为：   </p>
-<script type="math/tex; mode=display">
-L(Y,f(X))=\sum_N (Y−f(X))^2</script><h3 id="指数损失函数"><a href="#指数损失函数" class="headerlink" title="指数损失函数"></a>指数损失函数</h3><p>AdaBoost， 指数损失函数的标准形式： </p>
-<script type="math/tex; mode=display">
-L(Y\ |\ f(X))=e^{-yf(x)}</script><h3 id="Hinge损失函数"><a href="#Hinge损失函数" class="headerlink" title="Hinge损失函数"></a>Hinge损失函数</h3><p>Hinge损失函数和SVM是息息相关的。在线性支持向量机中，最优化问题可以等价于 :  </p>
-<script type="math/tex; mode=display">
-\min_{w,b} \sum_i^N (1-y_i(w x_i+b))+ \lambda||w^2||</script><p>这个式子和如下的式子非常像：   </p>
-<script type="math/tex; mode=display">
-\frac{1}{m} \sum_{i=1}^m \ l(wx_i+by_i)+||w||^2</script><p>其中 $l(wx_i+by_i)$ 就是 hinge 损失函数，后面相当于L2正则项。<br>Hinge函数的标准形式：   </p>
-<script type="math/tex; mode=display">
-L(y)=max(0,1−ty)</script><p>y是预测值，在-1到+1之间，t为目标值（-1或+1）。其含义为，y的值在-1和+1之间就可以了，并不鼓励 $|y|&gt;1$ ，即并不鼓励分类器过度自信，让某个正确分类的样本的距离分割线超过1并不会有任何奖励，从而使分类器可以更专注于整体的分类误差。</p>
+<p>$$<br>L(Y,f(X))=\sum_N (Y−f(X))^2<br>$$</p>
+<h3 id="指数损失函数"><a href="#指数损失函数" class="headerlink" title="指数损失函数"></a>指数损失函数</h3><p>AdaBoost， 指数损失函数的标准形式： </p>
+<p>$$<br>L(Y\ |\ f(X))=e^{-yf(x)}<br>$$</p>
+<h3 id="Hinge损失函数"><a href="#Hinge损失函数" class="headerlink" title="Hinge损失函数"></a>Hinge损失函数</h3><p>Hinge损失函数和SVM是息息相关的。在线性支持向量机中，最优化问题可以等价于 :  </p>
+<p>$$<br>\min_{w,b} \sum_i^N (1-y_i(w x_i+b))+ \lambda||w^2||<br>$$</p>
+<p>这个式子和如下的式子非常像：   </p>
+<p>$$<br>\frac{1}{m} \sum_{i=1}^m \ l(wx_i+by_i)+||w||^2<br>$$  </p>
+<p>其中 $l(wx_i+by_i)$ 就是 hinge 损失函数，后面相当于L2正则项。<br>Hinge函数的标准形式：   </p>
+<p>$$<br>L(y)=max(0,1−ty)<br>$$  </p>
+<p>y是预测值，在-1到+1之间，t为目标值（-1或+1）。其含义为，y的值在-1和+1之间就可以了，并不鼓励 $|y|&gt;1$ ，即并不鼓励分类器过度自信，让某个正确分类的样本的距离分割线超过1并不会有任何奖励，从而使分类器可以更专注于整体的分类误差。</p>
 <h2 id="全局损失函数"><a href="#全局损失函数" class="headerlink" title="全局损失函数"></a>全局损失函数</h2><p>上面的损失函数仅仅是对于一个样本来说的。而我们的优化目标函数应当是使全局损失函数最小。因此，全局损失函数往往是每个样本的损失函数之和，即：   </p>
-<script type="math/tex; mode=display">
-J(w,b) = \frac{1}{m} \sum_{i=1}^m \ L(Y,f(X))</script><p>对于平方损失函数，为了求导方便，我们可以在前面乘上一个1/2，和平方项求导后的2抵消，即：   </p>
-<script type="math/tex; mode=display">
-J(w,b) = \frac{1}{2m} \sum_{i=1}^m \ (Y-f(X))^2</script><h2 id="交叉熵损失函数"><a href="#交叉熵损失函数" class="headerlink" title="交叉熵损失函数"></a>交叉熵损失函数</h2><p>熵的计算公式： </p>
-<script type="math/tex; mode=display">
-H(y)=−\sum_i y_i log(y_i)</script><p>而在实际操作中，我们并不知道y的分布，只能对y的分布做一个估计，也就是算得的a值, 这样我们就能够得到用a来表示y的交叉熵:   </p>
-<script type="math/tex; mode=display">
-H(y,a)=−\sum_i y_i log(a_i)</script><p>如果有多个样本，则整个样本的平均交叉熵为 :</p>
-<script type="math/tex; mode=display">
-H(y,a)=−\frac{1}{n} \sum_n \sum_i y_{i,n} log(a_i,n)</script><p>其中n表示样本编号,i表示类别编号。 如果用于logistic分类，则上式可以简化成：  </p>
-<script type="math/tex; mode=display">
-H(y,a)=−\frac{1}{n} \sum_n y log(a) + (1−y) log(1−a)</script><p>将交叉熵看做是代价函数有两点原因：</p>
+<p>$$<br>J(w,b) = \frac{1}{m} \sum_{i=1}^m \ L(Y,f(X))<br>$$  </p>
+<p>对于平方损失函数，为了求导方便，我们可以在前面乘上一个1/2，和平方项求导后的2抵消，即：   </p>
+<p>$$<br>J(w,b) = \frac{1}{2m} \sum_{i=1}^m \ (Y-f(X))^2<br>$$</p>
+<h2 id="交叉熵损失函数"><a href="#交叉熵损失函数" class="headerlink" title="交叉熵损失函数"></a>交叉熵损失函数</h2><p>熵的计算公式：<br>$$<br>H(y)=−\sum_i y_i log(y_i)<br>$$  </p>
+<p>而在实际操作中，我们并不知道y的分布，只能对y的分布做一个估计，也就是算得的a值, 这样我们就能够得到用a来表示y的交叉熵:   </p>
+<p>$$<br>H(y,a)=−\sum_i y_i log(a_i)<br>$$  </p>
+<p>如果有多个样本，则整个样本的平均交叉熵为 :</p>
+<p>$$<br>H(y,a)=−\frac{1}{n} \sum_n \sum_i y_{i,n} log(a_i,n)<br>$$  </p>
+<p>其中n表示样本编号,i表示类别编号。 如果用于logistic分类，则上式可以简化成：  </p>
+<p>$$<br>H(y,a)=−\frac{1}{n} \sum_n y log(a) + (1−y) log(1−a)<br>$$  </p>
+<p>将交叉熵看做是代价函数有两点原因：</p>
 <ul>
 <li>第⼀，它是⾮负的，$C &gt; 0$ 。  <ul>
 <li>上式中的求和中的所有独⽴的项都是负数的，因为对数函数的定义域是 (0, 1)；  </li>
@@ -410,34 +402,34 @@ H(y,a)=−\frac{1}{n} \sum_n y log(a) + (1−y) log(1−a)</script><p>将交叉�
 <li>第⼆，如果对于所有的训练输⼊ x，神经元实际的输出接近⽬标值，那么交叉熵将接近 0。<br>假设在这个例⼦中，$y = 0$ ⽽ $a ≈ 0$ 。我们看到第⼀个项就消去了，因为 $y = 0$ ，⽽第⼆项实际上就是 $− ln(1 − a) ≈ 0$ 。反之，$y = 1$ ⽽ $a ≈ 1$ 。所以在实际输出和⽬标输出之间的差距越⼩，最终的交叉熵的值就越低了。</li>
 </ul>
 <p>综上所述，交叉熵是⾮负的，在神经元达到很好的正确率的时候会接近 0。这些其实就是我们想要的代价函数的特性。其实这些特性也是⼆次代价函数具备的。所以，交叉熵就是很好的选择了。但是交叉熵代价函数有⼀个⽐⼆次代价函数更好的特性就是它<strong>避免了学习速度下降</strong>的问题。为了弄清楚这个情况，我们来算算交叉熵函数关于权重的偏导数。   </p>
-<script type="math/tex; mode=display">
-    \frac{\partial C}{\partial w_j}= − \frac{1}{n} \sum_x (\frac{y}{\sigma (z)} - \frac{(1-y)}{1-\sigma (z) }) \frac{\partial \sigma}{\partial w_j}</script><script type="math/tex; mode=display">
-= − \frac{1}{n} \sum_x (\frac{y}{\sigma (z)} - \frac{(1-y)}{1-\sigma (z) }) \sigma '(z)x_j</script><p>将结果合并⼀下，简化成：  </p>
-<script type="math/tex; mode=display">
-\frac{\partial C}{\partial w_j}= \frac{1}{n} \sum_x \frac{\sigma '(z)x_j}{\sigma (z)(1-\sigma (z))}(\sigma (z) - y)</script><p>根据 $\sigma (z) = 1/(1 + e^{−z})$ 的定义，和⼀些运算，我们可以得到 $\sigma’ (z) = \sigma (z)(1 − \sigma (z))$ 。我们看到 $\sigma ‘(z)$ 和 $\sigma (z) (1- \sigma (z))$ 这两项在⽅程中直接约去了，所以最终形式就是：</p>
-<script type="math/tex; mode=display">
-\frac{\partial C}{\partial w_j}= \frac{1}{n} \sum_x x_j(\sigma (z)-y)</script><p>这个公式告诉我们，权重学习的速度受到 $\sigma (z) − y$ ，也就是输出中的误差的控制。更⼤的误差，更快的学习速度。这是我们直觉上期待的结果。特别地，这个代价函数还避免了像在⼆次代价函数中类似⽅程中 $\sigma’(z)$ 导致的学习缓慢。当我们使⽤交叉熵的时候，$\sigma’(z)$ 被约掉了，所以我们不再需要关⼼它是不是变得很⼩。这种约除就是交叉熵带来的特效。  </p>
+<p>$$<br>    \frac{\partial C}{\partial w_j}= − \frac{1}{n} \sum_x (\frac{y}{\sigma (z)} - \frac{(1-y)}{1-\sigma (z) }) \frac{\partial \sigma}{\partial w_j}<br>$$</p>
+<p>$$<br>= − \frac{1}{n} \sum_x (\frac{y}{\sigma (z)} - \frac{(1-y)}{1-\sigma (z) }) \sigma ‘(z)x_j<br>$$</p>
+<p>将结果合并⼀下，简化成：  </p>
+<p>$$<br>\frac{\partial C}{\partial w_j}= \frac{1}{n} \sum_x \frac{\sigma ‘(z)x_j}{\sigma (z)(1-\sigma (z))}(\sigma (z) - y)<br>$$  </p>
+<p>根据 $\sigma (z) = 1/(1 + e^{−z})$ 的定义，和⼀些运算，我们可以得到 $\sigma’ (z) = \sigma (z)(1 − \sigma (z))$ 。我们看到 $\sigma ‘(z)$ 和 $\sigma (z) (1- \sigma (z))$ 这两项在⽅程中直接约去了，所以最终形式就是：</p>
+<p>$$<br>\frac{\partial C}{\partial w_j}= \frac{1}{n} \sum_x x_j(\sigma (z)-y)<br>$$  </p>
+<p>这个公式告诉我们，权重学习的速度受到 $\sigma (z) − y$ ，也就是输出中的误差的控制。更⼤的误差，更快的学习速度。这是我们直觉上期待的结果。特别地，这个代价函数还避免了像在⼆次代价函数中类似⽅程中 $\sigma’(z)$ 导致的学习缓慢。当我们使⽤交叉熵的时候，$\sigma’(z)$ 被约掉了，所以我们不再需要关⼼它是不是变得很⼩。这种约除就是交叉熵带来的特效。  </p>
 <p>根据类似的⽅法，我们可以计算出关于偏置的偏导数：  </p>
-<script type="math/tex; mode=display">
-\frac{\partial C}{\partial b} =\frac{1}{n}\sum_x(\sigma(z)-y)</script><p>这避免了⼆次代价函数中 $\sigma’(z)$ 项导致的学习缓慢。</p>
+<p>$$<br>\frac{\partial C}{\partial b} =\frac{1}{n}\sum_x(\sigma(z)-y)<br>$$  </p>
+<p>这避免了⼆次代价函数中 $\sigma’(z)$ 项导致的学习缓慢。</p>
 <h2 id="逻辑回归中的损失函数"><a href="#逻辑回归中的损失函数" class="headerlink" title="逻辑回归中的损失函数"></a>逻辑回归中的损失函数</h2><h3 id="log对数损失函数"><a href="#log对数损失函数" class="headerlink" title="log对数损失函数"></a>log对数损失函数</h3><p>逻辑斯特回归的损失函数就是对数损失函数，在逻辑斯特回归的推导中，它假设样本服从伯努利分布（0-1）分布，然后求得满足该分布的似然函数，接着用对数求极值。逻辑斯特回归并没有求对数似然函数的最大值，而是把极大化当做一个思想，进而推导它的风险函数为最小化的负的似然函数。从损失函数的角度上，它就成为了log损失函数。<br>log损失函数的标准形式：   </p>
-<script type="math/tex; mode=display">
-L(Y,P(Y|X))=-logP(Y|X)</script><p>$P(Y|X)$ 通俗的解释就是：在当前模型的基础上，对于样本$X$，其预测值为$Y$(预测正确)的概率。由于概率之间的同时满足需要使用乘法，为了将其转化为加法，我们将其取对数。最后由于是损失函数，所以预测正确的概率越高，其损失值应该是越小，因此取反。  </p>
+<p>$$<br>L(Y,P(Y|X))=-logP(Y|X)<br>$$  </p>
+<p>$P(Y|X)$ 通俗的解释就是：在当前模型的基础上，对于样本$X$，其预测值为$Y$(预测正确)的概率。由于概率之间的同时满足需要使用乘法，为了将其转化为加法，我们将其取对数。最后由于是损失函数，所以预测正确的概率越高，其损失值应该是越小，因此取反。  </p>
 <h2 id="softmax回归"><a href="#softmax回归" class="headerlink" title="softmax回归"></a>softmax回归</h2><p>Softmax回归模型是logistic回归模型在多分类问题上的推广，在多分类问题中，类标签 y 可以取两个以上的值。 Softmax回归模型对于诸如<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">MNIST</a>手写数字分类等问题是很有用的，该问题的目的是辨识10个不同的单个数字。Softmax回归是有监督的。  </p>
 <p>softmax用于多分类过程中，它将多个神经元的输出，映射到（0,1）区间内，可以看成概率来理解，从而来进行多分类！  </p>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>假设我们有一个数组，$V$ ，$V_i$ 表示 $V￥ 中的第 $i$ 个元素，那么这个元素的Softmax值就是:  </p>
-<script type="math/tex; mode=display">
-S_i = \frac{e^{V_i}}{\sum_je^{V_i}}</script><p>softmax 作为多分类神经网络的输出层，首先计算带权输入 $\sideset{}{^L<em>j}z = \sum_k \sideset{}{^L</em>{jk}}w \sideset{}{^{L-1}_k}a + \sideset{}{^L_j}b$ , 输出在 $\sideset{}{^L_j}z$ 上应用softmax函数， 根据这个函数，第 j 个神经元上的激活 $\sideset{}{^L_j}a$ 就是  </p>
-<script type="math/tex; mode=display">
-\sideset{}{^L_j}a = \frac{e^{\sideset{}{^L_j}z}}{\sum_k e^{\sideset{}{^L_k}z}}</script><p>根据定义，输出的激活值加起来正好为 1:  </p>
-<script type="math/tex; mode=display">
-\sum_j \sideset{}{^L_j}a = \frac{\sum_j e^{\sideset{}{^L_j}z}}{\sum_k e^{\sideset{}{^L_k}z}}=1</script><p>softmax层的输出是⼀些相加为 1 正数的集合。换⾔之，softmax层的输出可以被看做是⼀个概率分布。  </p>
+<p>$$<br>S_i = \frac{e^{V_i}}{\sum_je^{V_i}}<br>$$  </p>
+<p>softmax 作为多分类神经网络的输出层，首先计算带权输入 $\sideset{}{^L_j}z = \sum_k \sideset{}{^L_{jk}}w \sideset{}{^{L-1}_k}a + \sideset{}{^L_j}b$ , 输出在 $\sideset{}{^L_j}z$ 上应用softmax函数， 根据这个函数，第 j 个神经元上的激活 $\sideset{}{^L_j}a$ 就是  </p>
+<p>$$<br>\sideset{}{^L_j}a = \frac{e^{\sideset{}{^L_j}z}}{\sum_k e^{\sideset{}{^L_k}z}}<br>$$  </p>
+<p>根据定义，输出的激活值加起来正好为 1:  </p>
+<p>$$<br>\sum_j \sideset{}{^L_j}a = \frac{\sum_j e^{\sideset{}{^L_j}z}}{\sum_k e^{\sideset{}{^L_k}z}}=1<br>$$  </p>
+<p>softmax层的输出是⼀些相加为 1 正数的集合。换⾔之，softmax层的输出可以被看做是⼀个概率分布。  </p>
 <h3 id="计算与标注样本的差距"><a href="#计算与标注样本的差距" class="headerlink" title="计算与标注样本的差距"></a>计算与标注样本的差距</h3><p>在神经网络计算中，我们需要计算按照神经网络的正向传播计算分数 $s_1$ 和按照正确标注计算的分数 $s_2$ 之间的差距， 来计算Loss， 才能应用反向传播。 loss定义为交叉熵：  </p>
-<script type="math/tex; mode=display">
-L_i=-log(\frac{e^{f_{y_i}}}{\sum_j e^j})</script><p>softmax 值越大， loss越小。  </p>
-<h3 id="偏导计算方便"><a href="#偏导计算方便" class="headerlink" title="偏导计算方便"></a>偏导计算方便</h3><p>当我们对分类的Loss进行改进时，通过梯度下降，每次优化一个step大小的梯度， 我们定义选到 $y<em>i$ 的概率为: $P</em>{y<em>i}=\frac{e^{f</em>{y_i}}}{\sum_j e^j}$ ,然后我们求Loss对每个权重矩阵的偏导，应用链式法则：  </p>
-<script type="math/tex; mode=display">
-\frac{\partial {L_i}}{\partial {f_{y_i}}}= \frac{\partial (-ln(\frac{e^{f_{y_i}}}{\sum_j e^j}))}{\partial {f_{y_i}}}=P_{f_{y_i}}-1</script><p>最后的结果形式简单，对应分类结果的那一维的概率减去一，就是最后的偏导。  </p>
+<p>$$<br>L_i=-log(\frac{e^{f_{y_i}}}{\sum_j e^j})<br>$$  </p>
+<p>softmax 值越大， loss越小。  </p>
+<h3 id="偏导计算方便"><a href="#偏导计算方便" class="headerlink" title="偏导计算方便"></a>偏导计算方便</h3><p>当我们对分类的Loss进行改进时，通过梯度下降，每次优化一个step大小的梯度， 我们定义选到 $y_i$ 的概率为: $P_{y_i}=\frac{e^{f_{y_i}}}{\sum_j e^j}$ ,然后我们求Loss对每个权重矩阵的偏导，应用链式法则：  </p>
+<p>$$<br>\frac{\partial {L_i}}{\partial {f_{y_i}}}= \frac{\partial (-ln(\frac{e^{f_{y_i}}}{\sum_j e^j}))}{\partial {f_{y_i}}}=P_{f_{y_i}}-1<br>$$  </p>
+<p>最后的结果形式简单，对应分类结果的那一维的概率减去一，就是最后的偏导。  </p>
 <p>例如：通过若干层计算，得到某训练样本的向量分数[1,5,3],那么概率分别为[0.015,0.866,0.117],计算出的偏导为[0.015, 0.866-1, 0.117]=[0.015,-0.134,0.117]</p>
 <h2 id="实现交叉熵"><a href="#实现交叉熵" class="headerlink" title="实现交叉熵"></a>实现交叉熵</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cross_enrtopy = - tf.reduce_mean(y_ * tf.log(tf.clip_by_value(y, <span class="number">1e-10</span>, <span class="number">1.0</span>)))</span><br></pre></td></tr></table></figure>
@@ -476,8 +468,8 @@ L_i=-log(\frac{e^{f_{y_i}}}{\sum_j e^j})</script><p>softmax 值越大， loss越
 <pre><code>1.222818
 1.2228179
 </code></pre><h2 id="均方差（MSE）"><a href="#均方差（MSE）" class="headerlink" title="均方差（MSE）"></a>均方差（MSE）</h2><p>回归问题解决的是对具体数值的预测，最常用的损失函数是均方误差（MSE）,定义如下:  </p>
-<script type="math/tex; mode=display">
-MSE(y, y')=\frac{\sum_{i=1}^{n}(y_i-y_i')^2}{n}</script><p>其中 $y_i$ 是一个batch中第i个数据的正确答案， $y_i’$ 为神经网络给出的预测值，以下为tensorflow实现：</p>
+<p>$$<br>MSE(y, y’)=\frac{\sum_{i=1}^{n}(y_i-y_i’)^2}{n}<br>$$  </p>
+<p>其中 $y_i$ 是一个batch中第i个数据的正确答案， $y_i’$ 为神经网络给出的预测值，以下为tensorflow实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mse = tf.reduce_mean(tf.square(y_ - y))  <span class="comment"># y为神经网络实际输出，y_为期望输出</span></span><br></pre></td></tr></table></figure>
 <h2 id="自定义损失函数"><a href="#自定义损失函数" class="headerlink" title="自定义损失函数"></a>自定义损失函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> numpy.random <span class="keyword">import</span> RandomState</span><br><span class="line">batch_size = <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 两个输入节点</span></span><br><span class="line">x = tf.placeholder(dtype=tf.float32, shape=(<span class="keyword">None</span>, <span class="number">2</span>), name=<span class="string">'x-input'</span>)</span><br><span class="line"><span class="comment"># 回归问题一般一个输出节点</span></span><br><span class="line">y_ = tf.placeholder(dtype=tf.float32, shape=(<span class="keyword">None</span>, <span class="number">1</span>), name=<span class="string">'y-input'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#  </span></span><br><span class="line">w1 = tf.Variable(tf.random_normal(shape=[<span class="number">2</span>, <span class="number">1</span>], stddev=<span class="number">1</span>, seed=<span class="number">1</span>))</span><br><span class="line">y = tf.matmul(x, w1)             <span class="comment"># 预测值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测成本</span></span><br><span class="line">loss_less = <span class="number">10</span></span><br><span class="line">loss_more = <span class="number">1</span></span><br><span class="line">loss = tf.reduce_sum(tf.where(tf.greater(y, y_), (y - y_) * loss_more, (y_ - y) * loss_less))</span><br><span class="line"></span><br><span class="line">train_step = tf.train.AdamOptimizer(<span class="number">0.001</span>).minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机生成模拟数据集</span></span><br><span class="line">rdm = RandomState(<span class="number">1</span>)</span><br><span class="line">dataset_size = <span class="number">128</span></span><br><span class="line">X = rdm.rand(dataset_size, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置回归的正确值为两个输入的和加上一个随机量，随机量为不可预测的噪声（-0.05 ，0.05）</span></span><br><span class="line">Y = [[x1 + x2 + rdm.rand() / <span class="number">10</span> - <span class="number">0.05</span>] <span class="keyword">for</span> (x1, x2) <span class="keyword">in</span> X]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    init_op = tf.global_variables_initializer()</span><br><span class="line">    sess.run(init_op)</span><br><span class="line">    STEPS = <span class="number">5000</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(STEPS):</span><br><span class="line">        start = (i * batch_size) % dataset_size</span><br><span class="line">        end = min(start + batch_size, dataset_size)</span><br><span class="line">        sess.run(train_step, feed_dict=&#123;x : X[start:end], y_ : Y[start:end]&#125;)</span><br><span class="line">        print(sess.run(w1))</span><br></pre></td></tr></table></figure>
 <pre><code>[[-0.81031823]
@@ -10603,7 +10595,7 @@ MSE(y, y')=\frac{\sum_{i=1}^{n}(y_i-y_i')^2}{n}</script><p>其中 $y_i$ 是一�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

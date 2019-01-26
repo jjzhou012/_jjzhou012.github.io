@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="笔者：Andy_z  图像处理：区域生长法&amp;emsp;&amp;emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，并在对">
+<meta name="description" content="笔者：Andy_z  ##图像处理：区域生长法 &amp;emsp;&amp;emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，">
 <meta name="keywords" content="Summary,Image Processing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Image Processing: region growing">
 <meta property="og:url" content="http://yoururl.com/2017/03/16/图像处理：区域生长法/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="笔者：Andy_z  图像处理：区域生长法&amp;emsp;&amp;emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，并在对">
+<meta property="og:description" content="笔者：Andy_z  ##图像处理：区域生长法 &amp;emsp;&amp;emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-24T06:43:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Image Processing: region growing">
-<meta name="twitter:description" content="笔者：Andy_z  图像处理：区域生长法&amp;emsp;&amp;emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，并在对">
+<meta name="twitter:description" content="笔者：Andy_z  ##图像处理：区域生长法 &amp;emsp;&amp;emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，">
 
 
 
@@ -357,7 +357,8 @@
         <blockquote>
 <p>笔者：Andy_z</p>
 </blockquote>
-<h2 id="图像处理：区域生长法"><a href="#图像处理：区域生长法" class="headerlink" title="图像处理：区域生长法"></a>图像处理：区域生长法</h2><p>&emsp;&emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，并在对图像中的阴影效果处理上往往不是很好。</p>
+<p>##图像处理：区域生长法</p>
+<p>&emsp;&emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是，区域生长法是一种迭代的方法，空间和时间开销都比较大，噪声和灰度不均一可能会导致空洞和过分割，并在对图像中的阴影效果处理上往往不是很好。</p>
 <p>&emsp;&emsp;区域生长的基本思想是将具有相似性质的像素集合起来构成区域。具体先对每个需要分割的区域找一个种子像素作为生长的起点，然后将种子像素周围邻域中与种子像素具有相同或相似性质的像素（根据某种事先确定的生长或相似准则来判定）合并到种子像素所在的区域中。将这些新像素当做新的种子像素继续进行上面的过程，直到再没有满足条件的像素可被包括进来，这样，一个区域就长成了。</p>
 <p>&emsp;&emsp;区域生长是指从某个像素出发，按照一定的准则，逐步加入邻近像素，当满足一定的条件时，区域生长终止。区域生长的好坏决定于：<br>&emsp;&emsp;&emsp;&emsp;1.初始点（种子点）的选取。<br>&emsp;&emsp;&emsp;&emsp;2.生长准则。<br>&emsp;&emsp;&emsp;&emsp;3.终止条件。<br>区域生长是从某个或者某些像素点出发，最后得到整个区域，进而实现目标的提取。</p>
 <p>&emsp;&emsp;简单来说下三个法则，对出需要分割的图像：</p>
@@ -479,17 +480,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -508,7 +500,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -560,22 +552,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图像处理：区域生长法"><span class="nav-number">1.</span> <span class="nav-text">图像处理：区域生长法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

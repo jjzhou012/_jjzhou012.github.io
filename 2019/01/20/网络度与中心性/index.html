@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="度 定义：与结点直接相连的边数目  对于无向图：  结点 $i$ 的度 可用邻接矩阵表示为  $ki=\sum{j=1}^n A_{ij}$  ;  无向图中，若边数量为 $m$ , 则边端点为 $2m$ , 边的端点数与所有顶点度总和相等 ， $2m=\sum_{i=1}^n k_i$  或  m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \sum">
+<meta name="description" content="度 定义：与结点直接相连的边数目  对于无向图：  结点 $i$ 的度 可用邻接矩阵表示为  $k_i=\sum_{j=1}^n A_{ij}$  ;  无向图中，若边数量为 $m$ , 则边端点为 $2m$ , 边的端点数与所有顶点度总和相等 ， $2m=\sum_{i=1}^n k_i$  或$$m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \s">
 <meta name="keywords" content="Networks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="复杂网络：网络测度之中心性">
 <meta property="og:url" content="http://yoururl.com/2019/01/20/网络度与中心性/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="度 定义：与结点直接相连的边数目  对于无向图：  结点 $i$ 的度 可用邻接矩阵表示为  $ki=\sum{j=1}^n A_{ij}$  ;  无向图中，若边数量为 $m$ , 则边端点为 $2m$ , 边的端点数与所有顶点度总和相等 ， $2m=\sum_{i=1}^n k_i$  或  m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \sum">
+<meta property="og:description" content="度 定义：与结点直接相连的边数目  对于无向图：  结点 $i$ 的度 可用邻接矩阵表示为  $k_i=\sum_{j=1}^n A_{ij}$  ;  无向图中，若边数量为 $m$ , 则边端点为 $2m$ , 边的端点数与所有顶点度总和相等 ， $2m=\sum_{i=1}^n k_i$  或$$m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \s">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoururl.com/2019/01/20/网络度与中心性/images/1548337276217.png">
-<meta property="og:updated_time" content="2019-01-26T04:58:27.313Z">
+<meta property="og:updated_time" content="2019-01-26T09:16:51.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="复杂网络：网络测度之中心性">
-<meta name="twitter:description" content="度 定义：与结点直接相连的边数目  对于无向图：  结点 $i$ 的度 可用邻接矩阵表示为  $ki=\sum{j=1}^n A_{ij}$  ;  无向图中，若边数量为 $m$ , 则边端点为 $2m$ , 边的端点数与所有顶点度总和相等 ， $2m=\sum_{i=1}^n k_i$  或  m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \sum">
+<meta name="twitter:description" content="度 定义：与结点直接相连的边数目  对于无向图：  结点 $i$ 的度 可用邻接矩阵表示为  $k_i=\sum_{j=1}^n A_{ij}$  ;  无向图中，若边数量为 $m$ , 则边端点为 $2m$ , 边的端点数与所有顶点度总和相等 ， $2m=\sum_{i=1}^n k_i$  或$$m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \s">
 <meta name="twitter:image" content="http://yoururl.com/2019/01/20/网络度与中心性/images/1548337276217.png">
 
 
@@ -361,14 +361,12 @@
 </li>
 <li><p>对于无向图：</p>
 <ul>
-<li><p>结点 $i$ 的度 可用邻接矩阵表示为  $k<em>i=\sum</em>{j=1}^n A_{ij}$  ;</p>
+<li><p>结点 $i$ 的度 可用邻接矩阵表示为  $k_i=\sum_{j=1}^n A_{ij}$  ;</p>
 </li>
-<li><p>无向图中，若边数量为 $m$ , 则边端点为 $2m$ , <strong>边的端点数与所有顶点度总和相等</strong> ， $2m=\sum_{i=1}^n k_i$  或</p>
-<script type="math/tex; mode=display">
-m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \sum_{ij} A_{ij}</script></li>
-<li><p>顶点度均值 $c = \frac{1}{n} \sum_{i=1}^n k_i$ ;</p>
-<script type="math/tex; mode=display">
-c=\frac{2m}{n}</script><blockquote>
+<li><p>无向图中，若边数量为 $m$ , 则边端点为 $2m$ , <strong>边的端点数与所有顶点度总和相等</strong> ， $2m=\sum_{i=1}^n k_i$  或<br>$$<br>m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{1}{2} \sum_{ij} A_{ij}<br>$$</p>
+</li>
+<li><p>顶点度均值 $c = \frac{1}{n} \sum_{i=1}^n k_i$ ;<br>$$<br>c=\frac{2m}{n}<br>$$</p>
+<blockquote>
 <p>$cn=2m$ : 顶点度总和 == 无向边端点数</p>
 </blockquote>
 </li>
@@ -376,9 +374,7 @@ c=\frac{2m}{n}</script><blockquote>
 </li>
 <li><blockquote>
 <p>简单图（无重边和自边）中，可能最大边数为 $\frac{1}{2}n(n-1)$ 个。</p>
-<p><strong>连通度</strong>或<strong>密度</strong> $\rho$ : 图中实际出现的边数与边最大值的比值</p>
-<script type="math/tex; mode=display">
-\rho = \frac{实际边数}{边最大值} = \frac{m}{\frac{n(n-1)}{2}} = \frac{c}{n-1}</script><p><em>网络规模足够大， 连通度可近似表示   $\rho=c\n$ </em> </p>
+<p><strong>连通度</strong>或<strong>密度</strong> $\rho$ : 图中实际出现的边数与边最大值的比值<br>$$<br>\rho = \frac{实际边数}{边最大值} = \frac{m}{\frac{n(n-1)}{2} } = \frac{c}{n-1}<br>$$<br><em>网络规模足够大， 连通度可近似表示   $\rho=c\n$ </em> </p>
 </blockquote>
 </li>
 </ul>
@@ -405,17 +401,15 @@ c=\frac{2m}{n}</script><blockquote>
 <ul>
 <li><p>每个结点有两个度:       考虑从结点$j$到$i$有一条边：</p>
 <ul>
-<li>入度：连接到该结点的入边数；   $k<em>i^{in}=\sum</em>{j=1}^n A_{ij}$ </li>
-<li>出度：连接到该结点的出边数；   $k<em>j^{out}=\sum</em>{i=1}^n A_{ij}$ </li>
+<li>入度：连接到该结点的入边数；   $k_i^{in}=\sum_{j=1}^n A_{ij}$ </li>
+<li>出度：连接到该结点的出边数；   $k_j^{out}=\sum_{i=1}^n A_{ij}$ </li>
 </ul>
 </li>
-<li><p>有向图中，边数目 $m$ 等于<strong>入边端点数总和</strong>，也等于<strong>出边端点数总和</strong>，有</p>
-<script type="math/tex; mode=display">
-m = \sum_{i=1}^n k_i^{in} = \sum_{j=1}^n k_{j}^{out} = \sum_{ij} A_{ij}</script></li>
-<li><p>有向图的入度均值 $c<em>{in}$ 等于出度均值 $c</em>{out}$ ,即</p>
-<script type="math/tex; mode=display">
-c_{in} = \frac{1}{n}\sum_{i=1}^n k_i^{in} = \frac{1}{n}\sum_{j=1}^n k_j^{out} = c_{out}</script><script type="math/tex; mode=display">
-c=c_{in}=c_{out}=\frac{m}{n}</script></li>
+<li><p>有向图中，边数目 $m$ 等于<strong>入边端点数总和</strong>，也等于<strong>出边端点数总和</strong>，有<br>$$<br>m = \sum_{i=1}^n k_i^{in} = \sum_{j=1}^n k_{j}^{out} = \sum_{ij} A_{ij}<br>$$</p>
+</li>
+<li><p>有向图的入度均值 $c_{in}$ 等于出度均值 $c_{out}$ ,即<br>$$<br>c_{in} = \frac{1}{n}\sum_{i=1}^n k_i^{in} = \frac{1}{n}\sum_{j=1}^n k_j^{out} = c_{out}<br>$$</p>
+<p>$$<br>c=c_{in}=c_{out}=\frac{m}{n}<br>$$</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -434,43 +428,34 @@ c=c_{in}=c_{out}=\frac{m}{n}</script></li>
 <p>度中心性度量方法不能用于比较不同网络中的中心性值，需要归一化；</p>
 </blockquote>
 <h3 id="度中心性的归一化"><a href="#度中心性的归一化" class="headerlink" title="度中心性的归一化"></a>度中心性的归一化</h3><ul>
-<li>使用最大可能度数：<script type="math/tex; mode=display">
-C_d^{norm}(v_i)=\frac{度中心度}{最大可能度数}=\frac{d_i}{n-1}</script></li>
+<li>使用最大可能度数：<br>$$<br>C_d^{norm}(v_i)=\frac{度中心度}{最大可能度数}=\frac{d_i}{n-1}<br>$$</li>
 </ul>
 <ul>
-<li>使用最大度数：<script type="math/tex; mode=display">
-C_d^{max}(v_i) = \frac{度中心度}{最大度数} = \frac{d_i}{\max_jd_j}</script></li>
+<li>使用最大度数：<br>$$<br>C_d^{max}(v_i) = \frac{度中心度}{最大度数} = \frac{d_i}{\max_jd_j}<br>$$</li>
 </ul>
 <ul>
-<li>使用度数和：<script type="math/tex; mode=display">
-C_d^{sum}(v_i)=\frac{度中心度}{度数和}=\frac{d_i}{\sum_jd_j} = \frac{d_i}{2m}</script></li>
+<li>使用度数和：<br>$$<br>C_d^{sum}(v_i)=\frac{度中心度}{度数和}=\frac{d_i}{\sum_jd_j} = \frac{d_i}{2m}<br>$$</li>
 </ul>
 <h3 id="特征向量中心性"><a href="#特征向量中心性" class="headerlink" title="特征向量中心性"></a>特征向量中心性</h3><p>在度中心性度量中，认为具有较多连接的结点更为重要。但在社交网络中，拥有更多的邻居结点并不能确保该结点就是重要的，拥有更多重要的邻居结点才能提供更有力的信息。因为很多情况下，一个结点会由于连接到一些很重要的结点从而使得自身的重要性得到提升。</p>
 <p>特征向量中心性通过结合<strong>无向图的邻居节点</strong>（或<strong>有向图的输入邻居结点</strong>）的重要性来概括度中心性。</p>
-<p>对于每个结点$i$,令其的中心性为$x_i$。 计算$i$的所有邻居结点的中心性之和： </p>
-<script type="math/tex; mode=display">
-x_i' = \sum_i A_{ij} x_j   \\     \Longrightarrow   \\  \bf x' = Ax    (矩阵形式)</script><p>重复估算过程，得到中心性计算公式：</p>
-<script type="math/tex; mode=display">
-\bf x(t) = A^tx(0)</script><blockquote>
+<p>对于每个结点$i$,令其的中心性为$x_i$。 计算$i$的所有邻居结点的中心性之和：<br>$$<br>x_i’ = \sum_i A_{ij} x_j   \     \Longrightarrow   \  \bf x’ = Ax    (矩阵形式)<br>$$<br>重复估算过程，得到中心性计算公式：<br>$$<br>\bf x(t) = A^tx(0)<br>$$</p>
+<blockquote>
 <p>$\bf x(0)$  为邻接矩阵特征向量$\bf v_i$的线性组合， 即  $\bf x(0) = \sum_i c_i v_i$ ;</p>
 <p>根据特征值的定义： $Av_i = \lambda v_i$ </p>
 </blockquote>
-<p>最终得：</p>
-<script type="math/tex; mode=display">
-\bf x{(t)} = A^t\sum_i c_i v_i = \sum_i c_i\lambda_i^tv_i = \lambda_1^t \sum_i c_i[\frac{\lambda_i}{\lambda_1}]^t v_i</script><p>其中， $\lambda_i$ 为 $\bf A$ 的 特征值， $\lambda_1$ 为其中最大的特征值。</p>
+<p>最终得：<br>$$<br>\bf x{(t)} = A^t\sum_i c_i v_i = \sum_i c_i\lambda_i^tv_i = \lambda_1^t \sum_i c_i[\frac{\lambda_i}{\lambda_1}]^t v_i<br>$$<br>其中， $\lambda_i$ 为 $\bf A$ 的 特征值， $\lambda_1$ 为其中最大的特征值。</p>
 <blockquote>
 <p>当 $i\neq 1$ 时，对于所有 $i$ ，$\frac{\lambda_i}{\lambda_1}&lt;1$ 。当 $t$ 增大时， 除第一项外其他项都呈指数级下降，当$t \rightarrow \infty$ 时， $\bf x(t) \rightarrow c_1\lambda_1^t v_t$  。<strong>中心性向量的极限与邻接矩阵中的主特征向量成正比</strong>， 因此可等价认为中心性$\bf x$满足: $\bf Ax=\lambda_1 x$</p>
 </blockquote>
-<p>由此可得出，<strong>结点$i$的中心性与该结点邻居节点的中心性之和成正比</strong> ： </p>
-<script type="math/tex; mode=display">
-x_i = \frac{1}{\lambda_i} \sum_j A_{ij} x_j</script><blockquote>
+<p>由此可得出，<strong>结点$i$的中心性与该结点邻居节点的中心性之和成正比</strong> ：<br>$$<br>x_i = \frac{1}{\lambda_i} \sum_j A_{ij} x_j<br>$$</p>
+<blockquote>
 <p>该公式赋予特征向量中心性的性质：使得它的值会随两方面因素变大：</p>
 <ul>
 <li>该结点具有多个邻居结点；</li>
 <li>该结点的邻居节点中有重要的结点；</li>
 </ul>
 </blockquote>
-<h4 id="Perron-Frobenius-Theorem"><a href="#Perron-Frobenius-Theorem" class="headerlink" title="Perron-Frobenius Theorem:"></a>Perron-Frobenius Theorem:</h4><p>假设$A\in \Bbb R^{n \times n}$ 时[强]连通图的邻接矩阵，或者 $A:A<em>{i,j} &gt;0$ （即一个正的$n\times n$的矩阵）。 存在一个正实数（Perron-Frobenius特征值）$\lambda</em>{max}$，满足$\lambda<em>{max}$ 是矩阵$\bf A$的特征值，并且$\bf A $的其余特征值均严格小于$\lambda</em>{max}$。 $\lambda_{max}$ 所对应的特征向量为$v=(v_1,v_2,v_3,…,v_n)$，满足$\forall v_i&gt;0$ 。</p>
+<h4 id="Perron-Frobenius-Theorem"><a href="#Perron-Frobenius-Theorem" class="headerlink" title="Perron-Frobenius Theorem:"></a>Perron-Frobenius Theorem:</h4><p>假设$A\in \Bbb R^{n \times n}$ 时[强]连通图的邻接矩阵，或者 $A:A_{i,j} &gt;0$ （即一个正的$n\times n$的矩阵）。 存在一个正实数（Perron-Frobenius特征值）$\lambda_{max}$，满足$\lambda_{max}$ 是矩阵$\bf A$的特征值，并且$\bf A $的其余特征值均严格小于$\lambda_{max}$。 $\lambda_{max}$ 所对应的特征向量为$v=(v_1,v_2,v_3,…,v_n)$，满足$\forall v_i&gt;0$ 。</p>
 <p>根据该定理，我们可以<strong>通过求解矩阵$A$ 的特征值得到正的中心性值，选取其中最大的特征值 $\lambda_{max}$ ,其对应特征向量为 $x_i$，该特征向量的所有部分均为正值，并且其分量对应于各结点的特征向量中心性，其中特征向量中最大分量对应的结点考虑为最中心的结点</strong></p>
 <blockquote>
 <p>寻找最中心结点：</p>
@@ -490,13 +475,9 @@ x_i = \frac{1}{\lambda_i} \sum_j A_{ij} x_j</script><blockquote>
 </ul>
 <h3 id="Katz中心性"><a href="#Katz中心性" class="headerlink" title="Katz中心性"></a>Katz中心性</h3><p>Katz中心性是特征向量中心性的变体，解决上述有向网络中零特征向量中心性传递带来的问题。</p>
 <ul>
-<li><p>定义：为网络中的每个结点赋予少量的中心性，不考虑该结点在网络中的具体位置或者其邻居节点的中心性。</p>
-<script type="math/tex; mode=display">
-x_i = \alpha \sum_i A_{ij} x_j + \beta</script><p>偏差项$\beta$ 用来解决中心性值为0 的问题；</p>
-<p>矩阵表示上述公式，$\beta$ 作为整体因子其取值并不重要，通常设定为1：</p>
-<script type="math/tex; mode=display">
-\bf x=\alpha Ax+\beta 1  \\ \Longrightarrow  \beta=1 \Longrightarrow \\
-x=(I-\alpha A)^{-1} 1</script></li>
+<li><p>定义：为网络中的每个结点赋予少量的中心性，不考虑该结点在网络中的具体位置或者其邻居节点的中心性。<br>$$<br>x_i = \alpha \sum_i A_{ij} x_j + \beta<br>$$<br>偏差项$\beta$ 用来解决中心性值为0 的问题；</p>
+<p>矩阵表示上述公式，$\beta$ 作为整体因子其取值并不重要，通常设定为1：<br>$$<br>\bf x=\alpha Ax+\beta 1  \ \Longrightarrow  \beta=1 \Longrightarrow \<br>x=(I-\alpha A)^{-1} 1<br>$$</p>
+</li>
 <li><p>自由参数$\alpha$ 负责调节特征向量与常数项之间的平衡。</p>
 <ul>
 <li><p>当$\alpha=0$ 时， 式（14）只剩下常数项，所有结点赋予相同的中心性$\beta$;</p>
@@ -510,35 +491,28 @@ x=(I-\alpha A)^{-1} 1</script></li>
 </ul>
 </li>
 </ul>
-<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><p>对于增加的常数项，根据结点的不同赋予不同的值，可以定义一种更加通用的中心性：</p>
-<script type="math/tex; mode=display">
-x_i = \alpha \sum_j A_{ij} x_j + \beta_i</script><p>其中$\beta_i$是每一个结点与网络无关的固有中心性。因此中心性向量$\bf x$可描述为</p>
-<script type="math/tex; mode=display">
-\bf x=(I-\alpha A)^{-1} \beta</script><h3 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h3><p>Katz中心性的不足之处在于，Katz中心性较高的结点会向它指向的结点传递其高中心性，这是不可取的，因为该高中心性结点指向的结点数量可能很大，但并不是每一个被指向的结点都具有很高的中心性。因此，<strong>被有重要影响的结点指向的结点，其从重要节点获得的中心性会因为与其他结点共享而被稀释。</strong></p>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><p>对于增加的常数项，根据结点的不同赋予不同的值，可以定义一种更加通用的中心性：<br>$$<br>x_i = \alpha \sum_j A_{ij} x_j + \beta_i<br>$$<br>其中$\beta_i$是每一个结点与网络无关的固有中心性。因此中心性向量$\bf x$可描述为<br>$$<br>\bf x=(I-\alpha A)^{-1} \beta<br>$$</p>
+<h3 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h3><p>Katz中心性的不足之处在于，Katz中心性较高的结点会向它指向的结点传递其高中心性，这是不可取的，因为该高中心性结点指向的结点数量可能很大，但并不是每一个被指向的结点都具有很高的中心性。因此，<strong>被有重要影响的结点指向的结点，其从重要节点获得的中心性会因为与其他结点共享而被稀释。</strong></p>
 <ul>
 <li>定义：从网络邻居结点获得的中心性与邻居结点的中心性除以它们的出度成正比。</li>
 </ul>
-<script type="math/tex; mode=display">
-x_i = \alpha \sum_i A_{ij} \frac{x_j}{k_j^{out}} + \beta</script><blockquote>
-<p>对于网络中出度$k<em>j^{out}=0$的结点 ，会产生0/0的结果（因为对于所有$i$，$A</em>{ij}=0$）。</p>
+<p>$$<br>x_i = \alpha \sum_i A_{ij} \frac{x_j}{k_j^{out} } + \beta<br>$$</p>
+<blockquote>
+<p>对于网络中出度$k_j^{out}=0$的结点 ，会产生0/0的结果（因为对于所有$i$，$A_{ij}=0$）。</p>
 <p>解决此问题： 没有出度的结点对其他结点的中心性贡献为0，因此将这些结点的出度设定为1；实际可将$k_j^{out}$ 设定为任何一个非零值。</p>
 </blockquote>
-<p>​    表示为矩阵形式，同样将$\beta$设定为1</p>
-<script type="math/tex; mode=display">
-\bf x=\alpha AD^{-1}x+\beta1    \\  \Longrightarrow \beta=1 \Longrightarrow \\  x=(I-\alpha AD^{-1})^{-1} 1=D(D-\alpha A)^{-1} 1</script><p>​    其中， $\bf D$ 为对角矩阵，其元素为 $D_{ii}=\max(k_i^{out},1)$</p>
+<p>​    表示为矩阵形式，同样将$\beta$设定为1<br>$$<br>\bf x=\alpha AD^{-1}x+\beta1    \  \Longrightarrow \beta=1 \Longrightarrow \  x=(I-\alpha AD^{-1})^{-1} 1=D(D-\alpha A)^{-1} 1<br>$$<br>​    其中， $\bf D$ 为对角矩阵，其元素为 $D_{ii}=\max(k_i^{out},1)$</p>
 <blockquote>
-<p>与katz中心性类似，$\alpha$ 的值应小于$AD^{-1}$的最大特征值的倒数，即$\frac{1}{\lambda_{max}}$ ;</p>
+<p>与katz中心性类似，$\alpha$ 的值应小于$AD^{-1}$的最大特征值的倒数，即$\frac{1}{\lambda_{max} }$ ;</p>
 <p>对于无向网络，其最大特征值为1，因此 $\alpha$ 应选择小于1的值；</p>
 <p>对于有向网络，通常主特征值实际取值近似1；</p>
 </blockquote>
-<h4 id="拓展-1"><a href="#拓展-1" class="headerlink" title="拓展"></a>拓展</h4><p>PageRank推广，使得常数项$\beta$ 对不同顶点取不同的值：</p>
-<script type="math/tex; mode=display">
-x_i = \alpha \sum_i A_{ij} \frac{x_j}{k_j^{out}} + \beta_i</script><p>矩阵形式为：</p>
-<script type="math/tex; mode=display">
-\bf x=D(D-\alpha A)^{-1} \beta</script><blockquote>
+<h4 id="拓展-1"><a href="#拓展-1" class="headerlink" title="拓展"></a>拓展</h4><p>PageRank推广，使得常数项$\beta$ 对不同顶点取不同的值：<br>$$<br>x_i = \alpha \sum_i A_{ij} \frac{x_j}{k_j^{out} } + \beta_i<br>$$<br>矩阵形式为：<br>$$<br>\bf x=D(D-\alpha A)^{-1} \beta<br>$$</p>
+<blockquote>
 <p>利用该公式对网页进行排序时，其中$\beta_i$的值可以基于网页与查询条件的文本相似性给出。</p>
-<h4 id="四种中心性测度"><a href="#四种中心性测度" class="headerlink" title="四种中心性测度"></a>四种中心性测度</h4><div class="table-container">
-<table>
+</blockquote>
+<blockquote>
+<h4 id="四种中心性测度"><a href="#四种中心性测度" class="headerlink" title="四种中心性测度"></a>四种中心性测度</h4><table>
 <thead>
 <tr>
 <th></th>
@@ -559,7 +533,6 @@ x_i = \alpha \sum_i A_{ij} \frac{x_j}{k_j^{out}} + \beta_i</script><p>矩阵形�
 </tr>
 </tbody>
 </table>
-</div>
 </blockquote>
 <h3 id="针对引文网络的中心性"><a href="#针对引文网络的中心性" class="headerlink" title="针对引文网络的中心性"></a>针对引文网络的中心性</h3><h4 id="核心结点与权威结点"><a href="#核心结点与权威结点" class="headerlink" title="核心结点与权威结点"></a>核心结点与权威结点</h4><ul>
 <li>权威结点（authority）: 包含所关注主题有用的信息的结点；</li>
@@ -568,20 +541,16 @@ x_i = \alpha \sum_i A_{ij} \frac{x_j}{k_j^{out}} + \beta_i</script><p>矩阵形�
 <p>核心结点与权威结点只存在于有向网络中，在有向网络中可以定义两种中心性，</p>
 <ul>
 <li><p>权威中心性</p>
-<p>与指向该结点的核心中心性之和成正比；</p>
-<script type="math/tex; mode=display">
-x_i=\alpha \sum_j A_{ij}y_j</script></li>
+<p>与指向该结点的核心中心性之和成正比；<br>$$<br>x_i=\alpha \sum_j A_{ij}y_j<br>$$</p>
+</li>
 <li><p>核心中心性</p>
-<p>与该结点指向的结点的权威中心性之和成正比；</p>
-<script type="math/tex; mode=display">
-y_i =\beta \sum_j A_{ji}x_j</script><p>矩阵表示：</p>
-<script type="math/tex; mode=display">
-\bf x=\alpha Ay  ,    y=\beta A^Tx    \\ \Longrightarrow
-AA^Tx=\lambda x,   A^TAy=\lambda y</script><p>其中，$\lambda=(\alpha \beta)^{-1}$</p>
+<p>与该结点指向的结点的权威中心性之和成正比；<br>$$<br>y_i =\beta \sum_j A_{ji}x_j<br>$$<br>矩阵表示：<br>$$<br>\bf x=\alpha Ay  ,    y=\beta A^Tx    \ \Longrightarrow<br>AA^Tx=\lambda x,   A^TAy=\lambda y<br>$$<br>其中，$\lambda=(\alpha \beta)^{-1}$</p>
 <blockquote>
 <p>权威中心性与核心中心性分别由具有相同特征值的矩阵$AA^T$和$A^TA$对应的特征向量决定。</p>
 <p>因此矩阵$AA^T$和$A^TA$ 有相同的主特征值$\lambda$ ：</p>
 <p>若 $\bf AA^Tx=\lambda x$ , 公式两边都乘以 $A^T$ , 可以得到 $\bf A^TA(A^Tx)=\lambda(A^Tx)$。因此$A^Tx$ 也是矩阵$A^TA$ 的特征值为$\lambda$ 的特征向量， 即$\bf y=A^Tx$ 。 </p>
+</blockquote>
+<blockquote>
 <ul>
 <li>$AA^T$ 是共引矩阵，权威中心性可以粗略的认为是共引网络的特征向量中心性；</li>
 <li>$A^TA$ 是文献耦合矩阵，核心中心性就是文献耦合网络的特征向量中心性；</li>
@@ -591,10 +560,7 @@ AA^Tx=\lambda x,   A^TAy=\lambda y</script><p>其中，$\lambda=(\alpha \beta)^{
 </ul>
 <h3 id="接近度中心性"><a href="#接近度中心性" class="headerlink" title="接近度中心性"></a>接近度中心性</h3><p>接近中心性不同于其他中心性测度，度量了一个结点到其他结点的平均距离。接近中心性的思想是结点越趋于中心，越能快速到达其他结点。形象化的描述为，这些结点满足与其他结点之间有最小平均最短路径。</p>
 <ul>
-<li>定义：平均测地距离的倒数<script type="math/tex; mode=display">
-C_i=\frac{1}{\ell_i}    \\
-\ell_i = \frac{1}{n}\sum_j d_{ij}    \\  or \\
-\ell_i = \frac{1}{n-1} \sum_{j(\neq i)} d_{ij}</script></li>
+<li>定义：平均测地距离的倒数<br>$$<br>C_i=\frac{1}{\ell_i}    \<br>\ell_i = \frac{1}{n}\sum_j d_{ij}    \  or \<br>\ell_i = \frac{1}{n-1} \sum_{j(\neq i)} d_{ij}<br>$$</li>
 </ul>
 <blockquote>
 <ul>
@@ -605,52 +571,36 @@ C_i=\frac{1}{\ell_i}    \\
 <li>解决方法之一是<strong>只计算在同一分支内部的结点的平均测地距离</strong>，但仍然存在固有缺陷：小规模分支内部结点间的距离普遍偏小，与大规模分支中的结点相比，其$\ell_i$较小，$C_i$更大。产生不理想的结果：<strong>大多数情况下，小规模分支中结点之间的连通程度比大规模分支中要低，因此应赋予较低的中心性</strong>。</li>
 </ul>
 </blockquote>
-<p>重定义接近中心性，使用结点之间的<strong>调和平均测地距离</strong>：</p>
-<script type="math/tex; mode=display">
-C_i'= \frac{1}{n-1}\sum_{j(\neq i)} \frac{1}{d_{ij}}</script><ul>
+<p>重定义接近中心性，使用结点之间的<strong>调和平均测地距离</strong>：<br>$$<br>C_i’= \frac{1}{n-1}\sum_{j(\neq i)} \frac{1}{d_{ij} }<br>$$</p>
+<ul>
 <li><p>网络平均测地距离：</p>
 <ul>
 <li>对于只有一个分支的网络，所有结点对之间的平均距离为</li>
 </ul>
-<script type="math/tex; mode=display">
-\ell = \frac{1}{n^2}\sum_{ij}d_{ij} = \frac{1}{n}\sum_i \ell_i</script><p>​    即所有结点的平均测地距离$\ell_i$的平均值。</p>
+<p>$$<br>\ell = \frac{1}{n^2}\sum_{ij}d_{ij} = \frac{1}{n}\sum_i \ell_i<br>$$</p>
+<p>​    即所有结点的平均测地距离$\ell_i$的平均值。</p>
 <ul>
-<li><p>对于多分支网络，<em>只计算同一分支内部结点之间路径的平均长度</em>。令${ {\scr C}_m }$表示网络中分支的集合，定义：</p>
-<script type="math/tex; mode=display">
-\ell = \frac{\sum_m \sum_{ij\in {\scr C}_m} d_{ij}}{\sum_m n_m^2}</script><p>其中，$n_m$为分支$\scr C_m$中的结点数。</p>
-<p>另一中定义方式为定义一个调和平均距离$\ell ’$ ：</p>
-<script type="math/tex; mode=display">
-\frac{1}{\ell '} = \frac{1}{n(n-1)} \sum_{i \neq j} \frac{1}{d_{ij}}=\frac{1}{n}\sum_i C_i'    \\  \Longleftrightarrow \\
-\ell ' = \frac{n}{\sum_i C_i'}</script></li>
+<li><p>对于多分支网络，<em>只计算同一分支内部结点之间路径的平均长度</em>。令${ {\scr C}_m }$表示网络中分支的集合，定义：<br>$$<br>\ell = \frac{\sum_m \sum_{ij\in {\scr C}<em>m} d</em>{ij} }{\sum_m n_m^2}<br>$$<br>其中，$n_m$为分支$\scr C_m$中的结点数。</p>
+<p>另一中定义方式为定义一个调和平均距离$\ell ’$ ：<br>$$<br>\frac{1}{\ell ‘} = \frac{1}{n(n-1)} \sum_{i \neq j} \frac{1}{d_{ij} }=\frac{1}{n}\sum_i C_i’    \  \Longleftrightarrow \<br>\ell ‘ = \frac{n}{\sum_i C_i’}<br>$$</p>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="介数中心性"><a href="#介数中心性" class="headerlink" title="介数中心性"></a>介数中心性</h3><p>考虑结点在连接其他结点时表现的”中介“次数，即其他结点间通过结点$v_i$的最短路径的数目。</p>
 <p><strong>介数中心性衡量某个结点对其他结点对之间信息流动的影响力。</strong> </p>
 <ul>
-<li><p>定义：</p>
-<script type="math/tex; mode=display">
-C_b(v_i) = \sum_{s \neq t \neq v_i} \frac{s到t经过v_i的最短路径数目}{s到t的最短路径数目} =\sum_{s \neq t \neq v_i} \frac{\sigma_{st}(v_i)}{\sigma_{st}}</script></li>
+<li><p>定义：<br>$$<br>C_b(v_i) = \sum_{s \neq t \neq v_i} \frac{s到t经过v_i的最短路径数目}{s到t的最短路径数目} =\sum_{s \neq t \neq v_i} \frac{\sigma_{st}(v_i)}{\sigma_{st} }<br>$$</p>
+</li>
 <li><p>归一化：</p>
 <ul>
-<li><p>最大值：当结点$v<em>i$出现在连接任意结点对$(s,t)$的所有最短路径中时，该结点的中间中心性对应最大值1，即$\forall (s,t), s \neq t \neq v_i , \frac{\sigma</em>{st} (v<em>i)}{\sigma</em>{st}} = 1$。 因此，最大值为：</p>
-<script type="math/tex; mode=display">
-C_b(v_i)=\sum_{s \neq t \neq v_i} \frac{\sigma_{st}(v_i)}{\sigma_{st}}=\sum_{s \neq t \neq v_i} 1 = 2 
-\begin{pmatrix}
-n-1 \\
-2\\
-\end{pmatrix} = (n-1)(n-2)</script></li>
+<li><p>最大值：当结点$v_i$出现在连接任意结点对$(s,t)$的所有最短路径中时，该结点的中间中心性对应最大值1，即$\forall (s,t), s \neq t \neq v_i , \frac{\sigma_{st} (v_i)}{\sigma_{st} } = 1$。 因此，最大值为：<br>$$<br>C_b(v_i)=\sum_{s \neq t \neq v_i} \frac{\sigma_{st}(v_i)}{\sigma_{st} }=\sum_{s \neq t \neq v_i} 1 = 2<br>\begin{pmatrix}<br>n-1 \<br>2\<br>\end{pmatrix} = (n-1)(n-2)<br>$$</p>
+</li>
 <li></li>
 </ul>
-<script type="math/tex; mode=display">
-C_b^{norm}(v_i) = \frac{C_b(v_i)}{2\begin{pmatrix}
-n-1 \\
-2\\
-\end{pmatrix}}</script></li>
+<p>$$<br>C_b^{norm}(v_i) = \frac{C_b(v_i)}{2\begin{pmatrix}<br>n-1 \<br>2\<br>\end{pmatrix} }<br>$$</p>
+</li>
 </ul>
-<h4 id="另一种表述"><a href="#另一种表述" class="headerlink" title="另一种表述"></a>另一种表述</h4><p>表示一般性网络的介数，定义$n<em>{st}^i$为从$s$到$t$经过$i$的测地路径数量，定义$g</em>{st}$为从$s$到$t$的测地路径总数。那么结点$i$的介数中心性可以表示为</p>
-<script type="math/tex; mode=display">
-x_i = \sum_{st} \frac{n_{st}^i}{g_{st}}</script><p>介数中心性主要是度量一个结点“介于”其他结点的程度。</p>
+<h4 id="另一种表述"><a href="#另一种表述" class="headerlink" title="另一种表述"></a>另一种表述</h4><p>表示一般性网络的介数，定义$n_{st}^i$为从$s$到$t$经过$i$的测地路径数量，定义$g_{st}$为从$s$到$t$的测地路径总数。那么结点$i$的介数中心性可以表示为<br>$$<br>x_i = \sum_{st} \frac{n_{st}^i}{g_{st} }<br>$$<br>介数中心性主要是度量一个结点“介于”其他结点的程度。</p>
 <blockquote>
 <p>一个结点的度可以很低，与其相连的结点的度也很低，与其他结点之间的平均距离很长，但仍有较高的介数。</p>
 <p><img src="images/1548337276217.png" alt="1548337276217"></p>
@@ -659,31 +609,21 @@ x_i = \sum_{st} \frac{n_{st}^i}{g_{st}}</script><p>介数中心性主要是度�
 <ul>
 <li><p>归一化：（考虑自环）</p>
 <ul>
-<li>基于结点对：<script type="math/tex; mode=display">
-x_i= \frac{1}{n^2}\sum_{st} \frac{n_{st}^i}{g_{st}}</script></li>
+<li>基于结点对：<br>$$<br>x_i= \frac{1}{n^2}\sum_{st} \frac{n_{st}^i}{g_{st} }<br>$$</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>基于介数最大可能值：<script type="math/tex; mode=display">
-x_i = \frac{1}{n^2-n+1} \sum_{st}\frac{n_{st}^i}{g_{st}}</script></li>
+<li>基于介数最大可能值：<br>$$<br>x_i = \frac{1}{n^2-n+1} \sum_{st}\frac{n_{st}^i}{g_{st} }<br>$$</li>
 </ul>
 <h3 id="群体中心性"><a href="#群体中心性" class="headerlink" title="群体中心性"></a>群体中心性</h3><p>考虑如何将度中心性、接近中心性以及中间中心性应用到一组结点上。</p>
 <p>假设$S$表示需要求解群体中心性的结点集，$V-S$表示上述集合之外的结点集。</p>
-<h4 id="群体度中心性"><a href="#群体度中心性" class="headerlink" title="群体度中心性"></a>群体度中心性</h4><p>群体度中心性是群体外部结点连接到群体内部结点的数目。形式化的定义为：</p>
-<script type="math/tex; mode=display">
-C_d^{group}(S)=|\{v_i \in V-S| v_i连接到v_j \in S\}|</script><p>与度中心性相似，可以利用有向图中的入度或出度。同时该值可以进行归一化。</p>
+<h4 id="群体度中心性"><a href="#群体度中心性" class="headerlink" title="群体度中心性"></a>群体度中心性</h4><p>群体度中心性是群体外部结点连接到群体内部结点的数目。形式化的定义为：<br>$$<br>C_d^{group}(S)=|{v_i \in V-S| v_i连接到v_j \in S}|<br>$$<br>与度中心性相似，可以利用有向图中的入度或出度。同时该值可以进行归一化。</p>
 <p>最理想的情况为，群体中的结点均连接到群体外的所有结点上，此时$C_d^{group}(S)$的最大值为$V-S$。使用群体度中心性除以$|V-S|$进行归一化处理。</p>
-<h4 id="群体介数中心性"><a href="#群体介数中心性" class="headerlink" title="群体介数中心性"></a>群体介数中心性</h4><p>群体介数中心性被定义为：</p>
-<script type="math/tex; mode=display">
-C_b^{group}(S) = \sum_{s\neq t, s\notin S, t \notin S}  \frac{\sigma_{st}(S)}{\sigma_{st}}</script><p>其中，$\sigma_{st}(S)$ 表示从$s$到$t$经过集合$S$中元素的最短路径的数目。</p>
-<p>最理想的情况下，从$s$到$t$的所有的最短路径均经过集合$S$中的元素，因此，$C_b^{group}(S)$的最大值为${2\begin{pmatrix}  |V-S| \ 2\  \end{pmatrix}}$。</p>
+<h4 id="群体介数中心性"><a href="#群体介数中心性" class="headerlink" title="群体介数中心性"></a>群体介数中心性</h4><p>群体介数中心性被定义为：<br>$$<br>C_b^{group}(S) = \sum_{s\neq t, s\notin S, t \notin S}  \frac{\sigma_{st}(S)}{\sigma_{st} }<br>$$<br>其中，$\sigma_{st}(S)$ 表示从$s$到$t$经过集合$S$中元素的最短路径的数目。</p>
+<p>最理想的情况下，从$s$到$t$的所有的最短路径均经过集合$S$中的元素，因此，$C_b^{group}(S)$的最大值为${2\begin{pmatrix}  |V-S| \ 2\  \end{pmatrix} }$。</p>
 <p>和介数中心性相似，使用介数中心性除以最大值进行归一化处理。</p>
-<h4 id="群体接近中心性"><a href="#群体接近中心性" class="headerlink" title="群体接近中心性"></a>群体接近中心性</h4><p>群体接近中心性被定义为：</p>
-<script type="math/tex; mode=display">
-C_c^{group}(S)=\frac{1}{\bar l_S^{group}}</script><p>其中，$\bar l <em>S^{group} = \frac{1}{|V-S|}\sum</em>{v<em>j \notin S} l</em>{S,v<em>j}$，$l</em>{S,v_j}$是群体$S$与群体之外的元素$v_j \in V-S$的最短路径的长度。该长度可以以多种方式定义，一种方法是寻找$S$中距离$v_j$最近的成员元素：</p>
-<script type="math/tex; mode=display">
-l_{S,v_j} = \min_{v_i \in S}l_{v_i,v_j}</script><p>另一种是使用最大距离或者平均距离。</p>
+<h4 id="群体接近中心性"><a href="#群体接近中心性" class="headerlink" title="群体接近中心性"></a>群体接近中心性</h4><p>群体接近中心性被定义为：<br>$$<br>C_c^{group}(S)=\frac{1}{\bar l_S^{group} }<br>$$<br>其中，$\bar l <em>S^{group} = \frac{1}{|V-S|}\sum</em>{v_j \notin S} l_{S,v_j}$，$l_{S,v_j}$是群体$S$与群体之外的元素$v_j \in V-S$的最短路径的长度。该长度可以以多种方式定义，一种方法是寻找$S$中距离$v_j$最近的成员元素：<br>$$<br>l_{S,v_j} = \min_{v_i \in S}l_{v_i,v_j}<br>$$<br>另一种是使用最大距离或者平均距离。</p>
 
       
     </div>
@@ -714,8 +654,8 @@ l_{S,v_j} = \min_{v_i \in S}l_{v_i,v_j}</script><p>另一种是使用最大距�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/15/windows下python3.5安装facenet/" rel="next" title="TensorFlow环境 人脸识别 FaceNet 应用（一）:FaceNet安装与验证测试集">
-                <i class="fa fa-chevron-left"></i> TensorFlow环境 人脸识别 FaceNet 应用（一）:FaceNet安装与验证测试集
+              <a href="/2019/01/20/知识表示之TransD/" rel="next" title="知识图谱：知识表示之TransD模型">
+                <i class="fa fa-chevron-left"></i> 知识图谱：知识表示之TransD模型
               </a>
             
           </div>
@@ -807,7 +747,7 @@ l_{S,v_j} = \min_{v_i \in S}l_{v_i,v_j}</script><p>另一种是使用最大距�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

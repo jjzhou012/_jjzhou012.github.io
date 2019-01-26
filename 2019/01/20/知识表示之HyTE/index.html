@@ -81,21 +81,20 @@
 
 
 
-<meta name="description" content="TransH论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546 模型改进 将特定关系的转移向量 $d_r$ 放置于特定关系的超平面 $w_r$ ,而不是映射到相同的实体嵌入空间；   对于三元组 $(h,r,t)$，嵌入向量 ${\bf h}$ 和 ${\bf t}$ 投影到超平面 ${\bf {">
+<meta name="description" content="HyTEHyperplane-based Temporally aware KG Embedding 论文地址：http://talukdar.net/papers/emnlp2018_HyTE.pdf 模型改进现有的 KG embedding方法很少考虑到时间维度，因为它们假设所有的三元组总是永远正确的，可是现实中很多情况下不是这样。   For example, (Bill Clinton,">
 <meta name="keywords" content="Knowledge graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识图谱：知识表示之TransH模型">
-<meta property="og:url" content="http://yoururl.com/2019/01/20/知识表示之TransH/index.html">
+<meta property="og:title" content="知识图谱：知识表示之HyTE模型">
+<meta property="og:url" content="http://yoururl.com/2019/01/20/知识表示之HyTE/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="TransH论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546 模型改进 将特定关系的转移向量 $d_r$ 放置于特定关系的超平面 $w_r$ ,而不是映射到相同的实体嵌入空间；   对于三元组 $(h,r,t)$，嵌入向量 ${\bf h}$ 和 ${\bf t}$ 投影到超平面 ${\bf {">
+<meta property="og:description" content="HyTEHyperplane-based Temporally aware KG Embedding 论文地址：http://talukdar.net/papers/emnlp2018_HyTE.pdf 模型改进现有的 KG embedding方法很少考虑到时间维度，因为它们假设所有的三元组总是永远正确的，可是现实中很多情况下不是这样。   For example, (Bill Clinton,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/58905342.jpg">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/13704280.jpg">
-<meta property="og:updated_time" content="2019-01-26T07:28:17.402Z">
+<meta property="og:image" content="http://yoururl.com/2019/01/20/知识表示之HyTE/images/1543242194541.png">
+<meta property="og:updated_time" content="2019-01-26T09:07:20.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="知识图谱：知识表示之TransH模型">
-<meta name="twitter:description" content="TransH论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546 模型改进 将特定关系的转移向量 $d_r$ 放置于特定关系的超平面 $w_r$ ,而不是映射到相同的实体嵌入空间；   对于三元组 $(h,r,t)$，嵌入向量 ${\bf h}$ 和 ${\bf t}$ 投影到超平面 ${\bf {">
-<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/58905342.jpg">
+<meta name="twitter:title" content="知识图谱：知识表示之HyTE模型">
+<meta name="twitter:description" content="HyTEHyperplane-based Temporally aware KG Embedding 论文地址：http://talukdar.net/papers/emnlp2018_HyTE.pdf 模型改进现有的 KG embedding方法很少考虑到时间维度，因为它们假设所有的三元组总是永远正确的，可是现实中很多情况下不是这样。   For example, (Bill Clinton,">
+<meta name="twitter:image" content="http://yoururl.com/2019/01/20/知识表示之HyTE/images/1543242194541.png">
 
 
 
@@ -125,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoururl.com/2019/01/20/知识表示之TransH/"/>
+  <link rel="canonical" href="http://yoururl.com/2019/01/20/知识表示之HyTE/"/>
 
 
 
 
 
-  <title>知识图谱：知识表示之TransH模型 | Andy_z 's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>知识图谱：知识表示之HyTE模型 | Andy_z 's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -268,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2019/01/20/知识表示之TransH/">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2019/01/20/知识表示之HyTE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Andy_z">
@@ -285,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">知识图谱：知识表示之TransH模型</h1>
+          <h1 class="post-title" itemprop="name headline">知识图谱：知识表示之HyTE模型</h1>
         
 
         <div class="post-meta">
@@ -297,7 +296,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T00:02:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T00:08:00+08:00">
                 2019-01-20
               </time>
             
@@ -357,85 +356,54 @@
       
 
       
-        <h1 id="TransH"><a href="#TransH" class="headerlink" title="TransH"></a>TransH</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a></p>
-<h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/58905342.jpg" alt=""></p>
-<p>将特定关系的转移向量 $d_r$ 放置于特定关系的超平面 $w_r$ ,而不是映射到相同的实体嵌入空间；  </p>
-<p>对于三元组 $(h,r,t)$，嵌入向量 ${\bf h}$ 和 ${\bf t}$ 投影到超平面 ${\bf {w_r}}$ , 投影被表示为 ${\bf h_{\bot}}$ 和 ${\bf t_{\bot}}$ 。投影 ${h_{\bot}}$ 和 ${t_{\bot}}$ 能被转移向量 ${\bf d_r}$ 连接， 当三元组为正样本时有更低的错误率，为负样本时错误率上升；   </p>
+        <h1 id="HyTE"><a href="#HyTE" class="headerlink" title="HyTE"></a>HyTE</h1><p>Hyperplane-based Temporally aware KG Embedding</p>
+<p>论文地址：<a href="http://talukdar.net/papers/emnlp2018_HyTE.pdf" target="_blank" rel="noopener">http://talukdar.net/papers/emnlp2018_HyTE.pdf</a></p>
+<h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p>现有的 KG embedding方法很少考虑到<strong>时间</strong>维度，因为它们假设所有的三元组总是永远正确的，可是现实中很多情况下不是这样。</p>
 <blockquote>
-<p>TransH将一个关系$r$表示成两个向量：超平面法向量${\bf W}_r$和超平面内的关系向量${\bf d_r}$表示；</p>
-<p>该关系连接的不同实体对在超平面上的投影只对应一个向量表示： ${\bf h_{\bot}}$ 和 ${\bf t_{\bot}}$，</p>
-<p>也就是，唯一的${\bf W}_r$和${\bf d_r}$ 确定了该关系在空间中的唯一超平面；</p>
+<p> For example, (Bill Clinton, presidentOf, USA) was true only from 1993 to 2001;</p>
 </blockquote>
+<p>考虑到三元组<strong>时效性</strong>问题，提出了 HyTE 模型，定义了三元组有效成立时间段为 <strong>temporal scopes</strong> ，这些temporal scopes随着时间的推移对许多数据集会产生影响（比如YAGO，Wikidata），可以用于：</p>
 <ul>
-<li><p>定义一个得分函数,衡量三元组的合理性：<br>$$<br>||{\bf h_{\bot} } + {\bf d_r} - {\bf t_{\bot} }||_2^2<br>$$</p>
-</li>
-<li><p>超平面法向量限制为 $||{\bf w}_r ||_2 = 1$, 超平面投影的表示为</p>
-</li>
+<li>利用<strong>时间导向</strong>进行知识图谱图推理；</li>
+<li>为缺失时间注释的事实预测 temporal scopes； </li>
 </ul>
-<p>$$<br>{\bf h_{\bot} } = {\bf h} - {\bf w}_r^T {\bf h}{\bf w}_r<br>$$</p>
-<p>$$<br>{\bf t_{\bot} } = {\bf t} - {\bf w}_r^T {\bf h}{\bf w}_r<br>$$</p>
+<p>考虑一个四元组 $(h,r,t,[τ_s, τ_e])$，这里的 $τ_s$ 和 $τ_e$ 分别定义了三元组成立时间段的<strong>起始</strong>与<strong>截止</strong>。TransE模型将实体和关系考虑到相同的语义空间，但是在不同的时间段，实体与关系组成的 $(h，r)$ 可能会对应到不同的尾实体  $t$ ，所以在本文的模型中，希望<strong>实体能够随不同的时间点有着不同的表示</strong>。为了达到这一目的，文中将时间表示成超平面,模型示意图如下：</p>
+<p><img src="images\1543242194541.png" alt="1543242194541"></p>
 <blockquote>
-<p>推导： 嵌入向量在超平面法向量上的投影长度，再乘上法向量方向向量：<br>$d=\frac{ | {\bf w}_r^T h| }{| |{\bf w}| |} \cdot \frac{ {\bf w}_r}{| |{\bf w}| |}=\frac{ {\bf w}_r^T {\bf h}{\bf w}_r}{| |{\bf w}^2| |}={\bf w}_r^T {\bf h}{\bf w}_r$</p>
+<p>$e_h，e_t，e_r$，分别表示三元组中头实体，尾实体以及关系所对应的向量表示;</p>
+<p>$τ_1$ 和 $τ_2$ 分别表示此三元组有效成立时间段的<strong>起始时间</strong>与<strong>截止时间</strong>;</p>
+<p>$e_h(τ_1)$, $e_r(τ_1)$ 以及表示各向量在时间超平面 $τ_1$上的投影;</p>
+<p>最终，模型通过最小化 translational distance 来完成结合时间的实体与关系的embedding学习过程。</p>
 </blockquote>
-<p>最终得分函数：</p>
-<p>$$<br>f_r({\bf h},{\bf t}) = | |({\bf h} - {\bf w}_r^T {\bf h} {\bf w}_r) + {\bf d}_r -({\bf t} - {\bf w}_r^T {\bf h} {\bf w}_r)| |_2^2<br>$$</p>
-<p>模型参数：</p>
+<p>给定时间戳，可以将图分解为几个静态图，其中包含在各个时间步骤中有效的三元组，如：</p>
+<p>知识图 $G$ 能被表示为 ${\Bbb {G=G_{τ<em>1} \cup G</em>{τ<em>2} \cup … \cup  G</em>{τ_T} } }$ , 其中 $τ_i, i \in 1,2,…,T$ 是离散时间点。</p>
+<p>构建时间组成图 ${\Bbb G_τ}$ 时，对于一个四元组 $(h,r,t,[τ_s,τ_e])$ ，考虑每个在 $τ_s , τ<em>e$ 之间的时间点，该四元组为正样本。$τ$ 时刻正样本集合定义为 ${\scr D</em>τ^+}$ 。</p>
+<p>对于 $T$ 个时间点的 KG，将会有 $T$ 个用不同法向量（$w_{t_1}, w_{t_2}, …, w_{t_T}$）表示的超平面，在超平面的帮助下将空间隔离成不同时间域。在时间 $τ$ 下有效的三元组被投影到特殊超平面 $w_τ$，在超平面上平移距离被最小化。</p>
+<p>计算在 $w_τ$ 上的投影表示，其中 $||w_τ||_2=1$ ：</p>
+<p>$$<br>P_τ(e_h)=e_h - (w_τ^Te_h)w_τ  \<br>P_τ(e_t)=e_t - (w_τ^Te_t)w_τ  \<br>P_τ(e_r)=e_r - (w_τ^Te_r)w_τ  \<br>$$</p>
+<blockquote>
+<p>向量投影</p>
+</blockquote>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="得分函数"><a href="#得分函数" class="headerlink" title="得分函数"></a>得分函数</h3><p>对于在时间 $τ$ 有效的正样本，希望映射满足这样的关系 ：$P_τ(e_h)=P_τ(e_r) \approx P_τ(e_t)$, 因而使用以下的得分函数：</p>
+<p>$$<br>f_τ(h,r,t)=||P_τ(e_h)+P_τ(e_r)-P_τ(e_t)||_{l1/l2}<br>$$</p>
+<p>在实体和关系嵌入过程中，对每个时间戳 $τ$ , 学习对应法向量 ${w_τ}_{τ=1}^T$  。</p>
+<p>通过将三元组投影到时间超平面，我们可以将时间信息融入关系实体嵌入，利用相同的分布式表示在不同的时间点呈现不同的表达。</p>
+<h3 id="loss函数"><a href="#loss函数" class="headerlink" title="loss函数"></a>loss函数</h3><p>$$<br>{\cal L} = \sum_{\tau \in [T]} \sum_{\tau \in \scr D_τ^+} \sum_{τ \in \scr D_τ^-} \max(0,f_τ(x)-f_τ(y)+\gamma)<br>$$</p>
 <ul>
-<li>所有实体的嵌入向量  ${ {\bf e_i}}_{r=1}^{ |E| }$ ; </li>
-<li>所有关系超平面和转移向量  ${ ( {\bf w_r, d_r})}_{r=1}^{ |R| }$  ;</li>
+<li>$\scr D_τ^+$: 有效三元组集合，即正样本集合；</li>
+<li>$\scr D_τ^-$: 负样本集合；</li>
+<li>实体约束： $||e_p||_2 \leq 1, \forall p \in {\varepsilon}$              实体向量的$L_2$正则化</li>
+<li>法向量约束：$||w_{\tau}||_2=1,\forall \tau \in [T]$      法向量归一化                </li>
 </ul>
-<p>在TransH中，通过引入投射到特定关系超平面上的机制，使实体在不同的关系/三元组中扮演不同的角色。</p>
-<h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>$$<br>{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h’,r’,t’)\in \Delta’_{(h,r, t)} } [\gamma + f_r({\bf h}, {\bf t})-f_{r’}({\bf h’}, {\bf t’}) ]_+<br>$$</p>
+<h3 id="负样本构造"><a href="#负样本构造" class="headerlink" title="负样本构造"></a>负样本构造</h3><p>考虑了两种负样本：</p>
 <ul>
-<li>$\Delta$: 正确三元组集合</li>
-<li>$\Delta’$: 错误三元组集合</li>
-<li>$\gamma$: margin 距离超参数，表示正负样本之间的距离</li>
-<li>$[x]_+$: $max(0,x)$</li>
+<li><p><strong>Time agnostic negative sampling(TANS)</strong> </p>
+<p><strong>与时间无关的负采样</strong>：忽略时间戳，考虑不属于KG的负样本，在时间 $τ$ 采样该负样本:<br>$$<br>\scr D_τ^- = {(h’,r,t,\tau)|h’ \in \scr {\varepsilon}, (h’,r,t) \notin \scr D^+ } \cup {(h,r,t’,\tau)|t’ \in \scr {\varepsilon} , (h,r,t’) \notin \scr D^+ }<br>$$</p>
+</li>
+<li><p><strong>Time dependent negative sampling(TDNS)</strong></p>
+<p><strong>与时间相关的负采样</strong>： 考虑时间戳，考虑属于KG，但不属于特定时间戳 $\tau$ 的负样本：<br>$$<br>\scr D_τ^- = {(h’,r,t,\tau)|h’ \in \scr {\varepsilon}, (h’,r,t) \in \scr D^+，(h’,r,t,\tau) \notin \scr D_{\tau}^+ } \cup \<br>{(h,r,t’,\tau)|t’ \in \scr {\varepsilon} , (h,r,t’) \in \scr D^+, (h,r,t’,\tau) \notin \scr D_{\tau}^+ }<br>$$</p>
+</li>
 </ul>
-<p>训练的限制条件：</p>
-<ul>
-<li>$\forall e\in E, ||{\bf e}||_2 \leq 1$ ,   # 控制实体嵌入大小</li>
-<li>$\forall r \in R, \frac{|{\bf w}_t^T {\bf d}_r|}{||{\bf d}_r||_2} \leq \epsilon$ , # 正交，控制转移向量落在超平面</li>
-<li>$\forall r \in R. ||{\bf w}_r||_2=1$ , # 单位法向量</li>
-</ul>
-<p>软约束：</p>
-<p>$$<br>{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h’,r’,t’)\in \Delta’_{(h,r, t)} } [\gamma + f_r({\bf h}, {\bf t})-f_{r’}({\bf h’}, {\bf t’}) ]<em>+ + C\left{\sum</em>{e\in E}[||{\bf e}||<em>2^2 -1]</em>+ + \sum_{r \in R}\left[\frac{({\bf w}_t^T {\bf d}_r)^2}{||{\bf d}_r||<em>2^2} - \epsilon ^2\right]</em>+ \right}<br>$$</p>
-<ul>
-<li>C是软约束的超参数权重</li>
-<li>注意到约束3不在loss公式里，在访问每一个mini-batch时将每一个${\bf w}_r$投影到单位  <a href="https://blog.csdn.net/zouxy09/article/details/24971995" target="_blank" rel="noopener">$L_2- \bf {ball}$</a> </li>
-<li>随机梯度下降，正样本的集合被随机遍历多次，当访问一个正样本时，一个负样本被随机构造。</li>
-</ul>
-<h3 id="负样本构造"><a href="#负样本构造" class="headerlink" title="负样本构造"></a>负样本构造</h3><p>相对于TransE模型的随机采样生成负样本，TransH模型的创新点：<br><strong>赋予头尾实体采样概率</strong>   </p>
-<ul>
-<li>处理1-N关系时，赋予头部实体更高的采样概率；</li>
-<li>处理N-1关系时，赋予尾部实体更高的采样概率；  </li>
-</ul>
-<p>在所有关系r的三元组中，首先获取两个数据：</p>
-<ul>
-<li>$tph$: 每一个头部实体对应的平均尾部实体;</li>
-<li>$hpt$: 每一个尾部实体对应的平均头部实体;</li>
-</ul>
-<p>针对这两个数据进行映射的分类：</p>
-<p>$$<br>\left { \begin{array}{rcl}<br>1-1    &amp; \mbox{for} &amp; tph_r&lt;1.5,hpt_r &lt;1.5 \<br>N-N    &amp; \mbox{for} &amp; tph_r \geq 1.5,hpt_r \geq 1.5 \<br>1-N    &amp; \mbox{for} &amp; tph_r \geq 1.5,hpt_r &lt; 1.5 \<br>N-1    &amp; \mbox{for} &amp; tph_r &lt; 1.5,hpt_r \geq 1.5 \<br>\end{array}\right.<br>$$</p>
-<p>定义一个伯努利分布进行采样：</p>
-<ul>
-<li>$\frac{tph}{tph+hpt}$: 采样头部实体的概率;</li>
-<li>$\frac{hpt}{tph+hpt}$: 采样尾部实体的概率;</li>
-</ul>
-<h2 id="实验部分-未完待补充"><a href="#实验部分-未完待补充" class="headerlink" title="实验部分(未完待补充)"></a>实验部分(未完待补充)</h2><p>在三个任务上研究评估模型：从不同视角和应用层面，评估对陌生三元组的预测精度</p>
-<ul>
-<li>link prediction</li>
-<li>triplets classification</li>
-<li>relational fact extraction</li>
-</ul>
-<p>实验数据使用：<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/13704280.jpg" alt=""></p>
-<h4 id="link-prediction"><a href="#link-prediction" class="headerlink" title="link prediction"></a>link prediction</h4><p><strong>任务</strong>：三元组的头部或者尾部实体缺失，给定 $(h,r)$ 预测 $t$ 或者给定 $(r,t)$ 预测 $h$ , 返回预测的候选排名；<br><strong>评估协议</strong>： 对于给定的三元组，用每个实体 $e$ 取代尾部实体 $t$ ，并计算损坏样本的差异性分数，升序排列获取原始三元组的排名；<br><strong>过滤</strong>： 生成的损坏三元组可能原本就存在于知识图谱中，需要删去；<br><strong>报告指标</strong>：  </p>
-<ul>
-<li>Mean:平均排名:</li>
-<li>$Hits@10$: 排名不超过10的比例</li>
-</ul>
-<h4 id="triplets-classification"><a href="#triplets-classification" class="headerlink" title="triplets classification"></a>triplets classification</h4><p><strong>任务</strong>: 对给定三元组进行二分类判断正负样本；</p>
-<h4 id="relational-fact-extraction"><a href="#relational-fact-extraction" class="headerlink" title="relational fact extraction"></a>relational fact extraction</h4><p>(待补充)</p>
 
       
     </div>
@@ -466,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/20/知识表示之TransE/" rel="next" title="知识图谱：知识表示之TransE模型">
-                <i class="fa fa-chevron-left"></i> 知识图谱：知识表示之TransE模型
+              <a href="/2019/01/20/知识表示之TransG/" rel="next" title="知识图谱：知识表示之TransG模型">
+                <i class="fa fa-chevron-left"></i> 知识图谱：知识表示之TransG模型
               </a>
             
           </div>
@@ -476,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/20/知识表示之TransR/" rel="prev" title="知识图谱：知识表示之TransR模型">
-                知识图谱：知识表示之TransR模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/20/知识表示之Transparse/" rel="prev" title="知识图谱：知识表示之Transparse模型">
+                知识图谱：知识表示之Transparse模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -621,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TransH"><span class="nav-number">1.</span> <span class="nav-text">TransH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型改进"><span class="nav-number">1.1.</span> <span class="nav-text">模型改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程"><span class="nav-number">1.2.</span> <span class="nav-text">训练过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本构造"><span class="nav-number">1.2.2.</span> <span class="nav-text">负样本构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验部分-未完待补充"><span class="nav-number">1.3.</span> <span class="nav-text">实验部分(未完待补充)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#link-prediction"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">link prediction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#triplets-classification"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">triplets classification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#relational-fact-extraction"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">relational fact extraction</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HyTE"><span class="nav-number">1.</span> <span class="nav-text">HyTE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型改进"><span class="nav-number">1.1.</span> <span class="nav-text">模型改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">1.2.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#得分函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">得分函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">loss函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本构造"><span class="nav-number">1.2.3.</span> <span class="nav-text">负样本构造</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

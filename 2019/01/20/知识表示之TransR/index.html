@@ -372,15 +372,13 @@
 <ul>
 <li>对每一个关系$r$，定义一个投影矩阵 ${\bf M}_r \in {\Bbb R}^{k \times d}$, 将实体从实体空间投影到关系空间：</li>
 </ul>
-<script type="math/tex; mode=display">
-{ {\bf h_r} = {\bf hM}_r}</script><script type="math/tex; mode=display">
-{ {\bf t_r} = {\bf tM}_r}</script><ul>
-<li><p>得分函数：</p>
-<script type="math/tex; mode=display">
-f_r(h,t)=||{ {\bf h}_r} + {\bf r} - {\bf t}_r||_2^2</script></li>
-<li><p>实体和关系嵌入的范数约束  </p>
-<script type="math/tex; mode=display">
-||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1</script></li>
+<p>$$<br>{ {\bf h_r} = {\bf hM}_r}<br>$$</p>
+<p>$$<br>{ {\bf t_r} = {\bf tM}_r}<br>$$</p>
+<ul>
+<li><p>得分函数：<br>$$<br>f_r(h,t)=||{ {\bf h}_r} + {\bf r} - {\bf t}_r||_2^2<br>$$</p>
+</li>
+<li><p>实体和关系嵌入的范数约束<br>$$<br>||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1<br>$$</p>
+</li>
 </ul>
 <h3 id="Cluster-based-TransR-CTransR"><a href="#Cluster-based-TransR-CTransR" class="headerlink" title="Cluster-based TransR (CTransR)"></a>Cluster-based TransR (CTransR)</h3><p>上述模型包括TransE, TransH和TransR，仅仅通过单个的关系向量还不足以建立从头实体到尾实体的所有转移，<strong>即对于同一条关系$r$  来讲，$r$ 具有多种语义上的表示</strong>。为了更好地建模这些关系，引入了<strong>分段线性回归</strong>的思想来扩展TransR。</p>
 <ul>
@@ -401,20 +399,18 @@ f_r(h,t)=||{ {\bf h}_r} + {\bf r} - {\bf t}_r||_2^2</script></li>
 <li><p>定义实体和关系的投影向量为：</p>
 </li>
 </ul>
-<script type="math/tex; mode=display">
-{ {\bf h}_{r,c} = {\bf hM}_r}</script><script type="math/tex; mode=display">
-{ {\bf t}_{r,c} = {\bf tM}_r}</script><ul>
+<p>$$<br>{ {\bf h}_{r,c} = {\bf hM}<em>r}<br>$$<br>$$<br>{ {\bf t}</em>{r,c} = {\bf tM}_r}<br>$$</p>
+<ul>
 <li>得分函数：</li>
 </ul>
-<script type="math/tex; mode=display">
-f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}_c - {\bf t}_{r,c}||_2^2 + \alpha ||{\bf r}_c - {\bf r}||_2^2</script><p>$||{\bf r}_c - {\bf r}||_2^2$ 这一项确保群特异性关系向量 ${\bf r}_c$ 距离原始关系向量 ${\bf r}$ 不太远， $\alpha$ 控制约束效果</p>
+<p>$$<br>f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}<em>c - {\bf t}</em>{r,c}||_2^2 + \alpha ||{\bf r}_c - {\bf r}||_2^2<br>$$</p>
+<p>$||{\bf r}_c - {\bf r}||_2^2$ 这一项确保群特异性关系向量 ${\bf r}_c$ 距离原始关系向量 ${\bf r}$ 不太远， $\alpha$ 控制约束效果</p>
 <ul>
 <li>实体和关系嵌入的范数约束  </li>
 </ul>
-<script type="math/tex; mode=display">
-||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1</script><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>损失函数：</p>
-<script type="math/tex; mode=display">
-{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h',r,t')\in \Delta'} max (0, \gamma + f_r(h, t)-f_{r}(h, t) )</script><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>为首尾实体替换分配不同的概率。对于那些1- n、n -1和n -n关系，给“one”设置更高的概率，产生假阴性样本的机会将会减少</p>
+<p>$$<br>||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1<br>$$</p>
+<h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>损失函数：<br>$$<br>{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h’,r,t’)\in \Delta’} max (0, \gamma + f_r(h, t)-f_{r}(h, t) )<br>$$</p>
+<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>为首尾实体替换分配不同的概率。对于那些1- n、n -1和n -n关系，给“one”设置更高的概率，产生假阴性样本的机会将会减少</p>
 
       
     </div>
@@ -454,6 +450,10 @@ f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}_c - {\bf t}_{r,c}||_2^2 + \alpha ||{\bf r}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/20/知识表示之TransA/" rel="prev" title="知识图谱：知识表示之TransA模型">
+                知识图谱：知识表示之TransA模型 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +534,7 @@ f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}_c - {\bf t}_{r,c}||_2^2 + \alpha ||{\bf r}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
