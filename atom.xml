@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoururl.com/"/>
-  <updated>2019-01-26T05:28:54.313Z</updated>
+  <updated>2019-01-26T05:29:30.983Z</updated>
   <id>http://yoururl.com/</id>
   
   <author>
@@ -21,15 +21,16 @@
     <link href="http://yoururl.com/2019/01/26/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
     <id>http://yoururl.com/2019/01/26/新建文本文档/</id>
     <published>2019-01-26T05:24:09.554Z</published>
-    <updated>2019-01-26T05:28:54.313Z</updated>
+    <updated>2019-01-26T05:29:30.983Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><h2 id="TransE局限性"><a href="#TransE局限性" class="headerlink" title="TransE局限性"></a>TransE局限性</h2><p>考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：</p><ul><li>若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$;</li><li>若 $\forall i \in {0,…,m},(h_i,r,t)\in \Delta$ , $r$是一个N-1映射，且 $h_0=…=h_m$;<br>类似的，$\forall i \in {0,…,m},(h,r,t_i)\in \Delta$ , $r$是一个1-N映射，且 $t_0=…=t_m$;  </li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><script type="math/tex; mode=display">S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \in E\}</script><ul><li>对于三元组 $(h,{\scr l},t)$， 随机使用知识库中的某个实体 $h’$ 替换 $h$，或用某个实体 $t’$ 替换 $t$, 得到两个负样本 $(h’,{\scr l},t)$ 和 $(h,{\scr l},t’)$;  </li><li>对生成的负样本进行筛选过滤，若该负样本原本存在于知识库，则重新生成；  </li><li>然后，有人认为，生成负样本时不应该完全随机，而是应该选择与被替换实体类型相似的实体来进行替换；</li></ul><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/93529922.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;负样本生成&quot;&gt;&lt;a href=&quot;#负样本生成&quot; class=&quot;headerlink&quot; title=&quot;负样本生成&quot;&gt;&lt;/a&gt;负样本生成&lt;/h3&gt;&lt;h2 id=&quot;TransE局限性&quot;&gt;&lt;a href=&quot;#TransE局限性&quot; class=&quot;headerlink&quot; ti
+        &lt;h3 id=&quot;负样本生成&quot;&gt;&lt;a href=&quot;#负样本生成&quot; class=&quot;headerlink&quot; title=&quot;负样本生成&quot;&gt;&lt;/a&gt;负样本生成&lt;/h3&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+S&#39;_{(h,{\scr l},t)} = 
       
     
     </summary>
