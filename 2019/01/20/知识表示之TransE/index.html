@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Knowledge graph," />
 
 
 
@@ -81,19 +81,20 @@
 
 
 
-<meta name="description" content="知识图谱-知识表示模型： TransX系列整理 author：Andy_z  TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组：   $(h,{\scr l},t)$   embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量 依赖">
+<meta name="description" content="TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组：   $(h,{\scr l},t)$   embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量 依赖于简化的参数集，只学习每个实体和每个关系的一个低维向量表示   细节：  训练">
+<meta name="keywords" content="Knowledge graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Andy_z &#39;s Blog">
-<meta property="og:url" content="http://yoururl.com/2019/01/26/新建文本文档/index.html">
+<meta property="og:title" content="知识图谱：知识表示之TransE模型">
+<meta property="og:url" content="http://yoururl.com/2019/01/20/知识表示之TransE/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="知识图谱-知识表示模型： TransX系列整理 author：Andy_z  TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组：   $(h,{\scr l},t)$   embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量 依赖">
+<meta property="og:description" content="TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组：   $(h,{\scr l},t)$   embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量 依赖于简化的参数集，只学习每个实体和每个关系的一个低维向量表示   细节：  训练">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/57933532.jpg">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/93529922.jpg">
-<meta property="og:updated_time" content="2019-01-26T05:30:56.561Z">
+<meta property="og:updated_time" content="2019-01-26T05:40:20.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andy_z &#39;s Blog">
-<meta name="twitter:description" content="知识图谱-知识表示模型： TransX系列整理 author：Andy_z  TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组：   $(h,{\scr l},t)$   embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量 依赖">
+<meta name="twitter:title" content="知识图谱：知识表示之TransE模型">
+<meta name="twitter:description" content="TransE论文地址：https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546   模型概述 三元组：   $(h,{\scr l},t)$   embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量 依赖于简化的参数集，只学习每个实体和每个关系的一个低维向量表示   细节：  训练">
 <meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/57933532.jpg">
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoururl.com/2019/01/26/新建文本文档/"/>
+  <link rel="canonical" href="http://yoururl.com/2019/01/20/知识表示之TransE/"/>
 
 
 
 
 
-  <title> | Andy_z 's Blog</title>
+  <title>知识图谱：知识表示之TransE模型 | Andy_z 's Blog</title>
   
 
 
@@ -267,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2019/01/26/新建文本文档/">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2019/01/20/知识表示之TransE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Andy_z">
@@ -284,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">知识图谱：知识表示之TransE模型</h1>
         
 
         <div class="post-meta">
@@ -296,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-26T13:24:09+08:00">
-                2019-01-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T00:01:00+08:00">
+                2019-01-20
               </time>
             
 
@@ -306,6 +307,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识图谱/" itemprop="url" rel="index">
+                    <span itemprop="name">知识图谱</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -334,10 +357,7 @@
       
 
       
-        <h1 id="知识图谱-知识表示模型：-TransX系列整理"><a href="#知识图谱-知识表示模型：-TransX系列整理" class="headerlink" title="知识图谱-知识表示模型： TransX系列整理"></a>知识图谱-知识表示模型： TransX系列整理</h1><blockquote>
-<p>author：Andy_z</p>
-</blockquote>
-<h1 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a>  </p>
+        <h1 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a>  </p>
 <h2 id="模型概述"><a href="#模型概述" class="headerlink" title="模型概述"></a>模型概述</h2><ul>
 <li>三元组：   $(h,{\scr l},t)$  </li>
 <li>embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量</li>
@@ -393,6 +413,12 @@ S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \i
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Knowledge-graph/" rel="tag"><i class="fa fa-tag"></i> Knowledge graph</a>
+          
+        </div>
       
 
       
@@ -554,7 +580,7 @@ S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \i
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#知识图谱-知识表示模型：-TransX系列整理"><span class="nav-number">1.</span> <span class="nav-text">知识图谱-知识表示模型： TransX系列整理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TransE"><span class="nav-number">2.</span> <span class="nav-text">TransE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型概述"><span class="nav-number">2.1.</span> <span class="nav-text">模型概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失函数："><span class="nav-number">2.2.</span> <span class="nav-text">损失函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#带negative-sample的max-margin损失函数"><span class="nav-number">2.2.1.</span> <span class="nav-text">带negative sample的max margin损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本生成"><span class="nav-number">2.2.2.</span> <span class="nav-text">负样本生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程"><span class="nav-number">2.3.</span> <span class="nav-text">训练过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TransE局限性"><span class="nav-number">2.4.</span> <span class="nav-text">TransE局限性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TransE"><span class="nav-number">1.</span> <span class="nav-text">TransE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型概述"><span class="nav-number">1.1.</span> <span class="nav-text">模型概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失函数："><span class="nav-number">1.2.</span> <span class="nav-text">损失函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#带negative-sample的max-margin损失函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">带negative sample的max margin损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负样本生成"><span class="nav-number">1.2.2.</span> <span class="nav-text">负样本生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程"><span class="nav-number">1.3.</span> <span class="nav-text">训练过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TransE局限性"><span class="nav-number">1.4.</span> <span class="nav-text">TransE局限性</span></a></li></ol></li></ol></div>
             
 
           </div>

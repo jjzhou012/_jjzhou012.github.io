@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoururl.com/"/>
-  <updated>2019-01-26T05:30:56.561Z</updated>
+  <updated>2019-01-26T05:40:20.233Z</updated>
   <id>http://yoururl.com/</id>
   
   <author>
@@ -17,23 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoururl.com/2019/01/26/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
-    <id>http://yoururl.com/2019/01/26/新建文本文档/</id>
-    <published>2019-01-26T05:24:09.554Z</published>
-    <updated>2019-01-26T05:30:56.561Z</updated>
+    <title>知识图谱：知识表示之TransE模型</title>
+    <link href="http://yoururl.com/2019/01/20/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E4%B9%8BTransE/"/>
+    <id>http://yoururl.com/2019/01/20/知识表示之TransE/</id>
+    <published>2019-01-19T16:01:00.000Z</published>
+    <updated>2019-01-26T05:40:20.233Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="知识图谱-知识表示模型：-TransX系列整理"><a href="#知识图谱-知识表示模型：-TransX系列整理" class="headerlink" title="知识图谱-知识表示模型： TransX系列整理"></a>知识图谱-知识表示模型： TransX系列整理</h1><blockquote><p>author：Andy_z</p></blockquote><h1 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a>  </p><h2 id="模型概述"><a href="#模型概述" class="headerlink" title="模型概述"></a>模型概述</h2><ul><li>三元组：   $(h,{\scr l},t)$  </li><li>embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量</li><li>依赖于简化的参数集，只学习每个实体和每个关系的一个<strong>低维向量</strong>表示</li></ul><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/57933532.jpg" alt=""></p><p>细节：</p><ul><li>训练集 $S$: 包含三元组 $(h,{\scr l},t)$， 实体 $h,t\in E(实体集)$, 关系 ${\scr l} \in L(关系集)$；</li><li>embeddings 在 $\Bbb R^k$ 中取值</li><li>${\bf h}+{\scr l}\approx {\bf t}$ , ${\bf t}$ 应该为 ${\bf h}+{\scr l}$ 的最邻近， 然后 ${\bf h}+{\scr l}$ 与其他的 $t$ 尽可能远；  这里的“接近”程度可以用 $L_1$或$L_2$范数衡量；<br>理想状态下一个正确的三元组的embedding 之间存在 ${\bf h}+{\scr l}={\bf t}$ 的关系，错误的三元组没有；</li><li>利用基于能量的框架，三元组的势能表示为 $d(h, {\scr l}, t)=||h+{\scr l}-t||_2$ ， 正确的三元组势能越低越好，错误的三元组势能越高越好；</li></ul><h2 id="损失函数："><a href="#损失函数：" class="headerlink" title="损失函数："></a>损失函数：</h2><h3 id="带negative-sample的max-margin损失函数"><a href="#带negative-sample的max-margin损失函数" class="headerlink" title="带negative sample的max margin损失函数"></a>带negative sample的max margin损失函数</h3><p>训练方法：margin-based ranking criterion</p><script type="math/tex; mode=display">{\cal L}=\sum_{(h,{\scr l},t)\in S} \sum_{(h',{\scr l},t')\in S'_{(h,{\scr l}, t)} } [\gamma + d(h+{\scr l}, t)-d(h'+{\scr l}, t') ]_+</script><script type="math/tex; mode=display">d(h, {\scr l}, t)=||h+{\scr l}-t||_2</script><ul><li>$S$: 正确三元组集合</li><li>$S’$: 错误三元组集合</li><li>$\gamma$: margin 距离超参数，表示正负样本之间的距离，常数;</li><li>$[x]_+$: $max(0,x)$</li></ul><blockquote><p>最小化loss可以使正样本势能越低，负样本势能越高，但两者的能量差距达到一定程度 $\gamma$ 就足够了， 再大loss也只是0；</p></blockquote><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><script type="math/tex; mode=display">S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \in E\}</script><ul><li>对于三元组 $(h,{\scr l},t)$， 随机使用知识库中的某个实体 $h’$ 替换 $h$，或用某个实体 $t’$ 替换 $t$, 得到两个负样本 $(h’,{\scr l},t)$ 和 $(h,{\scr l},t’)$;  </li><li>对生成的负样本进行筛选过滤，若该负样本原本存在于知识库，则重新生成；  </li><li>然后，有人认为，生成负样本时不应该完全随机，而是应该选择与被替换实体类型相似的实体来进行替换；</li></ul><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/93529922.jpg" alt=""></p><h2 id="TransE局限性"><a href="#TransE局限性" class="headerlink" title="TransE局限性"></a>TransE局限性</h2><p>考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：</p><ul><li>若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$;</li><li>若 $\forall i \in {0,…,m},(h_i,r,t)\in \Delta$ , $r$是一个N-1映射，且 $h_0=…=h_m$;<br>类似的，$\forall i \in {0,…,m},(h,r,t_i)\in \Delta$ , $r$是一个1-N映射，且 $t_0=…=t_m$;  </li></ul><p>当涉及相同关系时，忽略了实体的分布式表示，导致实体呈现相同的嵌入表示。</p><blockquote><p>例如，假如知识库中有两个三元组，分别是(美国, 总统, 奥巴马)和(美国, 总统, 布什)。这里的关系“总统”是典型的 1-N 的复杂关系。如果用 TransE 从这两个三元组学习知识表示，将会使奥巴马和布什的向量变得相同。<br>因而，TransE 模型在处理 1-N、N-1、N-N 复杂关系时存在局限性。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h1><p>论文地址：<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546" target="_blank" rel="noopener">https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546</a>  </p><h2 id="模型概述"><a href="#模型概述" class="headerlink" title="模型概述"></a>模型概述</h2><ul><li>三元组：   $(h,{\scr l},t)$  </li><li>embedding之后， 头部实体嵌入向量加上关系嵌入向量，更接近与尾部实体嵌入向量</li><li>依赖于简化的参数集，只学习每个实体和每个关系的一个<strong>低维向量</strong>表示</li></ul><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/57933532.jpg" alt=""></p><p>细节：</p><ul><li>训练集 $S$: 包含三元组 $(h,{\scr l},t)$， 实体 $h,t\in E(实体集)$, 关系 ${\scr l} \in L(关系集)$；</li><li>embeddings 在 $\Bbb R^k$ 中取值</li><li>${\bf h}+{\scr l}\approx {\bf t}$ , ${\bf t}$ 应该为 ${\bf h}+{\scr l}$ 的最邻近， 然后 ${\bf h}+{\scr l}$ 与其他的 $t$ 尽可能远；  这里的“接近”程度可以用 $L_1$或$L_2$范数衡量；<br>理想状态下一个正确的三元组的embedding 之间存在 ${\bf h}+{\scr l}={\bf t}$ 的关系，错误的三元组没有；</li><li>利用基于能量的框架，三元组的势能表示为 $d(h, {\scr l}, t)=||h+{\scr l}-t||_2$ ， 正确的三元组势能越低越好，错误的三元组势能越高越好；</li></ul><h2 id="损失函数："><a href="#损失函数：" class="headerlink" title="损失函数："></a>损失函数：</h2><h3 id="带negative-sample的max-margin损失函数"><a href="#带negative-sample的max-margin损失函数" class="headerlink" title="带negative sample的max margin损失函数"></a>带negative sample的max margin损失函数</h3><p>训练方法：margin-based ranking criterion</p><script type="math/tex; mode=display">{\cal L}=\sum_{(h,{\scr l},t)\in S} \sum_{(h',{\scr l},t')\in S'_{(h,{\scr l}, t)} } [\gamma + d(h+{\scr l}, t)-d(h'+{\scr l}, t') ]_+</script><script type="math/tex; mode=display">d(h, {\scr l}, t)=||h+{\scr l}-t||_2</script><ul><li>$S$: 正确三元组集合</li><li>$S’$: 错误三元组集合</li><li>$\gamma$: margin 距离超参数，表示正负样本之间的距离，常数;</li><li>$[x]_+$: $max(0,x)$</li></ul><blockquote><p>最小化loss可以使正样本势能越低，负样本势能越高，但两者的能量差距达到一定程度 $\gamma$ 就足够了， 再大loss也只是0；</p></blockquote><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><script type="math/tex; mode=display">S'_{(h,{\scr l},t)} = \{(h',{\scr l},t)|h'\in E\}\bigcup \{(h,{\scr l},t')|t' \in E\}</script><ul><li>对于三元组 $(h,{\scr l},t)$， 随机使用知识库中的某个实体 $h’$ 替换 $h$，或用某个实体 $t’$ 替换 $t$, 得到两个负样本 $(h’,{\scr l},t)$ 和 $(h,{\scr l},t’)$;  </li><li>对生成的负样本进行筛选过滤，若该负样本原本存在于知识库，则重新生成；  </li><li>然后，有人认为，生成负样本时不应该完全随机，而是应该选择与被替换实体类型相似的实体来进行替换；</li></ul><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/93529922.jpg" alt=""></p><h2 id="TransE局限性"><a href="#TransE局限性" class="headerlink" title="TransE局限性"></a>TransE局限性</h2><p>考虑在没有错误embedding的情况下，$h+{\scr l}=t$  当 $(h,{\scr l},t) \in \Delta$ 时，我们可以从TransE模型中看出：</p><ul><li>若 $(h,{\scr l},t) \in \Delta$ 且 $(t,{\scr l},h) \in \Delta$, $r$是一个自反映射， 因此 $r=0$ 且 $h=t$;</li><li>若 $\forall i \in {0,…,m},(h_i,r,t)\in \Delta$ , $r$是一个N-1映射，且 $h_0=…=h_m$;<br>类似的，$\forall i \in {0,…,m},(h,r,t_i)\in \Delta$ , $r$是一个1-N映射，且 $t_0=…=t_m$;  </li></ul><p>当涉及相同关系时，忽略了实体的分布式表示，导致实体呈现相同的嵌入表示。</p><blockquote><p>例如，假如知识库中有两个三元组，分别是(美国, 总统, 奥巴马)和(美国, 总统, 布什)。这里的关系“总统”是典型的 1-N 的复杂关系。如果用 TransE 从这两个三元组学习知识表示，将会使奥巴马和布什的向量变得相同。<br>因而，TransE 模型在处理 1-N、N-1、N-N 复杂关系时存在局限性。</p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;知识图谱-知识表示模型：-TransX系列整理&quot;&gt;&lt;a href=&quot;#知识图谱-知识表示模型：-TransX系列整理&quot; class=&quot;headerlink&quot; title=&quot;知识图谱-知识表示模型： TransX系列整理&quot;&gt;&lt;/a&gt;知识图谱-知识表示模型： Tran
+        &lt;h1 id=&quot;TransE&quot;&gt;&lt;a href=&quot;#TransE&quot; class=&quot;headerlink&quot; title=&quot;TransE&quot;&gt;&lt;/a&gt;TransE&lt;/h1&gt;&lt;p&gt;论文地址：&lt;a href=&quot;https://www.aaai.org/ocs/index.php/AAAI/
       
     
     </summary>
     
+      <category term="知识图谱" scheme="http://yoururl.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+    
+      <category term="Knowledge graph" scheme="http://yoururl.com/tags/Knowledge-graph/"/>
     
   </entry>
   
