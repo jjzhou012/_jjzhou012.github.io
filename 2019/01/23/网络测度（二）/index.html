@@ -89,17 +89,17 @@
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
 <meta property="og:description" content="结点群组团(clique) 定义：指无向网络中的一个最大结点子集，在该子集中任何两个结点之间都有一条边直接相连。  “最大”指在保证子集内每两个结点都直接相连的条件下，网络中其他结点无法再加入该子集中。 团的存在表明网络中存在一个联系紧密的子群。    k-团(k-clique) 定义：结点的一个最大子集，该子集中各个结点之间通过网络边的距离不超过$k$。  当$k=1$时，该定义与团的原始定义一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kulc0P.png">
-<meta property="og:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kKeYfs.png">
-<meta property="og:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kKnLef.png">
-<meta property="og:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kKuytg.png">
-<meta property="og:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kKNn9P.png">
-<meta property="og:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kKXsZ6.png">
-<meta property="og:updated_time" content="2019-01-28T12:43:32.455Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/26/kulc0P.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/27/kKeYfs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/27/kKnLef.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/27/kKuytg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/27/kKNn9P.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/28/kKXsZ6.png">
+<meta property="og:updated_time" content="2019-01-28T13:02:53.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="复杂网络：网络测度（二）">
 <meta name="twitter:description" content="结点群组团(clique) 定义：指无向网络中的一个最大结点子集，在该子集中任何两个结点之间都有一条边直接相连。  “最大”指在保证子集内每两个结点都直接相连的条件下，网络中其他结点无法再加入该子集中。 团的存在表明网络中存在一个联系紧密的子群。    k-团(k-clique) 定义：结点的一个最大子集，该子集中各个结点之间通过网络边的距离不超过$k$。  当$k=1$时，该定义与团的原始定义一">
-<meta name="twitter:image" content="http://yoururl.com/2019/01/23/网络测度（二）/images/kulc0P.png">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/01/26/kulc0P.png">
 
 
 
@@ -381,8 +381,6 @@
 <li><p>定义：大小为$n$的$k-丛$是网络中结点数为$n$的最大子集，该子集的每个结点都至少和子集中另外$n-k$个结点相连。</p>
 <blockquote>
 <p>$k-丛$ 确定了网络的结点数$n$;</p>
-</blockquote>
-<blockquote>
 <p>当$k=1$时，与最初定义的团相符，即$1-丛$就是通常意义上的团。</p>
 <p>团思想的一般性表达：可以指定每一个结点与一定比例的其他成员有联系。</p>
 </blockquote>
@@ -392,13 +390,9 @@
 <li><p>定义：$k-核$是网络结点的一个最大子集，该子集中每个结点至少与子集中$k$个其他结点相连。</p>
 <blockquote>
 <p>$k-核$不确定网络的结点数；</p>
-</blockquote>
-<blockquote>
 <p>当子集结点数为$n$时，$k-核$与$(n-k)-丛$是相同的。</p>
 <p>但给定$k$值的所有$k-核$的集合与$k-丛$的集合并不相等，因为不同的$k-核$的子集结点数$n$不同。</p>
 <p>与$k-丛$不同，$k-核$彼此之间不能重合，根据定义，若两个$k-核$彼此共享同一个或多个结点，就可以合并生成一个更大的$k-核$。</p>
-</blockquote>
-<blockquote>
 <p>寻找网络中的$k-核$的简单算法：从整个网络开始，将度数小于$k$的结点不断删除，此时会使网络中一些其他结点（即那些刚刚与删除结点相连的结点）度数减小。然后继续检查网络，删除度数小于$k$的结点，依次重复不断删除网络中度数小于$k$的结点，直到不存在这样的结点。此时剩下的网络就是一个$k-核$或$k-核$的集合。</p>
 </blockquote>
 </li>
@@ -423,24 +417,28 @@
 </blockquote>
 <h2 id="传递性"><a href="#传递性" class="headerlink" title="传递性"></a>传递性</h2><p>网络传递性的数学表示为：若$a\circ b$和$b\circ c$，那么$a \circ c$。 在社会网络中的表述为：若$u$认识$v$，$v$认识$w$，那么在网络中存在一条由两条边构成的路径$uvw$。若$u$也认识$w$，则称该路径是闭合的，即该路径在网络中形成一个长度为3的循环，或称三角。三个结点形成一个<strong>闭合三元组</strong>。</p>
 <h3 id="聚类系数"><a href="#聚类系数" class="headerlink" title="聚类系数"></a>聚类系数</h3><ul>
-<li><p>定义1：网络中所有长度为2的路径中闭合路径所占的比例；<br>$$<br>C= \frac{(长度为2的路径中的闭合路径数)}{(长度为2的路径数)}<br>$$<br>其取值范围在0到1之间。若$C=1$，则表明该网络具有完全传递性，网络中的所有分支都是团。</p>
+<li><p>定义1：网络中所有长度为2的路径中闭合路径所占的比例；</p>
+<script type="math/tex; mode=display">
+C= \frac{(长度为2的路径中的闭合路径数)}{(长度为2的路径数)}</script><p>其取值范围在0到1之间。若$C=1$，则表明该网络具有完全传递性，网络中的所有分支都是团。</p>
 <p>若$C=0$，则表明网络中没有闭合三元组，如树、正方形点阵。</p>
 </li>
-<li><p>定义2：考虑网络路径的方向性，经过相同结点但方向不同的两条路径需要分别统计。<br>$$<br>C= \frac{(三角形数)\times 6}{(长度为2的路径数)}<br>$$</p>
-</li>
-<li><p>定义3：有公共邻居结点的两个结点，本身也互为邻居结点的平均概率。<br>$$<br>C=\frac{(三角形数)\times 3}{(连通三元组数)}<br>$$<br>其中”连通三元组“是指在结点$uvw$三者之间存在边$(u,v)$和$(v,w)$，边$(u,w)$可以存在也可不存在。分子中的系数3指每个三角形中都包含3个连通三元组。</p>
+<li><p>定义2：考虑网络路径的方向性，经过相同结点但方向不同的两条路径需要分别统计。</p>
+<script type="math/tex; mode=display">
+C= \frac{(三角形数)\times 6}{(长度为2的路径数)}</script></li>
+<li><p>定义3：有公共邻居结点的两个结点，本身也互为邻居结点的平均概率。</p>
+<script type="math/tex; mode=display">
+C=\frac{(三角形数)\times 3}{(连通三元组数)}</script><p>其中”连通三元组“是指在结点$uvw$三者之间存在边$(u,v)$和$(v,w)$，边$(u,w)$可以存在也可不存在。分子中的系数3指每个三角形中都包含3个连通三元组。</p>
 </li>
 </ul>
 <h3 id="局部聚类"><a href="#局部聚类" class="headerlink" title="局部聚类"></a>局部聚类</h3><p>针对单个结点$i$的聚类系数：</p>
 <ul>
-<li><p>定义：<br>$$<br>C_i=\frac{（结点i的邻居结点中直接相连的结点对数）}{（结点i的邻居结点对总数）}<br>$$</p>
-<blockquote>
+<li><p>定义：</p>
+<script type="math/tex; mode=display">
+C_i=\frac{（结点i的邻居结点中直接相连的结点对数）}{（结点i的邻居结点对总数）}</script><blockquote>
 <p>结点$i$的邻居结点对总数为$\frac{1}{2} k_i(k_i-1)$, 其中$k_i$是结点$i$的度。</p>
 <p>许多研究中发现，度较大的结点其局部聚类系数均较低。</p>
-</blockquote>
-<blockquote>
 <p>局部聚类系数可以用于指示网络中是否存在所谓的<strong>结构洞</strong>。</p>
-<p><a href="https://imgchr.com/i/kulc0P" target="_blank" rel="noopener"><img src="images/kulc0P.png" alt="kulc0P.png"></a></p>
+<p><a href="https://imgchr.com/i/kulc0P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/26/kulc0P.png" alt="kulc0P.png"></a></p>
 <p>如果关注网络中的信息或其他流量的有效传播，结构洞是有害的，因为他们会减少信息在网络中的路由数；</p>
 <p>如果关注朋友之间的联系，结构洞对于结点$i$来说是有益的，因为结构洞使$i$在其邻居结点之间的信息流动中起到主导作用。因为如果$i$的两个朋友没有直接相连，那么他们彼此之间的信息流动就必须通过与双方都有联系的$i$，因此$i$就可以控制信息流动。</p>
 <p>因此局部聚类系数也可以作为一种中心性测度，影响力越大的个体的局部聚类系数取值越小。</p>
@@ -453,8 +451,11 @@
 <p>结点冗余的最小值是0，最大值是 $k_i-1$ ；</p>
 </blockquote>
 <p>结点$i$ 的邻居结点之间的平均连接数为$R_i$，直接连接总数为$\frac{1}{2}k_i R_i$，邻居结点对的总数为$\frac{1}{2}k_i(k_i-1)$。 </p>
-<p>局部聚类系数与冗余的关系：<br>$$<br>C_i= \frac{\frac{1}{2}k_iR_i}{\frac{1}{2}k_i(k_i-1)} = \frac{R_i}{k_i-1}<br>$$<br>全局聚类系数：利用所有结点的局部聚类系数均值计算整个网络的聚类系数：<br>$$<br>C_{WS}= \frac{1}{n} \sum_{i=1}^n C_i<br>$$</p>
-</li>
+<p>局部聚类系数与冗余的关系：</p>
+<script type="math/tex; mode=display">
+C_i= \frac{\frac{1}{2}k_iR_i}{\frac{1}{2}k_i(k_i-1)} = \frac{R_i}{k_i-1}</script><p>全局聚类系数：利用所有结点的局部聚类系数均值计算整个网络的聚类系数：</p>
+<script type="math/tex; mode=display">
+C_{WS}= \frac{1}{n} \sum_{i=1}^n C_i</script></li>
 </ul>
 <h2 id="相互性"><a href="#相互性" class="headerlink" title="相互性"></a>相互性</h2><p>相互性度量了有向图中长度为2的闭合循环的频率，该频率描述了两个结点之间相互指向的概率。</p>
 <blockquote>
@@ -462,11 +463,13 @@
 </blockquote>
 <ul>
 <li><p>定义：相互性$r$被定义为所有边中相互边所占的比例。</p>
-<p>当且仅当结点$i$到$j$有双向边时，邻接矩阵中元素的乘积$A_{ij}A_{ji}$为1，否则为0。通过对所有结点对求和，得到相互性的计算表达：<br>$$<br>r = \frac{1}{m} \sum_{ij} A_{ij}A_{ji} = \frac{1}{m} {\bf Tr A^2}<br>$$<br>其中，$m$为网络中有向边的总数。</p>
+<p>当且仅当结点$i$到$j$有双向边时，邻接矩阵中元素的乘积$A<em>{ij}A</em>{ji}$为1，否则为0。通过对所有结点对求和，得到相互性的计算表达：</p>
+<script type="math/tex; mode=display">
+r = \frac{1}{m} \sum_{ij} A_{ij}A_{ji} = \frac{1}{m} {\bf Tr A^2}</script><p>其中，$m$为网络中有向边的总数。</p>
 </li>
 </ul>
 <h2 id="有符号边和结构平衡"><a href="#有符号边和结构平衡" class="headerlink" title="有符号边和结构平衡"></a>有符号边和结构平衡</h2><p>可利用有向图来表示社交网络中各结点之间的关系，如朋友或敌对关系。每条边只有两种情况，+边代表朋友关系，-边代表敌对关系。这样的网络称为<strong>有符号网络</strong>，其边为<strong>有符号边</strong>。</p>
-<p><a href="https://imgchr.com/i/kKeYfs" target="_blank" rel="noopener"><img src="images/kKeYfs.png" alt="kKeYfs.png"></a></p>
+<p><a href="https://imgchr.com/i/kKeYfs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKeYfs.png" alt="kKeYfs.png"></a></p>
 <p>上图两种稳定组合（a、b）与两种不稳定组合（c、d）的差别是，稳定组合的循环中有偶数个负号。</p>
 <ul>
 <li><p>推广：</p>
@@ -476,7 +479,7 @@
 <li><p>推论：一个平衡网络能够被划分为若干个连通结点群组，且群组内结点之间的连接都是正的，而不同群组之间的连接都是负的。</p>
 <blockquote>
 <p>群组可由单个结点组成，也可由多个结点组成；群组可以是一个，也可以是多个；</p>
-<p><a href="https://imgchr.com/i/kKnLef" target="_blank" rel="noopener"><img src="images/kKnLef.png" alt="kKnLef.png"></a></p>
+<p><a href="https://imgchr.com/i/kKnLef" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKnLef.png" alt="kKnLef.png"></a></p>
 <p>能像上述划分成群组的网络被认为是<strong>可聚类的</strong>。 </p>
 <p>网络中每个循环都包含偶数个负号。虚线表示将网络划分为不同的群组。</p>
 <p>为网络中的结点涂色，结点的颜色只有两种情况，从任意一个结点开始，根据一下算法为结点涂色：</p>
@@ -494,7 +497,7 @@
 <li><p>注意：</p>
 <blockquote>
 <p>可聚类定理的逆定理并不成立，例如下面的网络：</p>
-<p><a href="https://imgchr.com/i/kKuytg" target="_blank" rel="noopener"><img src="images/kKuytg.png" alt="kKuytg.png"></a></p>
+<p><a href="https://imgchr.com/i/kKuytg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKuytg.png" alt="kKuytg.png"></a></p>
 <p>上述网络有三个结点，三个结点之间彼此敌对，因此网络循环中有奇数条负边，但可以将该网络分为三个不同的群组，每个结点构成一个群组。该网络可聚类，但不平衡。</p>
 </blockquote>
 </li>
@@ -505,47 +508,76 @@
 <li>结构等价：<strong>两个结点间共有邻居结点的数量</strong>定义了两结点之间的相似程度；</li>
 <li>规则等价：通过比较<strong>两个结点的邻居结点的相似程度</strong>来确定结点间的相似度，而不是通过共有的邻居结点来确定的；</li>
 </ul>
-<p><a href="https://imgchr.com/i/kKNn9P" target="_blank" rel="noopener"><img src="images/kKNn9P.png" alt="kKNn9P.png"></a></p>
-<h3 id="结构等价"><a href="#结构等价" class="headerlink" title="结构等价"></a>结构等价</h3><h4 id="余弦相似性"><a href="#余弦相似性" class="headerlink" title="余弦相似性"></a>余弦相似性</h4><p>在<strong>无向网络</strong>中，结点$i$和$j$的共享邻居结点数表示为$n_{ij}$，则有<br>$$<br>n_{ij}=\sum_k A_{ik} A_{kj}<br>$$</p>
-<blockquote>
+<p><a href="https://imgchr.com/i/kKNn9P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKNn9P.png" alt="kKNn9P.png"></a></p>
+<h3 id="结构等价"><a href="#结构等价" class="headerlink" title="结构等价"></a>结构等价</h3><h4 id="余弦相似性"><a href="#余弦相似性" class="headerlink" title="余弦相似性"></a>余弦相似性</h4><p>在<strong>无向网络</strong>中，结点$i$和$j$的共享邻居结点数表示为$n_{ij}$，则有</p>
+<script type="math/tex; mode=display">
+n_{ij}=\sum_k A_{ik} A_{kj}</script><blockquote>
 <p>考虑一种归一化的方法，来合理定义相似性：不仅需要考虑网络的结点总数，也要考虑目标结点的度。</p>
-<p><strong>余弦相似性（Salton 余弦）</strong>: 将邻接矩阵的第$i$行和第$j$行看成两个向量，将两个向量之间的夹角余弦值用于相似性度量。</p>
-<p>无向网络中对应邻接矩阵中两行的点积就是 $\sum_k A_{ik} A_{kj}$ ；</p>
+<p><strong>余弦相似性（Salton 余弦）</strong>: 将邻接矩阵的第$i$行和第$j​$行看成两个向量，将两个向量之间的夹角余弦值用于相似性度量。</p>
+<p>无向网络中对应邻接矩阵中两行的点积就是 $\sum<em>k A</em>{ik} A_{kj}$ ；</p>
 </blockquote>
-<p>因此相似性测度是：<br>$$<br>\sigma_{ij} = \cos\theta = \frac{\sum_k A_{ik}A_{kj}}{\sqrt{\sum_k A_{ik}^2} \sqrt{\sum_k A_{jk}^2}}<br>$$<br>假设网络是无权无向网络， 因此 $\forall i,j$ ,   有 $A_{ij}^2 = A_{ij}$ , 即 $\sum_k A_{ik}^2 = \sum_k A_{ik} =k_i$ ，其中 $k_i$ 是结点 $i$ 的度。</p>
-<p>于是：<br>$$<br>\sigma_{ij} = \frac{\sum_k A_{ik} A_{kj}}{\sqrt{k_i k_j}} = \frac{n_{ij}}{\sqrt{k_i k_j}}<br>$$<br>因此， 结点$i$和结点$j$的余弦相似性就是<strong>两个结点的共同邻居结点数与它们各自度的几何平均数的商</strong> 。</p>
+<p>因此相似性测度是：</p>
+<script type="math/tex; mode=display">
+\sigma_{ij} = \cos\theta = \frac{\sum_k A_{ik}A_{kj}}{\sqrt{\sum_k A_{ik}^2} \sqrt{\sum_k A_{jk}^2}}</script><p>假设网络是无权无向网络， 因此 $\forall i,j$ ,   有 $A<em>{ij}^2 = A</em>{ij}$ , 即 $\sum<em>k A</em>{ik}^2 = \sum<em>k A</em>{ik} =k_i$ ，其中 $k_i$ 是结点 $i$ 的度。</p>
+<p>于是：</p>
+<script type="math/tex; mode=display">
+\sigma_{ij} = \frac{\sum_k A_{ik} A_{kj}}{\sqrt{k_i k_j}} = \frac{n_{ij}}{\sqrt{k_i k_j}}</script><p>因此， 结点$i$和结点$j$的余弦相似性就是<strong>两个结点的共同邻居结点数与它们各自度的几何平均数的商</strong> 。</p>
 <blockquote>
 <p>严格来讲，若两个结点或其中一个结点的度为0，那么它们的余弦相似性就无定义， $\sigma_{ij} = 0$。</p>
 </blockquote>
 <h4 id="Jaccard-相似性"><a href="#Jaccard-相似性" class="headerlink" title="Jaccard 相似性"></a>Jaccard 相似性</h4><ul>
-<li>定义：结点$i$和结点$j$ 的<strong>共同邻居结点数与它们所有邻居节点数的商</strong>。<br>$$<br>\sigma_{Jaccard}(i,j) = \frac{|N(i) \cap N(j)|}{|N(i) \cup N(j)|} = \frac{\sum_k A_{ik} A_{kj}}{k_i + k_j - \sum_k A_{ik} A_{kj}}<br>$$</li>
+<li>定义：结点$i$和结点$j$ 的<strong>共同邻居结点数与它们所有邻居节点数的商</strong>。<script type="math/tex; mode=display">
+\sigma_{Jaccard}(i,j) = \frac{|N(i) \cap N(j)|}{|N(i) \cup N(j)|} = \frac{\sum_k A_{ik} A_{kj}}{k_i + k_j - \sum_k A_{ik} A_{kj}}</script></li>
 </ul>
 <h4 id="皮尔逊相关系数"><a href="#皮尔逊相关系数" class="headerlink" title="皮尔逊相关系数"></a>皮尔逊相关系数</h4><p>对共享邻居结点数进行归一化的另一种方法是：</p>
 <p><strong>将其与一个期望值进行比较，该期望值是指网络中的结点随机选择邻居结点的条件下，共享邻居结点数的期望值。</strong></p>
 <p>假设结点$i$和结点$j$各自的度是$k_i$和$k_j$，两个结点完全随机选取邻居结点。结点$i$从网络$n$个结点中（在不包含自环的网络中，是从$n-1$个结点中选取，但对于大规模网络而言，误差忽略不计）随机均匀选取$k_i$个结点作为邻居结点，每个结点成为结点$i$邻居结点的概率为 $k_i /n$ ，结点$j$有$k_j$个邻居结点，则结点$i$和结点$j$的共享邻居结点的期望值为 $k_i k_j /n$ 。</p>
-<p>合理的归一化是用<strong>两个结点的实际共享邻居结点数减去随机选择邻居结点条件下两者共享邻居结点的期望值</strong>，即<br>$$<br>\sum_k A_{ik} A_{jk} - \frac{k_i k_j}{n} = \sum_k A_{ik} A_{jk} - n \frac{1}{n} \sum_k A_{ik} \frac{1}{n} \sum_l A_{jl} \ = \sum_k A_{ik} A_{jk} - n\langle A_i \rangle \langle A_j \rangle \ = \sum_k [A_{ik}A_{jk} - \langle A_i \rangle \langle A_j \rangle ] \ = \sum_k [A_{ik} A_{jk} - \langle A_i \rangle \langle A_j \rangle - \langle A_i \rangle \langle A_j \rangle + \langle A_i \rangle \langle A_j \rangle]\ =  \sum_k [A_{ik} A_{jk} - \langle A_{ik} \rangle \langle A_j \rangle - \langle A_i \rangle \langle A_{jk} \rangle + \langle A_i \rangle \langle A_j \rangle]\ =\sum_k(A_{ik} - \langle A_i \rangle)(A_{jk} - \langle A_j \rangle)<br>$$</p>
-<p>其中， $\langle A_i \rangle = \frac{1}{n} \sum_k A_{ik}$  。 $\sum_k(A_{ik} - \langle A_i \rangle)(A_{jk} - \langle A_j \rangle)$ 项为$A_i$和$A_j$之间的协方差，对协方差进行归一化<br>$$<br>\sigma_{pearson}(i,j) = \frac{cov(A_{i},A_{j})}{\sigma_i \sigma_j} = \frac{\sum_k(A_{ik} - \langle A_i \rangle)(A_{jk} - \langle A_j \rangle)}{\sqrt{\sum_k(A_{ik} - \langle A_i \rangle)^2} \sqrt{\sum_k(A_{jk} - \langle A_j \rangle)^2} }<br>$$<br>取值范围介于 $[-1,1]$ 之间，正值表示当结点$i$将结点$j$作为朋友时，结点$j$也可能将结点$i$当作朋友。负值相反，零值表示无线性关系。</p>
-<h4 id="除以期望值"><a href="#除以期望值" class="headerlink" title="除以期望值"></a>除以期望值</h4><p>通过除以期望值来对两个结点的共享邻居结点数$n_{ij}$进行归一化，<br>$$<br>\frac{n_{ij}}{k_i k_j /n} = n \frac{\sum_k A_{ik} A_{jk}}{\sum_k A_{ik} \sum_k A_{jk}}<br>$$</p>
-<h4 id="欧几里得距离"><a href="#欧几里得距离" class="headerlink" title="欧几里得距离"></a>欧几里得距离</h4><ul>
-<li>定义：两个结点之间邻居结点数的差值。<br>$$<br>d_{ij} = \sum_k (A_{ik} -A_{jk})^2<br>$$<br>归一化：<br>$$<br>\frac{\sum_k (A_{ik} -A_{jk})^2}{k_i +k_j} = \frac{\sum_k (A_{ik} +A_{jk} -2A_{ik}A_{jk})}{k_i +k_j} = 1-2 \frac{n_{ij}}{k_i +k_j}<br>$$</li>
+<p>合理的归一化是用<strong>两个结点的实际共享邻居结点数减去随机选择邻居结点条件下两者共享邻居结点的期望值</strong>，即</p>
+<script type="math/tex; mode=display">
+\sum_k A_{ik} A_{jk} - \frac{k_i k_j}{n} = \sum_k A_{ik} A_{jk} - n \frac{1}{n} \sum_k A_{ik} \frac{1}{n} \sum_l A_{jl} \\ = \sum_k A_{ik} A_{jk} - n\langle A_i \rangle \langle A_j \rangle \\ = \sum_k [A_{ik}A_{jk} - \langle A_i \rangle \langle A_j \rangle ] \\ = \sum_k [A_{ik} A_{jk} - \langle A_i \rangle \langle A_j \rangle - \langle A_i \rangle \langle A_j \rangle + \langle A_i \rangle \langle A_j \rangle]\\ =  \sum_k [A_{ik} A_{jk} - \langle A_{ik} \rangle \langle A_j \rangle - \langle A_i \rangle \langle A_{jk} \rangle + \langle A_i \rangle \langle A_j \rangle]\\ =\sum_k(A_{ik} - \langle A_i \rangle)(A_{jk} - \langle A_j \rangle)</script><p>其中， $\langle A<em>i \rangle = \frac{1}{n} \sum_k A</em>{ik}$  。 $\sum<em>k(A</em>{ik} - \langle A<em>i \rangle)(A</em>{jk} - \langle A_j \rangle)$ 项为$A_i$和$A_j$之间的协方差，对协方差进行归一化</p>
+<script type="math/tex; mode=display">
+\sigma_{pearson}(i,j) = \frac{cov(A_{i},A_{j})}{\sigma_i \sigma_j} = \frac{\sum_k(A_{ik} - \langle A_i \rangle)(A_{jk} - \langle A_j \rangle)}{\sqrt{\sum_k(A_{ik} - \langle A_i \rangle)^2} \sqrt{\sum_k(A_{jk} - \langle A_j \rangle)^2} }</script><p>取值范围介于 $[-1,1]$ 之间，正值表示当结点$i$将结点$j$作为朋友时，结点$j$也可能将结点$i$当作朋友。负值相反，零值表示无线性关系。</p>
+<h4 id="除以期望值"><a href="#除以期望值" class="headerlink" title="除以期望值"></a>除以期望值</h4><p>通过除以期望值来对两个结点的共享邻居结点数$n_{ij}$进行归一化，</p>
+<script type="math/tex; mode=display">
+\frac{n_{ij}}{k_i k_j /n} = n \frac{\sum_k A_{ik} A_{jk}}{\sum_k A_{ik} \sum_k A_{jk}}</script><h4 id="欧几里得距离"><a href="#欧几里得距离" class="headerlink" title="欧几里得距离"></a>欧几里得距离</h4><ul>
+<li>定义：两个结点之间邻居结点数的差值。<script type="math/tex; mode=display">
+d_{ij} = \sum_k (A_{ik} -A_{jk})^2</script>归一化：<script type="math/tex; mode=display">
+\frac{\sum_k (A_{ik} -A_{jk})^2}{k_i +k_j} = \frac{\sum_k (A_{ik} +A_{jk} -2A_{ik}A_{jk})}{k_i +k_j} = 1-2 \frac{n_{ij}}{k_i +k_j}</script></li>
 </ul>
 <h3 id="规则等价"><a href="#规则等价" class="headerlink" title="规则等价"></a>规则等价</h3><p>基本思想是：若结点$i$和结点$j$各自的邻居结点$k$和$l$本身具有较高的相似性，则$i$和$j$的相似性也较高。</p>
-<p><a href="https://imgchr.com/i/kKXsZ6" target="_blank" rel="noopener"><img src="images/kKXsZ6.png" alt="kKXsZ6.png"></a></p>
+<p><a href="https://imgchr.com/i/kKXsZ6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/28/kKXsZ6.png" alt="kKXsZ6.png"></a></p>
 <ul>
-<li><p>原始式： 结点$i$和结点$j$各自的邻居结点$k$和$l$本身具有较高的相似性，则$i$和$j$的相似性也较高。<br>$$<br>\sigma_{ij} = \alpha \sum_{kl} A_{ik} A_{jl} \sigma_{kl}   \ \Longleftrightarrow \<br>{\bf σ = \alpha A σ  A}<br>$$<br>赋予结点“自相似性”，引入对角元项：<br>$$<br>\sigma_{ij} = \alpha \sum_{kl} A_{ik} A_{jl} \sigma_{kl} + \delta_{ij}  \ \Longleftrightarrow \<br>{\bf σ = \alpha A σ  A + I}<br>$$</p>
-<blockquote>
+<li><p>原始式： 结点$i$和结点$j$各自的邻居结点$k$和$l$本身具有较高的相似性，则$i$和$j$的相似性也较高。</p>
+<script type="math/tex; mode=display">
+\sigma_{ij} = \alpha \sum_{kl} A_{ik} A_{jl} \sigma_{kl}   \\ \Longleftrightarrow \\
+{\bf σ = \alpha A σ  A}</script><p>赋予结点“自相似性”，引入对角元项：</p>
+<script type="math/tex; mode=display">
+\sigma_{ij} = \alpha \sum_{kl} A_{ik} A_{jl} \sigma_{kl} + \delta_{ij}  \\ \Longleftrightarrow \\
+{\bf σ = \alpha A σ  A + I}</script><blockquote>
 <p>存在问题：</p>
-<p>假设可通过重复迭代求解，首先确定初始值 ${\bf σ^{(0)}=0}$，迭代结果为：<br>$$<br>{\bf σ^{(1)} = I}  \<br>{\bf σ^{(2)} = \alpha A^2 + I}  \<br>{\bf σ^{(3)} = \alpha^2 A^4 + \alpha A^2 +I}  \<br>$$<br>多次迭代取极限后，得到的邻接矩阵的偶数次幂的总和。因此该相似性测度本质上式结点之间偶数长度的路径数的加权和。</p>
+<p>假设可通过重复迭代求解，首先确定初始值 ${\bf σ^{(0)}=0}$，迭代结果为：</p>
+<script type="math/tex; mode=display">
+{\bf σ^{(1)} = I}  \\
+{\bf σ^{(2)} = \alpha A^2 + I}  \\
+{\bf σ^{(3)} = \alpha^2 A^4 + \alpha A^2 +I}  \\</script><p>多次迭代取极限后，得到的邻接矩阵的偶数次幂的总和。因此该相似性测度本质上式结点之间偶数长度的路径数的加权和。</p>
 </blockquote>
 </li>
 </ul>
 <ul>
 <li><p>放宽式： 如果结点$i$的邻居结点$k$与结点$j$相似，那么$i$与$j$相似。</p>
-<p>同时再次考虑“自相似性”：<br>$$<br>\sigma_{ij} = \alpha \sum_k A_{ik} \sigma_{kj} + \delta_{ij}  \  \Longleftrightarrow<br>{\bf σ=\alpha A σ + I}<br>$$</p>
-</li>
+<p>同时再次考虑“自相似性”：</p>
+<script type="math/tex; mode=display">
+\sigma_{ij} = \alpha \sum_k A_{ik} \sigma_{kj} + \delta_{ij}  \\  \Longleftrightarrow
+{\bf σ=\alpha A σ + I}</script></li>
 </ul>
 <blockquote>
-<p>利用反复迭代的方法进行求解得：<br>$$<br>{\bf σ^{(1)} = I}  \<br>{\bf σ^{(2)} = \alpha A + I}  \<br>{\bf σ^{(3)} = \alpha^2 A^2 + \alpha A +I}  \<br>$$<br>当迭代次数无穷大时，得到<br>$$<br>{\bf σ = \sum_{m=0}^{\infty} (\alpha A)^m = (I-\alpha A)^{-1}}<br>$$<br>至此，相似性测度包括了所有长度的路径数，实际上，该相似性公式计算结点$i$和$j$之间的所有路径加权数值，长度为$r$的路径权重为$\alpha^r$。 由于$\alpha &lt;1$，因此路径越长权重越小。</p>
+<p>利用反复迭代的方法进行求解得：</p>
+<script type="math/tex; mode=display">
+{\bf σ^{(1)} = I}  \\
+{\bf σ^{(2)} = \alpha A + I}  \\
+{\bf σ^{(3)} = \alpha^2 A^2 + \alpha A +I}  \\</script><p>当迭代次数无穷大时，得到</p>
+<script type="math/tex; mode=display">
+{\bf σ = \sum_{m=0}^{\infty} (\alpha A)^m = (I-\alpha A)^{-1}}</script><p>至此，相似性测度包括了所有长度的路径数，实际上，该相似性公式计算结点$i$和$j$之间的所有路径加权数值，长度为$r$的路径权重为$\alpha^r$。 由于$\alpha &lt;1$，因此路径越长权重越小。</p>
 </blockquote>
 <p>  上述相似性测度倾向于赋予那些度较大的结点以较高的相似性，但这存在以下问题：</p>
 <blockquote>
@@ -554,31 +586,50 @@
 <li>两个没有朋友的隐士在某种程度上也有一定相似性；（度较少）</li>
 </ol>
 </blockquote>
-<p>  因此，将相似性除以结点的度，来避免因偏向高度数结点而导致的偏差：<br>  $$<br>  \sigma_{ij} = \frac{\alpha}{k_i} \sum_k A_{ik} \sigma_{kj} + \delta_{ij}   \ \Longleftrightarrow \<br>  {\bf σ=\alpha D^{-1} A σ + I}<br>  $$<br>  其中， ${\bf D}$ 是元素为 $D_{ii} = k_i$ 的对角矩阵。<br>  $$<br>  {\bf σ=(I-\alpha D^{-1} A)^{-1} = (D-\alpha A)^{-1} D}<br>  $$</p>
-<h2 id="同质性和同配混合"><a href="#同质性和同配混合" class="headerlink" title="同质性和同配混合"></a>同质性和同配混合</h2><p>人们倾向于选择那些他们认为与其自身在某些方面相似的人作为朋友，这种倾向性称为<strong>同质性</strong>或者<strong>同配混合</strong></p>
+<p>  因此，将相似性除以结点的度，来避免因偏向高度数结点而导致的偏差：</p>
+<script type="math/tex; mode=display">
+  \sigma_{ij} = \frac{\alpha}{k_i} \sum_k A_{ik} \sigma_{kj} + \delta_{ij}   \\ \Longleftrightarrow \\
+  {\bf σ=\alpha D^{-1} A σ + I}</script><p>  其中， ${\bf D}$ 是元素为 $D_{ii} = k_i$ 的对角矩阵。</p>
+<script type="math/tex; mode=display">
+  {\bf σ=(I-\alpha D^{-1} A)^{-1} = (D-\alpha A)^{-1} D}</script><h2 id="同质性和同配混合"><a href="#同质性和同配混合" class="headerlink" title="同质性和同配混合"></a>同质性和同配混合</h2><p>人们倾向于选择那些他们认为与其自身在某些方面相似的人作为朋友，这种倾向性称为<strong>同质性</strong>或者<strong>同配混合</strong></p>
 <p>。</p>
 <h3 id="依据离散特征的同配混合"><a href="#依据离散特征的同配混合" class="headerlink" title="依据离散特征的同配混合"></a>依据离散特征的同配混合</h3><p>网络结点根据某个特征分类，且该特征的取值是一个有限集合，且特征无序。</p>
 <p>首先找出连接同类结点的边所占的比例，然后减去在不考虑结点类型时，随机连接的边中，连接两个同类结点的边所占比例的期望值。</p>
-<p>令$c_i$表示结点$i$的类型，类型用整数值$1,…,n$表示，其中$n_c$是结点类型总数，那么同类结点之间的边数总和表示为<br>$$<br>\sum_{边(i,j)} \delta(c_i,c_j) = \frac{1}{2} \sum_{ij} A_{ij} \delta(c_i,c_j)<br>$$<br>其中$\delta(m,n)$是克罗内克$\delta$函数，将系数设定为$\frac{1}{2}$，是因为结点$i,j$之间的边被计算了两次。</p>
-<p>计算随机条件下同类结点之间边的期望值，考虑连接到结点$i$的一条特定边，该结点的度为$k_i$。根据定义，整个网络中有$2m$个边的端点，其中$m$是边总数，若所有连接都是随机的，特定边两端分别连接到度为$k_i$的结点$i$和度为 $k_j$ 的结点$j$的概率为$k_i k_j /{2m}$ 。进而同类结点之间的边期望值为：<br>$$<br>\frac{1}{2} \sum_{ij} \frac{k_i k_j}{2m} \delta (c_i, c_j)<br>$$<br>网络中同类结点之间边的实际值与期望值之差为：<br>$$<br>\frac{1}{2} \sum_{ij} A_{ij} \delta(c_i,c_j) - \frac{1}{2}\sum_{ij} \frac{k_i k_j}{2m} \delta(c_i,c_j) = \frac{1}{2} \sum_{ij} (A_{ij} - \frac{k_i k_j}{2m}) \delta(c_i,c_j)<br>$$<br> 计算比例：<br>$$<br>Q = \frac{1}{2m} \sum_{ij} (A_{ij} - \frac{k_i k_j}{2m}) \delta(c_i,c_j)<br>$$<br>$Q$ <strong>为模块度，用来度量网络中同类结点之间的连接程度</strong> 。$Q$值为正说明网络是同配混合的，$Q$值为负说明网络是异配混合的。</p>
-<p>式中变量 $B_{ij} = A_{ij} - \frac{k_i k_j}{2m}$ 可构造模块度矩阵$\bf B$。</p>
+<p>令$c_i$表示结点$i$的类型，类型用整数值$1,…,n$表示，其中$n_c$是结点类型总数，那么同类结点之间的边数总和表示为</p>
+<script type="math/tex; mode=display">
+\sum_{边(i,j)} \delta(c_i,c_j) = \frac{1}{2} \sum_{ij} A_{ij} \delta(c_i,c_j)</script><p>其中$\delta(m,n)$是克罗内克$\delta$函数，将系数设定为$\frac{1}{2}$，是因为结点$i,j$之间的边被计算了两次。</p>
+<p>计算随机条件下同类结点之间边的期望值，考虑连接到结点$i$的一条特定边，该结点的度为$k_i$。根据定义，整个网络中有$2m$个边的端点，其中$m$是边总数，若所有连接都是随机的，特定边两端分别连接到度为$k_i$的结点$i$和度为 $k_j$ 的结点$j$的概率为$k_i k_j /{2m}$ 。进而同类结点之间的边期望值为：</p>
+<script type="math/tex; mode=display">
+\frac{1}{2} \sum_{ij} \frac{k_i k_j}{2m} \delta (c_i, c_j)</script><p>网络中同类结点之间边的实际值与期望值之差为：</p>
+<script type="math/tex; mode=display">
+\frac{1}{2} \sum_{ij} A_{ij} \delta(c_i,c_j) - \frac{1}{2}\sum_{ij} \frac{k_i k_j}{2m} \delta(c_i,c_j) = \frac{1}{2} \sum_{ij} (A_{ij} - \frac{k_i k_j}{2m}) \delta(c_i,c_j)</script><p> 计算比例：</p>
+<script type="math/tex; mode=display">
+Q = \frac{1}{2m} \sum_{ij} (A_{ij} - \frac{k_i k_j}{2m}) \delta(c_i,c_j)</script><p>$Q$ <strong>为模块度，用来度量网络中同类结点之间的连接程度</strong> 。$Q$值为正说明网络是同配混合的，$Q$值为负说明网络是异配混合的。</p>
+<p>式中变量 $B<em>{ij} = A</em>{ij} - \frac{k_i k_j}{2m}$ 可构造模块度矩阵$\bf B$。</p>
 <blockquote>
 <p>模块度$Q$值总小于1，根据网络中群组的规模和结点度数，$Q$的最大值可能会远小于1。需要对$Q$值进行归一化。</p>
 </blockquote>
-<p>在全同配混合网络中，边所连接的结点都是同类结点，因此若$A_{ij}=1$，则$\delta (c_i,c_j)=1$。 意味着式(28)第一项和为$2m$，全同配混合网络模块度值为<br>$$<br>Q_{max} = \frac{1}{2m} (2m - \sum_{ij} \frac{k_i k_j}{2m} \delta(c_i,c_j))<br>$$<br>模块度归一化值为：<br>$$<br>\frac{Q}{Q_{max}} = \frac{\sum_{ij} (A_{ij} - k_i k_j /2m) \delta(c_i,c_j)}{2m - \sum_{ij}(k_i k_j /2m)\delta(c_i,c_j)}<br>$$<br>该变量有时称为同配系数，对于全同配混合网络，该变量取最大值为1。</p>
+<p>在全同配混合网络中，边所连接的结点都是同类结点，因此若$A_{ij}=1$，则$\delta (c_i,c_j)=1$。 意味着式(28)第一项和为$2m$，全同配混合网络模块度值为</p>
+<script type="math/tex; mode=display">
+Q_{max} = \frac{1}{2m} (2m - \sum_{ij} \frac{k_i k_j}{2m} \delta(c_i,c_j))</script><p>模块度归一化值为：</p>
+<script type="math/tex; mode=display">
+\frac{Q}{Q_{max}} = \frac{\sum_{ij} (A_{ij} - k_i k_j /2m) \delta(c_i,c_j)}{2m - \sum_{ij}(k_i k_j /2m)\delta(c_i,c_j)}</script><p>该变量有时称为同配系数，对于全同配混合网络，该变量取最大值为1。</p>
 <ul>
 <li><p>模块度的另一种形式：</p>
 <ul>
-<li>连接类型$r$和类型$s$的结点的边所占的比例：<br>$$<br>e_{rs} = \frac{1}{2m} \sum_{ij} A_{ij} \delta(c_i,r) \delta(c_j,s)<br>$$</li>
+<li><p>连接类型$r$和类型$s$的结点的边所占的比例：</p>
+<script type="math/tex; mode=display">
+e_{rs} = \frac{1}{2m} \sum_{ij} A_{ij} \delta(c_i,r) \delta(c_j,s)</script></li>
+<li><p>连接到类型$r$的结点的边所占的比例：</p>
+<script type="math/tex; mode=display">
+\delta(c_i,c_j) = \sum_r \delta(c_i,r) \delta(c_j, r)</script></li>
+<li></li>
 </ul>
-</li>
-</ul>
-<ul>
-<li><p>连接到类型$r$的结点的边所占的比例：<br>$$<br>\delta(c_i,c_j) = \sum_r \delta(c_i,r) \delta(c_j, r)<br>$$</p>
-</li>
-<li><p>$$<br>\delta (c_i,c_j) = \sum_r \delta(c_i,r) \delta(c_j, r)<br>$$</p>
-<p>推导得<br>$$<br>Q = \frac{1}{2m} \sum_{ij} (A_{ij}-\frac{k_i k_j}{2m}) \sum_r \delta(c_i,r) \delta(c_j,r) \ = \sum_r [\frac{1}{2m} \sum_{ij} A_{ij} \delta(c_i,r) \delta(c_j,r) - \frac{1}{2m} \sum_i k_i \delta(c_i,r) \frac{1}{2m} \sum_j k_j \delta(c_j, r)] \<br>= \sum_r (e_{rr} - a_r^2)<br>$$</p>
-<blockquote>
+<script type="math/tex; mode=display">
+\delta (c_i,c_j) = \sum_r \delta(c_i,r) \delta(c_j, r)</script><p>推导得</p>
+<script type="math/tex; mode=display">
+Q = \frac{1}{2m} \sum_{ij} (A_{ij}-\frac{k_i k_j}{2m}) \sum_r \delta(c_i,r) \delta(c_j,r) \\ = \sum_r [\frac{1}{2m} \sum_{ij} A_{ij} \delta(c_i,r) \delta(c_j,r) - \frac{1}{2m} \sum_i k_i \delta(c_i,r) \frac{1}{2m} \sum_j k_j \delta(c_j, r)] \\
+= \sum_r (e_{rr} - a_r^2)</script><blockquote>
 <p>这种模块度形式适用于 当网络数据包括边列表和边端点所对应的结点类型，但不包含结点度的确切信息的情况。</p>
 </blockquote>
 </li>
@@ -592,15 +643,27 @@
 <li><p>$\mu$：某条边的端点值$x_i​$的均值；</p>
 </li>
 </ul>
-<p>$$<br>\mu = \frac{\sum_{ij} A_{ij}x_i}{\sum_{ij}A_{ij}} = \frac{\sum_i k_i x_i}{\sum_i k_i} = \frac{1}{2m} \sum_i k_ix_i<br>$$</p>
-<p>该均值对所有边取平均。$x_i$与$x_j$对所有边的协方差为;<br>$$<br>cov(x_i,x_j) = \frac{\sum_{ij} A_{ij}(x_i -\mu)(x_j -\mu)}{\sum_{ij} A_{ij}} \<br>= \frac{1}{2m} \sum_{ij} A_{ij} (x_ix_j - \mu x_i - \mu x_j + \mu^2) \<br>= \frac{1}{2m} \sum_{ij} A_{ij}x_ix_j - \mu^2 \<br>= \frac{1}{2m} \sum_{ij} A_{ij}x_ix_j - \frac{1}{(2m)^2} \sum_{ij} k_i k_j x_i x_j \<br>= \frac{1}{2m} \sum_{ij} (A_{ij} - \frac{k_ik_j}{2m}) x_ix_j<br>$$<br>当一条边的两个端点$x_i,x_j$同时为大或同时为小时，协方差为正；一大一小时协方差为负。即，当同配混合时协方差为正，异配混合时协方差为负。</p>
-<p>归一化可以使网络全同配混合时网络测度为1，所谓全同配混合是指网络中所有边都位于值为$x_i$的结点之间。令$x_j=x_i$，给出全同配混合网络的协方差值为：<br>$$<br>\frac{1}{2m} \sum_{ij} (A_{ij}x_i^2 - \frac{k_ik_j}{2m}x_ix_j) = \frac{1}{2m} \sum_{ij} (k_i \delta_{ij} - \frac{k_ik_j}{2m})x_ix_j<br>$$<br>归一化：<br>$$<br>r= \frac{\sum_{ij} (A_{ij}-k_ik_j/2m)x_ix_j}{\sum_{ij} (k_i \delta_{ij} - k_ik_j/2m)x_ix_j}<br>$$</p>
-<h3 id="依据度的同配混合"><a href="#依据度的同配混合" class="headerlink" title="依据度的同配混合"></a>依据度的同配混合</h3><p>依据度的同配混合是依据标量特征的同配混合的一个特例，且受到特别关注。</p>
+<script type="math/tex; mode=display">
+\mu = \frac{\sum_{ij} A_{ij}x_i}{\sum_{ij}A_{ij}} = \frac{\sum_i k_i x_i}{\sum_i k_i} = \frac{1}{2m} \sum_i k_ix_i</script><p>该均值对所有边取平均。$x_i$与$x_j$对所有边的协方差为;</p>
+<script type="math/tex; mode=display">
+cov(x_i,x_j) = \frac{\sum_{ij} A_{ij}(x_i -\mu)(x_j -\mu)}{\sum_{ij} A_{ij}} \\ 
+= \frac{1}{2m} \sum_{ij} A_{ij} (x_ix_j - \mu x_i - \mu x_j + \mu^2) \\
+= \frac{1}{2m} \sum_{ij} A_{ij}x_ix_j - \mu^2 \\
+= \frac{1}{2m} \sum_{ij} A_{ij}x_ix_j - \frac{1}{(2m)^2} \sum_{ij} k_i k_j x_i x_j \\
+= \frac{1}{2m} \sum_{ij} (A_{ij} - \frac{k_ik_j}{2m}) x_ix_j</script><p>当一条边的两个端点$x_i,x_j$同时为大或同时为小时，协方差为正；一大一小时协方差为负。即，当同配混合时协方差为正，异配混合时协方差为负。</p>
+<p>归一化可以使网络全同配混合时网络测度为1，所谓全同配混合是指网络中所有边都位于值为$x_i$的结点之间。令$x_j=x_i$，给出全同配混合网络的协方差值为：</p>
+<script type="math/tex; mode=display">
+\frac{1}{2m} \sum_{ij} (A_{ij}x_i^2 - \frac{k_ik_j}{2m}x_ix_j) = \frac{1}{2m} \sum_{ij} (k_i \delta_{ij} - \frac{k_ik_j}{2m})x_ix_j</script><p>归一化：</p>
+<script type="math/tex; mode=display">
+r= \frac{\sum_{ij} (A_{ij}-k_ik_j/2m)x_ix_j}{\sum_{ij} (k_i \delta_{ij} - k_ik_j/2m)x_ix_j}</script><h3 id="依据度的同配混合"><a href="#依据度的同配混合" class="headerlink" title="依据度的同配混合"></a>依据度的同配混合</h3><p>依据度的同配混合是依据标量特征的同配混合的一个特例，且受到特别关注。</p>
 <p>依据度的同配混合网络中，高度数的结点倾向于与其他高度数结点相连；低度数的结点倾向于与其他低度数结点相连。</p>
 <p>同配网络中，度数大的结点倾向于聚集在一起的网络中，我们希望得到网络中这些度数大的结点构成的结点块或核，他们周围是一些度小的结点构成的低密度<strong>边缘</strong>。这种<strong>核心/边缘结构</strong>是社会网络的普遍特征。</p>
 <p>异配网络中，度数大的结点倾心于与度数小的结点连接，由此在网络中形成明显的星形结构特征。异配网络通常不具有核心/边缘特征，但结点分布更均匀。</p>
-<p>依据度的同配混合同样可以通过标量特征方法进行度量。<br>$$<br>cov(k_i,k_j) = \frac{1}{2m} \sum_{ij} (A_{ij} - \frac{k_ik_j}{2m}) k_ik_j<br>$$<br>利用协方差最大值进行归一化，<br>$$<br>r= \frac{\sum_{ij} (A_{ij}-k_ik_j/2m)k_i k_j}{\sum_{ij} (k_i \delta_{ij} - k_ik_j/2m)k_i k_j}<br>$$</p>
-
+<p>依据度的同配混合同样可以通过标量特征方法进行度量。</p>
+<script type="math/tex; mode=display">
+cov(k_i,k_j) = \frac{1}{2m} \sum_{ij} (A_{ij} - \frac{k_ik_j}{2m}) k_ik_j</script><p>利用协方差最大值进行归一化，</p>
+<script type="math/tex; mode=display">
+r= \frac{\sum_{ij} (A_{ij}-k_ik_j/2m)k_i k_j}{\sum_{ij} (k_i \delta_{ij} - k_ik_j/2m)k_i k_j}</script>
       
     </div>
     
