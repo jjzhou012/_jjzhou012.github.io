@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/27/kKuytg.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/27/kKNn9P.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/28/kKXsZ6.png">
-<meta property="og:updated_time" content="2019-01-28T13:02:53.100Z">
+<meta property="og:updated_time" content="2019-01-28T13:07:45.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="复杂网络：网络测度（二）">
 <meta name="twitter:description" content="结点群组团(clique) 定义：指无向网络中的一个最大结点子集，在该子集中任何两个结点之间都有一条边直接相连。  “最大”指在保证子集内每两个结点都直接相连的条件下，网络中其他结点无法再加入该子集中。 团的存在表明网络中存在一个联系紧密的子群。    k-团(k-clique) 定义：结点的一个最大子集，该子集中各个结点之间通过网络边的距离不超过$k$。  当$k=1$时，该定义与团的原始定义一">
@@ -438,7 +438,7 @@ C_i=\frac{（结点i的邻居结点中直接相连的结点对数）}{（结点i
 <p>结点$i$的邻居结点对总数为$\frac{1}{2} k_i(k_i-1)$, 其中$k_i$是结点$i$的度。</p>
 <p>许多研究中发现，度较大的结点其局部聚类系数均较低。</p>
 <p>局部聚类系数可以用于指示网络中是否存在所谓的<strong>结构洞</strong>。</p>
-<p><a href="https://imgchr.com/i/kulc0P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/26/kulc0P.png" alt="kulc0P.png"></a></p>
+<p><img src="https://s2.ax1x.com/2019/01/26/kulc0P.png" alt="kulc0P.png"></p>
 <p>如果关注网络中的信息或其他流量的有效传播，结构洞是有害的，因为他们会减少信息在网络中的路由数；</p>
 <p>如果关注朋友之间的联系，结构洞对于结点$i$来说是有益的，因为结构洞使$i$在其邻居结点之间的信息流动中起到主导作用。因为如果$i$的两个朋友没有直接相连，那么他们彼此之间的信息流动就必须通过与双方都有联系的$i$，因此$i$就可以控制信息流动。</p>
 <p>因此局部聚类系数也可以作为一种中心性测度，影响力越大的个体的局部聚类系数取值越小。</p>
@@ -469,7 +469,7 @@ r = \frac{1}{m} \sum_{ij} A_{ij}A_{ji} = \frac{1}{m} {\bf Tr A^2}</script><p>其
 </li>
 </ul>
 <h2 id="有符号边和结构平衡"><a href="#有符号边和结构平衡" class="headerlink" title="有符号边和结构平衡"></a>有符号边和结构平衡</h2><p>可利用有向图来表示社交网络中各结点之间的关系，如朋友或敌对关系。每条边只有两种情况，+边代表朋友关系，-边代表敌对关系。这样的网络称为<strong>有符号网络</strong>，其边为<strong>有符号边</strong>。</p>
-<p><a href="https://imgchr.com/i/kKeYfs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKeYfs.png" alt="kKeYfs.png"></a></p>
+<p><img src="https://s2.ax1x.com/2019/01/27/kKeYfs.png" alt="kKeYfs.png"></p>
 <p>上图两种稳定组合（a、b）与两种不稳定组合（c、d）的差别是，稳定组合的循环中有偶数个负号。</p>
 <ul>
 <li><p>推广：</p>
@@ -479,7 +479,7 @@ r = \frac{1}{m} \sum_{ij} A_{ij}A_{ji} = \frac{1}{m} {\bf Tr A^2}</script><p>其
 <li><p>推论：一个平衡网络能够被划分为若干个连通结点群组，且群组内结点之间的连接都是正的，而不同群组之间的连接都是负的。</p>
 <blockquote>
 <p>群组可由单个结点组成，也可由多个结点组成；群组可以是一个，也可以是多个；</p>
-<p><a href="https://imgchr.com/i/kKnLef" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKnLef.png" alt="kKnLef.png"></a></p>
+<p><img src="https://s2.ax1x.com/2019/01/27/kKnLef.png" alt="kKnLef.png"></p>
 <p>能像上述划分成群组的网络被认为是<strong>可聚类的</strong>。 </p>
 <p>网络中每个循环都包含偶数个负号。虚线表示将网络划分为不同的群组。</p>
 <p>为网络中的结点涂色，结点的颜色只有两种情况，从任意一个结点开始，根据一下算法为结点涂色：</p>
@@ -497,7 +497,7 @@ r = \frac{1}{m} \sum_{ij} A_{ij}A_{ji} = \frac{1}{m} {\bf Tr A^2}</script><p>其
 <li><p>注意：</p>
 <blockquote>
 <p>可聚类定理的逆定理并不成立，例如下面的网络：</p>
-<p><a href="https://imgchr.com/i/kKuytg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKuytg.png" alt="kKuytg.png"></a></p>
+<p><img src="https://s2.ax1x.com/2019/01/27/kKuytg.png" alt="kKuytg.png"></p>
 <p>上述网络有三个结点，三个结点之间彼此敌对，因此网络循环中有奇数条负边，但可以将该网络分为三个不同的群组，每个结点构成一个群组。该网络可聚类，但不平衡。</p>
 </blockquote>
 </li>
@@ -508,7 +508,7 @@ r = \frac{1}{m} \sum_{ij} A_{ij}A_{ji} = \frac{1}{m} {\bf Tr A^2}</script><p>其
 <li>结构等价：<strong>两个结点间共有邻居结点的数量</strong>定义了两结点之间的相似程度；</li>
 <li>规则等价：通过比较<strong>两个结点的邻居结点的相似程度</strong>来确定结点间的相似度，而不是通过共有的邻居结点来确定的；</li>
 </ul>
-<p><a href="https://imgchr.com/i/kKNn9P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/27/kKNn9P.png" alt="kKNn9P.png"></a></p>
+<p><img src="https://s2.ax1x.com/2019/01/27/kKNn9P.png" alt="kKNn9P.png"></p>
 <h3 id="结构等价"><a href="#结构等价" class="headerlink" title="结构等价"></a>结构等价</h3><h4 id="余弦相似性"><a href="#余弦相似性" class="headerlink" title="余弦相似性"></a>余弦相似性</h4><p>在<strong>无向网络</strong>中，结点$i$和$j$的共享邻居结点数表示为$n_{ij}$，则有</p>
 <script type="math/tex; mode=display">
 n_{ij}=\sum_k A_{ik} A_{kj}</script><blockquote>
@@ -545,7 +545,7 @@ d_{ij} = \sum_k (A_{ik} -A_{jk})^2</script>归一化：<script type="math/tex; m
 \frac{\sum_k (A_{ik} -A_{jk})^2}{k_i +k_j} = \frac{\sum_k (A_{ik} +A_{jk} -2A_{ik}A_{jk})}{k_i +k_j} = 1-2 \frac{n_{ij}}{k_i +k_j}</script></li>
 </ul>
 <h3 id="规则等价"><a href="#规则等价" class="headerlink" title="规则等价"></a>规则等价</h3><p>基本思想是：若结点$i$和结点$j$各自的邻居结点$k$和$l$本身具有较高的相似性，则$i$和$j$的相似性也较高。</p>
-<p><a href="https://imgchr.com/i/kKXsZ6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/28/kKXsZ6.png" alt="kKXsZ6.png"></a></p>
+<p><img src="https://s2.ax1x.com/2019/01/28/kKXsZ6.png" alt="kKXsZ6.png"></p>
 <ul>
 <li><p>原始式： 结点$i$和结点$j$各自的邻居结点$k$和$l$本身具有较高的相似性，则$i$和$j$的相似性也较高。</p>
 <script type="math/tex; mode=display">
