@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
 <meta property="og:description" content="Transparse论文地址：http://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/download/11982/11693 模型改进KG中面临的两个主要问题，分别是 Heterogeneity（异构性）和 Imbalance（不平衡性）：  Heterogeneity： 知识图谱中不同关系连接的实体（节点）数量不同； Imbalance：同一关系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoururl.com/2019/01/20/知识表示之Transparse/1543452994620.png">
-<meta property="og:image" content="http://yoururl.com/2019/01/20/知识表示之Transparse/1543457888325.png">
-<meta property="og:updated_time" content="2019-01-26T09:15:30.360Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXgFhT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXgVc4.png">
+<meta property="og:updated_time" content="2019-03-05T03:08:55.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之Transparse模型">
 <meta name="twitter:description" content="Transparse论文地址：http://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/download/11982/11693 模型改进KG中面临的两个主要问题，分别是 Heterogeneity（异构性）和 Imbalance（不平衡性）：  Heterogeneity： 知识图谱中不同关系连接的实体（节点）数量不同； Imbalance：同一关系">
-<meta name="twitter:image" content="http://yoururl.com/2019/01/20/知识表示之Transparse/1543452994620.png">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/05/kXgFhT.png">
 
 
 
@@ -363,7 +363,7 @@
 <li>Heterogeneity： 知识图谱中不同关系连接的实体（节点）数量不同；</li>
 <li>Imbalance：同一关系连接的头尾实体（节点）数量不同；</li>
 </ul>
-<p><img src="1543452994620.png" alt="1543452994620"></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXgFhT.png" alt="kXgFhT.png"></p>
 <blockquote>
 <p>上图展示了子图FB15k的数据结构，可以看出：</p>
 <ul>
@@ -378,7 +378,7 @@
 <p>为克服不平衡性，对TranSparse(share)模型修改，提出了<strong>TranSparse(separate)</strong>模型，该模型中每个关系有两个分离稀疏转移矩阵，一个对头部实体一个对尾部实体，稀疏程度由关系连接的实体数量决定。</p>
 <blockquote>
 <p><strong>Sparse Matrix</strong>：稀疏矩阵中大多数元素为0，0元素占总元素的比例称为稀疏程度（$\theta$）,用$M(\theta)$表示稀疏程度为 $\theta​$ 的矩阵，稀疏矩阵更容易压缩，需要更少的存储空间，且只有非零元参与计算，减少计算复杂度。下图展示了结构化和非结构化数据：</p>
-<p><img src="1543457888325.png" alt="1543457888325"></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXgVc4.png" alt="kXgVc4.png"></p>
 <p>结构化模式有助于向量矩阵运算，而非结构化模式则不是。因此，结构化模式可以使我们的模型更容易地扩展到大型知识图，而非结构化模式更多的用在其他文献中，有更好的实验结果。</p>
 </blockquote>
 <blockquote>

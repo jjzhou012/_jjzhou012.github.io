@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
 <meta property="og:description" content="TransG论文地址： https://arxiv.org/pdf/1509.05488.pdf 模型改进针对一种关系存在的多语义问题：  由上图，嵌入向量的可视化结果所示表明，一个特定的关系存在不同的簇，不同的簇表示不同的潜语义。  例如，关系HasPart至少有两个潜在的语义:与合成相关的as(Table、HasPart、Leg)和与位置相关的as (Atlantics、HasPart、New">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoururl.com/2019/01/20/知识表示之TransG/21008449.jpg">
-<meta property="og:image" content="http://yoururl.com/2019/01/20/知识表示之TransG/40417850.jpg">
-<meta property="og:updated_time" content="2019-01-26T08:55:08.572Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcqtf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcj1g.png">
+<meta property="og:updated_time" content="2019-03-05T03:07:51.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之TransG模型">
 <meta name="twitter:description" content="TransG论文地址： https://arxiv.org/pdf/1509.05488.pdf 模型改进针对一种关系存在的多语义问题：  由上图，嵌入向量的可视化结果所示表明，一个特定的关系存在不同的簇，不同的簇表示不同的潜语义。  例如，关系HasPart至少有两个潜在的语义:与合成相关的as(Table、HasPart、Leg)和与位置相关的as (Atlantics、HasPart、New">
-<meta name="twitter:image" content="http://yoururl.com/2019/01/20/知识表示之TransG/21008449.jpg">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/05/kXcqtf.png">
 
 
 
@@ -359,14 +359,14 @@
       
         <h1 id="TransG"><a href="#TransG" class="headerlink" title="TransG"></a>TransG</h1><p>论文地址： <a href="https://arxiv.org/pdf/1509.05488.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1509.05488.pdf</a></p>
 <h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p>针对一种关系存在的多语义问题：</p>
-<p><img src="21008449.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXcqtf.png" alt="kXcqtf.png"></p>
 <p>由上图，嵌入向量的可视化结果所示表明，一个特定的关系存在不同的簇，不同的簇表示不同的潜语义。</p>
 <blockquote>
 <p>例如，关系HasPart至少有两个潜在的语义:与合成相关的as(Table、HasPart、Leg)和与位置相关的as (Atlantics、HasPart、NewYorkBay)。</p>
 <p>再例如，Freebase中，(Jon Snow, birth place, Winter Fall)和(George R. R. Martin, birth place, U.S.)分别映射到模式 ：/fictional_universe/fictional_character/place of birth  和 /people/person/place of birth，表明出生地有不同的含义。</p>
 </blockquote>
 <p>多关系语义的可视化</p>
-<p><img src="40417850.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXcj1g.png" alt="kXcj1g.png"></p>
 <blockquote>
 <p>点是正确的三元组，属于HasPart关系，而圆是不正确的。</p>
 <p>点坐标是头部和尾部实体之间的差向量，应该靠近中心。</p>
@@ -406,7 +406,7 @@
 <li>$M_r$ : 关系$r$的语义成分数量， 通过$CRP$自动的从数据中学习得到；</li>
 </ul>
 <p>TransG利用了特定关系的关系分量向量的组合。每个成分代表一个特定的潜在含义。通过这种方法，TransG可以区分多个关系语义。值得注意的是，CRP可以生成多个语义分量，并从数据中自适应地学习关系语义分量数$M_r$。</p>
-<h3 id="几何解释"><a href="#几何解释" class="headerlink" title="几何解释"></a>几何解释</h3><p>TransG 推广：<br>$$<br>m_{h,r,t}^* = {\arg\min}_{m=1,…,M_r} \left(  \pi_{r,m} e^{-\frac{||{\bf u_h+u_r,m-u_t}||_2^2}{\sigma_h^2+\sigma_t^2} }     \right)<br>$$ </p>
+<h3 id="几何解释"><a href="#几何解释" class="headerlink" title="几何解释"></a>几何解释</h3><p>TransG 推广：<br>$$<br>m_{h,r,t}^* = {\arg\min}_{m=1,…,M_r} \left(  \pi_{r,m} e^{-\frac{||{\bf u_h+u_r,m-u_t}||_2^2}{\sigma_h^2+\sigma_t^2} }     \right)<br>$$</p>
 <p>$$<br>{\bf h} + \bf u_{ {r,m}_{(\bf h,r,t)}^*} \approx \bf t<br>$$</p>
 <ul>
 <li>$m_{h,r,t}^*$ : 主分量，虽然所有分量都对模型有贡献，但是由于指数效应，主分量贡献最大；</li>

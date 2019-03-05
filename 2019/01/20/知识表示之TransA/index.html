@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
 <meta property="og:description" content="TransA论文地址: https://arxiv.org/pdf/1509.05490.pdf 模型改进缺陷 TransE模型本质上是一种欧式距离的计算，对应一个等势超球面。   上图中蓝色部分为正例，红色部分为负例，TransE模型错误划分7个点；利用本文提出的基于马氏距离的TransA模型，其PCA降维图对应一个椭圆，该模型只错误划分三个点。   目前基于转移的方法构造了等式超球面，不容易划">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-2/51221830.jpg">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-2/75658273.jpg">
-<meta property="og:updated_time" content="2019-01-26T08:17:35.790Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcy01.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXc6Tx.png">
+<meta property="og:updated_time" content="2019-03-05T03:06:58.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之TransA模型">
 <meta name="twitter:description" content="TransA论文地址: https://arxiv.org/pdf/1509.05490.pdf 模型改进缺陷 TransE模型本质上是一种欧式距离的计算，对应一个等势超球面。   上图中蓝色部分为正例，红色部分为负例，TransE模型错误划分7个点；利用本文提出的基于马氏距离的TransA模型，其PCA降维图对应一个椭圆，该模型只错误划分三个点。   目前基于转移的方法构造了等式超球面，不容易划">
-<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-2/51221830.jpg">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/05/kXcy01.png">
 
 
 
@@ -358,7 +358,7 @@
 
       
         <h1 id="TransA"><a href="#TransA" class="headerlink" title="TransA"></a>TransA</h1><p>论文地址: <a href="https://arxiv.org/pdf/1509.05490.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1509.05490.pdf</a></p>
-<h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-2/51221830.jpg" alt=""></p>
+<h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><p><img src="https://s2.ax1x.com/2019/03/05/kXcy01.png" alt="kXcy01.png"></p>
 <p>TransE模型本质上是一种欧式距离的计算，对应一个等势超球面。</p>
 <blockquote>
 <p> 上图中蓝色部分为正例，红色部分为负例，TransE模型错误划分7个点；利用本文提出的基于马氏距离的TransA模型，其PCA降维图对应一个椭圆，该模型只错误划分三个点。</p>
@@ -372,7 +372,7 @@
 <li><p>权重的问题：损失函数过于简单，向量的每一维度等价考虑，无法突出维度的重要性差异；</p>
 </li>
 </ul>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-2/75658273.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXc6Tx.png" alt="kXc6Tx.png"></p>
 <blockquote>
 <p>上图所示，对于关系 has-part 而言，TransE模型根据欧式距离计算生成了像 ”Room-has-Goniff“这样的三元组。而正确的结果是”Room-has-Wall“。</p>
 <p>对x,y轴进行分解，发现Room在x轴上距离Wall更近，因此可以认为该图在x轴维度上更重要。TransA模型通过引入加权矩阵，对每一个维度赋予不同权重。</p>

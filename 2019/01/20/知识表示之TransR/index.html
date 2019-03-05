@@ -89,15 +89,15 @@
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
 <meta property="og:description" content="TransR论文地址: http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/ 模型改进TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。   对每个三元组，实体">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/90156033.jpg">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/26332401.jpg">
-<meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/12579440.jpg">
-<meta property="og:updated_time" content="2019-01-26T07:36:05.524Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcAOA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXc1yj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcJwq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcNkV.png">
+<meta property="og:updated_time" content="2019-03-05T03:05:37.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之TransR模型">
 <meta name="twitter:description" content="TransR论文地址: http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/ 模型改进TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。   对每个三元组，实体">
-<meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/05/kXcAOA.png">
 
 
 
@@ -361,7 +361,7 @@
       
         <h1 id="TransR"><a href="#TransR" class="headerlink" title="TransR"></a>TransR</h1><p>论文地址: <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/" target="_blank" rel="noopener">http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/</a></p>
 <h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p>TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。</p>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/47958073.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXcAOA.png" alt="kXcAOA.png"></p>
 <ul>
 <li>对每个三元组，实体空间中的实体首先通过运算 $M_r$ 映射到与它相关的 $r$ 关系空间, 保证 ${\bf h}_r + r \approx {\bf t}_r$ , 关系特定投影可以使实际持有该关系(表示为彩色圆圈)的头/尾实体彼此靠近，也可以使不持有该关系(表示为彩色三角形)的头/尾实体远离。</li>
 <li>TransR对每个关系$r$都分配了一个空间${\bf M}_r \in R^{k \times d}$。</li>
@@ -386,11 +386,11 @@
 <blockquote>
 <p>为什么根据$(h-t)$(也就是$r$)就能聚类:</p>
 <p> CTransR考虑的问题是对一个关系只用一个表示无法体现这一种关系的多义性，比如关系（location location contains）其实包含country-city、country-university、continent-country等多种含义。</p>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/90156033.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXc1yj.png" alt="kXc1yj.png"></p>
 <p>原文提到，这里的$h,t$是经过TRansE模型预训练得到的: </p>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/26332401.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXcJwq.png" alt="kXcJwq.png"></p>
 <hr>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-11-1/12579440.jpg" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXcNkV.png" alt="kXcNkV.png"></p>
 <p> 而TransE模型的映射是唯一（one to one）的，大关系下的不同子关系通过映射后其实是不同的向量表示，那么$(h-t)$的结果也不相同，根据不同的结果可以用来进行聚类。</p>
 </blockquote>
 </li>
