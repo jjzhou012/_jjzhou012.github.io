@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kjajHS.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kjml8J.png">
 <meta property="og:image" content="https://image-cdn.jqr.com/editor/203/904/2039045747-5b913b67a2794">
-<meta property="og:updated_time" content="2019-03-05T15:15:35.364Z">
+<meta property="og:updated_time" content="2019-03-21T04:47:55.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GAN Lab：交互式可视化GAN平台">
 <meta name="twitter:description" content="GAN LabGAN Lab 是一个最新的交互式可视化工具，使用 Tensorflow.js 构建。 由佐治亚理工学院 Minsuk Kahng、Polo Chau 和 Google Brain 的 Nikhil Thorat、Fernanda Viégas、Martin Wattenberg 合作开发了GAN Lab。 Tensorflow.js 是用于在浏览器和Node.js上训练和部署ML模">
@@ -409,7 +409,9 @@
 <h3 id="数据分布视图"><a href="#数据分布视图" class="headerlink" title="数据分布视图"></a>数据分布视图</h3><p><a href="https://image-cdn.jqr.com/editor/203/904/2039045747-5b913b67a2794" target="_blank" rel="noopener">gif</a></p>
 <p><img src="https://image-cdn.jqr.com/editor/203/904/2039045747-5b913b67a2794" alt="img"></p>
 <p>绿点为真实样本，紫点为生成样本。训练过程中，生成样本的位置不断更新，最终趋向于和真实样本重叠。</p>
-<h2 id="GAN的简单介绍"><a href="#GAN的简单介绍" class="headerlink" title="GAN的简单介绍"></a>GAN的简单介绍</h2><p>通过学习一类概率分布的数据，生成相似分布的数据。比如，模型通过学习一些人脸图片，然后自己来生成人脸图片。这样创造性的生成现实图片看似很神奇，但其实是有两个关键点：</p>
+<h2 id="GAN的简单介绍"><a href="#GAN的简单介绍" class="headerlink" title="GAN的简单介绍"></a>GAN的简单介绍</h2><p>生成对抗网络（Generative Adversarial Nets）在 Ian Goodfellow 等人2014年的论文《Generative Adversarial Nets》中提出，是非监督学习的一种方法，通过让两个神经网络相互博弈的方式进行学习。</p>
+<p>生成对抗网络由一个生成网络（Generator）与一个判别网络（Discriminator）组成。生成网络从潜在空间（latent space）中随机采样作为输入，其输出结果需要尽量<strong>模仿训练集中的真实样本的数据分布</strong>。判别网络的输入则为真实样本或生成网络的输出，其<strong>目的是将生成网络的输出从真实样本中尽可能分辨出来</strong>。而生成网络则要尽可能地欺骗判别网络。两个网络相互对抗、不断调整参数，<strong>最终目的是使判别网络无法判断生成网络的输出结果是否真实</strong>。生成对抗网络常用于生成以假乱真的图片。此外，该方法还被用于生成视频、三维物体模型等。</p>
+<p>通过学习一类概率分布的数据，生成相似分布的数据。比如，模型通过学习一些人脸图片，然后自己来生成人脸图片。这样创造性的生成现实图片看似很神奇，但其实是有两个关键点：</p>
 <ul>
 <li>模型在高维空间上对数据的概率分布进行建模。因为我们需要模型了解哪些图像是人脸，哪些不是；</li>
 <li>GAN由生成模型和判别模型构成，引入零和博弈的思想，生成器生成尽可能真实的图像，判别器努力将生成图像和真实图像区分开来，两个网络相互对抗，最终判别器无法准确分辨真实图像和生成图像。</li>
@@ -445,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/21/ftp文件传输配置/" rel="next" title="FTP服务端与客户端安装配置">
-                <i class="fa fa-chevron-left"></i> FTP服务端与客户端安装配置
+              <a href="/2019/02/21/samba文件共享配置(1)/" rel="next" title="samba服务端与客户端安装配置">
+                <i class="fa fa-chevron-left"></i> samba服务端与客户端安装配置
               </a>
             
           </div>
@@ -454,6 +456,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/26/node2vec的实现与应用/" rel="prev" title="node2vec的实现与思考">
+                node2vec的实现与思考 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -545,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -556,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
