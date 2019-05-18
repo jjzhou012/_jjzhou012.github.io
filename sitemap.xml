@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoururl.com/2019/01/20/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E4%B9%8BHyTE/</loc>
+    
+    <lastmod>2019-05-18T07:30:20.945Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoururl.com/2019/04/26/node2vec%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%B8%8E%E5%BA%94%E7%94%A8/</loc>
     
     <lastmod>2019-04-28T12:35:55.903Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoururl.com/2019/01/20/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E4%B9%8BTransparse/</loc>
     
     <lastmod>2019-03-05T03:08:55.371Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoururl.com/2019/01/20/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E4%B9%8BHyTE/</loc>
-    
-    <lastmod>2019-03-05T03:08:20.063Z</lastmod>
     
   </url>
   
