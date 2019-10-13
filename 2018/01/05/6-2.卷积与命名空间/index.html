@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html lang=zh>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="12import tensorflow as tffrom tensorflow.examples.tutorials.mnist import input_data 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Deep learning,Tensorflow,Neural Networks," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Andy_z 's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="12import tensorflow as tffrom tensorflow.examples.tutorials.mnist import input_data 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626">
 <meta name="keywords" content="Deep learning,Tensorflow,Neural Networks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卷积与命名空间">
@@ -18,140 +93,268 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卷积与命名空间">
 <meta name="twitter:description" content="12import tensorflow as tffrom tensorflow.examples.tutorials.mnist import input_data 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>卷积与命名空间</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
-    
-</head>
-
-<body class="max-width mx-auto px3 ltr">    
-      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Inici</a></li>
-         
-          <li><a href="/about/">Qui som</a></li>
-         
-          <li><a href="/archives/">Articles</a></li>
-         
-          <li><a href="/projects_url">Projectes</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2018/01/07/7.+递归神经网络RNN/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/01/03/Tensorflow 基础（七）：损失函数/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
-      <span id="i-next" class="info" style="display:none;">Post Següent</span>
-      <span id="i-top" class="info" style="display:none;">Adalt</span>
-      <span id="i-share" class="info" style="display:none;">Compartir Post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&text=卷积与命名空间"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&is_video=false&description=卷积与命名空间"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=卷积与命名空间&body=Check out this article: http://yoururl.com/2018/01/05/6-2.卷积与命名空间/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&name=卷积与命名空间&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        卷积与命名空间
-    </h1>
 
 
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Andy_z 's Blog</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2018-01-04T16:00:00.000Z" itemprop="datePublished">2018-01-05</time>
-        
-      
-    </div>
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
-      
-    <div class="article-category">
-        <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/神经网络/">神经网络</a>
-    </div>
+
+  <link rel="canonical" href="http://yoururl.com/2018/01/05/6-2.卷积与命名空间/"/>
 
 
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/Deep-learning/">Deep learning</a>, <a class="tag-link" href="/tags/Neural-Networks/">Neural Networks</a>, <a class="tag-link" href="/tags/Tensorflow/">Tensorflow</a>
-    </div>
 
 
-    </div>
-  </header>
+
+  <title>卷积与命名空间 | Andy_z 's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
-  <div class="content" itemprop="articleBody">
-    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/jjzhou012/jjzhou012.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Andy_z 's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding - Thinking - Sharing - Deep learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/01/05/6-2.卷积与命名空间/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">卷积与命名空间</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T00:00:00+08:00">
+                2018-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line">mnist = input_data.read_data_sets(<span class="string">'MNIST_data'</span>,one_hot=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#每个批次的大小</span></span><br><span class="line">batch_size = <span class="number">100</span></span><br><span class="line"><span class="comment">#计算一共有多少个批次</span></span><br><span class="line">n_batch = mnist.train.num_examples // batch_size</span><br><span class="line"></span><br><span class="line"><span class="comment">#参数概要</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">variable_summaries</span><span class="params">(var)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'summaries'</span>):</span><br><span class="line">        mean = tf.reduce_mean(var)</span><br><span class="line">        tf.summary.scalar(<span class="string">'mean'</span>, mean)<span class="comment">#平均值</span></span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'stddev'</span>):</span><br><span class="line">            stddev = tf.sqrt(tf.reduce_mean(tf.square(var - mean)))</span><br><span class="line">        tf.summary.scalar(<span class="string">'stddev'</span>, stddev)<span class="comment">#标准差</span></span><br><span class="line">        tf.summary.scalar(<span class="string">'max'</span>, tf.reduce_max(var))<span class="comment">#最大值</span></span><br><span class="line">        tf.summary.scalar(<span class="string">'min'</span>, tf.reduce_min(var))<span class="comment">#最小值</span></span><br><span class="line">        tf.summary.histogram(<span class="string">'histogram'</span>, var)<span class="comment">#直方图</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化权值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span><span class="params">(shape,name)</span>:</span></span><br><span class="line">    initial = tf.truncated_normal(shape,stddev=<span class="number">0.1</span>)<span class="comment">#生成一个截断的正态分布</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial,name=name)</span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化偏置</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span><span class="params">(shape,name)</span>:</span></span><br><span class="line">    initial = tf.constant(<span class="number">0.1</span>,shape=shape)</span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial,name=name)</span><br><span class="line"></span><br><span class="line"><span class="comment">#卷积层</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x,W)</span>:</span></span><br><span class="line">    <span class="comment">#x input tensor of shape `[batch, in_height, in_width, in_channels]`</span></span><br><span class="line">    <span class="comment">#W filter / kernel tensor of shape [filter_height, filter_width, in_channels, out_channels]</span></span><br><span class="line">    <span class="comment">#`strides[0] = strides[3] = 1`. strides[1]代表x方向的步长，strides[2]代表y方向的步长</span></span><br><span class="line">    <span class="comment">#padding: A `string` from: `"SAME", "VALID"`</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x,W,strides=[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#池化层</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="comment">#ksize [1,x,y,1]</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x,ksize=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>],strides=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>],padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#命名空间</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'input'</span>):</span><br><span class="line">    <span class="comment">#定义两个placeholder</span></span><br><span class="line">    x = tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">784</span>],name=<span class="string">'x-input'</span>)</span><br><span class="line">    y = tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">10</span>],name=<span class="string">'y-input'</span>)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'x_image'</span>):</span><br><span class="line">        <span class="comment">#改变x的格式转为4D的向量[batch, in_height, in_width, in_channels]`</span></span><br><span class="line">        x_image = tf.reshape(x,[<span class="number">-1</span>,<span class="number">28</span>,<span class="number">28</span>,<span class="number">1</span>],name=<span class="string">'x_image'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'Conv1'</span>):</span><br><span class="line">    <span class="comment">#初始化第一个卷积层的权值和偏置</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'W_conv1'</span>):</span><br><span class="line">        W_conv1 = weight_variable([<span class="number">5</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">32</span>],name=<span class="string">'W_conv1'</span>)<span class="comment">#5*5的采样窗口，32个卷积核从1个平面抽取特征</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'b_conv1'</span>):  </span><br><span class="line">        b_conv1 = bias_variable([<span class="number">32</span>],name=<span class="string">'b_conv1'</span>)<span class="comment">#每一个卷积核一个偏置值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#把x_image和权值向量进行卷积，再加上偏置值，然后应用于relu激活函数</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'conv2d_1'</span>):</span><br><span class="line">        conv2d_1 = conv2d(x_image,W_conv1) + b_conv1</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'relu'</span>):</span><br><span class="line">        h_conv1 = tf.nn.relu(conv2d_1)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'h_pool1'</span>):</span><br><span class="line">        h_pool1 = max_pool_2x2(h_conv1)<span class="comment">#进行max-pooling</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'Conv2'</span>):</span><br><span class="line">    <span class="comment">#初始化第二个卷积层的权值和偏置</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'W_conv2'</span>):</span><br><span class="line">        W_conv2 = weight_variable([<span class="number">5</span>,<span class="number">5</span>,<span class="number">32</span>,<span class="number">64</span>],name=<span class="string">'W_conv2'</span>)<span class="comment">#5*5的采样窗口，64个卷积核从32个平面抽取特征</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'b_conv2'</span>):  </span><br><span class="line">        b_conv2 = bias_variable([<span class="number">64</span>],name=<span class="string">'b_conv2'</span>)<span class="comment">#每一个卷积核一个偏置值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#把h_pool1和权值向量进行卷积，再加上偏置值，然后应用于relu激活函数</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'conv2d_2'</span>):</span><br><span class="line">        conv2d_2 = conv2d(h_pool1,W_conv2) + b_conv2</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'relu'</span>):</span><br><span class="line">        h_conv2 = tf.nn.relu(conv2d_2)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'h_pool2'</span>):</span><br><span class="line">        h_pool2 = max_pool_2x2(h_conv2)<span class="comment">#进行max-pooling</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#28*28的图片第一次卷积后还是28*28，第一次池化后变为14*14</span></span><br><span class="line"><span class="comment">#第二次卷积后为14*14，第二次池化后变为了7*7</span></span><br><span class="line"><span class="comment">#进过上面操作后得到64张7*7的平面</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'fc1'</span>):</span><br><span class="line">    <span class="comment">#初始化第一个全连接层的权值</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'W_fc1'</span>):</span><br><span class="line">        W_fc1 = weight_variable([<span class="number">7</span>*<span class="number">7</span>*<span class="number">64</span>,<span class="number">1024</span>],name=<span class="string">'W_fc1'</span>)<span class="comment">#上一场有7*7*64个神经元，全连接层有1024个神经元</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'b_fc1'</span>):</span><br><span class="line">        b_fc1 = bias_variable([<span class="number">1024</span>],name=<span class="string">'b_fc1'</span>)<span class="comment">#1024个节点</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#把池化层2的输出扁平化为1维</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'h_pool2_flat'</span>):</span><br><span class="line">        h_pool2_flat = tf.reshape(h_pool2,[<span class="number">-1</span>,<span class="number">7</span>*<span class="number">7</span>*<span class="number">64</span>],name=<span class="string">'h_pool2_flat'</span>)</span><br><span class="line">    <span class="comment">#求第一个全连接层的输出</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'wx_plus_b1'</span>):</span><br><span class="line">        wx_plus_b1 = tf.matmul(h_pool2_flat,W_fc1) + b_fc1</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'relu'</span>):</span><br><span class="line">        h_fc1 = tf.nn.relu(wx_plus_b1)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#keep_prob用来表示神经元的输出概率</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'keep_prob'</span>):</span><br><span class="line">        keep_prob = tf.placeholder(tf.float32,name=<span class="string">'keep_prob'</span>)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'h_fc1_drop'</span>):</span><br><span class="line">        h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob,name=<span class="string">'h_fc1_drop'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'fc2'</span>):</span><br><span class="line">    <span class="comment">#初始化第二个全连接层</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'W_fc2'</span>):</span><br><span class="line">        W_fc2 = weight_variable([<span class="number">1024</span>,<span class="number">10</span>],name=<span class="string">'W_fc2'</span>)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'b_fc2'</span>):    </span><br><span class="line">        b_fc2 = bias_variable([<span class="number">10</span>],name=<span class="string">'b_fc2'</span>)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'wx_plus_b2'</span>):</span><br><span class="line">        wx_plus_b2 = tf.matmul(h_fc1_drop,W_fc2) + b_fc2</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'softmax'</span>):</span><br><span class="line">        <span class="comment">#计算输出</span></span><br><span class="line">        prediction = tf.nn.softmax(wx_plus_b2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#交叉熵代价函数</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'cross_entropy'</span>):</span><br><span class="line">    cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y,logits=prediction),name=<span class="string">'cross_entropy'</span>)</span><br><span class="line">    tf.summary.scalar(<span class="string">'cross_entropy'</span>,cross_entropy)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#使用AdamOptimizer进行优化</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train_step = tf.train.AdamOptimizer(<span class="number">1e-4</span>).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line"><span class="comment">#求准确率</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'accuracy'</span>):</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'correct_prediction'</span>):</span><br><span class="line">        <span class="comment">#结果存放在一个布尔列表中</span></span><br><span class="line">        correct_prediction = tf.equal(tf.argmax(prediction,<span class="number">1</span>),tf.argmax(y,<span class="number">1</span>))<span class="comment">#argmax返回一维张量中最大的值所在的位置</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'accuracy'</span>):</span><br><span class="line">        <span class="comment">#求准确率</span></span><br><span class="line">        accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))</span><br><span class="line">        tf.summary.scalar(<span class="string">'accuracy'</span>,accuracy)</span><br><span class="line">        </span><br><span class="line"><span class="comment">#合并所有的summary</span></span><br><span class="line">merged = tf.summary.merge_all()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    train_writer = tf.summary.FileWriter(<span class="string">'logs/train'</span>,sess.graph)</span><br><span class="line">    test_writer = tf.summary.FileWriter(<span class="string">'logs/test'</span>,sess.graph)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        <span class="comment">#训练模型</span></span><br><span class="line">        batch_xs,batch_ys =  mnist.train.next_batch(batch_size)</span><br><span class="line">        sess.run(train_step,feed_dict=&#123;x:batch_xs,y:batch_ys,keep_prob:<span class="number">0.5</span>&#125;)</span><br><span class="line">        <span class="comment">#记录训练集计算的参数</span></span><br><span class="line">        summary = sess.run(merged,feed_dict=&#123;x:batch_xs,y:batch_ys,keep_prob:<span class="number">1.0</span>&#125;)</span><br><span class="line">        train_writer.add_summary(summary,i)</span><br><span class="line">        <span class="comment">#记录测试集计算的参数</span></span><br><span class="line">        batch_xs,batch_ys =  mnist.test.next_batch(batch_size)</span><br><span class="line">        summary = sess.run(merged,feed_dict=&#123;x:batch_xs,y:batch_ys,keep_prob:<span class="number">1.0</span>&#125;)</span><br><span class="line">        test_writer.add_summary(summary,i)</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> i%<span class="number">100</span>==<span class="number">0</span>:</span><br><span class="line">            test_acc = sess.run(accuracy,feed_dict=&#123;x:mnist.test.images,y:mnist.test.labels,keep_prob:<span class="number">1.0</span>&#125;)</span><br><span class="line">            train_acc = sess.run(accuracy,feed_dict=&#123;x:mnist.train.images[:<span class="number">10000</span>],y:mnist.train.labels[:<span class="number">10000</span>],keep_prob:<span class="number">1.0</span>&#125;)</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"Iter "</span> + str(i) + <span class="string">", Testing Accuracy= "</span> + str(test_acc) + <span class="string">", Training Accuracy= "</span> + str(train_acc))</span><br></pre></td></tr></table></figure>
 <pre><code>Extracting MNIST_data\train-images-idx3-ubyte.gz
 Extracting MNIST_data\train-labels-idx1-ubyte.gz
@@ -170,137 +373,402 @@ Iter 900, Testing Accuracy= 0.9565, Training Accuracy= 0.9532
 Iter 1000, Testing Accuracy= 0.9629, Training Accuracy= 0.9602
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Inici</a></li>
-         
-          <li><a href="/about/">Qui som</a></li>
-         
-          <li><a href="/archives/">Articles</a></li>
-         
-          <li><a href="/projects_url">Projectes</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
       
     </div>
+    
+    
+    
 
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&text=卷积与命名空间"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&is_video=false&description=卷积与命名空间"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=卷积与命名空间&body=Check out this article: http://yoururl.com/2018/01/05/6-2.卷积与命名空间/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&title=卷积与命名空间"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoururl.com/2018/01/05/6-2.卷积与命名空间/&name=卷积与命名空间&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
+    
 
-    </div>
+    
 
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menú</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartir</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Cap amunt</a>
-    </div>
+    
 
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-learning/" rel="tag"><i class="fa fa-tag"></i> Deep learning</a>
+          
+            <a href="/tags/Tensorflow/" rel="tag"><i class="fa fa-tag"></i> Tensorflow</a>
+          
+            <a href="/tags/Neural-Networks/" rel="tag"><i class="fa fa-tag"></i> Neural Networks</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/03/Tensorflow 基础（七）：损失函数/" rel="next" title="Tensorflow 基础（七）：损失函数">
+                <i class="fa fa-chevron-left"></i> Tensorflow 基础（七）：损失函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/07/7.+递归神经网络RNN/" rel="prev" title="递归神经网络RNN">
+                递归神经网络RNN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg"
+                alt="Andy_z" />
+            
+              <p class="site-author-name" itemprop="name">Andy_z</p>
+              <p class="site-description motion-element" itemprop="description">About some of my learning summary, translation of thesis...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy_z</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
 </div>
 
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
         
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2019 Andy_z
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Inici</a></li>
-         
-          <li><a href="/about/">Qui som</a></li>
-         
-          <li><a href="/archives/">Articles</a></li>
-         
-          <li><a href="/projects_url">Projectes</a></li>
+
+
+
+
+
+
+
         
-      </ul>
-    </nav>
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
-</footer>
 
-    </div>
-    <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+  
 
-    <!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<!-- clipboard -->
-
-  <script src="/lib/clipboard/clipboard.min.js"></script>
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
-    // mount it!
-    $(".highlight .code pre").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      target: function(trigger) {
-        return trigger.nextElementSibling;
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "Copied!");
-      e.clearSelection();
-    })
-  })
-  </script>
-
-<script src="/js/main.js"></script>
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -318,5 +786,15 @@ Iter 1000, Testing Accuracy= 0.9629, Training Accuracy= 0.9602
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
