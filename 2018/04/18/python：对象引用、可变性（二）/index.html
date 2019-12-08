@@ -373,15 +373,15 @@ u: (3, 4)
 </code></pre><h4 id="不要使用可变类型作为参数默认值"><a href="#不要使用可变类型作为参数默认值" class="headerlink" title="不要使用可变类型作为参数默认值"></a>不要使用可变类型作为参数默认值</h4><p>ex2. 说明可变默认值的影响</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bus</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, passengers=[])</span>:</span>    <span class="comment"># 默认值为空列表</span></span><br><span class="line">        self.passengers = passengers</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pick</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.passengers.append(name)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drop</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.passengers.remove(name)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bus1 = bus([<span class="string">'A'</span>, <span class="string">'B'</span>])</span><br><span class="line">bus1.passengers</span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;A&apos;, &apos;B&apos;]
+<pre><code>[&#39;A&#39;, &#39;B&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bus1.pick(<span class="string">'C'</span>)</span><br><span class="line">bus1.drop(<span class="string">'A'</span>)</span><br><span class="line">bus1.passengers          <span class="comment"># bus1 未出现异常</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;B&apos;, &apos;C&apos;]
+<pre><code>[&#39;B&#39;, &#39;C&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bus2 = bus()             <span class="comment"># 一开始bus2是空的，因此把默认的空列表赋值给self.passengers</span></span><br><span class="line">bus2.pick(<span class="string">'D'</span>)</span><br><span class="line">bus2.passengers</span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;D&apos;]
+<pre><code>[&#39;D&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bus3 = bus()             <span class="comment"># 一开始bus3也是空的，因此把默认的空列表赋值给self.passengers</span></span><br><span class="line">bus3.passengers          <span class="comment"># 但是默认列表不为空， 登上bus2的D出现在bus3中</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;D&apos;]
+<pre><code>[&#39;D&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bus3.pick(<span class="string">'E'</span>)</span><br><span class="line">bus2.passengers          <span class="comment"># 登上bus3的E出现在bus2中</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;D&apos;, &apos;E&apos;]
+<pre><code>[&#39;D&#39;, &#39;E&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bus2.passengers <span class="keyword">is</span> bus3.passengers</span><br></pre></td></tr></table></figure>
 <pre><code>True
 </code></pre><p>问题是，bus2.passengers 和 bus3.passengers 指代同一个列表</p>
@@ -392,42 +392,42 @@ u: (3, 4)
 <p>本例中，实例化bus时，如果传入乘客，会按预期运作。但不为bus指定乘客的话，会发生奇怪的事。<br>因为初始化时，self.passengers变成passengers参数默认值的别名。问题的根源在于，<strong>默认值在定义函数时计算（通常在加载模块时），因此默认值变成了函数对象的属性。如果默认值是可变对象，而且修改了它的值，那么后续的函数调用都会收到影响。</strong></p>
 <p>我们可以审查bus.__init__对象，查看它的__defaults__属性中的乘客</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(bus.__init__)</span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;__annotations__&apos;,
- &apos;__call__&apos;,
- &apos;__class__&apos;,
- &apos;__closure__&apos;,
- &apos;__code__&apos;,
- &apos;__defaults__&apos;,
- &apos;__delattr__&apos;,
- &apos;__dict__&apos;,
- &apos;__dir__&apos;,
- &apos;__doc__&apos;,
- &apos;__eq__&apos;,
- &apos;__format__&apos;,
- &apos;__ge__&apos;,
- &apos;__get__&apos;,
- &apos;__getattribute__&apos;,
- &apos;__globals__&apos;,
- &apos;__gt__&apos;,
- &apos;__hash__&apos;,
- &apos;__init__&apos;,
- &apos;__kwdefaults__&apos;,
- &apos;__le__&apos;,
- &apos;__lt__&apos;,
- &apos;__module__&apos;,
- &apos;__name__&apos;,
- &apos;__ne__&apos;,
- &apos;__new__&apos;,
- &apos;__qualname__&apos;,
- &apos;__reduce__&apos;,
- &apos;__reduce_ex__&apos;,
- &apos;__repr__&apos;,
- &apos;__setattr__&apos;,
- &apos;__sizeof__&apos;,
- &apos;__str__&apos;,
- &apos;__subclasshook__&apos;]
+<pre><code>[&#39;__annotations__&#39;,
+ &#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__closure__&#39;,
+ &#39;__code__&#39;,
+ &#39;__defaults__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__get__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__globals__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__kwdefaults__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__name__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__qualname__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bus.__init__.__defaults__</span><br></pre></td></tr></table></figure>
-<pre><code>([&apos;D&apos;, &apos;E&apos;],)
+<pre><code>([&#39;D&#39;, &#39;E&#39;],)
 </code></pre><p>最后，我们可以验证bus2.passenges是一个别名，它绑定到bus.__init__.__defaults__属性的第一个元素上：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bus.__init__.__defaults__[<span class="number">0</span>] <span class="keyword">is</span> bus2.passengers</span><br></pre></td></tr></table></figure>
 <pre><code>True
@@ -435,15 +435,15 @@ u: (3, 4)
 <h4 id="防御可变参数"><a href="#防御可变参数" class="headerlink" title="防御可变参数"></a>防御可变参数</h4><p>ex3. 接受可变参数的影响</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TwilighBus</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, passengers=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> passengers <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            self.passengers = []</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.passengers = passengers      <span class="comment"># 赋值语句把self.passengers 变成passengers的别名， passengers 是传给__init__方法的实参的别名</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pick</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.passengers.append(name)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drop</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.passengers.remove(name)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">team = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]</span><br><span class="line">bus = TwilighBus(team)</span><br><span class="line">bus.drop(<span class="string">'A'</span>)</span><br><span class="line">bus.pick(<span class="string">'D'</span>)</span><br><span class="line">print(<span class="string">'self.passengers: '</span>,bus.passengers)     </span><br><span class="line">print(<span class="string">'team: '</span>,team)                          <span class="comment"># remove()和append()会修改传给构造方法的那个list</span></span><br></pre></td></tr></table></figure>
-<pre><code>self.passengers:  [&apos;B&apos;, &apos;C&apos;, &apos;D&apos;]
-team:  [&apos;B&apos;, &apos;C&apos;, &apos;D&apos;]
+<pre><code>self.passengers:  [&#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
+team:  [&#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id(team), id(bus.passengers)                  <span class="comment"># 共享同一个对象</span></span><br></pre></td></tr></table></figure>
 <pre><code>(2677046974216, 2677046974216)
 </code></pre><p>上述例子，类为传给构造方法的列表创建了别名，self.passengers 和 passengers 两个标识共享同一个 list。<br>正确的做法是，在__init__中，传入 passengers 参数时，应该把参数值的副本赋值给self.passengers，如下：<br>ex4. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TwilighBus</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, passengers=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> passengers <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            self.passengers = []</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.passengers = list(passengers)    <span class="comment"># 把参数值的副本赋值给self.passengers</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pick</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.passengers.append(name)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drop</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.passengers.remove(name)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">team = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]</span><br><span class="line">bus = TwilighBus(team)</span><br><span class="line">bus.drop(<span class="string">'A'</span>)</span><br><span class="line">bus.pick(<span class="string">'D'</span>)</span><br><span class="line">print(<span class="string">'self.passengers: '</span>,bus.passengers)  </span><br><span class="line">print(<span class="string">'team: '</span>,team)                              <span class="comment"># 不改变初始化时传入的实参</span></span><br></pre></td></tr></table></figure>
-<pre><code>self.passengers:  [&apos;B&apos;, &apos;C&apos;, &apos;D&apos;]
-team:  [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]
+<pre><code>self.passengers:  [&#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
+team:  [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id(team), id(bus.passengers)                      <span class="comment"># 不同对象的别名</span></span><br></pre></td></tr></table></figure>
 <pre><code>(2677047040968, 2677046999688)
 </code></pre><p>除非确实想修改通过参数传入的对象，否则在类中直接把参数赋值给实例变量之前一定要考虑清楚，因为这样会为参数对象创建别名。如果不确定，就创建副本。</p>

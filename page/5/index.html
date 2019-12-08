@@ -357,7 +357,8 @@
       
         
           
-          
+          会话（session）Tensorflow 中利用会话（session）来执行定义好的运算。会话拥有并管理Tensorflow程序运行时的所有资源。当计算完成时，需要关闭会话来帮助系统收回资源，否则可能出现资源泄露的问题。
+12345import tensorflow as tfa = tf.con
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -505,159 +506,12 @@
       
         
           
-          
+          定义计算12345import tensorflow as tfa = tf.constant([1.0, 2.0], name="a")b = tf.constant([3.0, 4.0], name="b")result = a + bprint(result)
+Tensor(&quot;add
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/30/Tensorflow 基础（一）：计算图和张量/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2017/12/25/test_new_PC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Andy_z">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Andy_z 's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/25/test_new_PC/" itemprop="url">Linux 常用命令整理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T18:38:04+08:00">
-                2017-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/25/test_new_PC/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -802,10 +656,172 @@
         
           
           
-          ...
+作者：Andy_z  
+
+以下是作者在摸索使用Linux系统时收集整理的一些关于Linux的常用命令，
+文件目录操作命令
+Vim编辑器常用命令用法
+环境变量查看和添加
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/25/Linux常用命令整理/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2017/12/25/test_new_PC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/25/test_new_PC/" itemprop="url">Linux 常用命令整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T18:38:04+08:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+作者：Andy_z  
+
+以下是作者在摸索使用Linux系统时收集整理的一些关于Linux的常用命令，
+文件目录操作命令
+Vim编辑器常用命令用法
+环境变量查看和添加
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/25/test_new_PC/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -949,7 +965,8 @@
       
         
           
-          
+          正则化 （regularization）正则化的本质：约束（限制）要优化的参数。正则化中我们将保留所有的特征变量，但是会减小特征变量的数量级（参数数值的大小 $\theta (j)$ ）。
+这个方法非常有效，当我们有很多特征变量时，其中每一个变量都能对预测产生一点影响。正如我们在房价预测的例子中看到
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1098,6 +1115,12 @@
         
           
           
+笔者：Andy_z
+
+
+感知机无法处理XOR问题，原因是线性不可分
+
+BP算法的基本思想：信号正向传播与误差反向传播。(1) 信号正向传播： 输入样本从输入层传入，经各层处理传向输出层。若输出层实际输出与期望输出不符，则转入误差的反向传播阶段。(2) 误差反向传播： 将输出信号以某种形式通过隐层向
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1246,6 +1269,9 @@
         
           
           
+笔者：Andy_z
+
+图像处理：区域生长法&emsp;&emsp;区域生长是一种串行区域分割的图像分割方法，其优点是基本思想相对简单，通常能将具有相同特征的联通区域分割出来，并能提供很好的边界信息和分割结果。在没有先验知识可以利用时，可以取得最佳的性能，可以用来分割比较复杂的图象，如自然景物。但是
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1394,6 +1420,10 @@
         
           
           
+笔者：Andy_z
+
+
+Roberts 算子。Roberts 算子利用局部差分算子寻找边缘。一个2x2的模板，采用的是对角方向相邻的两个像素之差。如结果所示，在噪声较少的情况下边缘定位精度较高，但容易缺失部分边缘，导致边界不完整。加入较多噪声后，无法准确定位边缘，导致分割结果显示的边缘情况缺失严重
           ...
           <!--noindex-->
           <div class="post-button text-center">

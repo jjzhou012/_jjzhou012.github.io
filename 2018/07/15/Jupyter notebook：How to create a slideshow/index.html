@@ -395,14 +395,14 @@
 <li>Notes：作为演讲者的备忘笔记，也不在幻灯片中显示。</li>
 </ul>
 <h2 id="生成幻灯片"><a href="#生成幻灯片" class="headerlink" title="生成幻灯片"></a>生成幻灯片</h2><p>在notebook中设置cell 的slide属性，确认后保存，例如 notebook.ipynb<br>使用nbconvert 来将notebook文件转换为HTML  </p>
-<pre><code class="python">jupyter nbconvert --to slides notebook.ipynb --reveal-prefix=reveal.js
+<pre><code class="lang-python">jupyter nbconvert --to slides notebook.ipynb --reveal-prefix=reveal.js
 </code></pre>
 <p>生成文件： notebook.slides.html , 直接用浏览器打开即可播放幻灯片</p>
 <p>有时候不想要input cell显示在slide上面，这个时候可以使用下面的设置：  </p>
-<pre><code class="python">jupyter nbconvert RainStromNetworkAnalysis.ipynb --to slides --TemplateExporter.exclude_input=<span class="keyword">True</span>  
+<pre><code class="lang-python">jupyter nbconvert RainStromNetworkAnalysis.ipynb --to slides --TemplateExporter.exclude_input=True
 </code></pre>
 <p>同样的使用下面的命令虽然可以隐藏input cell但是不能生成slide只能生成html文件：  </p>
-<pre><code class="python">jupyter nbconvert --template=nbextensions --to=slides RainStromNetworkAnalysis.ipynb
+<pre><code class="lang-python">jupyter nbconvert --template=nbextensions --to=slides RainStromNetworkAnalysis.ipynb
 </code></pre>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Reveal.js 支持 Markdown 语法，我们得以直接在 Markdown 编辑器里做 PPT。以上只是制作了最简单的 PPT，我们后续还可以添加各种动画效果、背景、图表等内容。</p>
 

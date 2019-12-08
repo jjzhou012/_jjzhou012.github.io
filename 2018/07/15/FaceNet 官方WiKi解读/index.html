@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="作者：Andy_z文献：官方WiKi  ##一、分类器训练 ###1.1 运行 train_softmax.py 文件训练1234567891011121314151617python src/train_softmax.py--logs_base_dir ~/logs/facenet/--models_base_dir ~/models/facenet/--data_dir ~/dataset">
+<meta name="description" content="作者：Andy_z文献：官方WiKi  一、分类器训练1.1 运行 train_softmax.py 文件训练1234567891011121314151617python src/train_softmax.py--logs_base_dir ~/logs/facenet/--models_base_dir ~/models/facenet/--data_dir ~/datasets/casi">
 <meta name="keywords" content="Summary,facenet,face recognition">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow环境 人脸识别 FaceNet 应用（二）:FaceNet官方WiKi解读">
 <meta property="og:url" content="http://yoururl.com/2018/07/15/FaceNet 官方WiKi解读/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="作者：Andy_z文献：官方WiKi  ##一、分类器训练 ###1.1 运行 train_softmax.py 文件训练1234567891011121314151617python src/train_softmax.py--logs_base_dir ~/logs/facenet/--models_base_dir ~/models/facenet/--data_dir ~/dataset">
+<meta property="og:description" content="作者：Andy_z文献：官方WiKi  一、分类器训练1.1 运行 train_softmax.py 文件训练1234567891011121314151617python src/train_softmax.py--logs_base_dir ~/logs/facenet/--models_base_dir ~/models/facenet/--data_dir ~/datasets/casi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-21/53475149.jpg">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-21/76473615.jpg">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2018-03-23T08:27:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow环境 人脸识别 FaceNet 应用（二）:FaceNet官方WiKi解读">
-<meta name="twitter:description" content="作者：Andy_z文献：官方WiKi  ##一、分类器训练 ###1.1 运行 train_softmax.py 文件训练1234567891011121314151617python src/train_softmax.py--logs_base_dir ~/logs/facenet/--models_base_dir ~/models/facenet/--data_dir ~/dataset">
+<meta name="twitter:description" content="作者：Andy_z文献：官方WiKi  一、分类器训练1.1 运行 train_softmax.py 文件训练1234567891011121314151617python src/train_softmax.py--logs_base_dir ~/logs/facenet/--models_base_dir ~/models/facenet/--data_dir ~/datasets/casi">
 <meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-21/53475149.jpg">
 
 
@@ -361,8 +361,7 @@
         <blockquote>
 <p>作者：Andy_z<br>文献：<a href="https://github.com/davidsandberg/facenet/wiki" target="_blank" rel="noopener">官方WiKi</a></p>
 </blockquote>
-<p>##一、分类器训练</p>
-<p>###1.1 运行 train_softmax.py 文件训练<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">python src/train_softmax.py</span><br><span class="line">--logs_base_dir ~/logs/facenet/</span><br><span class="line">--models_base_dir ~/models/facenet/</span><br><span class="line">--data_dir ~/datasets/casia/casia_maxpy_mtcnnalign_182</span><br><span class="line">--image_size 160</span><br><span class="line">--model_def models.inception_resnet_v1</span><br><span class="line">--lfw_dir /home/david/datasets/lfw/lfw_mtcnnalign_160</span><br><span class="line">--optimizer RMSPROP</span><br><span class="line">--learning_rate -1</span><br><span class="line">--max_nrof_epochs 80</span><br><span class="line">--keep_probability 0.8</span><br><span class="line">--random_crop</span><br><span class="line">--random_flip</span><br><span class="line">--learning_rate_schedule_file data/learning_rate_schedule_classifier_casia.txt</span><br><span class="line">--weight_decay 5e-5</span><br><span class="line">--center_loss_factor 1e-2</span><br><span class="line">--center_loss_alfa 0.9</span><br></pre></td></tr></table></figure></p>
+<h2 id="一、分类器训练"><a href="#一、分类器训练" class="headerlink" title="一、分类器训练"></a>一、分类器训练</h2><h3 id="1-1-运行-train-softmax-py-文件训练"><a href="#1-1-运行-train-softmax-py-文件训练" class="headerlink" title="1.1 运行 train_softmax.py 文件训练"></a>1.1 运行 train_softmax.py 文件训练</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">python src/train_softmax.py</span><br><span class="line">--logs_base_dir ~/logs/facenet/</span><br><span class="line">--models_base_dir ~/models/facenet/</span><br><span class="line">--data_dir ~/datasets/casia/casia_maxpy_mtcnnalign_182</span><br><span class="line">--image_size 160</span><br><span class="line">--model_def models.inception_resnet_v1</span><br><span class="line">--lfw_dir /home/david/datasets/lfw/lfw_mtcnnalign_160</span><br><span class="line">--optimizer RMSPROP</span><br><span class="line">--learning_rate -1</span><br><span class="line">--max_nrof_epochs 80</span><br><span class="line">--keep_probability 0.8</span><br><span class="line">--random_crop</span><br><span class="line">--random_flip</span><br><span class="line">--learning_rate_schedule_file data/learning_rate_schedule_classifier_casia.txt</span><br><span class="line">--weight_decay 5e-5</span><br><span class="line">--center_loss_factor 1e-2</span><br><span class="line">--center_loss_alfa 0.9</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>log_base_dir</strong>:<br><strong>models_base_dir</strong>:<br>训练开始时，以数据/时间训练开始的训练会话的子目录以yyyymmdd-hhmm的格式在以上两个目录中创建。  </li>
 <li><strong>data_dir</strong>：  用于指出训练数据集的位置，可以通过用冒号分隔路径来使用几个数据集的联合。<br>model_def： 给出推理网络的描述符，上述样例中  models.inception_resnet_v1 指向models包中的<br>inception_resnet_v1模块。 该模块定义一个函数 inference(images, …)，images是输入图像的占位符(Inception-ResNet-v1的尺寸&lt;?, 160,160,3&gt;),并返回一个embeddings变量的引用。  </li>
@@ -373,14 +372,11 @@
 <blockquote>
 <p>注：train_tripletloss.py和train_softmax.py的区别：这是作者对论文做出的一个延伸，除了使用facenet里提到的train_tripletloss三元组损失函数来训练，还实现了用softmax的训练方法来训练。当然，在样本量很小的情况下，用softmax训练会更容易收敛。但是，当训练集中包含大量的不同个体(超过10万)时，最后一层的softmax输出数量就会变得非常大，但是使用train_tripletloss的训练仍然可以正常工作。</p>
 </blockquote>
-<p>###1.2 运行 train_softmax.py 文件训练</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python src/train_tripletloss.py</span><br><span class="line">--logs_base_dir ~/logs/facenet/</span><br><span class="line">--models_base_dir ~/models/facenet/</span><br><span class="line">--data_dir ~/datasets/casia/casia_maxpy_mtcnnalign_182_160</span><br><span class="line">--image_size 160</span><br><span class="line">--model_def models.inception_resnet_v1</span><br><span class="line">--lfw_dir ~/datasets/lfw/lfw_mtcnnalign_160</span><br><span class="line">--optimizer RMSPROP</span><br><span class="line">--learning_rate 0.01</span><br><span class="line">--weight_decay 1e-4</span><br><span class="line">--max_nrof_epochs 500</span><br></pre></td></tr></table></figure>
-<p>##二、可视化TensorBoard<br>&emsp;&emsp;监视训练过程，使用TensorBoard:</p>
+<h3 id="1-2-运行-train-softmax-py-文件训练"><a href="#1-2-运行-train-softmax-py-文件训练" class="headerlink" title="1.2 运行 train_softmax.py 文件训练"></a>1.2 运行 train_softmax.py 文件训练</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python src/train_tripletloss.py</span><br><span class="line">--logs_base_dir ~/logs/facenet/</span><br><span class="line">--models_base_dir ~/models/facenet/</span><br><span class="line">--data_dir ~/datasets/casia/casia_maxpy_mtcnnalign_182_160</span><br><span class="line">--image_size 160</span><br><span class="line">--model_def models.inception_resnet_v1</span><br><span class="line">--lfw_dir ~/datasets/lfw/lfw_mtcnnalign_160</span><br><span class="line">--optimizer RMSPROP</span><br><span class="line">--learning_rate 0.01</span><br><span class="line">--weight_decay 1e-4</span><br><span class="line">--max_nrof_epochs 500</span><br></pre></td></tr></table></figure>
+<h2 id="二、可视化TensorBoard"><a href="#二、可视化TensorBoard" class="headerlink" title="二、可视化TensorBoard"></a>二、可视化TensorBoard</h2><p>&emsp;&emsp;监视训练过程，使用TensorBoard:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=~/logs/facenet --port 6006</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;打开浏览器：<a href="http://localhost:6006/" target="_blank" rel="noopener">http://localhost:6006/</a></p>
-<p>##三、用自己的图像训练分类器</p>
-<p>###3.1 在LFW上训练分类器  </p>
-<p>&emsp;&emsp;对于这个实验，我们使用LFW图像的子集来训练分类器。 LFW数据集分为训练和测试集。 然后加载预训练模型，然后使用此模型为选定图像生成特征。 预训练模型通常在更大的数据集上进行训练以提供良好的性能（本例中为MS-Celeb-1M数据集的一个子集）。</p>
+<h2 id="三、用自己的图像训练分类器"><a href="#三、用自己的图像训练分类器" class="headerlink" title="三、用自己的图像训练分类器"></a>三、用自己的图像训练分类器</h2><h3 id="3-1-在LFW上训练分类器"><a href="#3-1-在LFW上训练分类器" class="headerlink" title="3.1 在LFW上训练分类器"></a>3.1 在LFW上训练分类器</h3><p>&emsp;&emsp;对于这个实验，我们使用LFW图像的子集来训练分类器。 LFW数据集分为训练和测试集。 然后加载预训练模型，然后使用此模型为选定图像生成特征。 预训练模型通常在更大的数据集上进行训练以提供良好的性能（本例中为MS-Celeb-1M数据集的一个子集）。</p>
 <ul>
 <li>将数据集分解为训练和测试集</li>
 <li>加载预训练模型进行特征提取</li>
@@ -426,8 +422,7 @@
 <p>&emsp;&emsp;这里使用数据集的测试集部分进行分类，并显示分类结果和分类概率。 该子集的分类准确度为〜0.98。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Number of classes: 19</span><br><span class="line">Number of images: 1202</span><br><span class="line">Loading feature extraction model</span><br><span class="line">Model filename: src/models/20170512-110547/20170512-110547.pb</span><br><span class="line">Calculating features for images</span><br><span class="line">Testing classifier</span><br><span class="line">Loaded classifier model from file &quot;src/models/lfw_classifier.pkl&quot;</span><br><span class="line">   0  Ariel Sharon: 0.712</span><br><span class="line">   1  Ariel Sharon: 0.771</span><br><span class="line">   2  Ariel Sharon: 0.807</span><br><span class="line">   3  Ariel Sharon: 0.785</span><br><span class="line">   4  Ariel Sharon: 0.750</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">1197  Vladimir Putin: 0.536</span><br><span class="line">1198  Vladimir Putin: 0.723</span><br><span class="line">1199  Vladimir Putin: 0.715</span><br><span class="line">1200  Vladimir Putin: 0.663</span><br><span class="line">1201  Vladimir Putin: 0.732</span><br><span class="line">Accuracy: 0.999</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-21/53475149.jpg" alt=""></p>
 <p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-21/76473615.jpg" alt=""></p>
-<p>##四、基于mtcnn与facenet的人脸识别（单张图像识别分类）</p>
-<p>&emsp;&emsp;代码：facenet/contributed/predict.py  </p>
+<h2 id="四、基于mtcnn与facenet的人脸识别（单张图像识别分类）"><a href="#四、基于mtcnn与facenet的人脸识别（单张图像识别分类）" class="headerlink" title="四、基于mtcnn与facenet的人脸识别（单张图像识别分类）"></a>四、基于mtcnn与facenet的人脸识别（单张图像识别分类）</h2><p>&emsp;&emsp;代码：facenet/contributed/predict.py  </p>
 <p>&emsp;&emsp;主要功能：</p>
 <ul>
 <li><p>① 使用mtcnn进行人脸检测并对齐与裁剪</p>
@@ -545,8 +540,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -617,6 +621,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、分类器训练"><span class="nav-number">1.</span> <span class="nav-text">一、分类器训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-运行-train-softmax-py-文件训练"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 运行 train_softmax.py 文件训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-运行-train-softmax-py-文件训练"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 运行 train_softmax.py 文件训练</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、可视化TensorBoard"><span class="nav-number">2.</span> <span class="nav-text">二、可视化TensorBoard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、用自己的图像训练分类器"><span class="nav-number">3.</span> <span class="nav-text">三、用自己的图像训练分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-在LFW上训练分类器"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 在LFW上训练分类器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、基于mtcnn与facenet的人脸识别（单张图像识别分类）"><span class="nav-number">4.</span> <span class="nav-text">四、基于mtcnn与facenet的人脸识别（单张图像识别分类）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

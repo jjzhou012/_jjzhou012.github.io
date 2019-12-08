@@ -376,20 +376,22 @@
 <p>最终，模型通过最小化 translational distance 来完成结合时间的实体与关系的embedding学习过程。</p>
 </blockquote>
 <p>给定时间戳，可以将图分解为几个静态图，其中包含在各个时间步骤中有效的三元组，如：</p>
-<p>知识图 $G$ 能被表示为 ${\Bbb {G=G_{τ<em>1} \cup G</em>{τ<em>2} \cup … \cup  G</em>{τ_T} } }$ , 其中 $τ_i, i \in 1,2,…,T$ 是离散时间点。</p>
-<p>构建时间组成图 ${\Bbb G_τ}$ 时，对于一个四元组 $(h,r,t,[τ_s,τ_e])$ ，考虑每个在 $τ_s , τ<em>e$ 之间的时间点，该四元组为正样本。$τ$ 时刻正样本集合定义为 ${\scr D</em>τ^+}$ 。</p>
-<p>对于 $T$ 个时间点的 KG，将会有 $T$ 个用不同法向量（$w_{t_1}, w_{t_2}, …, w_{t_T}$）表示的超平面，在超平面的帮助下将空间隔离成不同时间域。在时间 $τ$ 下有效的三元组被投影到特殊超平面 $w_τ$，在超平面上平移距离被最小化。</p>
-<p>计算在 $w_τ$ 上的投影表示，其中 $||w_τ||_2=1$ ：</p>
-<p>$$<br>P_τ(e_h)=e_h - (w_τ^Te_h)w_τ  \<br>P_τ(e_t)=e_t - (w_τ^Te_t)w_τ  \<br>P_τ(e_r)=e_r - (w_τ^Te_r)w_τ  \<br>$$</p>
-<blockquote>
+<p>知识图 $G$ 能被表示为 ${\Bbb {G=G<em>{τ_1} \cup G</em>{τ<em>2} \cup … \cup  G</em>{τ_T} } }$ , 其中 $τ_i, i \in 1,2,…,T$ 是离散时间点。</p>
+<p>构建时间组成图 ${\Bbb G<em>τ}$ 时，对于一个四元组 $(h,r,t,[τ_s,τ_e])$ ，考虑每个在 $τ_s , τ_e$ 之间的时间点，该四元组为正样本。$τ$ 时刻正样本集合定义为 ${\scr D</em>τ^+}$ 。</p>
+<p>对于 $T$ 个时间点的 KG，将会有 $T$ 个用不同法向量（$w<em>{t_1}, w</em>{t<em>2}, …, w</em>{t<em>T}$）表示的超平面，在超平面的帮助下将空间隔离成不同时间域。在时间 $τ$ 下有效的三元组被投影到特殊超平面 $w</em>τ$，在超平面上平移距离被最小化。</p>
+<p>计算在 $w<em>τ$ 上的投影表示，其中 $||w</em>τ||_2=1$ ：</p>
+<script type="math/tex; mode=display">
+P_τ(e_h)=e_h - (w_τ^Te_h)w_τ  \\
+P_τ(e_t)=e_t - (w_τ^Te_t)w_τ  \\
+P_τ(e_r)=e_r - (w_τ^Te_r)w_τ  \\</script><blockquote>
 <p>向量投影</p>
 </blockquote>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="得分函数"><a href="#得分函数" class="headerlink" title="得分函数"></a>得分函数</h3><p>对于在时间 $τ$ 有效的正样本，希望映射满足这样的关系 ：$P_τ(e_h)=P_τ(e_r) \approx P_τ(e_t)$, 因而使用以下的得分函数：</p>
-<p>$$<br>f_τ(h,r,t)=||P_τ(e_h)+P_τ(e_r)-P_τ(e_t)||_{l1/l2}<br>$$</p>
-<p>在实体和关系嵌入过程中，对每个时间戳 $τ$ , 学习对应法向量 ${w_τ}_{τ=1}^T$  。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="得分函数"><a href="#得分函数" class="headerlink" title="得分函数"></a>得分函数</h3><p>对于在时间 $τ$ 有效的正样本，希望映射满足这样的关系 ：$P<em>τ(e_h)=P</em>τ(e<em>r) \approx P</em>τ(e_t)$, 因而使用以下的得分函数：</p>
+<script type="math/tex; mode=display">
+f_τ(h,r,t)=||P_τ(e_h)+P_τ(e_r)-P_τ(e_t)||_{l1/l2}</script><p>在实体和关系嵌入过程中，对每个时间戳 $τ$ , 学习对应法向量 ${w<em>τ}</em>{τ=1}^T$  。</p>
 <p>通过将三元组投影到时间超平面，我们可以将时间信息融入关系实体嵌入，利用相同的分布式表示在不同的时间点呈现不同的表达。</p>
-<h3 id="loss函数"><a href="#loss函数" class="headerlink" title="loss函数"></a>loss函数</h3><p>$$<br>{\cal L} = \sum_{\tau \in [T]} \sum_{\tau \in \scr D_τ^+} \sum_{τ \in \scr D_τ^-} \max(0,f_τ(x)-f_τ(y)+\gamma)<br>$$</p>
-<ul>
+<h3 id="loss函数"><a href="#loss函数" class="headerlink" title="loss函数"></a>loss函数</h3><script type="math/tex; mode=display">
+{\cal L} = \sum_{\tau \in [T]} \sum_{\tau \in \scr D_τ^+} \sum_{τ \in \scr D_τ^-} \max(0,f_τ(x)-f_τ(y)+\gamma)</script><ul>
 <li>$\scr D_τ^+$: 有效三元组集合，即正样本集合；</li>
 <li>$\scr D_τ^-$: 负样本集合；</li>
 <li>实体约束： $||e_p||_2 \leq 1, \forall p \in {\varepsilon}$              实体向量的$L_2$正则化</li>
@@ -398,11 +400,14 @@
 <h3 id="负样本构造"><a href="#负样本构造" class="headerlink" title="负样本构造"></a>负样本构造</h3><p>考虑了两种负样本：</p>
 <ul>
 <li><p><strong>Time agnostic negative sampling(TANS)</strong> </p>
-<p><strong>与时间无关的负采样</strong>：忽略时间戳，考虑不属于KG的负样本，在时间 $τ$ 采样该负样本:<br>$$<br>\scr D_τ^- = {(h’,r,t,\tau)|h’ \in \scr {\varepsilon}, (h’,r,t) \notin \scr D^+ } \cup {(h,r,t’,\tau)|t’ \in \scr {\varepsilon} , (h,r,t’) \notin \scr D^+ }<br>$$</p>
-</li>
+<p><strong>与时间无关的负采样</strong>：忽略时间戳，考虑不属于KG的负样本，在时间 $τ$ 采样该负样本:</p>
+<script type="math/tex; mode=display">
+\scr D_τ^- = \{(h',r,t,\tau)|h' \in \scr {\varepsilon}, (h',r,t) \notin \scr D^+ \} \cup \{(h,r,t',\tau)|t' \in \scr {\varepsilon} , (h,r,t') \notin \scr D^+ \}</script></li>
 <li><p><strong>Time dependent negative sampling(TDNS)</strong></p>
-<p><strong>与时间相关的负采样</strong>： 考虑时间戳，考虑属于KG，但不属于特定时间戳 $\tau$ 的负样本：<br>$$<br>\scr D_τ^- = {(h’,r,t,\tau)|h’ \in \scr {\varepsilon}, (h’,r,t) \in \scr D^+，(h’,r,t,\tau) \notin \scr D_{\tau}^+ } \cup \<br>{(h,r,t’,\tau)|t’ \in \scr {\varepsilon} , (h,r,t’) \in \scr D^+, (h,r,t’,\tau) \notin \scr D_{\tau}^+ }<br>$$</p>
-</li>
+<p><strong>与时间相关的负采样</strong>： 考虑时间戳，考虑属于KG，但不属于特定时间戳 $\tau$ 的负样本：</p>
+<script type="math/tex; mode=display">
+\scr D_τ^- = \{(h',r,t,\tau)|h' \in \scr {\varepsilon}, (h',r,t) \in \scr D^+，(h',r,t,\tau) \notin \scr D_{\tau}^+ \} \cup \\
+\{(h,r,t',\tau)|t' \in \scr {\varepsilon} , (h,r,t') \in \scr D^+, (h,r,t',\tau) \notin \scr D_{\tau}^+ \}</script></li>
 </ul>
 
       

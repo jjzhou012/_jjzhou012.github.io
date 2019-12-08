@@ -383,7 +383,7 @@
 <p>图像、文本数据中，我们可以很容易的定义数据元之间的距离，如像素之间的欧式距离，文本词汇之间的上下文关系等，通过距离的定义，我们可以进一步探索数据之间的相似性。以上我们可以称之为欧式数据，针对这些数据可以通过固定尺寸的核来提取特征用于训练。</p>
 <p>在网络中呢？一般网络（图）在计算机中通常用一个邻接矩阵表示其结构信息（节点、连边），矩阵的行与列由网络节点构成，如果两个节点之间存在连边，那么矩阵对应坐标的元素设置为边权值（无权图设为1）。如果我们打乱节点顺序，重新构造邻接矩阵，新的邻接矩阵与原邻接矩阵等价，依然能反映网络的结构信息。</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/005NduT8ly1g2dkjzap4aj30if0e6gmc.jpg" alt=""></p>
-<p>但是问题由此产生，原邻接矩阵若我们定义节点1，2之间的欧式距离 $d_{1,2}=1$，在新的邻接矩阵中，$d_{1,2}=4$，所以在网络中我们无法用欧式距离来定义节点之间的距离；此外若我们想用类似卷积核的核窗口来提取网络特征，可以发现：</p>
+<p>但是问题由此产生，原邻接矩阵若我们定义节点1，2之间的欧式距离 $d<em>{1,2}=1$，在新的邻接矩阵中，$d</em>{1,2}=4$，所以在网络中我们无法用欧式距离来定义节点之间的距离；此外若我们想用类似卷积核的核窗口来提取网络特征，可以发现：</p>
 <ul>
 <li>若中心节点为1，则<code>node1</code>的邻居节点有两个<code>node2</code>与<code>node4</code>;</li>
 <li>若中心节点为3，则<code>node3</code>的邻居节点有三个<code>node2</code>、<code>node4</code>与<code>node5</code>;</li>
@@ -391,7 +391,9 @@
 <p>因为核窗口应该包含中心点和其邻域点，但因网络中不同节点的邻居节点数存在差异，所以无法确定核窗口的尺寸，来完美囊括每一个节点的邻域节点。</p>
 <p>由此我们可以看出，网络与图像、文本等最大的差异在于顺序性，图像、语料等数据规则且具有一定顺序性，而网络没有。网络存在于非欧式空间，网络数据属于非欧式数据，无法直接应用机器学习、深度学习里的一些特征提取方法。</p>
 <h3 id="突破"><a href="#突破" class="headerlink" title="突破"></a>突破</h3><p>研究者继续探索，既然网络没有顺序性，能否通过构造一定的顺序性，来反映网络的拓扑结构，继而衔接机器学习算法呢？由此，网络中的随机游走（random walk）概念被提出，继而引发了新的热潮。</p>
-<p>什么是网络中的random walk？区别于全局优化中的random walk算法，网络中的random walk是一种采样策略，在RW的每一步采样中，从当前节点$v$的邻居节点中随机地选取一个节点$w$作为下一个待采样节点。从节点$v$随机游走到其邻居节点$w$的概率与当前节点$v$的度相关：<br>$$<br>P_{v, w}^{R W}=\left{\begin{array}{c}{\frac{1}{d(v)}, \text { if } w \text { is a neighbor of } v} \ {0, \text { otherwise }}\end{array}\right.<br>$$<br>通过随机游走采样，我们可以获取到一系列的节点序列，这些节点序列是有顺序性的，我们可以把游走生成的序列类比成文本中的sentence，序列中的每一个节点看作句子中的word：</p>
+<p>什么是网络中的random walk？区别于全局优化中的random walk算法，网络中的random walk是一种采样策略，在RW的每一步采样中，从当前节点$v$的邻居节点中随机地选取一个节点$w$作为下一个待采样节点。从节点$v$随机游走到其邻居节点$w$的概率与当前节点$v$的度相关：</p>
+<script type="math/tex; mode=display">
+P_{v, w}^{R W}=\left\{\begin{array}{c}{\frac{1}{d(v)}, \text { if } w \text { is a neighbor of } v} \\ {0, \text { otherwise }}\end{array}\right.</script><p>通过随机游走采样，我们可以获取到一系列的节点序列，这些节点序列是有顺序性的，我们可以把游走生成的序列类比成文本中的sentence，序列中的每一个节点看作句子中的word：</p>
 <ul>
 <li>节点序列 $\Longrightarrow$ sentence</li>
 <li>node $\Longrightarrow$ word</li>
@@ -400,15 +402,20 @@
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>既然可以通过random walk采样得到具有类文本性质的节点序列，那么我们是否可以利用nlp中的模型和算法来对网络进行研究呢？</p>
 <p>研究者提出了Deepwalk模型，Deepwalk的思想非常简单，首先将网络结构通过随机游走采样的方式，转换为类似“sentence”的节点序列的形式，再通过word2vec中的Skip-gram模型或者CBOW模型，训练得到每个节点的向量表示形式，进而可以用余弦距离或者欧式距离来求得两个节点之间的相似度。</p>
 <h2 id="二、Node2vec原理"><a href="#二、Node2vec原理" class="headerlink" title="二、Node2vec原理"></a>二、Node2vec原理</h2><p>整体上来看，Node2Vector在deepwalk的基础上改变了节点游走的方式，考虑了更多的信息。Deepwalk在下一个节点的选择上只是从当前节点的所有邻居节点中随机选择一个，而node2vec结合传统的BFS和DFS的两种搜索方法，提出了新的搜索策略。</p>
-<h3 id="前提假设"><a href="#前提假设" class="headerlink" title="前提假设"></a>前提假设</h3><p>Node2vec将网络特征学习视为一个极大似然问题。对于一个给定的网络 $G=(V, E)​$ ，设计一个函数映射 $f : V-&gt;R^{d}​$ 将特征映射为 $d​$ 维向量。对于网络中的任一节点 $v \in V​$ ， 利用 采样策略 $s​$ 得到的节点 $v​$ 的邻域信息集合为 $N_{S}(u) \subset V​$ 。整个特征学习过程为一个极大似然优化问题：<br>$$<br>\max <em>{f} \sum</em>{u \in V} \log \operatorname{Pr}\left(N_{S}(u) | f(u)\right)<br>$$<br>为了简化该优化过程，作者提出了两个前提假设：</p>
+<h3 id="前提假设"><a href="#前提假设" class="headerlink" title="前提假设"></a>前提假设</h3><p>Node2vec将网络特征学习视为一个极大似然问题。对于一个给定的网络 $G=(V, E)​$ ，设计一个函数映射 $f : V-&gt;R^{d}​$ 将特征映射为 $d​$ 维向量。对于网络中的任一节点 $v \in V​$ ， 利用 采样策略 $s​$ 得到的节点 $v​$ 的邻域信息集合为 $N_{S}(u) \subset V​$ 。整个特征学习过程为一个极大似然优化问题：</p>
+<script type="math/tex; mode=display">
+\max _{f} \sum_{u \in V} \log \operatorname{Pr}\left(N_{S}(u) | f(u)\right)</script><p>为了简化该优化过程，作者提出了两个前提假设：</p>
 <ul>
-<li><p>条件独立性假设：给定源节点的特征表示，观察到一个邻节点的似然，与观察到其它邻节点的似然是相互独立的；<br>$$<br>\operatorname{Pr}\left(N_{s}(u) | f(u)\right)=\prod_{n_{i} \in N_{S}(u)} \operatorname{Pr}\left(n_{i} | f(u)\right)<br>$$</p>
-</li>
-<li><p>特征空间的对称性：源节点与邻域节点在特征空间上具有对称性；<br>$$<br>\operatorname{Pr}\left(n_{i} | f(u)\right)=\frac{\exp \left(f\left(n_{i}\right) \cdot f(u)\right)}{\sum_{v \in V} \exp (f(v) \cdot f(u))}<br>$$</p>
-</li>
+<li><p>条件独立性假设：给定源节点的特征表示，观察到一个邻节点的似然，与观察到其它邻节点的似然是相互独立的；</p>
+<script type="math/tex; mode=display">
+\operatorname{Pr}\left(N_{s}(u) | f(u)\right)=\prod_{n_{i} \in N_{S}(u)} \operatorname{Pr}\left(n_{i} | f(u)\right)</script></li>
+<li><p>特征空间的对称性：源节点与邻域节点在特征空间上具有对称性；</p>
+<script type="math/tex; mode=display">
+\operatorname{Pr}\left(n_{i} | f(u)\right)=\frac{\exp \left(f\left(n_{i}\right) \cdot f(u)\right)}{\sum_{v \in V} \exp (f(v) \cdot f(u))}</script></li>
 </ul>
-<p>基于以上两个假设，问题转化为<br>$$<br>\begin{array}{c}{\max <em>{f} \sum</em>{u \in V}\left[-\log Z_{u}+\sum_{n_{i} \in N_{S}(u)} f\left(n_{i}\right) \cdot f(u)\right]} \ {Z_{u}=\sum_{v \in V} \exp (f(u) \cdot f(v))}\end{array}<br>$$</p>
-<h3 id="网络中的BFS与DFS"><a href="#网络中的BFS与DFS" class="headerlink" title="网络中的BFS与DFS"></a>网络中的BFS与DFS</h3><p><img src="http://ww1.sinaimg.cn/mw690/005NduT8ly1g2dribz0kgj30kg07zjte.jpg" alt=""></p>
+<p>基于以上两个假设，问题转化为</p>
+<script type="math/tex; mode=display">
+\begin{array}{c}{\max _{f} \sum_{u \in V}\left[-\log Z_{u}+\sum_{n_{i} \in N_{S}(u)} f\left(n_{i}\right) \cdot f(u)\right]} \\ {Z_{u}=\sum_{v \in V} \exp (f(u) \cdot f(v))}\end{array}</script><h3 id="网络中的BFS与DFS"><a href="#网络中的BFS与DFS" class="headerlink" title="网络中的BFS与DFS"></a>网络中的BFS与DFS</h3><p><img src="http://ww1.sinaimg.cn/mw690/005NduT8ly1g2dribz0kgj30kg07zjte.jpg" alt=""></p>
 <p>在网络中，图嵌入学习得到的向量，应该需要表示两种信息：</p>
 <ul>
 <li>结构相似性（结构等价）：若网络中两个节点（直接相连）共享许多邻居节点，那么这两个节点具有结构相似性；如上图中的$u$和$s_1$ ，它们共享相同的邻居节点$s_2$和$s_3$，它们具有结构相似性；</li>
@@ -419,15 +426,19 @@
 <li>广度优先搜索(BFS)：在节点周围搜索，探索局部的结构形态，邻域$N_s$仅限于源节点的近邻节点；善于发现节点之间的结构相似性；</li>
 <li>深度优先搜索(DFS)：在更大的范围去搜索高阶的结构形态，邻域由距离源节点越来越远的顺序采样的节点组成；善于发现节点之间的规则相似性；</li>
 </ul>
-<h3 id="Random-Walks"><a href="#Random-Walks" class="headerlink" title="Random Walks"></a>Random Walks</h3><p>给定一个源节点$u$，我们模拟一个固定长度$l$的随机游走。让$c_i$表示游走中的第$i$个节点，从$c_0=u$ 开始 ，节点 $c_i$以如下概率分布生成：<br>$$<br>P\left(c_{i}=x | c_{i-1}=v\right)=\left{\begin{array}{ll}{\frac{\pi_{v x}}{Z}} &amp; {\text { if }(v, x) \in E} \ {0} &amp; {\text { otherwise }}\end{array}\right.<br>$$<br>$\pi_{vx}$ 为节点$v$和$x$之间的非标准化转移概率，$Z$是标准化常数。</p>
+<h3 id="Random-Walks"><a href="#Random-Walks" class="headerlink" title="Random Walks"></a>Random Walks</h3><p>给定一个源节点$u$，我们模拟一个固定长度$l$的随机游走。让$c_i$表示游走中的第$i$个节点，从$c_0=u$ 开始 ，节点 $c_i$以如下概率分布生成：</p>
+<script type="math/tex; mode=display">
+P\left(c_{i}=x | c_{i-1}=v\right)=\left\{\begin{array}{ll}{\frac{\pi_{v x}}{Z}} & {\text { if }(v, x) \in E} \\ {0} & {\text { otherwise }}\end{array}\right.</script><p>$\pi_{vx}$ 为节点$v$和$x$之间的非标准化转移概率，$Z$是标准化常数。</p>
 <p>随机游走相比于BFD/DFS，有以下优势：</p>
 <ul>
 <li>时间复杂度：通过在样本生成过程中引入图的连通性，随机游走提供了一种机制，通过跨不同源节点重用样本来提高有效采样效率。</li>
 </ul>
-<p>最简单的随机游走方法就是让$ \pi_{vx} = w_{vx}​$，就是按边的权重分配等价的概率来选择下一个节点。但是这样的设置是无法较好的搜索节点的邻域信息的。</p>
+<p>最简单的随机游走方法就是让$ \pi<em>{vx} = w</em>{vx}​$，就是按边的权重分配等价的概率来选择下一个节点。但是这样的设置是无法较好的搜索节点的邻域信息的。</p>
 <h3 id="Node2vec的搜索策略"><a href="#Node2vec的搜索策略" class="headerlink" title="Node2vec的搜索策略"></a>Node2vec的搜索策略</h3><p>Node2vec结合BFS和DFS的优势，改变了deepwalk中的random walk搜索策略，提出了二阶的随机游走策略，通过两个参数$p,q$来控制。</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/005NduT8ly1g2drx9rii3j30br08d75f.jpg" alt=""></p>
-<p>考虑一个随机游走过程，它刚刚遍历了边 $(t, v)$，现在驻留在节点$v$(图)，游走策略需要确定下一个节点走哪里，这里设置未归一化转移概率为 $<br>\pi_{v x}=\alpha_{p q}(t, x) \cdot w_{v x}<br>$ ，其中收缩偏置$\alpha$定义如下：<br>$$<br>\alpha_{p q}(t, x)=\left{\begin{array}{ll}{\frac{1}{p}} &amp; {\text { if } d_{t x}=0} \ {1} &amp; {\text { if } d_{t x}=1} \ {\frac{1}{q}} &amp; {\text { if } d_{t x}=2}\end{array}\right.<br>$$<br>$d_{tx}$ 代表了节点 $t$ 与 $x$ 之间的最短路径，$d_{tx} \in {0,1,2}$ </p>
+<p>考虑一个随机游走过程，它刚刚遍历了边 $(t, v)$，现在驻留在节点$v$(图)，游走策略需要确定下一个节点走哪里，这里设置未归一化转移概率为 $<br>\pi<em>{v x}=\alpha</em>{p q}(t, x) \cdot w_{v x}<br>$ ，其中收缩偏置$\alpha$定义如下：</p>
+<script type="math/tex; mode=display">
+\alpha_{p q}(t, x)=\left\{\begin{array}{ll}{\frac{1}{p}} & {\text { if } d_{t x}=0} \\ {1} & {\text { if } d_{t x}=1} \\ {\frac{1}{q}} & {\text { if } d_{t x}=2}\end{array}\right.</script><p>$d<em>{tx}$ 代表了节点 $t$ 与 $x$ 之间的最短路径，$d</em>{tx} \in {0,1,2}$ </p>
 <p>参数：</p>
 <ul>
 <li>Return parameter：参数$p$控制在游走过程中访问上一个节点的概率, $\frac{1}{p}$, 提高$p$值可以降低在两个采样过程中重新访问已经访问过的节点的概率, 避免2-hop冗余；</li>
@@ -444,7 +455,7 @@
 <ul>
 <li><p><strong>转移概率初始化</strong>：采样是基于$\pi_{vx}$的转移概率，对于二阶马尔可夫链的转移概率需要预先计算。这里需要注意，转移概率有两部分：</p>
 <ul>
-<li><p><strong>节点的转移概率</strong>：节点的转移概率用于第一次游走，因为第一次游走采样之前只确定了序列初始节点，不存在边的信息，故无法利用前一次采样的边来执行二阶的搜索采样，所以第一次游走采样的节点需要通过节点之间的转移概率来确定。节点之间的转移概率基于边的权值，即令$ \pi_{vx} = w_{vx}$。</p>
+<li><p><strong>节点的转移概率</strong>：节点的转移概率用于第一次游走，因为第一次游走采样之前只确定了序列初始节点，不存在边的信息，故无法利用前一次采样的边来执行二阶的搜索采样，所以第一次游走采样的节点需要通过节点之间的转移概率来确定。节点之间的转移概率基于边的权值，即令$ \pi<em>{vx} = w</em>{vx}$。</p>
 <p><img src="http://ww1.sinaimg.cn/large/005NduT8ly1g2dtazaru9j30s5083aar.jpg" alt=""></p>
 </li>
 <li><p><strong>边的转移概率</strong>：后续的游走属于$p,q$控制的二阶搜索采样过程，使用边级别的转移概率。</p>
@@ -480,8 +491,12 @@
 <h3 id="社团检测"><a href="#社团检测" class="headerlink" title="社团检测"></a>社团检测</h3><h4 id="社团检测介绍"><a href="#社团检测介绍" class="headerlink" title="社团检测介绍"></a><strong>社团检测介绍</strong></h4><p>社团结构是除小世界、无标度特性外复杂网络研究领域的又一重大发现。所谓的社团结构，就是网络中紧密连接的子图，子图内部的连边密度高于子图之间的连边密度。网络中存在的社团结构可以揭示出一定的行为特点和功能，展示系统拓扑结构中蕴含的信息。社团检测算法的研究就是为了挖掘出网络中存在的社团结构。</p>
 <p>而Node2vec等图嵌入算法的出现为解决社团检测问题提供了一个新思路。</p>
 <h4 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h4><p>衡量社团检测算法检测到的社团结果质量也是该领域研究中的一个重点。该领域的研究者们先后提出了一些评价指标，主要分为真实社团划分结果未知和真实社团划分结果已知两种情况，前者包括模块度及其相关扩展，后者包括标准化互信息（Normalized Mutual Information, NMI），调整兰德指数（Adjusted Rand Index, ARI）等。</p>
-<p>本文选择了标准化互信息NMI作为评价指标，它是一个基于信息论的评价指标，衡量了检测到的社团划分结果和真实划分结果之间的相似性。将检测到的社团划分结果和真实的划分结果分布用随机变量$X​$和$Y​$表示，$x_i​$表示检测到的划分结果中节点$i​$所属的社团标号，$y_i​$表示真实划分结果中节点$i​$所属的社团标号。随机变量$X​$和$Y​$的互信息定义为：<br>$$<br>I(X, Y)=\sum_{x y} P(x, y) \log \frac{P(x, y)}{P(x) P(y)}<br>$$<br>其中，$P(x, y)=P(X=x, Y=y)=n_{x y} / n$为随机变量$X$和$Y$的联合分布，同样有$P(x)=P(X=x)=n_{x} / n$和$P(x)=P(X=x)=n_{y} / n$。</p>
-<p>进一步将其归一化得到：<br>$$<br>I_{\text {norm}}(X, Y)=\frac{2 I(X, Y)}{H(X)+H(Y)}<br>$$<br>其中，$H(x)=-\sum_{x} P(x) \log P(x)$为划分结果的信息熵，$H(Y)$同样。</p>
+<p>本文选择了标准化互信息NMI作为评价指标，它是一个基于信息论的评价指标，衡量了检测到的社团划分结果和真实划分结果之间的相似性。将检测到的社团划分结果和真实的划分结果分布用随机变量$X​$和$Y​$表示，$x_i​$表示检测到的划分结果中节点$i​$所属的社团标号，$y_i​$表示真实划分结果中节点$i​$所属的社团标号。随机变量$X​$和$Y​$的互信息定义为：</p>
+<script type="math/tex; mode=display">
+I(X, Y)=\sum_{x y} P(x, y) \log \frac{P(x, y)}{P(x) P(y)}</script><p>其中，$P(x, y)=P(X=x, Y=y)=n<em>{x y} / n$为随机变量$X$和$Y$的联合分布，同样有$P(x)=P(X=x)=n</em>{x} / n$和$P(x)=P(X=x)=n_{y} / n$。</p>
+<p>进一步将其归一化得到：</p>
+<script type="math/tex; mode=display">
+I_{\text {norm}}(X, Y)=\frac{2 I(X, Y)}{H(X)+H(Y)}</script><p>其中，$H(x)=-\sum_{x} P(x) \log P(x)$为划分结果的信息熵，$H(Y)$同样。</p>
 <h4 id="数据集说明"><a href="#数据集说明" class="headerlink" title="数据集说明"></a>数据集说明</h4><p>本章实验设计的过程中选取了四个常用于社团检测的数据集，包括空手道俱乐部网络、海豚社交网络、美国大学橄榄球联赛网络以及美国政治书网络，数据集基本信息如下表所示。</p>
 <ul>
 <li>空手道俱乐部网络：该网络是由Zachary历时两年观察一个空手道俱乐部中的日常所构建的社交网络，网络中的节点表示俱乐部中的成员，连边表示成员之间存在的朋友关系。后因为俱乐部的教练和管理者之间发生分歧，最终一分为二。</li>
@@ -489,6 +504,7 @@
 <li>美国大学橄榄球联赛网络：该网络表示的是是 2000 赛季组比赛的赛事安排，网络中的节点表示各个大学代表队，连边表示两个队伍之间开展过常规赛。所有参赛队伍被划分到了12 个联盟。相较于隶属不同联盟的队伍，同属于一个联盟的队伍之间会有更频繁的赛事，使得该网络表现出一定的社团结构。</li>
 <li>美国政治书网络：V.Krebs根据亚马逊网站上在 2004 年美国总统大选期间销售的与政治相关的书籍构建了美国政治书网络。其中节点表示亚马逊上销售的政治书，连边表示有读者同时购买了两本书籍。</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -525,6 +541,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="对比算法"><a href="#对比算法" class="headerlink" title="对比算法"></a>对比算法</h4><ul>
 <li>标签传播算法 (LPA)：Raghavan等人提出的LPA算法的基本思想为，算法初始为每个节点各自分配一个标签，然后对节点的标签进行迭代更新，更新规则为将节点新的标签设定为其邻接节点标签中出现频率最高的一个，出现相同最大值是则进行随机选择，当没有节点的标签再发生变化时，算法终止。</li>
 <li>Infomap算法(INF)：Rosvall等人提出的Infomap算法主要基于网络图和编码理论。它通过压缩网络中的信息流描述来检测社团。因为信息流在经过不同社团时会产生更大的编码长度，其关键就在于最小化平均描述长度L（M）。</li>
@@ -532,6 +549,7 @@
 <li>Node2vec+K-Means：Node2vec的原理以及算法流程已经在第二章中详细介绍，这里主要介绍K-Means聚类算法。该算法的实现流程为先随机选取K个对象作为初始的聚类中心，然后计算每个对象和各聚类中心之间的距离，将其分配给与它最接近的聚类中心。完成一轮分配后重新计算聚类中心，重复上述流程直至满足某个终止条件，得到最后的聚类结果。</li>
 </ul>
 <h4 id="实验结果及分析"><a href="#实验结果及分析" class="headerlink" title="实验结果及分析"></a>实验结果及分析</h4><p>我们在4个数据集上均做了实验，对比了Node2vec+K-Means和其余3种传统的社团检测算法的效果，实验结果如下表所示，表中我们标出了每个数据集上性能最优的两个结果。可以看到，Node2vec+K-Means在这4个数据集上均表现出了较好的检测准确性。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -573,6 +591,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Node2vec等图嵌入算法的提出，提供了将网络从非欧空间转移到向量空间的新思路，由此，针对网络的算法研究不再仅仅依赖于网络拓扑结构，表征后得到的节点向量可以反映网络中节点间的相关性，用于后续的机器学习算法，可以在下游任务中得到优于传统方法的效果。</p>
 <h3 id="节点分类"><a href="#节点分类" class="headerlink" title="节点分类"></a>节点分类</h3><h4 id="评价指标-1"><a href="#评价指标-1" class="headerlink" title="评价指标"></a>评价指标</h4><p>分类是监督学习中的一个核心问题。为了评价一个分类器的分类性能优劣，需要引入一些评估指标，常用的一些指标有准确率（Accuracy）、精确率（Precision）、召回率（Recall）、F值等。</p>
 <p>在二分类问题中，通常以关注的类为正类，其他类为负类，依据分类器在测试数据集上的预测正确与否，四种情况出现的总数分别记作：</p>
@@ -584,7 +603,13 @@
 </ul>
 <p>其中，True、False表示分类正确与错误，Positive、Negative表示正、负样本。</p>
 <p>微平均（Micro-averaging）是对数据集中的每一个示例不分类别进行统计建立全局混淆矩阵，然后计算相应的指标。其计算公式如下：</p>
-<p>micro精度(precision)：<br>$$<br>P_{\text {micto}}=\frac{T \overline{P}}{T P+F \overline{P}}=\frac{\sum_{i=1}^{n} T P_{i}}{\sum_{i=1}^{n} T P_{i}+\sum_{i=1}^{n} F P_{i}}<br>$$<br>micro召回(recall)：<br>$$<br>R_{\text {micro}}=\frac{T^{\overline{P}}}{T \overline{P}+F \overline{N}}=\frac{\sum_{i=1}^{n} T P_{i}}{\sum_{i=1}^{n} T P_{i}+\sum_{i=1}^{n} F N_{i}}<br>$$<br>micro-F1：<br>$$<br>F_{\text {micro}}=\frac{2 \times P_{\text {micro}} \times R_{\text {micro}}}{P_{\text {micro}}+R_{\text {micro}}}<br>$$<br>Micro-averaging赋予每个样本决策相同的权重，对于数据集中各个类的分布不平衡的问题，更建议使用mirco-F1，因为macro没有考虑到各个类别的样本大小。</p>
+<p>micro精度(precision)：</p>
+<script type="math/tex; mode=display">
+P_{\text {micto}}=\frac{T \overline{P}}{T P+F \overline{P}}=\frac{\sum_{i=1}^{n} T P_{i}}{\sum_{i=1}^{n} T P_{i}+\sum_{i=1}^{n} F P_{i}}</script><p>micro召回(recall)：</p>
+<script type="math/tex; mode=display">
+R_{\text {micro}}=\frac{T^{\overline{P}}}{T \overline{P}+F \overline{N}}=\frac{\sum_{i=1}^{n} T P_{i}}{\sum_{i=1}^{n} T P_{i}+\sum_{i=1}^{n} F N_{i}}</script><p>micro-F1：</p>
+<script type="math/tex; mode=display">
+F_{\text {micro}}=\frac{2 \times P_{\text {micro}} \times R_{\text {micro}}}{P_{\text {micro}}+R_{\text {micro}}}</script><p>Micro-averaging赋予每个样本决策相同的权重，对于数据集中各个类的分布不平衡的问题，更建议使用mirco-F1，因为macro没有考虑到各个类别的样本大小。</p>
 <h4 id="数据集说明-1"><a href="#数据集说明-1" class="headerlink" title="数据集说明"></a>数据集说明</h4><ul>
 <li>BlogCatalog：BlogCatalog网站上列出的博主的社交关系网络。标签表示通过博主提供的元数据推断的博主兴趣。该网络有10,312个节点，333,983个边缘和39个不同的标签。</li>
 <li>Wikipedia:  这是一个由出现在Wikipedia转储文件的前一百万字节中的单词组成的并发网络。标签表示使用Stanford post - tagger推断的词性(POS)标签。该网络有4777个节点、184812条边和40个不同的标签。</li>

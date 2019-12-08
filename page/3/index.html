@@ -358,6 +358,24 @@
         
           
           
+作者：Andyz翻译文献：DeepFool: a simple and accurate method to fool deep neural networks^^: 红色小字为作者自己的小白理解，如有错误，请谅解。欢迎纠正！
+
+_^
+符号说明
+
+
+
+符号
+说明
+
+
+
+
+$x$
+原始图像
+
+
+$r
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -506,6 +524,20 @@
         
           
           
+ 学习目标:
+
+了解常用浏览器
+掌握WEB标准
+理解标签语义化
+掌握常用的排版标签
+掌握常用的文本格式化图像链接等标签
+掌握三种列表标签
+掌握表格标签
+掌握表格标签
+掌握表单标签typora-copy-images-to: media
+
+
+自我介绍传智讲师   刘晓强     江湖人称  强哥  
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -653,7 +685,12 @@
       
         
           
-          
+          神经网络优化
+学习率设置  
+过拟合问题  
+滑动平均模型
+
+学习率设置在梯度下降算法中，对于参数 $\theta$，其梯度为 $\frac{\partial}{\partial \theta}J(\theta)$ 。还需要定义一个学习率 $\eta$ (learning rate)来定义每次参数更
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -801,7 +838,8 @@
       
         
           
-          
+          reveal.js  A framework for easily creating beautiful presentations using HTML. Check out the live demo.
+reveal.js comes with a broad range of features
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -949,7 +987,10 @@
       
         
           
-          
+          函数参数引用python 唯一支持的参数传递模式是 共享传参。共享传参： 指函数的各个形参获得实参中各个引用的副本。 也就是说，函数内部的形参是实参的别名。
+因此，在函数中修改传入参数的可变对象， 会影响实参。 但对象的标识不会改变。
+ex1. 函数可能会修改收到的任何可变对象
+123def f(a
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1097,7 +1138,13 @@
       
         
           
-          
+          变量是标注，不是盒子ex1 变量a,b引用同一个列表，而非副本:
+1234a = [1, 2, 3]b = aa.append(4)b
+[1, 2, 3, 4]
+12b.append(5)a
+[1, 2, 3, 4, 5]
+把变量分配给对象，毕竟，对象在赋值之前就创建了
+ex2 创建对象之后才会把变
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1246,10 +1293,337 @@
         
           
           
+作者：Andy_z翻译文献：The Limitations of Deep Learning in Adversarial Settings
+
+1.&emsp;研究一个简单的神经网络2.&emsp;推广到前馈深度神经网络
+
+
+
+符号
+注释
+
+
+
+
+$X$
+良性样本
+
+
+$X^*$
+对抗样本
+
+
+$
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/12/JSMA/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/" itemprop="url">test</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-08T18:38:04+08:00">
+                2018-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
+                    <span itemprop="name">对抗攻击</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          对抗攻击综述(1)：对抗样本产生与FGSM原理
+作者：Andy_z阅读文献：EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES
+
+1 &emsp;对抗样本的线性解释&emsp;在许多问题中，单个输入特征的精度是有限的。
+
+例如，数字图像每个像素通常只使用8位
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy_z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Andy_z 's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/" itemprop="url">FGSM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-08T18:38:04+08:00">
+                2018-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
+                    <span itemprop="name">对抗攻击</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          对抗攻击综述(1)：对抗样本产生与FGSM原理
+作者：zjj阅读文献：EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES
+
+1 &emsp;对抗样本的线性解释&emsp;在许多问题中，单个输入特征的精度是有限的。
+
+例如，数字图像每个像素通常只使用8位，因此
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1394,306 +1768,14 @@
         
           
           
+作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey
+
+对抗攻击策略总结1.&emsp;常用术语介绍
+Adversarial example/image(对抗样本)：由干净样
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/08/Adversarial attack methods/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Andy_z">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Andy_z 's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/" itemprop="url">FGSM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-08T18:38:04+08:00">
-                2018-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
-                    <span itemprop="name">对抗攻击</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoururl.com/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Andy_z">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-12/67994250.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Andy_z 's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-08T18:38:04+08:00">
-                2018-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/对抗攻击/" itemprop="url" rel="index">
-                    <span itemprop="name">对抗攻击</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

@@ -367,8 +367,9 @@
 <li>例如，数字图像每个像素通常只使用8位，因此它们会丢弃低于动态范围1/255的所有信息。  </li>
 <li>如果扰动 $η$ 的每个元素小于特征的精度，则分类器对输入$x$和对抗输入 $x ̃=x+η$ 产生相同结果。<br>存在足够小的 $ε$，只要 $‖η‖_∞&lt;ε$，分类器就会分配给$x$和$x ̃$相同的类。  </li>
 </ul>
-<p>&emsp;考虑一个权值向量 $w$ 和一个对抗样本 $x ̃$ 的点积：<br>$$<br>w^Tx ̃=w^Tx+w^Tη<br>$$</p>
-<ul>
+<p>&emsp;考虑一个权值向量 $w$ 和一个对抗样本 $x ̃$ 的点积：  </p>
+<script type="math/tex; mode=display">
+w^Tx ̃=w^Tx+w^Tη</script><ul>
 <li><p>对抗扰动导致激活增长 $w^Tη$ 。令 $η=sign(w)$ ，我们可以最大化这个增量。 如果 $n$ 维权重向量 $w$ 的元素的平均值是 $m$ ，则激活将增加 $εmn$ 。  </p>
 <blockquote>
 <font color="#0099ff" size="2" face="黑体">[^_^]: 令扰动 $η$ 和权值向量 $w$ 各元素的符号相同，内积    $w^Tη$ 可最大化</font>  
@@ -389,6 +390,7 @@
 
 </picture></li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -415,10 +417,14 @@
 </tr>
 </tbody>
 </table>
-<p>&emsp;将损失函数线性化为  $θ$ 的当前值，得到最优的最大范数约束扰动<br>$$<br>η=εsign(∇_xJ(θ,x,y))<br>$$<br>&emsp;称之为产生对抗样本的“快速梯度符号法”。 请注意，可以使用反向传播有效地计算所需的梯度。  </p>
+</div>
+<p>&emsp;将损失函数线性化为  $θ$ 的当前值，得到最优的最大范数约束扰动</p>
+<script type="math/tex; mode=display">
+η=εsign(∇_xJ(θ,x,y))</script><p>&emsp;称之为产生对抗样本的“快速梯度符号法”。 请注意，可以使用反向传播有效地计算所需的梯度。  </p>
 <ul>
 <li>FGSM在各种模型上的效果 :  </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -455,6 +461,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
 <p><a href="https://github.com/lisa-lab/pylearn2/tree/master/pylearn2/scripts/papers/maxout" target="_blank" rel="noopener">预处理代码</a><br>其产生大约0.5的标准偏差。</p>
 </blockquote>
@@ -464,22 +471,28 @@
 </ul>
 <p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark" alt=""></p>
 <p>&emsp;通过添加一个不可察的小矢量，其元素等于损失函数梯度的元素的符号，可以改变GoogLeNet的图像分类。这里，$ε$ 对应于GoogLeNet转换为实数后8位图像编码的最小位数的大小， 因等于0.007。  </p>
-<p>&emsp;对抗样本生成过程：<br>$$<br>x ̃=x+εsign(∇_xJ(θ,x,y))<br>$$  </p>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/43011594.jpg-Watermark" alt=""></p>
-<p>##3.&emsp;反对权值衰减的线性模型对抗训练<br>&emsp;可以考虑的最简单的模型是逻辑回归。 在这种情况下，快速梯度符号方法是准确的。 通过案例来了解如何在简单的设置中生成对抗样本。  </p>
+<p>&emsp;对抗样本生成过程：</p>
+<script type="math/tex; mode=display">
+x ̃=x+εsign(∇_xJ(θ,x,y))</script><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/43011594.jpg-Watermark" alt=""></p>
+<h2 id="3-emsp-反对权值衰减的线性模型对抗训练"><a href="#3-emsp-反对权值衰减的线性模型对抗训练" class="headerlink" title="3.&emsp;反对权值衰减的线性模型对抗训练"></a>3.&emsp;反对权值衰减的线性模型对抗训练</h2><p>&emsp;可以考虑的最简单的模型是逻辑回归。 在这种情况下，快速梯度符号方法是准确的。 通过案例来了解如何在简单的设置中生成对抗样本。  </p>
 <p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/83037047.jpg-Watermark" alt=""></p>
 <p>&emsp;图2：应用于逻辑回归的FGSM<br>&emsp;a）在MNIST上训练的逻辑回归模型的权重。<br>&emsp;b）在MNIST上训练的逻辑回归模型的权重的符号。 这是最佳的扰动。 尽管该模型的容量较低并且很适合，但这种扰动不容易被人察觉。<br>&emsp;c）MNIST数据集中的 3和 7 样本。 在这些例子中，逻辑回归模型在3与7的区分任务上有1.6％的错误率。<br>&emsp;d）Logistic回归模型的FGSM对抗样本，$ε=0.25$ 。 在这些样本中，逻辑回归模型的误差率为99％。</p>
 <ul>
-<li>如果训练一个简单的模型来识别标签 $y∈{-1,1}$  ，其中<br>$$<br>P(y=1)=σ(w^Tx+b)<br>$$<br>&emsp; $σ(z)$ 是逻辑sigmoid函数，使用梯度下降法训练，<br>$$<br>E_{x,y∽p_{data}}ζ(-y(w^Tx+b))<br>$$<br>&emsp;其中 $ζ(z)=log(1+exp(z))$ 是softplus方程。根据梯度符号扰动，可以推导出一个简单的分析形式，用于训练 $x$ 的最坏情况对抗扰动，而不是 $x$ 本身。 请注意，梯度的符号只是 $-sign(x)$ ，而 $w^Tsign(w)=‖w‖<em>1$ 。 逻辑回归的对抗版本因此最小化为：<br>$$<br>E</em>{x,y∽p_{data}}ζ(y(ε‖w‖_1-w^Tx-b))<br>$$<br>&emsp;这与 $L^1$ <a href="http://blog.csdn.net/jinping_shi/article/details/52433975" target="_blank" rel="noopener">正则化</a>有些相似。 但是，有一些重要的区别。</li>
+<li>如果训练一个简单的模型来识别标签 $y∈{-1,1}$  ，其中  <script type="math/tex; mode=display">
+P(y=1)=σ(w^Tx+b)</script>&emsp; $σ(z)$ 是逻辑sigmoid函数，使用梯度下降法训练，<script type="math/tex; mode=display">
+E_{x,y∽p_{data}}ζ(-y(w^Tx+b))</script>&emsp;其中 $ζ(z)=log(1+exp(z))$ 是softplus方程。根据梯度符号扰动，可以推导出一个简单的分析形式，用于训练 $x$ 的最坏情况对抗扰动，而不是 $x$ 本身。 请注意，梯度的符号只是 $-sign(x)$ ，而 $w^Tsign(w)=‖w‖_1$ 。 逻辑回归的对抗版本因此最小化为：  <script type="math/tex; mode=display">
+E_{x,y∽p_{data}}ζ(y(ε‖w‖_1-w^Tx-b))</script>&emsp;这与 $L^1$ <a href="http://blog.csdn.net/jinping_shi/article/details/52433975" target="_blank" rel="noopener">正则化</a>有些相似。 但是，有一些重要的区别。</li>
 </ul>
 <blockquote>
 <font color="#0099ff" size="2" face="黑体"> [正则化]:采用正则化方法会自动削弱不重要的特征变量，自动从许多的特征变量中”提取“重要的特征变量，减小特征变量的数量级。这个方法非常有效，当我们有很多特征变量时，其中每一个变量都能对预测产生一点影响。</font>
+
 </blockquote>
 <ul>
 <li>最重要的是，在训练期间将 $L^1$ 惩罚从模型的激活中减去，而不是增加到训练损失。 这意味着如果模型学习 $ζ$ 饱和充分置信，惩罚最终会开始消失。 这并不一定会发生 - 在欠拟合下，对抗训练只会使得更加欠拟合。 因此，我们可以将 $L^1$ <a href="https://www.cnblogs.com/lindaxin/p/7998334.html" target="_blank" rel="noopener">权值衰减</a>视为比对抗训练更坏的情况，因为它在好的边界不能解除激活。</li>
 </ul>
 <blockquote>
 <font color="#0099ff" size="2" face="黑体"> [权值衰减]：在每次迭代过程中以某个小因子降低每个权值，这等效于修改E的定义，加入一个与网络权值的总量相应的惩罚项。此方法的动机是保持权值较小，避免weight decay,从而使学习过程向着复杂决策面的反方向偏。</font>  
+
 </blockquote>
 <ul>
 <li>如果我们将逻辑回归移出多分类softmax回归， $L^1$ 权重衰减变得更加严重，因为它将每个softmax的输出视为独立扰动，事实上，通常不可能找到与所有类的权重向量相关联的 $η$ 。在具有多个隐藏单元的深度网络的情况下，权重衰减高估了扰动可实现的损害。由于 $L^1$ 权重衰减高估了攻击可以造成的伤害量，因此有必要使用比与我们的特征精度相关联的 $ε$ 更小的 $L^1$ 权重衰减系数。</li>
@@ -488,10 +501,12 @@
 <blockquote>
 <p><a href="http://blog.csdn.net/hjimce/article/details/50414467" target="_blank" rel="noopener">maxout</a></p>
 </blockquote>
-<p>##4&emsp;深度网络的对抗训练<br>&emsp;与浅层线性模型不同，深层网络至少能够体现抵抗对抗扰动的功能。<a href="https://www.jianshu.com/p/52e773d47338" target="_blank" rel="noopener">泛逼近理论</a>表示，只要隐藏层允许有足够的单元，具有至少一个隐藏层的神经网络可以表示任意精度的任何函数。 浅层线性模型不能在训练点附近变得恒定，同时也对不同的训练点产生不同的输出。</p>
+<h2 id="4-emsp-深度网络的对抗训练"><a href="#4-emsp-深度网络的对抗训练" class="headerlink" title="4&emsp;深度网络的对抗训练"></a>4&emsp;深度网络的对抗训练</h2><p>&emsp;与浅层线性模型不同，深层网络至少能够体现抵抗对抗扰动的功能。<a href="https://www.jianshu.com/p/52e773d47338" target="_blank" rel="noopener">泛逼近理论</a>表示，只要隐藏层允许有足够的单元，具有至少一个隐藏层的神经网络可以表示任意精度的任何函数。 浅层线性模型不能在训练点附近变得恒定，同时也对不同的训练点产生不同的输出。</p>
 <ul>
-<li>作者发现基于FGSM的对抗目标函数训练是一种有效的正则化方法：<br>$$<br>J ̃(θ,x,y)=αJ(θ,x,y)+(1-α)J(θ,x+εsign(∇_xJ(θ,x,y)))<br>$$<br>&emsp;在所有的实验中，使用 $α=0.5$。 用这种方法来训练一个<strong>被<a href="http://blog.csdn.net/hjimce/article/details/50413257" target="_blank" rel="noopener">dropout</a>规范化的maxout网络</strong>：</li>
+<li>作者发现基于FGSM的对抗目标函数训练是一种有效的正则化方法：<script type="math/tex; mode=display">
+J ̃(θ,x,y)=αJ(θ,x,y)+(1-α)J(θ,x+εsign(∇_xJ(θ,x,y)))</script>&emsp;在所有的实验中，使用 $α=0.5$。 用这种方法来训练一个<strong>被<a href="http://blog.csdn.net/hjimce/article/details/50413257" target="_blank" rel="noopener">dropout</a>规范化的maxout网络</strong>：</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -508,6 +523,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>&emsp;观察到在训练集上的对抗样本中没有达到零错误率。作者通过进行两项更改来解决这个问题。首先，使模型更大，每层使用1600个单元，而不是原来的maxout网络使用的240个单元，使用<a href="https://deeplearning4j.org/cn/earlystopping" target="_blank" rel="noopener">early stopping</a>，并且当验证集错误率经过100个周期后未减少时终止学习。实验发现：  </p>
 <ul>
 <li>如果没有对抗训练，会导致模型轻微过拟合，并在测试集中获得1.14％的错误率  </li>
@@ -516,7 +532,9 @@
 <p>&emsp;因此，我们对对抗验证集误差使用了early stopping。用这个标准选择训练的周期数量，对所有60,000个样本进行再训练。对于随机数发生器使用不同的<a href="http://blog.csdn.net/linzch3/article/details/58220569" target="_blank" rel="noopener">seed</a>进行五次不同的训练，用于选择训练样本的mini_batches，初始化模型权重以及生成五个实验的dropout，  </p>
 <blockquote>
 <font color="#0099ff" size="2" face="黑体">seed() 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed()值，则每次生成的随即数都相同，如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同。</font>  
+
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -537,9 +555,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li>对抗训练过的模型表现出更强的鲁棒性。  </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -564,6 +584,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li>学习模型的权重发生了显着变化，对抗训练模型的权重明显更加局部化和可解释</li>
 </ul>
@@ -573,6 +594,7 @@
 <li>事实上，在许多情况下，噪声会导致较低的目标函数值。 可以将对抗训练视为在噪声输入集合中进行硬性样本挖掘，以便通过仅考虑强烈抵制分类的那些噪点来更有效地进行训练。</li>
 </ul>
 <p>&emsp;作为控制实验，作者训练了一个带有噪声的maxout网络，每个像素被随机添加噪声 $±ε$，或者将 $U∈(-ε,ε)$ 中的噪声添加到每个像素。<br>&emsp;在FGSM对抗样本中的分类情况：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -594,16 +616,19 @@
 </tr>
 </tbody>
 </table>
-<p>##5&emsp;不同种类的模型容量<br>&emsp;对抗样本的存在似乎与直觉相反的一个原因是，我们大多数人对高维空间的直觉很差。 我们生活在三个维度中，所以我们不习惯在数百个维度中添加小的扰动来产生巨大的效果。 还有另一种方式，我们的直觉不能很好的为我们服务。 许多人认为低容量的模型无法做出许多不同的置信预测。这是不正确的。</p>
+</div>
+<h2 id="5-emsp-不同种类的模型容量"><a href="#5-emsp-不同种类的模型容量" class="headerlink" title="5&emsp;不同种类的模型容量"></a>5&emsp;不同种类的模型容量</h2><p>&emsp;对抗样本的存在似乎与直觉相反的一个原因是，我们大多数人对高维空间的直觉很差。 我们生活在三个维度中，所以我们不习惯在数百个维度中添加小的扰动来产生巨大的效果。 还有另一种方式，我们的直觉不能很好的为我们服务。 许多人认为低容量的模型无法做出许多不同的置信预测。这是不正确的。</p>
 <ul>
-<li><p>符合直觉的低容量模型，例如浅层RBF网络：<br>$$<br>p(y=1|x)=exp({(x-μ)^T}β(x-μ))<br>$$<br>只能有把握地预测在 $μ$ 附近存在正类。 在其他地方，它们默认预测类别不存在，或者具有低置信度的预测。  </p>
+<li><p>符合直觉的低容量模型，例如浅层RBF网络：</p>
+<script type="math/tex; mode=display">
+p(y=1|x)=exp({(x-μ)^T}β(x-μ))</script><p>只能有把握地预测在 $μ$ 附近存在正类。 在其他地方，它们默认预测类别不存在，或者具有低置信度的预测。  </p>
 </li>
 <li><p>RBF网络自然不受对抗样本的影响，因为当它们被愚弄时，置信度很低。 使用FGSM生成的对抗样本，$ε=0.25$ ，没有隐藏层的浅RBF网络在MNIST上获得55.4％的错误率。 然而，它对错误样本的置信度只有1.2％。 它对干净测试样本的平均置信度是60.6％。 我们不能指望一个容量如此低的模型在空间的所有点上都能得到正确的答案，但它确实可以通过在它无法识别的点上大大减少置信度，从而做出相对正确的回应。</p>
 </li>
 <li><p>但是，RBF单元对于任何重要的转换都不是不变的，所以它们不能一概而论。 我们可以将线性单元和RBF单元视为准确-召回权衡曲线上的不同点。 线性单位通过响应某个方向上的每个输入来实现高召回率，但由于在不熟悉的情况下响应过强可能会导致精度低。 RBF单元通过仅响应空间中的特定点来实现高精度，但是这样做会牺牲召回率。  </p>
 </li>
 </ul>
-<p>##6&emsp;对抗样本的泛化能力<br>&emsp;对抗样本的一个有趣方面是，<strong>为其中一个模型生成的样本经常能被其他模型错误分类，即使它们具有不同的架构或在不相交的训练集上进行训练。 而且，当这些不同的模型将一个对抗样本错误分类时，他们经常会归为同一类。</strong> 基于极端非线性和过度拟合的解释不能轻易解释这种行为 - 为什么多余的容量过剩的极端非线性模型始终以相同的方式标记分布外的点？ 这种行为尤其令人惊讶，从这样的假设来看，对抗样本就像实数空间中的有理数分布，因为在这种观点中，对抗样本很常见，但只发生在非常精确的位置。</p>
+<h2 id="6-emsp-对抗样本的泛化能力"><a href="#6-emsp-对抗样本的泛化能力" class="headerlink" title="6&emsp;对抗样本的泛化能力"></a>6&emsp;对抗样本的泛化能力</h2><p>&emsp;对抗样本的一个有趣方面是，<strong>为其中一个模型生成的样本经常能被其他模型错误分类，即使它们具有不同的架构或在不相交的训练集上进行训练。 而且，当这些不同的模型将一个对抗样本错误分类时，他们经常会归为同一类。</strong> 基于极端非线性和过度拟合的解释不能轻易解释这种行为 - 为什么多余的容量过剩的极端非线性模型始终以相同的方式标记分布外的点？ 这种行为尤其令人惊讶，从这样的假设来看，对抗样本就像实数空间中的有理数分布，因为在这种观点中，对抗样本很常见，但只发生在非常精确的位置。</p>
 <ul>
 <li><p>在线性观点下，对抗样本出现在宽泛的子空间中。 方向 $η$ 只需要具有损失函数梯度的正点积， $ε$ 只需要足够大。 图4显示了这种现象。 通过追踪出不同的值 $ε$  ，我们发现对抗样本出现在由FGSM方法定义的1-D子空间的连续区域中，而不是离散的。 这就解释了为什么对抗样本非常丰富，为什么一个分类器错误分类的样本具有相当高的可能性被另一个分类器错误分类。</p>
 <picture>
@@ -612,6 +637,7 @@
 </li>
 </ul>
 <p>&emsp;为了检验这个假设，我们在深度maxout网络上生成了对抗样本，并使用浅softmax网络和浅RBF网络对这些样本进行了分类。在由maxout网络误分类的样本中，</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -633,9 +659,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>&emsp;这些数字很大程度上是由不同模型的差错率驱动的。如果我们不把注意力放在两种模型比较出错的情况下，softmax回归预测84.6％的时间是maxout类别，而RBF网络只能预测maxout类别的时间为54.3％。为了比较，RBF网络可以预测softmax回归的时间为53.6％，所以它对自己的行为确实具有强大的线性分量。我们的假设并不能解释所有maxou网络的错误或者所有模型中泛化的错误，但很明显，其中很大一部分与线性行为一致是跨模型泛化的主要原因。</p>
-<p>##7&emsp;讨论总结</p>
-<ul>
+<h2 id="7-emsp-讨论总结"><a href="#7-emsp-讨论总结" class="headerlink" title="7&emsp;讨论总结"></a>7&emsp;讨论总结</h2><ul>
 <li><p>对抗样本可以解释为高维点积的一个特性。 它们是模型过于线性而非非线性的结果。</p>
 </li>
 <li><p>横跨不同模型的对抗样本的泛化可以解释为对抗扰动与模型的权重向量高度一致，并且不同模型在被训练执行相同任务时学习相似函数。</p>
@@ -686,8 +712,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/" rel="next" title="test">
-                <i class="fa fa-chevron-left"></i> test
+              <a href="/2018/03/08/Adversarial attack methods/" rel="next" title="The Adversarial Attacks methods">
+                <i class="fa fa-chevron-left"></i> The Adversarial Attacks methods
               </a>
             
           </div>
@@ -696,8 +722,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/08/Adversarial attack methods/" rel="prev" title="The Adversarial Attacks methods">
-                The Adversarial Attacks methods <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/08/对抗攻击综述1：对抗样本产生与FGSM原理/" rel="prev" title="test">
+                test <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -841,7 +867,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对抗攻击综述-1-：对抗样本产生与FGSM原理"><span class="nav-number">1.</span> <span class="nav-text">对抗攻击综述(1)：对抗样本产生与FGSM原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-emsp-对抗样本的线性解释"><span class="nav-number">1.1.</span> <span class="nav-text">1  对抗样本的线性解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-emsp-非线性模型的线性扰动"><span class="nav-number">1.2.</span> <span class="nav-text">2  非线性模型的线性扰动</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对抗攻击综述-1-：对抗样本产生与FGSM原理"><span class="nav-number">1.</span> <span class="nav-text">对抗攻击综述(1)：对抗样本产生与FGSM原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-emsp-对抗样本的线性解释"><span class="nav-number">1.1.</span> <span class="nav-text">1  对抗样本的线性解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-emsp-非线性模型的线性扰动"><span class="nav-number">1.2.</span> <span class="nav-text">2  非线性模型的线性扰动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-emsp-反对权值衰减的线性模型对抗训练"><span class="nav-number">1.3.</span> <span class="nav-text">3. 反对权值衰减的线性模型对抗训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-emsp-深度网络的对抗训练"><span class="nav-number">1.4.</span> <span class="nav-text">4 深度网络的对抗训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-emsp-不同种类的模型容量"><span class="nav-number">1.5.</span> <span class="nav-text">5 不同种类的模型容量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-emsp-对抗样本的泛化能力"><span class="nav-number">1.6.</span> <span class="nav-text">6 对抗样本的泛化能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-emsp-讨论总结"><span class="nav-number">1.7.</span> <span class="nav-text">7 讨论总结</span></a></li></ol></li></ol></div>
             
 
           </div>

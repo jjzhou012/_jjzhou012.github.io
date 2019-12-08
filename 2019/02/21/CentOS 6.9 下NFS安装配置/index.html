@@ -367,7 +367,7 @@
 <blockquote>
 <p>/etc/exports 文件说明：</p>
 <ul>
-<li><p>/root/root_share    : – 指定共享目录信息</p>
+<li><p>/root/root_share    : — 指定共享目录信息</p>
 </li>
 <li><p>指定有访问权限的网段 </p>
 <ul>
@@ -377,6 +377,7 @@
 </li>
 </ul>
 </blockquote>
+<p>&gt;</p>
 <blockquote>
 <ul>
 <li>其他设置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; </span><br><span class="line">&gt; - （rw, sync, no_root_squash）    : -表示定义共享参数信息</span><br><span class="line">&gt; </span><br><span class="line">&gt;   - rw：表示读写； ro: 表示只读；</span><br><span class="line">&gt;   - sync : 同步， 数据会先写入到NFS服务器内存中，会立刻同步到磁盘里面==直接存储硬盘中；</span><br><span class="line">&gt;   - NFS 在预设的状况下会把 root 的 UID/GID (0/0) 对应到 nobody 去，这就是 root_squash。我们可以用 no_root_squash 关闭该功能。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
@@ -409,6 +410,7 @@
 </li>
 </ul>
 </blockquote>
+<p>&gt;</p>
 <blockquote>
 <ul>
 <li><p>root下共享文件夹权限开放</p>
@@ -416,6 +418,7 @@
 </li>
 </ul>
 </blockquote>
+<p>&gt;</p>
 <blockquote>
 <ul>
 <li><p>解决NFS版本问题</p>
@@ -424,6 +427,7 @@
 </li>
 </ul>
 </blockquote>
+<p>&gt;</p>
 <blockquote>
 <p>  最后保存，重启nfs服务，再尝试挂载；如果挂载不上，可尝试在后面加-o nolock参数。</p>
 <ul>

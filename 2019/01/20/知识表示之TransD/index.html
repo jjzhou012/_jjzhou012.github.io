@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcDX9.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXc0l4.png">
-<meta property="og:updated_time" content="2019-03-05T03:06:16.704Z">
+<meta property="og:updated_time" content="2019-10-27T06:16:26.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之TransD模型">
 <meta name="twitter:description" content="TransD论文地址: http://www.aclweb.org/anthology/P15-1067 TransR /CTransR模型存在的问题：  对于一种关系，所有实体共享一样的映射矩阵${\bf M}_r$。然而被同一个关系链接的实体拥有不同的类型和属性，这些差异需要用不同的映射来体现； 实体与关系间的映射是可逆的，没有理由只通过关系来构建映射矩阵； 矩阵向量乘法运算，参数多，模型运算">
@@ -379,27 +379,29 @@
 <li>$(h_p, r_p, t_p)$ :  实体空间中的投影，用于构建映射矩阵的表示；</li>
 </ul>
 <p>具体公式如下图所示：</p>
-<p>$$<br>{\bf M}_{rh} = {\bf r}_p{\bf h}_p^T + {\bf I}^{m \times n}<br>$$</p>
-<p>$$<br>{\bf M}_{rt} = {\bf r}_p{\bf t}_p^T + {\bf I}^{m \times n}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+{\bf M}_{rh} = {\bf r}_p{\bf h}_p^T + {\bf I}^{m \times n}</script><script type="math/tex; mode=display">
+{\bf M}_{rt} = {\bf r}_p{\bf t}_p^T + {\bf I}^{m \times n}</script><ul>
 <li>下标$p$表示投影向量， ${\bf h} , {\bf h}_p, {\bf t} , {\bf t}_p \in {\Bbb R}^n$ ,  ${\bf r}, {\bf r}_p \in {\Bbb R}^m$</li>
 <li>映射矩阵的每一个元素都包含了实体和关系信息；</li>
 <li>通过向量相乘生成的矩阵对单位矩阵（代表不做变换）进行调整；</li>
 </ul>
-<p>定义向量在关系空间的投影：<br>$$<br>{\bf h_{\perp} }={\bf M}_{rh} {\bf h}<br>$$</p>
-<p>$$<br>{\bf t_{\perp} }={\bf M}_{rt} {\bf t}<br>$$</p>
-<p>得分函数：</p>
-<p>$$<br>f_r({\bf h,t})= -|| {\bf h_\perp} + {\bf {r-t}_\perp}||_2^2<br>$$</p>
-<ul>
+<p>定义向量在关系空间的投影：</p>
+<script type="math/tex; mode=display">
+{\bf h_{\perp} }={\bf M}_{rh} {\bf h}</script><script type="math/tex; mode=display">
+{\bf t_{\perp} }={\bf M}_{rt} {\bf t}</script><p>得分函数：</p>
+<script type="math/tex; mode=display">
+f_r({\bf h,t})= -|| {\bf h_\perp} + {\bf {r-t}_\perp}||_2^2</script><ul>
 <li>限制条件：  </li>
 </ul>
-<p>$$<br>||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,     ||{\bf r}||<em>2 \leq 1, ||{\bf h</em>\perp}||<em>2 \leq 1, ||{\bf t</em>\perp}||_2 \leq 1<br>$$</p>
-<h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>假设训练集中有$n_t$个三元组，用$(h_i,r_i,t_i)(i=1,2,…,n_t)$表示第$i$个三元组。</p>
-<p>每个三元组有标签$y_i$表示三元组的正负性质：<br>$$<br>\Delta = {(h_j,r_j,t_j)|y_j=1}<br>$$</p>
-<p>$$<br>\Delta’ = {(h_j,r_j,t_j)|y_j=0}<br>$$</p>
-<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>$$<br>\Delta’ = {(h_l,r_k,t_k)|h_l\neq h_k \wedge y_k=1} \cup {(h_k,r_k,t_l)|t_l\neq t_k \wedge y_k=1}<br>$$</p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>$$<br>{\cal L}=\sum_{\xi \in \Delta} \sum_{\xi’ \in \Delta’ } [\gamma + f_r(\xi’)-f_{r}(\xi) ]_+<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,     ||{\bf r}||_2 \leq 1, ||{\bf h_\perp}||_2 \leq 1, ||{\bf t_\perp}||_2 \leq 1</script><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>假设训练集中有$n_t$个三元组，用$(h_i,r_i,t_i)(i=1,2,…,n_t)$表示第$i$个三元组。</p>
+<p>每个三元组有标签$y_i$表示三元组的正负性质：</p>
+<script type="math/tex; mode=display">
+\Delta = \{(h_j,r_j,t_j)|y_j=1\}</script><script type="math/tex; mode=display">
+\Delta' = \{(h_j,r_j,t_j)|y_j=0\}</script><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><script type="math/tex; mode=display">
+\Delta' = \{(h_l,r_k,t_k)|h_l\neq h_k \wedge y_k=1\} \cup \{(h_k,r_k,t_l)|t_l\neq t_k \wedge y_k=1\}</script><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><script type="math/tex; mode=display">
+{\cal L}=\sum_{\xi \in \Delta} \sum_{\xi' \in \Delta' } [\gamma + f_r(\xi')-f_{r}(\xi) ]_+</script><ul>
 <li>$\xi$ : 正样本， $\xi’$ : 负样本</li>
 </ul>
 <p>为加快收敛和避免过拟合：</p>
@@ -410,14 +412,16 @@
 </li>
 </ul>
 <h2 id="和其他模型的联系"><a href="#和其他模型的联系" class="headerlink" title="和其他模型的联系"></a>和其他模型的联系</h2><h3 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h3><p>当向量维度满足$m=n$，且所有用于构建映射矩阵的投影向量都为0时，TransE是TransD的一种特殊情况。</p>
-<h3 id="TransH"><a href="#TransH" class="headerlink" title="TransH"></a>TransH</h3><p>当向量维度满足$m=n$时，实体的投影向量能被表示为：<br>$$<br>{\bf h_{\perp} }={\bf M}_{rh} {\bf h} = {\bf h}+{\bf h}_p^T {\bf h} {\bf r}_p<br>$$</p>
-<p>$$<br>{\bf t_{\perp} }={\bf M}_{rt} {\bf t} = {\bf t}+{\bf t}_p^T {\bf t} {\bf r}_p<br>$$</p>
-<p>此时，投影向量仅由关系表示。</p>
+<h3 id="TransH"><a href="#TransH" class="headerlink" title="TransH"></a>TransH</h3><p>当向量维度满足$m=n$时，实体的投影向量能被表示为：</p>
+<script type="math/tex; mode=display">
+{\bf h_{\perp} }={\bf M}_{rh} {\bf h} = {\bf h}+{\bf h}_p^T {\bf h} {\bf r}_p</script><script type="math/tex; mode=display">
+{\bf t_{\perp} }={\bf M}_{rt} {\bf t} = {\bf t}+{\bf t}_p^T {\bf t} {\bf r}_p</script><p>此时，投影向量仅由关系表示。</p>
 <h3 id="TransR-CTransR"><a href="#TransR-CTransR" class="headerlink" title="TransR/CTransR"></a>TransR/CTransR</h3><p>相比TransR对每个关系直接定义一个映射矩阵，TransD通过为每个实体关系对设置一个投影向量，来为三元组动态的构造映射矩阵。</p>
 <p>另外，TransD没有矩阵向量乘法操作，可以用向量运算代替：</p>
-<p>假设$m \geq n$，投影向量能按以下方式计算：<br>$$<br>{\bf h_{\perp} }={\bf M}_{rh} {\bf h} = {\bf h}_p^T {\bf h} {\bf r}_p + [{\bf h}^T, {\bf 0}^T]^T<br>$$</p>
-<p>$$<br>{\bf t_{\perp} }={\bf M}_{rt} {\bf t} = {\bf t}_p^T {\bf t} {\bf r}_p + [{\bf t}^T, {\bf 0}^T]^T<br>$$</p>
-
+<p>假设$m \geq n$，投影向量能按以下方式计算：</p>
+<script type="math/tex; mode=display">
+{\bf h_{\perp} }={\bf M}_{rh} {\bf h} = {\bf h}_p^T {\bf h} {\bf r}_p + [{\bf h}^T, {\bf 0}^T]^T</script><script type="math/tex; mode=display">
+{\bf t_{\perp} }={\bf M}_{rt} {\bf t} = {\bf t}_p^T {\bf t} {\bf r}_p + [{\bf t}^T, {\bf 0}^T]^T</script>
       
     </div>
     
@@ -447,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/14/R安装配置到jupyter/" rel="next" title="R安装与关联jupyter">
-                <i class="fa fa-chevron-left"></i> R安装与关联jupyter
+              <a href="/2019/01/20/网络测度（一）：度与中心性/" rel="next" title="复杂网络：网络测度之中心性">
+                <i class="fa fa-chevron-left"></i> 复杂网络：网络测度之中心性
               </a>
             
           </div>
@@ -457,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/20/网络测度（一）：度与中心性/" rel="prev" title="复杂网络：网络测度之中心性">
-                复杂网络：网络测度之中心性 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/20/知识表示之TransE/" rel="prev" title="知识图谱：知识表示之TransE模型">
+                知识图谱：知识表示之TransE模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

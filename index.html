@@ -357,7 +357,9 @@
       
         
           
-          
+          Node2vec的实现与应用写在前面我们生活的世界中存在着各种各样的网络，从宏观角度的全球物流、通信、交通网络，到微观世界的蛋白质结构、化合物作用网络，从交织于现实与虚拟世界的社交网络，到学科领域的科学家合作网络。网络系统的存在是世界复杂性的体现，延伸出了一门新的交叉学科——网络科学。
+
+网络科学是
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -505,7 +507,8 @@
       
         
           
-          
+          GAN LabGAN Lab 是一个最新的交互式可视化工具，使用 Tensorflow.js 构建。
+由佐治亚理工学院 Minsuk Kahng、Polo Chau 和 Google Brain 的 Nikhil Thorat、Fernanda Viégas、Martin Wattenberg 合作
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -653,7 +656,15 @@
       
         
           
-          
+          Samba 文件共享配置一、CentOS服务端—-Win客户端1.1 安装samba组件1yum install samba samba-client samba-swat
+
+查看安装情况：
+
+
+1.2 配置samba
+设置开机启动：
+
+12chkconfig smb onchkconfig nmb
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -801,7 +812,9 @@
       
         
           
-          
+          NFS安装配置一、服务器端配置1.1 CentOS 服务器1.1.1 确认软件是否安装，安装NFS服务相关软件12rpm -qa|grep nfsrpm -qa|grep rpc
+
+如查询结果如上，说明服务器自身已经安装了NFS，如果没有安装，则用yum命令来安装，并验证安装：12yum -y in
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -949,7 +962,10 @@
       
         
           
-          
+          FTP文件传输配置一、CentOS服务器端1. 安装vsftpd1yum install vsftpd
+2.设置开机启动vsftpd ftp服务1chkconfig vsftpd on
+3.启动vsftpd服务1service vsftpd start
+4.配置防火墙因为ftp默认的端口为21，而c
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1097,7 +1113,16 @@
       
         
           
-          
+          结点群组团(clique)
+定义：指无向网络中的一个最大结点子集，在该子集中任何两个结点之间都有一条边直接相连。
+
+“最大”指在保证子集内每两个结点都直接相连的条件下，网络中其他结点无法再加入该子集中。
+团的存在表明网络中存在一个联系紧密的子群。
+
+
+
+k-团(k-clique)
+定义：结点的一个最
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1245,7 +1270,10 @@
       
         
           
-          
+          Transparse论文地址：http://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/download/11982/11693
+模型改进KG中面临的两个主要问题，分别是 Heterogeneity（异构性）和 Imbalance（不平衡性）：
+
+Het
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1393,7 +1421,9 @@
       
         
           
-          
+          HyTEHyperplane-based Temporally aware KG Embedding
+论文地址：http://talukdar.net/papers/emnlp2018_HyTE.pdf
+模型改进现有的 KG embedding方法很少考虑到时间维度，因为它们假设所有的三元组总是永远
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1541,7 +1571,12 @@
       
         
           
-          
+          TransG论文地址： https://arxiv.org/pdf/1509.05488.pdf
+模型改进针对一种关系存在的多语义问题：
+
+由上图，嵌入向量的可视化结果所示表明，一个特定的关系存在不同的簇，不同的簇表示不同的潜语义。
+
+例如，关系HasPart至少有两个潜在的语义:与合成相关的as(
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1689,7 +1724,11 @@
       
         
           
-          
+          TransA论文地址: https://arxiv.org/pdf/1509.05490.pdf
+模型改进缺陷
+TransE模型本质上是一种欧式距离的计算，对应一个等势超球面。
+
+ 上图中蓝色部分为正例，红色部分为负例，TransE模型错误划分7个点；利用本文提出的基于马氏距离的TransA模型，其
           ...
           <!--noindex-->
           <div class="post-button text-center">

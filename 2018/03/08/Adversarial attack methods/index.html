@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey  对抗攻击策略总结##1.&amp;emsp;常用术语介绍  Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。 Adversarial perturba">
+<meta name="description" content="作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey  对抗攻击策略总结1.&amp;emsp;常用术语介绍 Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。 Adversarial perturbatio">
 <meta name="keywords" content="Deep learning,Summary,Adversarial attack,Translation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Adversarial Attacks methods">
 <meta property="og:url" content="http://yoururl.com/2018/03/08/Adversarial attack methods/index.html">
 <meta property="og:site_name" content="Andy_z &#39;s Blog">
-<meta property="og:description" content="作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey  对抗攻击策略总结##1.&amp;emsp;常用术语介绍  Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。 Adversarial perturba">
+<meta property="og:description" content="作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey  对抗攻击策略总结1.&amp;emsp;常用术语介绍 Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。 Adversarial perturbatio">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark">
 <meta property="og:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/43011594.jpg-Watermark">
 <meta property="og:updated_time" content="2018-03-12T12:35:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Adversarial Attacks methods">
-<meta name="twitter:description" content="作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey  对抗攻击策略总结##1.&amp;emsp;常用术语介绍  Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。 Adversarial perturba">
+<meta name="twitter:description" content="作者：Andy_z翻译文献：Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey  对抗攻击策略总结1.&amp;emsp;常用术语介绍 Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。 Adversarial perturbatio">
 <meta name="twitter:image" content="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark">
 
 
@@ -360,8 +360,7 @@
         <blockquote>
 <p>作者：Andy_z<br>翻译文献：<a href="https://arxiv.org/abs/1801.00553" target="_blank" rel="noopener">Threat of Adversarial Attacks on Deep Learning<br>in Computer Vision: A Survey</a></p>
 </blockquote>
-<h1 id="对抗攻击策略总结"><a href="#对抗攻击策略总结" class="headerlink" title="对抗攻击策略总结"></a>对抗攻击策略总结</h1><p>##1.&emsp;常用术语介绍</p>
-<ul>
+<h1 id="对抗攻击策略总结"><a href="#对抗攻击策略总结" class="headerlink" title="对抗攻击策略总结"></a>对抗攻击策略总结</h1><h2 id="1-emsp-常用术语介绍"><a href="#1-emsp-常用术语介绍" class="headerlink" title="1.&emsp;常用术语介绍"></a>1.&emsp;常用术语介绍</h2><ul>
 <li>Adversarial example/image(对抗样本)：由干净样本添加了对抗扰动得到的新样本，用于欺骗机器学习模型。</li>
 <li>Adversarial perturbation(对抗扰动)：使干净样本转化为对抗样本的噪声。</li>
 <li>Adversarial training(对抗训练)：使用混合的对抗样本和干净样本去训练模型。</li>
@@ -379,13 +378,9 @@
 <li>Universal perturbation(通用扰动)：添加到任何图像中，都能够以高概率愚弄的给定模型。 请注意，普遍性是指扰动的”图像的不可知”性，与’具有良好的可转移性’相反。</li>
 <li>White-box attacks(白盒攻击):攻击者完全掌握了目标模型的参数，架构，训练方法，有时候包括训练数据。</li>
 </ul>
-<p>#2.&emsp;攻击方法分类<br>&emsp;从不同角度分类现有的攻击策略：</p>
-<p>##2.1&emsp;Black/White box</p>
-<p>##2.2&emsp;Targeted/Non-targeted</p>
-<p>##2.3&emsp;Gradient/Optimization/others</p>
-<p>##2.4&emsp;Specific/Universal</p>
-<p>##2.4&emsp;One-shot/Iterative</p>
-<p>&emsp;<span id="Summary-">各方法属性总结：</span></p>
+<h1 id="2-emsp-攻击方法分类"><a href="#2-emsp-攻击方法分类" class="headerlink" title="2.&emsp;攻击方法分类"></a>2.&emsp;攻击方法分类</h1><p>&emsp;从不同角度分类现有的攻击策略：</p>
+<h2 id="2-1-emsp-Black-White-box"><a href="#2-1-emsp-Black-White-box" class="headerlink" title="2.1&emsp;Black/White box"></a>2.1&emsp;Black/White box</h2><h2 id="2-2-emsp-Targeted-Non-targeted"><a href="#2-2-emsp-Targeted-Non-targeted" class="headerlink" title="2.2&emsp;Targeted/Non-targeted"></a>2.2&emsp;Targeted/Non-targeted</h2><h2 id="2-3-emsp-Gradient-Optimization-others"><a href="#2-3-emsp-Gradient-Optimization-others" class="headerlink" title="2.3&emsp;Gradient/Optimization/others"></a>2.3&emsp;Gradient/Optimization/others</h2><h2 id="2-4-emsp-Specific-Universal"><a href="#2-4-emsp-Specific-Universal" class="headerlink" title="2.4&emsp;Specific/Universal"></a>2.4&emsp;Specific/Universal</h2><h2 id="2-4-emsp-One-shot-Iterative"><a href="#2-4-emsp-One-shot-Iterative" class="headerlink" title="2.4&emsp;One-shot/Iterative"></a>2.4&emsp;One-shot/Iterative</h2><p>&emsp;<span id="Summary-">各方法属性总结：</span></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -456,7 +451,7 @@
 <td>Targeted</td>
 <td>-</td>
 <td>Specific</td>
-<td>$L_0,L_2,L_∞$</td>
+<td>$L<em>0,L_2,L</em>∞$</td>
 <td>Iterative</td>
 <td>5*</td>
 </tr>
@@ -466,7 +461,7 @@
 <td>Non-</td>
 <td>-</td>
 <td>Specific</td>
-<td>$L_2,L_∞$</td>
+<td>$L<em>2,L</em>∞$</td>
 <td>Iterative</td>
 <td>4*</td>
 </tr>
@@ -476,7 +471,7 @@
 <td>Non-</td>
 <td>-</td>
 <td>Universal</td>
-<td>$L_2,L_∞$</td>
+<td>$L<em>2,L</em>∞$</td>
 <td>Iterative</td>
 <td>5*</td>
 </tr>
@@ -506,7 +501,7 @@
 <td>Targeted</td>
 <td>-</td>
 <td>Specific</td>
-<td>$L_2,L_∞$</td>
+<td>$L<em>2,L</em>∞$</td>
 <td>Iterative</td>
 <td>4*</td>
 </tr>
@@ -522,13 +517,12 @@
 </tr>
 </tbody>
 </table>
-<p>#3.&emsp;<span id="L-BFGS">L-BFGS</span></p>
-<p>通过对图像添加人眼不可察的微小扰动来误导神经网络做出错误分类。他们试图求解让神经网络做出错误分类的最小扰动方程，限于问题的高复杂度，他们简化了过程转而寻找最小的代价函数添加项，来误导神经网络，从而将问题转化为一个凸优化过程。  </p>
+</div>
+<h1 id="3-emsp-L-BFGS"><a href="#3-emsp-L-BFGS" class="headerlink" title="3.&emsp;L-BFGS"></a>3.&emsp;<span id="L-BFGS">L-BFGS</span></h1><p>通过对图像添加人眼不可察的微小扰动来误导神经网络做出错误分类。他们试图求解让神经网络做出错误分类的最小扰动方程，限于问题的高复杂度，他们简化了过程转而寻找最小的代价函数添加项，来误导神经网络，从而将问题转化为一个凸优化过程。  </p>
 <p><a href="#Summary-">Back</a></p>
-<p>#4.&emsp;<span id="FGSM">FGSM</span></p>
-<p>##4.1&emsp;快速梯度符号法（FGSM）：</p>
-<picture>
+<h1 id="4-emsp-FGSM"><a href="#4-emsp-FGSM" class="headerlink" title="4.&emsp;FGSM"></a>4.&emsp;<span id="FGSM">FGSM</span></h1><h2 id="4-1-emsp-快速梯度符号法（FGSM）："><a href="#4-1-emsp-快速梯度符号法（FGSM）：" class="headerlink" title="4.1&emsp;快速梯度符号法（FGSM）："></a>4.1&emsp;快速梯度符号法（FGSM）：</h2><picture>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -555,10 +549,14 @@
 </tr>
 </tbody>
 </table>
-<p>&emsp;将损失函数线性化为  $θ$ 的当前值，得到最优的<strong>最大范数</strong>约束扰动<br>$$<br>η=εsign(∇_xJ(θ,x,y))<br>$$<br>&emsp;称之为产生对抗样本的“快速梯度符号法”。 请注意，可以使用反向传播有效地计算所需的梯度。  </p>
+</div>
+<p>&emsp;将损失函数线性化为  $θ$ 的当前值，得到最优的<strong>最大范数</strong>约束扰动</p>
+<script type="math/tex; mode=display">
+η=εsign(∇_xJ(θ,x,y))</script><p>&emsp;称之为产生对抗样本的“快速梯度符号法”。 请注意，可以使用反向传播有效地计算所需的梯度。  </p>
 <ul>
 <li>FGSM在各种模型上的效果 :  </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -595,6 +593,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
 <p><a href="https://github.com/lisa-lab/pylearn2/tree/master/pylearn2/scripts/papers/maxout" target="_blank" rel="noopener">预处理代码</a><br>其产生大约0.5的标准偏差。</p>
 </blockquote>
@@ -604,9 +603,10 @@
 </ul>
 <p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/67792085.jpg-Watermark" alt=""></p>
 <p>&emsp;通过添加一个不可察的小矢量，其元素等于损失函数梯度的元素的符号，可以改变GoogLeNet的图像分类。这里，$ε$ 对应于GoogLeNet转换为实数后8位图像编码的最小位数的大小， 因等于0.007。  </p>
-<p>&emsp;对抗样本生成过程：<br>$$<br>x ̃=x+εsign(∇_xJ(θ,x,y))<br>$$  </p>
-<p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/43011594.jpg-Watermark" alt=""></p>
-<p>##4.2&emsp;FGSM的one-step target class变体</p>
+<p>&emsp;对抗样本生成过程：</p>
+<script type="math/tex; mode=display">
+x ̃=x+εsign(∇_xJ(θ,x,y))</script><p><img src="http://p5bxip6n0.bkt.clouddn.com/18-3-10/43011594.jpg-Watermark" alt=""></p>
+<h2 id="4-2-emsp-FGSM的one-step-target-class变体"><a href="#4-2-emsp-FGSM的one-step-target-class变体" class="headerlink" title="4.2&emsp;FGSM的one-step target class变体"></a>4.2&emsp;FGSM的one-step target class变体</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -637,58 +637,58 @@
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
-<li>最大化某个特定目标类 $y_{target}$ 的概率 $p(y_{target}|X)$，该目标类不可能是给定图像的真实类。 对于具有交叉熵损失的神经网络，一步目标类方法的公式：</li>
+<li>最大化某个特定目标类 $y<em>{target}$ 的概率 $p(y</em>{target}|X)$，该目标类不可能是给定图像的真实类。 对于具有交叉熵损失的神经网络，一步目标类方法的公式：</li>
 </ul>
-<p>$$<br>X^{adv}=X - εsign(∇<em>XJ(X,y</em>{target}))<br>$$  </p>
-<ul>
-<li><p>对于目标类，我们可以选择被网络<br>$$<br>y_{LL} = arg \min_y{p(y|X)}<br>$$<br>&emsp;&emsp;&emsp;预测的最小概率的类</p>
+<script type="math/tex; mode=display">
+X^{adv}=X - εsign(∇_XJ(X,y_{target}))</script><ul>
+<li><p>对于目标类，我们可以选择被网络</p>
+<script type="math/tex; mode=display">
+y_{LL} = arg \min_y\{p(y|X)\}</script><p>&emsp;&emsp;&emsp;预测的最小概率的类</p>
 </li>
-<li><p>对于这里给定图像 $X$ 和 $y$ 的神经网络的交叉熵代价函数 $J(X,y)$ 。 故意忽略代价函数中的网络权重（和其他参数）$θ$,<br>假设它们是固定的。对于softmax输出层的神经网络，则有 整数类标签的交叉熵代价函数等于给定图像的真实类的负对数概率：<br>$$<br>J(X,y)= - \log\;p（y | X）<br>$$</p>
-</li>
+<li><p>对于这里给定图像 $X$ 和 $y$ 的神经网络的交叉熵代价函数 $J(X,y)$ 。 故意忽略代价函数中的网络权重（和其他参数）$θ$,<br>假设它们是固定的。对于softmax输出层的神经网络，则有 整数类标签的交叉熵代价函数等于给定图像的真实类的负对数概率：</p>
+<script type="math/tex; mode=display">
+J(X,y)= - \log\;p（y | X）</script></li>
 </ul>
 <p><a href="#Summary-">Back</a></p>
-<p>#5.&emsp;<span id="BIM&ILCM">BIM&amp;ILCM</span></p>
-<p>##5.1&emsp;Basic iterative method(BIM):</p>
-<ul>
+<h1 id="5-emsp-BIM-ILCM"><a href="#5-emsp-BIM-ILCM" class="headerlink" title="5.&emsp;BIM&ILCM"></a>5.&emsp;<span id="BIM&amp;ILCM">BIM&ILCM</span></h1><h2 id="5-1-emsp-Basic-iterative-method-BIM"><a href="#5-1-emsp-Basic-iterative-method-BIM" class="headerlink" title="5.1&emsp;Basic iterative method(BIM):"></a>5.1&emsp;Basic iterative method(BIM):</h2><ul>
 <li>$Clip_{X,ε}{X’}$ 基于像素剪切$X’$, 结果在原图像$X$的$ε$的最大范数邻域内，剪切方程：</li>
 </ul>
-<p>$$<br>Clip_{X,ε}{X’}(x,y,z) = \min{255,X(x,y,z)+ε,\max{0,X(x,y,z)-ε,X’(x,y,z)}}<br>$$  </p>
-<p>&emsp;&emsp;&emsp;$X(x,y,z)$ 的值为图像$X$在坐标 $(x,y)$ 处 $z$ 通道的值。</p>
+<script type="math/tex; mode=display">
+Clip_{X,ε}\{X'\}(x,y,z) = \min\{255,X(x,y,z)+ε,\max\{0,X(x,y,z)-ε,X'(x,y,z)\}\}</script><p>&emsp;&emsp;&emsp;$X(x,y,z)$ 的值为图像$X$在坐标 $(x,y)$ 处 $z$ 通道的值。</p>
 <ul>
-<li>对于 单步类的方法，将它扩展为很多小步，在每个步骤之后剪切中间结果的像素值以确保它们处于<br>原始图像的一个 $ε$ 邻域内：<br>$$<br>\sideset{}{^{adv}<em>0}X = X,  \sideset{}{^{adv}</em>{N+1}}X=Clip_{X,ε}{\sideset{}{^{adv}_{N}}X+αsign(ᐁ<em>XJ(\sideset{}{^{adv}</em>{N}}X,y_{true}))}<br>$$  </li>
+<li>对于 单步类的方法，将它扩展为很多小步，在每个步骤之后剪切中间结果的像素值以确保它们处于<br>原始图像的一个 $ε$ 邻域内：<script type="math/tex; mode=display">
+\sideset{}{^{adv}_0}X = X,  \sideset{}{^{adv}_{N+1}}X=Clip_{X,ε}\{\sideset{}{^{adv}_{N}}X+αsign(ᐁ_XJ(\sideset{}{^{adv}_{N}}X,y_{true}))\}</script></li>
 <li>在作者的实验中，使用了 $α=1$，即在每一步中只将每个像素的值改为1。 选择迭代次数为 $\min(ε+ 4,1.25ε)$。 这种迭代量是通过启发式选择的; 对抗样本足以达到$ε$的最大范数球但有足够的限制，以保持实验的计算成本可控。</li>
 </ul>
-<p>##5.2&emsp;ITERATIVE LEAST-LIKELY CLASS METHOD(ILCM)<br>&emsp;前面描述的两种方法都只是试图增加正确类的成本，而没有指定模型应该选择哪些不正确的类。 这样的方法足以应用于诸如MNIST和CIFAR-10数据集，其中类别数量很少，并且所有类别彼此差异很大。 在ImageNet上，类别数量多得多，类别之间的差异程度也不同，这些方法可能导致无趣的错误分类，例如将一种雪橇犬误认为另一种雪橇犬。 为了创造更多有趣的错误，引入了迭代最不可能的类方法。</p>
+<h2 id="5-2-emsp-ITERATIVE-LEAST-LIKELY-CLASS-METHOD-ILCM"><a href="#5-2-emsp-ITERATIVE-LEAST-LIKELY-CLASS-METHOD-ILCM" class="headerlink" title="5.2&emsp;ITERATIVE LEAST-LIKELY CLASS METHOD(ILCM)"></a>5.2&emsp;ITERATIVE LEAST-LIKELY CLASS METHOD(ILCM)</h2><p>&emsp;前面描述的两种方法都只是试图增加正确类的成本，而没有指定模型应该选择哪些不正确的类。 这样的方法足以应用于诸如MNIST和CIFAR-10数据集，其中类别数量很少，并且所有类别彼此差异很大。 在ImageNet上，类别数量多得多，类别之间的差异程度也不同，这些方法可能导致无趣的错误分类，例如将一种雪橇犬误认为另一种雪橇犬。 为了创造更多有趣的错误，引入了迭代最不可能的类方法。</p>
 <ul>
-<li>这种迭代方法试图制作一个对抗图像，将其分类为特定的期望目标类别。 对于期望的类别，根据图像$X$上训练网络的预测选择最不可能的类：<br>$$<br>y_{LL} = arg \min_y{p(y|X)}<br>$$</li>
+<li>这种迭代方法试图制作一个对抗图像，将其分类为特定的期望目标类别。 对于期望的类别，根据图像$X$上训练网络的预测选择最不可能的类：<script type="math/tex; mode=display">
+y_{LL} = arg \min_y\{p(y|X)\}</script></li>
 </ul>
 <p>&emsp;对于训练很好的分类器，最不可能的分类通常与真实分类非常不相似，因此这种攻击方法会导致更多有趣的错误，例如将狗误认为是飞机。</p>
 <ul>
-<li>生成一张被分类为 $y_{LL}$ 的对抗图像，在 $sign{∇<em>X {\log}\;p(y</em>{LL}|X)}$ 方向上进行迭代来最小化 ${\log}\;p(y_{LL}|X)$，交叉熵损失的神经网络最后的表达式为 $sign{-∇<em>X J(X,y</em>{LL})}$ ，过程为下：<br>$$<br>\sideset{}{^{adv}<em>0}X = X,  \sideset{}{^{adv}</em>{N+1}}X=Clip_{X,ε}{\sideset{}{^{adv}_{N}}X-αsign(ᐁ<em>XJ(\sideset{}{^{adv}</em>{N}}X,y_{LL}))}<br>$$    </li>
+<li>生成一张被分类为 $y<em>{LL}$ 的对抗图像，在 $sign{∇_X {\log}\;p(y</em>{LL}|X)}$ 方向上进行迭代来最小化 ${\log}\;p(y<em>{LL}|X)$，交叉熵损失的神经网络最后的表达式为 $sign{-∇_X J(X,y</em>{LL})}$ ，过程为下：<script type="math/tex; mode=display">
+\sideset{}{^{adv}_0}X = X,  \sideset{}{^{adv}_{N+1}}X=Clip_{X,ε}\{\sideset{}{^{adv}_{N}}X-αsign(ᐁ_XJ(\sideset{}{^{adv}_{N}}X,y_{LL}))\}</script></li>
 </ul>
 <p><a href="#Summary-">Back</a></p>
-<p>#6.&emsp;<span id="JSMA">JSMA</span></p>
-<p>&emsp;Papernot 等人通过限制扰动的 $L_0$ 范数，创造了一种新的对抗攻击“JSMA”。从物理上来说，这意味着只需修改图像中的几个像素，而不是扰动整个图像就能欺骗分类器。他们的算法一次修改干净图像的一个像素，并监视改动所引起的分类变化。通过使用网络层输出的梯度来计算显着图执行监视。显著图数值越大，表示欺骗网络的可能性越高，越容易获得目标标签。一旦图被计算出来，算法选择最有效的像素进行修改来欺骗网络。重复该过程，直到对抗图像中允许的像素的最大数量被改变或者愚弄成功。</p>
+<h1 id="6-emsp-JSMA"><a href="#6-emsp-JSMA" class="headerlink" title="6.&emsp;JSMA"></a>6.&emsp;<span id="JSMA">JSMA</span></h1><p>&emsp;Papernot 等人通过限制扰动的 $L_0$ 范数，创造了一种新的对抗攻击“JSMA”。从物理上来说，这意味着只需修改图像中的几个像素，而不是扰动整个图像就能欺骗分类器。他们的算法一次修改干净图像的一个像素，并监视改动所引起的分类变化。通过使用网络层输出的梯度来计算显着图执行监视。显著图数值越大，表示欺骗网络的可能性越高，越容易获得目标标签。一旦图被计算出来，算法选择最有效的像素进行修改来欺骗网络。重复该过程，直到对抗图像中允许的像素的最大数量被改变或者愚弄成功。</p>
 <p><a href="https://jjzhou012.github.io/2018/03/12/JSMA/" target="_blank" rel="noopener">JSMA</a></p>
 <p><a href="#Summary-">Back</a></p>
-<p>#7.&emsp;<span id="One-Pixel">One-Pixel</span></p>
-<p>&emsp;一种极端的攻击方法，仅仅改变图像的一个像素实现对抗攻击。该攻击基于差分进化算法，迭代的修改每个像素值，生成子图像，和母图像进行对比，保留攻击效果最佳的子图像最终实现攻击。它对多种类型的DNN模型有效，且需要极少的对抗信息。</p>
+<h1 id="7-emsp-One-Pixel"><a href="#7-emsp-One-Pixel" class="headerlink" title="7.&emsp;One-Pixel"></a>7.&emsp;<span id="One-Pixel">One-Pixel</span></h1><p>&emsp;一种极端的攻击方法，仅仅改变图像的一个像素实现对抗攻击。该攻击基于差分进化算法，迭代的修改每个像素值，生成子图像，和母图像进行对比，保留攻击效果最佳的子图像最终实现攻击。它对多种类型的DNN模型有效，且需要极少的对抗信息。</p>
 <p><a href="#Summary-">Back</a></p>
-<p>#8.&emsp;<span id="C.W-attacks">C&amp;W attacks</span></p>
-<p>通过限制扰动的l_0，l_2和l_∞范数使它们难以被察觉，并且成功的突破了防御净化法。</p>
+<h1 id="8-emsp-C-amp-W-attacks"><a href="#8-emsp-C-amp-W-attacks" class="headerlink" title="8.&emsp;C&amp;W attacks"></a>8.&emsp;<span id="C.W-attacks">C&amp;W attacks</span></h1><p>通过限制扰动的l<em>0，l_2和l</em>∞范数使它们难以被察觉，并且成功的突破了防御净化法。</p>
 <p><a href="#Summary-">Back</a></p>
-<p>#9.&emsp;<span id="DeepFool">DeepFool</span></p>
-<p>&emsp;<a href="https://github.com/lts4/deepfool" target="_blank" rel="noopener">github</a>  </p>
+<h1 id="9-emsp-DeepFool"><a href="#9-emsp-DeepFool" class="headerlink" title="9.&emsp;DeepFool"></a>9.&emsp;<span id="DeepFool">DeepFool</span></h1><p>&emsp;<a href="https://github.com/lts4/deepfool" target="_blank" rel="noopener">github</a>  </p>
 <p>通过迭代生成最小规范扰动，将位于分类边界的图像逐步推到边界外，直到产生错误分类。</p>
 <p><a href="#Summary-">Back</a></p>
-<p>#10.&emsp;<span id="Uni-pert">Uni.perturbation</span><br><a href="#Summary-">Back</a></p>
-<p>#11.&emsp;<span id="UPSET">UPSET</span><br><a href="#Summary-">Back</a></p>
-<p>#12.&emsp;<span id="ANGRI">ANGRI</span><br><a href="#Summary-">Back</a></p>
-<p>#13.&emsp;<span id="Houdini">Houdini</span></p>
-<p>通过限制l_2和l_∞范数生成能适应任务损失的对抗样本来欺骗基于梯度的ML模型。该算法利用神经网络的可微损耗函数的梯度来计算扰动。</p>
+<h1 id="10-emsp-Uni-perturbation"><a href="#10-emsp-Uni-perturbation" class="headerlink" title="10.&emsp;Uni.perturbation"></a>10.&emsp;<span id="Uni-pert">Uni.perturbation</span></h1><p><a href="#Summary-">Back</a></p>
+<h1 id="11-emsp-UPSET"><a href="#11-emsp-UPSET" class="headerlink" title="11.&emsp;UPSET"></a>11.&emsp;<span id="UPSET">UPSET</span></h1><p><a href="#Summary-">Back</a></p>
+<h1 id="12-emsp-ANGRI"><a href="#12-emsp-ANGRI" class="headerlink" title="12.&emsp;ANGRI"></a>12.&emsp;<span id="ANGRI">ANGRI</span></h1><p><a href="#Summary-">Back</a></p>
+<h1 id="13-emsp-Houdini"><a href="#13-emsp-Houdini" class="headerlink" title="13.&emsp;Houdini"></a>13.&emsp;<span id="Houdini">Houdini</span></h1><p>通过限制l<em>2和l</em>∞范数生成能适应任务损失的对抗样本来欺骗基于梯度的ML模型。该算法利用神经网络的可微损耗函数的梯度来计算扰动。</p>
 <p><a href="#Summary-">Back</a></p>
-<p>#14.&emsp;<span id="ATNs">ATNs</span><br><a href="#Summary-">Back</a></p>
+<h1 id="14-emsp-ATNs"><a href="#14-emsp-ATNs" class="headerlink" title="14.&emsp;ATNs"></a>14.&emsp;<span id="ATNs">ATNs</span></h1><p><a href="#Summary-">Back</a></p>
 </picture>
       
     </div>
@@ -725,8 +725,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/" rel="next" title="FGSM">
-                <i class="fa fa-chevron-left"></i> FGSM
+              <a href="/2018/01/10/8.4  使用inception-v3做各种图像的识别/" rel="next" title="使用inception-v3模型做图像识别">
+                <i class="fa fa-chevron-left"></i> 使用inception-v3模型做图像识别
               </a>
             
           </div>
@@ -735,8 +735,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/12/JSMA/" rel="prev" title="JSMA">
-                JSMA <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/08/The-Adversarial-Attacks-on-Deep-Learning-A-Summary-1/" rel="prev" title="FGSM">
+                FGSM <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -880,7 +880,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对抗攻击策略总结"><span class="nav-number">1.</span> <span class="nav-text">对抗攻击策略总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对抗攻击策略总结"><span class="nav-number">1.</span> <span class="nav-text">对抗攻击策略总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-emsp-常用术语介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1. 常用术语介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-emsp-攻击方法分类"><span class="nav-number">2.</span> <span class="nav-text">2. 攻击方法分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-emsp-Black-White-box"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Black/White box</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-emsp-Targeted-Non-targeted"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Targeted/Non-targeted</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-emsp-Gradient-Optimization-others"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Gradient/Optimization/others</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-emsp-Specific-Universal"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 Specific/Universal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-emsp-One-shot-Iterative"><span class="nav-number">2.5.</span> <span class="nav-text">2.4 One-shot/Iterative</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-emsp-L-BFGS"><span class="nav-number">3.</span> <span class="nav-text">3. L-BFGS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-emsp-FGSM"><span class="nav-number">4.</span> <span class="nav-text">4. FGSM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-emsp-快速梯度符号法（FGSM）："><span class="nav-number">4.1.</span> <span class="nav-text">4.1 快速梯度符号法（FGSM）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-emsp-FGSM的one-step-target-class变体"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 FGSM的one-step target class变体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-emsp-BIM-ILCM"><span class="nav-number">5.</span> <span class="nav-text">5. BIM&amp;ILCM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-emsp-Basic-iterative-method-BIM"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 Basic iterative method(BIM):</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-emsp-ITERATIVE-LEAST-LIKELY-CLASS-METHOD-ILCM"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 ITERATIVE LEAST-LIKELY CLASS METHOD(ILCM)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-emsp-JSMA"><span class="nav-number">6.</span> <span class="nav-text">6. JSMA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-emsp-One-Pixel"><span class="nav-number">7.</span> <span class="nav-text">7. One-Pixel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-emsp-C-amp-W-attacks"><span class="nav-number">8.</span> <span class="nav-text">8. C&amp;W attacks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-emsp-DeepFool"><span class="nav-number">9.</span> <span class="nav-text">9. DeepFool</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-emsp-Uni-perturbation"><span class="nav-number">10.</span> <span class="nav-text">10. Uni.perturbation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-emsp-UPSET"><span class="nav-number">11.</span> <span class="nav-text">11. UPSET</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-emsp-ANGRI"><span class="nav-number">12.</span> <span class="nav-text">12. ANGRI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-emsp-Houdini"><span class="nav-number">13.</span> <span class="nav-text">13. Houdini</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-emsp-ATNs"><span class="nav-number">14.</span> <span class="nav-text">14. ATNs</span></a></li></ol></div>
             
 
           </div>

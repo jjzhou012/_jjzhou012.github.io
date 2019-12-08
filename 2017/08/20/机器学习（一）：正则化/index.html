@@ -358,27 +358,32 @@
       
         <h1 id="正则化-（regularization）"><a href="#正则化-（regularization）" class="headerlink" title="正则化 （regularization）"></a>正则化 （regularization）</h1><p>正则化的本质：<strong>约束（限制）要优化的参数</strong>。<br>正则化中我们将保留所有的特征变量，但是会减小特征变量的数量级（参数数值的大小 $\theta (j)$ ）。</p>
 <p>这个方法非常有效，当我们有很多特征变量时，其中每一个变量都能对预测产生一点影响。正如我们在房价预测的例子中看到的那样，我们可以有很多特征变量，其中每一个变量都是有用的，因此我们不希望把它们删掉，这就导致了正则化概念的发生。</p>
-<p>正则化方法包括L0正则、L1正则和L2正则，而正则一般是在目标函数之后加上对应的范数。<br>范数的定义如下：<br>$$<br>||x||<em>p=\left(\sum</em>{i=1}^n|x_i|^p\right)^{\frac {1}{p}}    ,\qquad p\geq 1 \ and\  be\  a\  real\  number.<br>$$</p>
-<h2 id="L0范数"><a href="#L0范数" class="headerlink" title="L0范数"></a>L0范数</h2><p><strong>L0范数是指向量中非0的元素的个数</strong>。L0正则化的值是模型中非零参数的个数，L0正则化可以实现模型参数的的稀疏化。L0正则化是个NP难问题，很难求解，因此一般不用L0范数。<br>$$<br>设\  0^0=0, \qquad<br>||X||<em>0=\sum</em>{i=0}^n\ x_i^0<br>$$  </p>
-<h2 id="L1范数"><a href="#L1范数" class="headerlink" title="L1范数"></a>L1范数</h2><p><strong>L1范数是指向量中各个元素绝对值之和</strong>，也叫“稀疏规则算子”（Lasso regularization）。<br>下式等号右边第二项即为L1正则化项：</p>
-<p>$$<br>L(w)=\frac{1}{N}\sum_{i=1}^N\ (f(x_i;w)-y_i)^2+\lambda ||w||_1<br>$$<br>对于线性回归模型，使用L1正则化的模型建叫做Lasso回归。  </p>
+<p>正则化方法包括L0正则、L1正则和L2正则，而正则一般是在目标函数之后加上对应的范数。<br>范数的定义如下：  </p>
+<script type="math/tex; mode=display">
+||x||_p=\left(\sum_{i=1}^n|x_i|^p\right)^{\frac {1}{p}}    ,\qquad p\geq 1 \ and\  be\  a\  real\  number.</script><h2 id="L0范数"><a href="#L0范数" class="headerlink" title="L0范数"></a>L0范数</h2><p><strong>L0范数是指向量中非0的元素的个数</strong>。L0正则化的值是模型中非零参数的个数，L0正则化可以实现模型参数的的稀疏化。L0正则化是个NP难问题，很难求解，因此一般不用L0范数。  </p>
+<script type="math/tex; mode=display">
+设\  0^0=0, \qquad  
+||X||_0=\sum_{i=0}^n\ x_i^0</script><h2 id="L1范数"><a href="#L1范数" class="headerlink" title="L1范数"></a>L1范数</h2><p><strong>L1范数是指向量中各个元素绝对值之和</strong>，也叫“稀疏规则算子”（Lasso regularization）。<br>下式等号右边第二项即为L1正则化项：</p>
+<script type="math/tex; mode=display">
+L(w)=\frac{1}{N}\sum_{i=1}^N\ (f(x_i;w)-y_i)^2+\lambda ||w||_1</script><p>对于线性回归模型，使用L1正则化的模型建叫做Lasso回归。  </p>
 <ul>
 <li>L1正则化可以产生<strong>稀疏权值矩阵</strong>，即产生一个<strong>稀疏模型</strong>，可以用于<strong>特征选择</strong>。  </li>
 </ul>
 <h3 id="稀疏模型与特征选择"><a href="#稀疏模型与特征选择" class="headerlink" title="稀疏模型与特征选择"></a>稀疏模型与特征选择</h3><p>上面提到L1正则化有助于生成一个稀疏权值矩阵，进而可以用于特征选择。为什么要生成一个稀疏矩阵？</p>
 <p>稀疏矩阵指的是很多元素为0，只有少数元素是非零值的矩阵，即得到的线性回归模型的大部分系数都是0. 通常机器学习中特征数量很多，例如文本处理时，如果将一个词组（term）作为一个特征，那么特征数量会达到上万个（bigram）。在预测或分类时，那么多特征显然难以选择，但是如果代入这些特征得到的模型是一个稀疏模型，表示只有少数特征对这个模型有贡献，绝大部分特征是没有贡献的，或者贡献微小（因为它们前面的系数是0或者是很小的值，即使去掉对模型也没有什么影响），此时我们就可以只关注系数是非零值的特征。这就是稀疏模型与特征选择的关系。</p>
 <h2 id="L2范数"><a href="#L2范数" class="headerlink" title="L2范数"></a>L2范数</h2><p><strong>L2范数是指向量各元素的平方和然后求平方根</strong>。可以使得W的每个元素都很小，都接近于0，但与L1范数不同，它不会让它等于0，而是接近于0。<br>下式等号右边第二项即为L2正则化项：</p>
-<p>$$<br>L(w)=\frac{1}{N}\sum_{i=1}^N\ (f(x_i;w)-y_i)^2+\lambda ||w||_2^2<br>$$<br>对于线性回归模型，使用L2正则化的模型建叫做Ridge回归（岭回归）。   </p>
+<script type="math/tex; mode=display">
+L(w)=\frac{1}{N}\sum_{i=1}^N\ (f(x_i;w)-y_i)^2+\lambda ||w||_2^2</script><p>对于线性回归模型，使用L2正则化的模型建叫做Ridge回归（岭回归）。   </p>
 <ul>
 <li>L2正则化可以防止模型过拟合（overfitting）；一定程度上，L1也可以防止过拟合  </li>
 </ul>
 <h3 id="L2正则化和过拟合"><a href="#L2正则化和过拟合" class="headerlink" title="L2正则化和过拟合"></a>L2正则化和过拟合</h3><p>拟合过程中通常都倾向于让权值尽可能小，最后构造一个所有参数都比较小的模型。因为一般认为参数值小的模型比较简单，能适应不同的数据集，也在一定程度上避免了过拟合现象。可以设想一下对于一个线性回归方程，若参数很大，那么只要数据偏移一点点，就会对结果造成很大的影响；但如果参数足够小，数据偏移得多一点也不会对结果造成什么影响，专业一点的说法是『抗扰动能力强』。<br><strong>那为什么L2正则化可以获得值很小的参数？</strong><br>以线性回归中的梯度下降法为例。假设要求的参数为 $θ$ ，$h_{\theta}(x)$ 是我们的假设函数，那么线性回归的代价函数如下：  </p>
-<p>$$<br>J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^2<br>$$  </p>
-<p>那么在梯度下降法中，最终用于迭代计算参数θθ的迭代式为：   </p>
-<p>$$<br>\theta_j=\theta_j - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j<br>$$  </p>
-<p>其中 $\alpha$ 是learning rate. 上式是没有添加L2正则化项的迭代公式，如果在原始代价函数之后添加L2正则化，则迭代公式会变成下面的样子：  </p>
-<p>$$<br>\theta_j=\theta_j(1-\alpha \frac{\lambda}{m}) - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j<br>$$  </p>
-<p>其中 $\lambda$ 就是正则化参数。从上式可以看到，与未添加L2正则化的迭代公式相比，每一次迭代，$\theta_j$ 都要先乘以一个小于1的因子，从而使得$\theta_j$ 不断减小，因此总得来看，$\theta$ 是不断减小的。</p>
+<script type="math/tex; mode=display">
+J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^2</script><p>那么在梯度下降法中，最终用于迭代计算参数θθ的迭代式为：   </p>
+<script type="math/tex; mode=display">
+\theta_j=\theta_j - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j</script><p>其中 $\alpha$ 是learning rate. 上式是没有添加L2正则化项的迭代公式，如果在原始代价函数之后添加L2正则化，则迭代公式会变成下面的样子：  </p>
+<script type="math/tex; mode=display">
+\theta_j=\theta_j(1-\alpha \frac{\lambda}{m}) - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j</script><p>其中 $\lambda$ 就是正则化参数。从上式可以看到，与未添加L2正则化的迭代公式相比，每一次迭代，$\theta_j$ 都要先乘以一个小于1的因子，从而使得$\theta_j$ 不断减小，因此总得来看，$\theta$ 是不断减小的。</p>
 <h2 id="L1和L2正则化的直观理解"><a href="#L1和L2正则化的直观理解" class="headerlink" title="L1和L2正则化的直观理解"></a>L1和L2正则化的直观理解</h2><p>L1和L2范数约束空间：<br><img src="http://p5bxip6n0.bkt.clouddn.com/18-5-1/91029671.jpg" alt="">  </p>
 <p>L1范数在二维平面是一个矩形，L2范数在二维空间是一个圆；  </p>
 <ul>
@@ -426,7 +431,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/25/Linux常用命令整理/" rel="prev" title="Linux 常用命令整理">
+              <a href="/2017/12/25/test_new_PC/" rel="prev" title="Linux 常用命令整理">
                 Linux 常用命令整理 <i class="fa fa-chevron-right"></i>
               </a>
             

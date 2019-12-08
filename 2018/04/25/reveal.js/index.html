@@ -490,6 +490,7 @@
 <h4 id="Color-Backgrounds"><a href="#Color-Backgrounds" class="headerlink" title="Color Backgrounds"></a>Color Backgrounds</h4><p>All CSS color formats are supported, including hex values, keywords, <code>rgba()</code> or <code>hsl()</code>.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-color</span>=<span class="string">"#ff0000"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Color<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="Image-Backgrounds"><a href="#Image-Backgrounds" class="headerlink" title="Image Backgrounds"></a>Image Backgrounds</h4><p>By default, background images are resized to cover the full page. Available options:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -521,8 +522,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-image</span>=<span class="string">"http://example.com/image.png"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Image<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-image</span>=<span class="string">"http://example.com/image.png"</span> <span class="attr">data-background-size</span>=<span class="string">"100px"</span> <span class="attr">data-background-repeat</span>=<span class="string">"repeat"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>This background image will be sized to 100px and repeated<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="Video-Backgrounds"><a href="#Video-Backgrounds" class="headerlink" title="Video Backgrounds"></a>Video Backgrounds</h4><p>Automatically plays a full size video behind the slide.</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -554,6 +557,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-video</span>=<span class="string">"https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"</span> <span class="attr">data-background-video-loop</span> <span class="attr">data-background-video-muted</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Video<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="Iframe-Backgrounds"><a href="#Iframe-Backgrounds" class="headerlink" title="Iframe Backgrounds"></a>Iframe Backgrounds</h4><p>Embeds a web page as a slide background that covers 100% of the reveal.js width and height. The iframe is in the background layer, behind your slides, and as such it’s not possible to interact with it by default. To make your background interactive, you can add the <code>data-background-interactive</code> attribute.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">data-background-iframe</span>=<span class="string">"https://slides.com"</span> <span class="attr">data-background-interactive</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Iframe<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>

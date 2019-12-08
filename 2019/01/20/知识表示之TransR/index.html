@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXc1yj.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcJwq.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXcNkV.png">
-<meta property="og:updated_time" content="2019-03-05T03:05:37.256Z">
+<meta property="og:updated_time" content="2019-10-27T06:11:04.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱：知识表示之TransR模型">
 <meta name="twitter:description" content="TransR论文地址: http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/ 模型改进TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。   对每个三元组，实体">
@@ -361,7 +361,7 @@
       
         <h1 id="TransR"><a href="#TransR" class="headerlink" title="TransR"></a>TransR</h1><p>论文地址: <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/" target="_blank" rel="noopener">http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/</a></p>
 <h2 id="模型改进"><a href="#模型改进" class="headerlink" title="模型改进"></a>模型改进</h2><p>TransE 和 TransH 都假设实体和关系嵌入在相同的空间中。然而，一个实体是多种属性的综合体，不同关系对应实体的不同属性，即头尾节点和关系可能不在一个向量空间中，在公共语义空间中不能表示它们。</p>
-<p><img src="https://s2.ax1x.com/2019/03/05/kXcAOA.png" alt="kXcAOA.png"></p>
+<p><img src="https://s2.ax1x.com/2019/03/05/kXcAOA.png" alt="kXcAOA.png" style="zoom:67%;"></p>
 <ul>
 <li>对每个三元组，实体空间中的实体首先通过运算 $M_r$ 映射到与它相关的 $r$ 关系空间, 保证 ${\bf h}_r + r \approx {\bf t}_r$ , 关系特定投影可以使实际持有该关系(表示为彩色圆圈)的头/尾实体彼此靠近，也可以使不持有该关系(表示为彩色三角形)的头/尾实体远离。</li>
 <li>TransR对每个关系$r$都分配了一个空间${\bf M}_r \in R^{k \times d}$。</li>
@@ -372,13 +372,15 @@
 <ul>
 <li>对每一个关系$r$，定义一个投影矩阵 ${\bf M}_r \in {\Bbb R}^{k \times d}$, 将实体从实体空间投影到关系空间：</li>
 </ul>
-<p>$$<br>{ {\bf h_r} = {\bf hM}_r}<br>$$</p>
-<p>$$<br>{ {\bf t_r} = {\bf tM}_r}<br>$$</p>
-<ul>
-<li><p>得分函数：<br>$$<br>f_r(h,t)=||{ {\bf h}_r} + {\bf r} - {\bf t}_r||_2^2<br>$$</p>
-</li>
-<li><p>实体和关系嵌入的范数约束<br>$$<br>||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+{ {\bf h_r} = {\bf hM}_r}</script><script type="math/tex; mode=display">
+{ {\bf t_r} = {\bf tM}_r}</script><ul>
+<li><p>得分函数：</p>
+<script type="math/tex; mode=display">
+f_r(h,t)=||{ {\bf h}_r} + {\bf r} - {\bf t}_r||_2^2</script></li>
+<li><p>实体和关系嵌入的范数约束  </p>
+<script type="math/tex; mode=display">
+||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1</script></li>
 </ul>
 <h3 id="Cluster-based-TransR-CTransR"><a href="#Cluster-based-TransR-CTransR" class="headerlink" title="Cluster-based TransR (CTransR)"></a>Cluster-based TransR (CTransR)</h3><p>上述模型包括TransE, TransH和TransR，仅仅通过单个的关系向量还不足以建立从头实体到尾实体的所有转移，<strong>即对于同一条关系$r$  来讲，$r$ 具有多种语义上的表示</strong>。为了更好地建模这些关系，引入了<strong>分段线性回归</strong>的思想来扩展TransR。</p>
 <ul>
@@ -399,18 +401,20 @@
 <li><p>定义实体和关系的投影向量为：</p>
 </li>
 </ul>
-<p>$$<br>{ {\bf h}_{r,c} = {\bf hM}<em>r}<br>$$<br>$$<br>{ {\bf t}</em>{r,c} = {\bf tM}_r}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+{ {\bf h}_{r,c} = {\bf hM}_r}</script><script type="math/tex; mode=display">
+{ {\bf t}_{r,c} = {\bf tM}_r}</script><ul>
 <li>得分函数：</li>
 </ul>
-<p>$$<br>f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}<em>c - {\bf t}</em>{r,c}||_2^2 + \alpha ||{\bf r}_c - {\bf r}||_2^2<br>$$</p>
-<p>$||{\bf r}_c - {\bf r}||_2^2$ 这一项确保群特异性关系向量 ${\bf r}_c$ 距离原始关系向量 ${\bf r}$ 不太远， $\alpha$ 控制约束效果</p>
+<script type="math/tex; mode=display">
+f_r(h,t)=||{ {\bf h}_{r,c}} + {\bf r}_c - {\bf t}_{r,c}||_2^2 + \alpha ||{\bf r}_c - {\bf r}||_2^2</script><p>$||{\bf r}_c - {\bf r}||_2^2$ 这一项确保群特异性关系向量 ${\bf r}_c$ 距离原始关系向量 ${\bf r}$ 不太远， $\alpha$ 控制约束效果</p>
 <ul>
 <li>实体和关系嵌入的范数约束  </li>
 </ul>
-<p>$$<br>||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1<br>$$</p>
-<h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>损失函数：<br>$$<br>{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h’,r,t’)\in \Delta’} max (0, \gamma + f_r(h, t)-f_{r}(h, t) )<br>$$</p>
-<h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>为首尾实体替换分配不同的概率。对于那些1- n、n -1和n -n关系，给“one”设置更高的概率，产生假阴性样本的机会将会减少</p>
+<script type="math/tex; mode=display">
+||{\bf h}||_2 \leq 1, ||{\bf t}||_2 \leq 1,||{\bf r}||_2 \leq 1, ||{\bf hM}_r||_2 \leq 1, ||{\bf tM}_r||_2 \leq 1</script><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>损失函数：</p>
+<script type="math/tex; mode=display">
+{\cal L}=\sum_{(h,r,t)\in \Delta} \sum_{(h',r,t')\in \Delta'} max (0, \gamma + f_r(h, t)-f_{r}(h', t') )</script><h3 id="负样本生成"><a href="#负样本生成" class="headerlink" title="负样本生成"></a>负样本生成</h3><p>为首尾实体替换分配不同的概率。对于那些1- n、n -1和n -n关系，给“one”设置更高的概率，产生假阴性样本的机会将会减少 </p>
 
       
     </div>
