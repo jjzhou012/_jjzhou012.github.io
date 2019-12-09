@@ -29,8 +29,8 @@ type: article
         repo: 'jjzhou012.github.io',
         owner: 'jjzhou012',
         admin: ['jjzhou012'],
-		id: decodeURI(location.pathname),
-		    distractionFreeMode: false  // Facebook-like distraction free mode
+		id: md5(location.href.trimEnd('{{theme.gitalk.hreftrimend}}'))
+		distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')
 </script> 
