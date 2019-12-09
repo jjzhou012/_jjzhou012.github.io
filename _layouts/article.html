@@ -21,7 +21,6 @@ type: article
   <!-- Gitalk start -->
 <div id="gitalk-container"></div> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> 
-<script src="https://github.com/blueimp/JavaScript-MD5/blob/master/js/md5.min.js "></script> 
 <script>
     var gitalk  = new Gitalk ({
         id: window.location.pathname,   // Ensure uniqueness and length less than 50
@@ -30,7 +29,7 @@ type: article
         repo: 'jjzhou012.github.io',
         owner: 'jjzhou012',
         admin: ['jjzhou012'],
-		id: md5(location.pathname),
+		id: location.pathname.substr(0, 50);
 		distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')
