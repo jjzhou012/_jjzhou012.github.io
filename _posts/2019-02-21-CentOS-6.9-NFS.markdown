@@ -1,0 +1,284 @@
+---
+layout: article
+title: NFS服务端与客户端安装配置
+date: 2019-02-21 00:07:00 +0800
+tag: [Config, Linux]
+categories: Tutorials
+pageview: true
+---
+
+
+
+
+
+# NFS安装配置
+
+## 一、服务器端配置
+
+### 1.1 CentOS 服务器
+
+#### 1.1.1 确认软件是否安装，安装NFS服务相关软件
+
+```
+rpm -qa|grep nfs
+rpm -qa|grep rpc
+```
+
+![kgasaR.png](https://s2.ax1x.com/2019/02/19/kgasaR.png)
+
+###### 如查询结果如上，说明服务器自身已经安装了NFS，如果没有安装，则用yum命令来安装，并验证安装：
+
+```
+yum -y install nfs-utils rpcbind
+rpm -qa nfs-utils rpcbind
+```
+
+
+
+####  1.1.2 编写nfs配置文件
+
+nfs配置文件默认存在 /etc/exports
+
+```
+vim /etc/exports
+```
+
+![k2DXTg.png](https://s2.ax1x.com/2019/02/20/k2DXTg.png)
+
+> /etc/exports 文件说明：
+>
+> - /root/root_share	: -- 指定共享目录信息
+>
+> - 指定有访问权限的网段 
+>
+>   - ```bash
+>     //NFS客户端地址：
+>      指定IP: 192.168.0.1
+>      指定子网所有主机: 192.168.0.0/24
+>      指定域名的主机: test.com
+>      指定域名所有主机: *.test.com
+>      所有主机: *
+>     ```
+>
+> - 其他设置
+> ```
+> 
+> - （rw, sync, no_root_squash）    : -表示定义共享参数信息
+> 
+>   - rw：表示读写； ro: 表示只读；
+>   - sync : 同步， 数据会先写入到NFS服务器内存中，会立刻同步到磁盘里面==直接存储硬盘中；
+>   - NFS 在预设的状况下会把 root 的 UID/GID (0/0) 对应到 nobody 去，这就是 root_squash。我们可以用 no_root_squash 关闭该功能。
+> ```
+
+
+
+####  1.1.3 创建共享目录，进行权限设定
+
+```
+mkdir /root/root_share -p
+chown -R nfsnobody.nfsnobody /root/root_share
+```
+
+
+
+####  1.1.4 启动服务
+
+##### 1.1.4.1 启动rpc服务
+
+```
+/etc/init.d/rpcbind start
+```
+
+#####  1.1.4.2 启动nfs服务
+
+```
+/etc/init.d/nfs start
+```
+
+> 查看rpcbind 服务启动信息
+
+```
+ps -ef|grep rpcbind
+netstat -lntup|grep 111
+rpcinfo -p localhost
+```
+
+
+
+####   1.1.5 服务器端部署完成
+
+```
+showmount -e 10.5.18.250	
+```
+
+> - -d：仅显示已被NFS客户端加载的目录；
+> - -e：显示NFS服务器上所有的共享目录。
+
+NFS服务开启后，默认的参数文件位置，注意：修改此文件，对nfs服务没有任何影响
+
+```
+cat /var/lib/nfs/etab
+```
+
+![k2ru11.png](https://s2.ax1x.com/2019/02/20/k2ru11.png)
+
+
+
+####  1.1.6 设置NFS服务开机自启动
+
+```
+chkconfig rpcbind on
+chkconfig nfs on
+```
+
+> 注意：
+>
+> - 关闭服务器防火墙
+>
+>   ```
+>   # 永久关闭
+>   chkconfig iptables off
+>   # 临时关闭
+>   service iptables stop
+>   ```
+>
+> - root下共享文件夹权限开放
+>
+>   ```
+>   chmod 777 root
+>   ```
+>
+> - 解决NFS版本问题
+>
+>   编辑 /etc/sysconfig/nfs文件，找到下面:
+>
+>   ```
+>   #Turn off v2 and v3 protocol support 
+>   #RPCNFSDARGS="-N 2 -N 3" 
+>   #Turn off v4 protocol support 
+>   #RPCNFSDARGS="-N 4"　　/*把这句前面的#号去掉*/
+>   ```
+>
+>   最后保存，重启nfs服务，再尝试挂载；如果挂载不上，可尝试在后面加-o nolock参数。
+>
+> - 挂载成功
+>
+>   ```
+>   mount -t nfs -o nolock server_ip:/root/root_share /home/zjj/root_share
+>   ```
+
+
+
+
+
+### 1.2. Ubuntu 服务器
+
+> Ubuntu 服务端配置好像没有遇到防火墙问题
+
+####   1.2.1 安装组件
+
+```
+sudo apt-get install nfs-kernel-server
+```
+
+####  1.2.2 创建共享文件夹
+
+```
+sudo mkdir /home/nfs_share
+# 赋予访问权限
+sudo chmod -R go+rwx /home/nfs_share     # 不一定需要
+```
+
+####  1.2.3 配置nfs
+
+```
+sudo vi /etc/exports 
+```
+
+末尾添加：
+
+```
+/home/nfs_share *(rw,sync,no_root_squash,no_subtree_check)
+```
+
+保存退出
+
+####  1.2.4 启动rpc、nfs
+
+```
+sudo /etc/init.d/rpcbind restart
+sudo /etc/init.d/nfs-kernel-server restart
+```
+
+> 停止服务命令：
+>
+> ```
+> service nfs-kernel-server stop
+> ```
+
+
+
+
+
+
+
+## 二、 客户端挂载配置
+
+###  2.1 windows客户端
+
+> win10家庭版没有NFS功能
+
+
+
+###  2.2 centos客户端
+
+#### 2.2.1 确认nfs、rpc软件安装
+
+```
+rpm -qa|grep nfs
+rpm -qa|grep rpc
+# 若未安装，则运行已下命令安装
+yum -y install nfs-utils rpcbind
+# 确认安装
+rpm -qa nfs-utils rpcbind
+```
+
+####  2.2.2 查看服务器上的共享
+
+```
+showmount -e server_ip
+```
+
+####  2.2.3 挂载
+
+```
+mount -t nfs -o nolock server_ip:/root/root_share /home/zjj/root_share
+```
+
+> 挂载路径自定义即可
+
+
+
+### 2.3 ubuntu客户端
+
+#### 2.3.1 确认nfs、rpc软件安装
+
+```
+dpkg -l|grep nfs
+dpkg -l|grep rpc
+# 若未安装，则运行已下命令安装
+sudo apt-get install nfs-common
+```
+
+####  2.3.2 查看服务器上的共享
+
+```
+showmount -e server_ip
+```
+
+####  2.3.3 挂载
+
+```
+sudo mount -t nfs -o nolock server_ip:/root/root_share /home/zjj/root_share
+```
+

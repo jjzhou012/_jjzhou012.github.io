@@ -2,14 +2,12 @@
 layout: article
 title: GCN理解
 date: 2019-12-07 00:08:00 +0800
-tag: GNN
+tags: [GNN, Graph Embedding]
 categories: blog
 pageview: true
 ---
 
 
-
-# GCN理解
 
 ## Introduction
 

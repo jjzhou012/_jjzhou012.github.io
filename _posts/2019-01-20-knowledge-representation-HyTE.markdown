@@ -9,9 +9,6 @@ pageview: true
 
 
 
-pageview: true
----
-
 # HyTE
 
 Hyperplane-based Temporally aware KG Embedding
