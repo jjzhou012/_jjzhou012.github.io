@@ -157,12 +157,12 @@ $k$为常数。注意到第二项为两个差分的差分，在离散空间中�
 因此我们可以推出一维空间中的热传导方程为如下，其中在高维欧式空间中，一阶导数推广到**梯度**，二阶导数就是**拉普拉斯算子**：
 
 $$
-\frac{\part \phi_i}{\part t} - k \frac{\part^2 \phi}{\part x^2} = 0 \\
+\frac{\partial \phi_i}{\partial t} - k \frac{\partial^2 \phi}{\partial x^2} = 0 \\
 \Rightarrow \\
-\frac{\part \phi_i}{\part t} - k \Delta \phi = 0
+\frac{\partial \phi_i}{\partial t} - k \Delta \phi = 0
 $$
 
-其中$\Delta$的主流写法为$\nabla^2$, 代表拉普拉斯算子，是对各个坐标二阶导数的加和，如三维空间中的拉普拉斯表达形式为 $\frac{\part^2}{\part x^2} + \frac{\part^2}{\part y^2} +\frac{\part^2}{\part z^2}$。
+其中$\Delta$的主流写法为$\nabla^2$, 代表拉普拉斯算子，是对各个坐标二阶导数的加和，如三维空间中的拉普拉斯表达形式为 $\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} +\frac{\partial^2}{\partial z^2}$。
 
 > 拉普拉斯算子的物理意义：**其实就是针对空间标量函数的一种“操作”，即先求该标量函数的梯度场，再求梯度场的散度！**
 >
@@ -172,7 +172,7 @@ $$
 
 综上所述，我们可以发现：
 
-- 欧氏空间中，某个点温度升高的速度正比于该点周围温度的分布，可以用拉普拉斯算子衡量 $\frac{\part \phi_i}{\part t} = k \Delta \phi$。
+- 欧氏空间中，某个点温度升高的速度正比于该点周围温度的分布，可以用拉普拉斯算子衡量 $\frac{\partial \phi_i}{\partial t} = k \Delta \phi$。
 
 - 拉普拉斯算子，是二阶导数对高维空间的推广。
 
@@ -203,6 +203,7 @@ $$
 \frac{d \phi_i}{dt} = -k[\phi_i \sum_j A_{ij} - \sum_j A_{ij} \phi_j] \\
 = -k [\phi_i \cdot  deg(i) -  \sum_j A_{ij} \phi_j]
 $$
+
 括号内第二项，可以看作邻接矩阵第$i$行与所有节点温度作内积。
 
 对于所有节点，我们写成向量形式有：
@@ -228,7 +229,7 @@ $$
 其中 $L=D-A$ ，对比在连续欧式空间中的微分方程：
 
 $$
-\frac{\part \phi}{\part t} - k \Delta \phi = 0
+\frac{\partial \phi}{\partial t} - k \Delta \phi = 0
 $$
 
 
