@@ -18,9 +18,9 @@
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : https://tianqi.name
-baseurl : /jekyll-TeXt-theme
-title   : TeXt Theme
+url     : https://jjzhou012.github.io
+baseurl : /docs
+title   : docs
 description: >
   A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.
 
@@ -35,29 +35,29 @@ timezone: Asia/Shanghai
 ##############################
 author:
   type      : organization # "person" (default), "organization"
-  name      : TeXt
+  name      : Andy
   url       :
   avatar    : /assets/apple-touch-icon.png
   bio: >
     TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.
     Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
-  email     : kitian616@outlook.com
+  email     : jjzhou012@163.com
   facebook  :
-  twitter   : kitian616
-  weibo     : 234695683
-  googleplus: 101827554735084402671
+  twitter   : 
+  weibo     : 
+  googleplus: 
   telegram  :
   medium    :
   zhihu     :
   douban    :
   linkedin  :
-  github    : kitian616/jekyll-TeXt-theme
+  github    : jjzhou012/jjzhou012.github.io/docs
   npm       :
 
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
-repository: kitian616/jekyll-TeXt-theme
+repository: jjzhou012.github.io
 repository_tree: master
 
 
@@ -65,7 +65,7 @@ repository_tree: master
 ##############################
 paths:
   root    : # title link url, "/" (default)
-  home    : /test/ # home layout url, "/" (default)
+  home    : /docs/ # home layout url, "/" (default)
   archive : # "/archive.html" (default)
   rss     : # "/feed.xml" (default)
 
@@ -130,12 +130,12 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : 143666b578a416f82175
-    clientSecret: 1d1c0604a1a4bff9b59ab7f56724dc0e8b837775
-    repository  : gitalk-demo
-    owner       : kitian616
-    admin:
-      - kitian616
+    clientID    : 87889c1fd8d397356e8a # GitHub Application Client ID
+    clientSecret: 4d88e5ab0a4075ba633ba81134ce8ac0e8704b3a # GitHub Application Client Secret
+    repository  : myblog # GitHub repo
+    owner       : jjzhou012 # GitHub repo owner
+    admin:  # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+       - jjzhou012
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.

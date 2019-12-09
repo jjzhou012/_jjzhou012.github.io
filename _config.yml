@@ -39,7 +39,7 @@ author:
   url       : https://jjzhou012.github.io
   avatar    : # path or url of avatar image (square)
   bio       : 
-  email     :
+  email     : jjzhou012@163.com
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
@@ -131,7 +131,8 @@ comments:
     clientSecret: 2f92e516c748a277807d18137cc122d13175211a # GitHub Application Client Secret
     repository  : https://github.com/jjzhou012/jjzhou012.github.io # GitHub repo
     owner       : jjzhou012 # GitHub repo owner
-    admin: jjzhou012 # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+    admin:  # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+       - jjzhou012
        
 
   ## Valine
