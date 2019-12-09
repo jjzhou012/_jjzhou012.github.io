@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: post
 title: node2vec的实现与思考
 date: 2019-04-26 00:08:00 +0800
 tag: graph embedding
@@ -16,6 +16,8 @@ pageview: true
 ## 写在前面
 
 我们生活的世界中存在着各种各样的网络，从宏观角度的全球物流、通信、交通网络，到微观世界的蛋白质结构、化合物作用网络，从交织于现实与虚拟世界的社交网络，到学科领域的科学家合作网络。网络系统的存在是世界复杂性的体现，延伸出了一门新的交叉学科——网络科学。
+
+<!--more-->
 
 ![](http://ww1.sinaimg.cn/large/005NduT8ly1g2imjgfj1fj30hu0amdqc.jpg)
 
