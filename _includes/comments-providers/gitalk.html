@@ -14,7 +14,7 @@
 
 	{%- include snippets/get-sources.html -%}
 	{%- assign _sources = __return -%}
-	<div class="gitalk-wrapper" id="js-gitalk-container"></div>
+	<!-- <div class="gitalk-wrapper" id="js-gitalk-container"></div>
 	{%- assign _admin = '' -%}
 	{%- for _admin_id in site.comments.gitalk.admin -%}
 		{%- assign _admin = _admin | append: ", '" | append: _admin_id | append: "'" -%}
@@ -34,6 +34,6 @@
 			});
 			gitalk.render('js-gitalk-container');
 		});
-	</script>
+	</script> -->
 
 {%- endif -%}
