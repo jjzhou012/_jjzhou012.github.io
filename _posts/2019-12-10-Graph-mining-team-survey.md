@@ -61,22 +61,21 @@ Our group’s research centers around the development of *robust machine learnin
   - **Overview:** 针对**节点分类**，提出了一种**基于属性图的训练时间对抗攻击算法**。使用**元梯度**来解决双层优化问题的基础上的**类中毒对抗攻击**。实验表明，元梯度方法创建的攻击（即使很微小的扰动）始终导致gcn模型的分类性能大幅下降，甚至转移到**无监督模型**。
 
     <center>
-        <img src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rmj7537yj30pc07tgnx.jpg" width=700 height=180/></center>
+        <img src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rmj7537yj30pc07tgnx.jpg" width="700" height="180"/></center>
   
-- <div><img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rn2djo6tj30lx096zml.jpg" width=300 height=160/></div>
-[Adversarial Attacks] [Adversarial Attacks on Neural Networks for Graph Data](http://arxiv.org/pdf/1805.07984.pdf) (Best Research Paper Award) [kdd 2018]
-  
-- **Overview:** 提出了第一个关于（属性）图的对抗性攻击的研究，特别关注利用gcn进行节点分类的任务。针对节点特征和图结构，提出了测试阶段的直接攻击和影响者攻击，和训练阶段的中毒/致因攻击。通过保留重要的数据特征来确保扰动的隐蔽性；提出了一种增量计算的高效算法；攻击具有迁移性。
-  
+- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rn2djo6tj30lx096zml.jpg" width="300" height="160"/>[Adversarial Attacks] [Adversarial Attacks on Neural Networks for Graph Data](http://arxiv.org/pdf/1805.07984.pdf) (Best Research Paper Award) [kdd 2018]
+	
+  - **Overview:** 提出了第一个关于（属性）图的对抗性攻击的研究，特别关注利用gcn进行节点分类的任务。针对节点特征和图结构，提出了测试阶段的直接攻击和影响者攻击，和训练阶段的中毒/致因攻击。通过保留重要的数据特征来确保扰动的隐蔽性；提出了一种增量计算的高效算法；攻击具有迁移性。
   
   
-- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rnpn95cwj308j060jrr.jpg" width=300 height=190/>[Clustering] [Bayesian Robust Attributed Graph Clustering: Joint Learning of Partial Anomalies and Group Structure](http://pdfs.semanticscholar.org/2230/c5946b37ab891389a034396a4e2f1830cdfa.pdf) [AAAI 2018]  
+  
+- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rnpn95cwj308j060jrr.jpg" width="300" height="190"/>[Clustering] [Bayesian Robust Attributed Graph Clustering: Joint Learning of Partial Anomalies and Group Structure](http://pdfs.semanticscholar.org/2230/c5946b37ab891389a034396a4e2f1830cdfa.pdf) [AAAI 2018]  
 	
   - **Overview:** 研究了鲁棒属性图聚类问题。实际数据中聚类结构常常由于异常或破环而变得模糊，考虑到：图包含两个视图（网络结构和属性），异常可能只影响一部分，即实例可能会在其中一个视图中损坏，但在另一个视图中完好。在这种情况下，仍然可以派生有意义的聚类集群。通过对度修正随机块模型和伯努利混合模型的推广，提出了一种属性图聚类的概率模型PAICAN，实验表明了PAICAN在部分和全部异常下的鲁棒性。
   
     
 
-- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rod09tahj309404d3z5.jpg" width=300 height=160/>[Clustering] [Robust Spectral Clustering for Noisy Data: Modeling Sparse Corruptions Improves Latent Embeddings](http://library.usc.edu.ph/ACM/KKD%202017/pdfs/p737.pdf) [kdd 2017]
+- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rod09tahj309404d3z5.jpg" width="300" height="160"/>[Clustering] [Robust Spectral Clustering for Noisy Data: Modeling Sparse Corruptions Improves Latent Embeddings](http://library.usc.edu.ph/ACM/KKD%202017/pdfs/p737.pdf) [kdd 2017]
   
   - **Overview:** 谱聚类是最主要的聚类方法之一，但是它对有噪声的输入数据非常敏感。提出了一种用于谱聚类的相似图的稀疏和潜在分解方法。该模型联合学习了谱嵌入和被破坏的数据，从而整体上提高了聚类性能。
 
@@ -126,11 +125,14 @@ Our group’s research centers around the development of *robust machine learnin
 
 ### Head of Research Group
 
-<img align="left" src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=8200InoAAAAJ&citpid=2" width=160 height=110/><font size=5>**[Max Welling](http://staff.fnwi.uva.nl/m.welling/)**</font>
-
-Professor Machine Learning
-
-**Research Focus:** `Machine Learning`, `Artificial Intelligence`, `Statistics`
+<center>
+    <img style="border-radius: 0.3125em"  align="left" width="160" height="110"  src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=8200InoAAAAJ&citpid=2"/>
+    <p style="font-size:22px"><b>Max Welling</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left">Machine Learning, Artificial Intelligence, Statistics</p></li>
+    </ul>
+</center>
 
 ### Team profile
 
@@ -149,19 +151,19 @@ Professor Machine Learning
 
 ### Recent publication
 
-- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rjo6iamrj30ie076ta2.jpg" width=350 height=110/>[Graph Convolutional Matrix Completion](http://arxiv.org/pdf/1706.02263.pdf) [kdd 2019]
+- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rjo6iamrj30ie076ta2.jpg" width="350" height="110"/>[Graph Convolutional Matrix Completion](http://arxiv.org/pdf/1706.02263.pdf) [kdd 2019]
   
   - **Overview:** 从图上链接预测的角度考虑了推荐系统的矩阵补全问题，提出了一种基于可微消息在二部交互图上传递的图自动编码器框架。编码器包含一个图卷积层，它通过在二部user-item交互图上传递消息来构造用户和项嵌入，结合双线性译码器，以标记边缘的形式预测新的评级。
   
     
   
-- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rhflyy9yj30bc05zaag.jpg" width=350 height=110/>[Neural relational inference for interacting systems](http://proceedings.mlr.press/v80/kipf18a.html). [ICML 2018]
+- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rhflyy9yj30bc05zaag.jpg" width="350" height="110"/>[Neural relational inference for interacting systems](http://proceedings.mlr.press/v80/kipf18a.html). [ICML 2018]
   
     - **Overview:** 提出了基于变分自编码器的神经关系推理(NRI)模型，用于非监督的学习交互系统的dynamics同时推断关系结构。该模型可以在无监督的情况下准确的恢复真实的交互图。
     
       
     
-- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rkekla1oj30k80ao0ur.jpg" width=350 height=110/>[MODELING RELATIONAL DATA WITH GRAPH CONVOLUTIONAL NETWORKS](http://arxiv.org/pdf/1703.06103.pdf) [ESWC 2018]
+- <img align="right" src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rkekla1oj30k80ao0ur.jpg" width="350" height="110"/>[MODELING RELATIONAL DATA WITH GRAPH CONVOLUTIONAL NETWORKS](http://arxiv.org/pdf/1703.06103.pdf) [ESWC 2018]
   
     - **Overview:** 提出了关系图卷积网络(R-GCNs)，用于知识图谱的**链路预测**和**实体分类**。
 
