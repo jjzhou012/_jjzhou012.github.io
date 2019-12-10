@@ -20,7 +20,8 @@ pageview: true
 ### Head of Research Group
 
 <center>
-    <center><img align="left" width=160 height=220 src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg"></center>
+     <img style="border-radius: 0.3125em;    
+    box-shadow: 0 0px 0px 0 rgba(34,36,38,.12),0 0px 0px 0 rgba(34,36,38,.08);"  align="left" width=160 height=220     src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg">  
     <p style="font-size:22px"><b>Stephan Günnemann</b></p>
     <ul style="margin:0 0 0 200px">
         <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
