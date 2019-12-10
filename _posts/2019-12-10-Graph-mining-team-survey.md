@@ -20,7 +20,7 @@ pageview: true
 ### Head of Research Group
 
 <center>
-    <img align="left" src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg" width=160 height=220/>
+    <div><img align="left" src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg" width=160 height=220/></div>
     <p style="font-size:22px"><b>Stephan Günnemann</b></p>
     <ul style="margin:0 0 0 200px">
         <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
@@ -30,6 +30,8 @@ pageview: true
     <li><p align="left">Analysis of Temporal and Dynamic Data</p></li>
     </ul>
 </center>
+
+
 
 ### Team profile
 
@@ -58,10 +60,8 @@ Our group’s research centers around the development of *robust machine learnin
 
   - **Overview:** 针对**节点分类**，提出了一种**基于属性图的训练时间对抗攻击算法**。使用**元梯度**来解决双层优化问题的基础上的**类中毒对抗攻击**。实验表明，元梯度方法创建的攻击（即使很微小的扰动）始终导致gcn模型的分类性能大幅下降，甚至转移到**无监督模型**。
 
-    <img src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rmj7537yj30pc07tgnx.jpg" width=700 height=180/>
-    
-    
-
+    <center><img src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rmj7537yj30pc07tgnx.jpg" width=700 height=180/></center>
+  
 - <img align="right" src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rn2djo6tj30lx096zml.jpg" width=300 height=160/>[**Adversarial Attacks**] [Adversarial Attacks on Neural Networks for Graph Data](https://arxiv.org/pdf/1805.07984.pdf) (Best Research Paper Award) [kdd 2018]
 
   - **Overview:** 提出了第一个关于（属性）图的对抗性攻击的研究，特别关注利用gcn进行节点分类的任务。针对节点特征和图结构，提出了测试阶段的直接攻击和影响者攻击，和训练阶段的中毒/致因攻击。通过保留重要的数据特征来确保扰动的隐蔽性；提出了一种增量计算的高效算法；攻击具有迁移性。
