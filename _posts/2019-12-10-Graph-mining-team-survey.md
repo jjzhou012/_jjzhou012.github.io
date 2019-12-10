@@ -19,18 +19,17 @@ pageview: true
 
 ### Head of Research Group
 
-<center>    
+<center>
     <img style="border-radius: 0.3125em;    
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"       src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg">    
-    <br>    
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    
-    display: inline-block;    color: #999;   
-    padding: 2px;">Fig 1: 空间信息的聚合</div> 
-</center>
-  
-
-
-
+    box-shadow: 0 0px 0px 0 rgba(34,36,38,.12),0 0px 0px 0 rgba(34,36,38,.08);"  align="left" width=160 height=220     src="http://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg">  
+    <p style="font-size:22px"><b>Stephan Günnemann</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left">Machine Learning for Graphs/Networks, Graph Mining, Network Analysis</p></li>
+    <li><p align="left">Robust and Adversarial Machine Learning</p></li>
+    <li><p align="left">Probabilistic Models, (Deep) Generative Models</p></li>
+    <li><p align="left">Analysis of Temporal and Dynamic Data</p></li>
+    </ul>
 </center>
 
 
