@@ -20,7 +20,7 @@ pageview: true
 ### Head of Research Group
 
 <center>
-    <img style="border-radius: 0.3125em"  align="left" width=160 height=220  src="images/bc458715a663c02965d79fe976933e5.png"/>
+    <img style="border-radius: 0.3125em"  align="left" width="160" height="220"  src="images/bc458715a663c02965d79fe976933e5.png"/>
     <p style="font-size:22px"><b>Stephan Günnemann</b></p>
     <ul style="margin:0 0 0 200px">
         <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
