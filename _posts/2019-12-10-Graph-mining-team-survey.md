@@ -19,13 +19,17 @@ pageview: true
 
 ### Head of Research Group
 
-<img align="left" src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg" width=160 height=200/><font size=5>**[Stephan Günnemann](https://www.kdd.in.tum.de/en/team/guennemann/)**</font> 
-**Research Focus:** 
-
-- `Machine Learning for Graphs/Networks, Graph Mining, Network Analysis`
-- `Robust and Adversarial Machine Learning`
-- `Probabilistic Models, (Deep) Generative Models`
-- `Analysis of Temporal and Dynamic Data`
+<center>
+    <img align="left" src="https://ws1.sinaimg.cn/large/005NduT8ly1g9rlc6hei2j304q06c0u5.jpg" width=160 height=220/>
+    <p style="font-size:22px"><b>Stephan Günnemann</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left">Machine Learning for Graphs/Networks, Graph Mining, Network Analysis</p></li>
+    <li><p align="left">Robust and Adversarial Machine Learning</p></li>
+    <li><p align="left">Probabilistic Models, (Deep) Generative Models</p></li>
+    <li><p align="left">Analysis of Temporal and Dynamic Data</p></li>
+    </ul>
+</center>
 
 ### Team profile
 
