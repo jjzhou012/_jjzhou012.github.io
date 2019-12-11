@@ -191,13 +191,13 @@ Our group’s research centers around the development of *robust machine learnin
 
 相关链接：
 
-- https://web.eecs.umich.edu/~dkoutra/
-- https://gemslab.github.io/
+- [homepage](https://web.eecs.umich.edu/~dkoutra/)
+- [github](https://gemslab.github.io/)
 
 ### Head of Research Group
 
 <center>
-    <img style="border-radius: 0.3125em"  align="left" width="210" height="220"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t0o5iz0qj32bc1yox72.jpg"/>
+    <img style="border-radius: 0.3125em"  align="left" width="160" height="150"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t0o5iz0qj32bc1yox72.jpg"/>
     <p style="font-size:22px"><b>Danai Koutra</b></p>
     <ul style="margin:0 0 0 200px">
         <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
@@ -205,8 +205,6 @@ Our group’s research centers around the development of *robust machine learnin
     <li><p align="left">graph anomaly and event detection.</p></li>
     </ul>
 </center>
-
-
 
 
 
@@ -234,6 +232,7 @@ Our group’s research centers around the development of *robust machine learnin
   提出了随机网格映射(RGM)用于图分类，它是一个快速计算的特征映射，能通过节点嵌入在特征空间的分布来表示图。
 
 - [REGAL: Representation Learning-based Graph Alignment](https://gemslab.github.io/papers/heimann-2018-regal.pdf) [CIKM 2018]
+  
   - **Overview：**提出了REGAL(基于表示学习的图对齐)，这是一个利用自动学习节点表示的能力来跨不同图匹配节点的框架。
 
 #### 表示学习
@@ -252,12 +251,12 @@ Our group’s research centers around the development of *robust machine learnin
 
 相关链接：
 
-- http://keg.cs.tsinghua.edu.cn/jietang/
+- [homepage](http://keg.cs.tsinghua.edu.cn/jietang/)
 
 ### Head of Research Group
 
 <center>
-    <img style="border-radius: 0.3125em"  align="left" width="180" height="220"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t2bi5bwnj30he0heha6.jpg"/>
+    <img style="border-radius: 0.3125em"  align="left" width="140" height="150"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t2bi5bwnj30he0heha6.jpg"/>
     <p style="font-size:22px"><b>Jie Tang</b></p>
     <ul style="margin:0 0 0 200px">
         <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
@@ -265,10 +264,6 @@ Our group’s research centers around the development of *robust machine learnin
     <li><p align="left">social networks、 knowledge graph</p></li>
     </ul>
 </center>
-
-
-
-
 
 
 
@@ -298,20 +293,18 @@ Our group’s research centers around the development of *robust machine learnin
 
 相关链接：
 
-- https://www.mimuw.edu.pl/~vua/
+- [homepage](https://www.mimuw.edu.pl/~vua/)
 
 ### Introduction
 
 <center>
-    <img style="border-radius: 0.3125em"  align="left" width="160" height="180"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t44cj9hlj302h03kaaa.jpg"/>
+    <img style="border-radius: 0.3125em"  align="left" width="130" height="130"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t44cj9hlj302h03kaaa.jpg"/>
     <p style="font-size:22px"><b>Marcin Waniek</b></p>
     <ul style="margin:0 0 0 200px">
         <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
     <li><p align="left">Link prediction attack</p></li>
     </ul>
 </center>
-
-
 
 
 
