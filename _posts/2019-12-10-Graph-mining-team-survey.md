@@ -48,7 +48,6 @@ Our group’s research centers around the development of *robust machine learnin
 
 - 针对 GNN 模型的对抗攻击 （节点分类）、针对图嵌入算法的对抗攻击
 - 提出新的 GNN 模型用于图挖掘，特别是节点分类任务
-- 
 
 ### Recent publication
 
@@ -105,7 +104,167 @@ Our group’s research centers around the development of *robust machine learnin
 
 
 
-## 2.
+## 2. SNAP: Stanford Network Analysis Project
+
+相关链接：
+
+- [Jure’s personal homepage](https://cs.stanford.edu/~jure/)
+
+### Head of Research Group
+
+<center>
+    <img style="border-radius: 0.3125em"  align="left" width="160" height="220"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9ruxqdrg5j303d046q37.jpg"/>
+    <p style="font-size:22px"><b>Jure Leskovec</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left">Mining and modeling large social and information networks.</p></li>
+    <li><p align="left">Networks evolution and diffusion of information.</p></li>
+         <p style="font-size:18px;margin:0px;" align="left"><b>Main contributions:</b></p>
+    <li><p align="left">Node2vec, GraphSAGE, GIN</p></li>
+    </ul>
+</center>
+
+
+
+团队重要贡献:
+
+- GNN以及GNN的可解释性研究，应用于节点分类、动态网络分析、推荐系统
+- 
+
+### Recent publication
+
+#### GNN以及GNN的可解释性研究
+
+- [可解释性] [GNNExplainer: Generating Explanations for Graph Neural Networks](https://cs.stanford.edu/~jure/pubs/gnnexplainer-neurips19.pdf). [NeurIPS 2019]
+
+  - **Blog:** [[Project website, code and data](http://snap.stanford.edu/gnnexplainer/)]
+
+  - **Overview:** 提出了第一个用于GNN解释预测的通用的、模型无关的工具 GNNExplainer，用于在任何基于图的机器学习任务上为任何基于GNN的模型的预测提供说明性的解释。给定一个实例，GNNExplainer能识别出一个紧凑的子图结构和一小部分在GNNs预测中起关键作用的节点特征。此外，GNNExplainer可以为整个实例类生成一致和简洁的解释。实验表明，GNNExplainer在解释精度上比其他baseline方法高出43.0%。GNNExplainer提供了各种各样的好处，从可视化语义相关结构的能力到可解释性。。。
+
+    <center>
+        <img src="http://ww1.sinaimg.cn/large/005NduT8ly1g9rwukb5f5j30qu05h0vy.jpg" width="900" height="180"/></center>
+
+- [How Powerful Are Graph Neural Networks?](https://cs.stanford.edu/~jure/pubs/gin-iclr19.pdf). [ICLR 2019] [[code]](https://github.com/weihua916/powerful-gnns)
+
+  - **Overview：**提出了一个理论框架来分析GNNs捕捉不同图结构的表达能力。结果描述了流行的GNN变体，如GCNs和GraphSAGE的区别能力，并表明它们不能学会区分某些简单的图结构。此外开发了一个简单的架构，它被证明是所有GNNs类中最富表现力的，并且与WeisfeilerLehman图同构测试一样强大。
+
+- [Hyperbolic Graph Convolutional Neural Networks](https://cs.stanford.edu/~jure/pubs/hgcn-neurips19.pdf). [NeurIPS 2019] [[code]](http://snap.stanford.edu/hgcn/#code)
+
+  - **Overview：**提出了双曲图卷积神经网络(HGCN)，这是第一个利用GCNs的表达性和双曲几何性质来学习层次图和无标度图的归纳节点表示的归纳双曲神经网络。实验证明HGCN能学习嵌入，保护层次结构，降低预测错误率。
+
+- <img align="right" src="http://ww1.sinaimg.cn/large/005NduT8ly1g9skn1a66qj30t40cctbl.jpg" width="280" height="140"/>[Predicting Dynamic Embedding Trajectory in Temporal Interaction Networks](https://cs.stanford.edu/~jure/pubs/jodie-kdd19.pdf). [kdd 2019] [[code]](https://github.com/srijankr/jodie/)
+
+  - **Overview：**JODIE是动态网络中所有节点的表示学习框架。给定一个节点动作序列，JODIE为每个节点学习一个动态嵌入轨迹(与静态嵌入相反)。这些轨迹对于后续的机器学习任务很有用，比如链接预测、节点分类和聚类。JODIE速度很快，可以准确地预测未来的交互和异常检测。
+
+    
+
+- [Knowledge-aware Graph Neural Networks with Label Smoothness Regularization for Recommender Systems](https://cs.stanford.edu/~jure/pubs/kgnnls-kdd19.pdf). [kdd 2019]
+
+  - **Overview：**提出了带有标签平滑正则化的知识感知图神经网络(KGNN-LS)来为推荐系统提供更好的建议。从概念上讲，我们的方法首先应用一个可训练的函数来识别给定用户的重要知识图关系，从而实现特定于用户的项嵌入。将知识图转化为用户特定的加权图，利用图神经网络计算个性化的项嵌入。为了提供更好的归纳偏差，我们依赖于标签平滑度假设，该假设假定知识图谱中相邻的项目可能具有相似的用户相关性标签/分数。
+  
+- [Hierarchical Temporal Convolutional Networks for Dynamic Recommender Systems](https://cs.stanford.edu/~jure/pubs/hiertcn-www19.pdf). [WWW 2019]
+  
+  - **Overview：**考虑到现有的基于序列模型的推荐系统受到速度和内存消耗的限制，提出了一种适用于实时大规模推荐系统的层次化时域卷积网络(HierTCN)。这是一种层次化的深度学习体系结构，它基于用户与项目的连续多会话交互进行动态推荐。HierTCN是为具有数十亿项和数亿用户的网络级系统设计的。它包括两个层次的模型:高级模型使用递归神经网络(RNN)聚合用户发展的长期利益在不同会话，而低级模型实现时间卷积网络(TCN)，利用长期利益和短期内交互会话来预测下一个交互。
+  
+- [Hierarchical Graph Representation Learning with Differentiable Pooling](https://cs.stanford.edu/~jure/pubs/diffpool-neurips18.pdf). [NeurIPS 2018]
+
+  - **Overview：**提出了DIFFPOOL，一个可微分的图池模块，它可以生成图的层次表示，并可以端到端的方式与各种图神经网络架构相结合。DIFFPOOL为深度GNN的每一层的节点学习可微分的软集群分配，将节点映射到一组集群，然后形成下一个GNN层的粗糙输入。
+
+
+
+#### 网络分析
+
+- [Predicting Dynamic Embedding Trajectory in Temporal Interaction Networks](https://cs.stanford.edu/~jure/pubs/jodie-kdd19.pdf). [kdd 2019][The Local Closure Coefficient: A New Perspective On Network Clustering](https://cs.stanford.edu/~jure/pubs/motifs-wsdm19.pdf). [WSDM 2019]
+  
+  - **Overview：**边缘聚类的许多常见解释都将三元闭合归结为一个头部节点，而不是长度为2路径的中心节点，例如，我朋友的一个朋友也是我的朋友。虽然这种解释在网络分析中很常见，但是对于边缘聚类，没有一种测量方法可以归因于头节点。在此，我们将局部闭包系数作为量化基于头节点的边缘聚类的度量。我们将局部闭包系数定义为由头节点发散出的长度为2的路径中产生三角形的部分。这种定义上的细微差异导致了与传统聚类系数显著不同的属性。我们分析了与节点度的相关性，将闭合系数与社区检测联系起来，表明闭合系数作为一种特征可以改善链路预测。
+  
+    <center>
+        <img src="http://ww1.sinaimg.cn/large/005NduT8ly1g9sues94tzj30ev04edhh.jpg" width="500" height="180"/></center>
+
+- [Network enhancement as a general method to denoise weighted biological networks.](https://cs.stanford.edu/~jure/pubs/ne-natcom18.pdf) [Nature Communications 2018]
+
+  - **Overview：**开发了网络增强(NE)，一种去噪加权生物网络的通用方法。该方法可用于任何加权网络分析管道，提高了无向加权网络的信噪比，并可改进下游分析，提高下游网络分析的性能。
+
+
+
+## 3. GEMS Lab ：Graph Exploration and Mining at Scale
+
+相关链接：
+
+- https://web.eecs.umich.edu/~dkoutra/
+- https://gemslab.github.io/
+
+### Head of Research Group
+
+<center>
+    <img style="border-radius: 0.3125em"  align="left" width="210" height="220"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t0o5iz0qj32bc1yox72.jpg"/>
+    <p style="font-size:22px"><b>Danai Koutra</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left">large-scale graph mining, graph similarity, matching, summarization and visualization.</p></li>
+    <li><p align="left">graph anomaly and event detection.</p></li>
+    </ul>
+</center>
+
+
+
+
+
+### Team profile
+
+ Some of ongoing [projects](https://gemslab.github.io/research/) include:
+
+- [多网络分析](https://gemslab.github.io/research/#multi-network-analysis), 如跨网络节点匹配
+- [网络表示学习](https://gemslab.github.io/research/#representation-learning)
+- Abstracting or [“summarizing” a graph](https://gemslab.github.io/research/#brain-network-analysis) with a smaller network
+- Analyzing [network models of the brain](https://gemslab.github.io/research/#brain-network-analysis) derived from fMRI scans
+- [Distributed graph methods](https://gemslab.github.io/research/#distributed-graph-methods) for iteratively solving linear systems
+- Network-theoretical [user modeling](https://gemslab.github.io/research/#user-modeling) for various data science applications
+
+### Recent publication
+
+#### 多网络分析
+
+<center>
+    <img src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t1pzg6rij30po0ci45a.jpg" width="700" height="200"/>
+</center>
+
+- [Graph Classification] [Distribution of Node Embeddings as Multiresolution Features for Graphs](https://gemslab.github.io/papers/heimann-2019-RGM.pdf) (Best Student Paper award) [ICDM 2019]
+
+  提出了随机网格映射(RGM)用于图分类，它是一个快速计算的特征映射，能通过节点嵌入在特征空间的分布来表示图。
+
+- [REGAL: Representation Learning-based Graph Alignment](https://gemslab.github.io/papers/heimann-2018-regal.pdf) [CIKM 2018]
+  - **Overview：**提出了REGAL(基于表示学习的图对齐)，这是一个利用自动学习节点表示的能力来跨不同图匹配节点的框架。
+
+#### 表示学习
+
+- [Distribution of Node Embeddings as Multiresolution Features for Graphs](https://gemslab.github.io/papers/heimann-2019-RGM.pdf) (Best Student Paper award) [ICDM 2019]
+- [Smart Roles: Inferring Professional Roles in Email Networks](https://gemslab.github.io/papers/jin-2019-roles.pdf) [kdd 2019]
+  - **Overview：**研究了从电子邮件数据中进行专业角色推断的任务，这对于电子邮件优先级划分和联系人推荐系统至关重要。我们要解决的核心问题是:鉴于有关员工的有限数据(这在第三方电子邮件应用程序中很常见)，我们能否根据这些员工的电子邮件行为推断出他们在组织层次结构中的位置？为了实现我们的目标，在本文中，我们研究了一个独特的新电子邮件数据集上的专业角色推断，该数据集包含了数千个组织中数十亿的电子邮件交换。采用节点是雇员、边缘代表电子邮件通信的网络方法，我们提出了EMBER或嵌入基于电子邮件的角色，它发现以电子邮件为中心的网络节点嵌入可用于专业角色推断任务。EMBER自动捕获电子邮件网络中员工之间的行为相似性，从而自然地将不同层次角色的员工区分开来。
+- [Latent Network Summarization: Bridging Network Embedding and Summarization](https://gemslab.github.io/papers/jin-2019-latent.pdf) [kdd 2019]
+- [GroupINN: Grouping-based Interpretable Neural Network for Classification of Limited, Noisy Brain Data](https://gemslab.github.io/papers/yan-2019-groupinn.pdf) [kdd 2019]
+
+
+
+
+
+## 4. KEG: Center for Knowledge & Intelligence , Knowledge Engineering Group in Tsinghua University
+
+相关链接：
+
+- http://keg.cs.tsinghua.edu.cn/jietang/
+
+### Head of Research Group
+
+<center>
+    <img style="border-radius: 0.3125em"  align="left" width="180" height="220"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t2bi5bwnj30he0heha6.jpg"/>
+    <p style="font-size:22px"><b>Jie Tang</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left"> artificial intelligence、 data mining and machine learning</p></li>
+    <li><p align="left">social networks、 knowledge graph</p></li>
+    </ul>
+</center>
 
 
 
@@ -113,11 +272,59 @@ Our group’s research centers around the development of *robust machine learnin
 
 
 
+### Recent publication
+
+#### 表示学习
+
+- [Network Embedding as Matrix Factorization: Unifying DeepWalk, LINE, PTE, and node2vec](http://keg.cs.tsinghua.edu.cn/jietang/publications/WSDM18-Qiu-et-al-NetMF-network-embedding.pdf) [WSDM 2018]
+  - **Overview：**对四种有效的网络嵌入方法DeepWalk、LINE、PTE和node2vec进行了理论分析，证明了上述所有带有负抽样的模型都可以统一到具有封闭形式的矩阵分解框架中，它们的矩阵的封闭形式不仅提供了这些方法之间的关系，而且提供了它们与图拉普拉斯变换的内在联系。给出了计算网络嵌入的NetMF方法及其近似算法。
+- [DeepInf: Social Influence Prediction with Deep Learning](http://keg.cs.tsinghua.edu.cn/jietang/publications/kdd18_jiezhong-DeepInf.pdf) [kdd 2018]
+  - **Overview：**设计了一个端到端框架DeepInf，学习用户的潜在特征表征来预测社会影响。一般情况下，Deeplnf将用户的局部网络作为输入到一个图神经网络中，学习其潜在的社会表征。我们设计的策略是将网络结构和用户特定的特性结合到卷积神经网络和注意力网络中。明显优于传统的基于特征工程的方法，这表明了表示学习对于社交应用的有效性。
+- [NetSMF: Large-Scale Network Embedding as Sparse Matrix Factorization](http://keg.cs.tsinghua.edu.cn/jietang/publications/www19-Qiu-et-al-NetSMF-Large-Scale-Network-Embedding.pdf) [www 2019]
+  - **Overview：**研究了大规模网络嵌入问题。提出了大规模网络嵌入的稀疏矩阵分解(NetSMF)算法。NetSMF杠杆理论从光谱稀疏化，有效稀疏上述密集矩阵，使嵌入学习的效率显着提高。稀疏化后的矩阵在谱上与原始的稠密矩阵非常接近，理论上近似误差有界，这有助于保持学习嵌入的表示能力。
+
+#### 知识图谱
+
+- [ArnetMiner: Extraction and Mining of Academic Social Networks](http://keg.cs.tsinghua.edu.cn/jietang/publications/KDD08-Tang-et-al-ArnetMiner.pdf) [kdd 2008]
+  - **Overview：**该系统主要针对学术社交网络的提取和挖掘，整合了来自在线网络数据库的数据，构建 [ArnetMiner](https://www.aminer.cn/)
+- [Fast and Flexible Top-k Similarity Search on Large Networks](http://keg.cs.tsinghua.edu.cn/jietang/publications/TOIS17-Zhang-et-al-Fast-Top-K-Similarity-Search.pdf) [TOIS 2017]
+  - **Overview：**相似度搜索是网络分析中的一个基本问题，可以应用于许多领域，如合著者网络中的协作者推荐、社交网络中的朋友推荐、医疗信息网络中的关系预测等。在本文中，我们提出了一种基于随机路径的方法来估计相似点，这种方法基于共同邻居和结构上下文，在非常大的同构或异构信息网络中有效。
 
 
 
 
-## 5. **AMLab** in University of Amsterdam
+
+## 5. Marcin Waniek: a Post-Doctoral Associate at New York University Abu Dhabi.
+
+相关链接：
+
+- https://www.mimuw.edu.pl/~vua/
+
+### Introduction
+
+<center>
+    <img style="border-radius: 0.3125em"  align="left" width="160" height="180"  src="http://ww1.sinaimg.cn/large/005NduT8ly1g9t44cj9hlj302h03kaaa.jpg"/>
+    <p style="font-size:22px"><b>Marcin Waniek</b></p>
+    <ul style="margin:0 0 0 200px">
+        <p style="font-size:18px;margin:0px;" align="left"><b>Research Focus:</b></p>
+    <li><p align="left">Link prediction attack</p></li>
+    </ul>
+</center>
+
+
+
+
+
+### Recent publication
+
+- [How to Hide One's Relationships from Link Prediction Algorithms.](https://www.nature.com/articles/s41598-019-48583-6.pdf) [Scientific Reports]
+  - **Overview：**提出启发式方法，弱化社交网络中的链路预测，隐私保护。
+- [Attacking Similarity-Based Link Prediction in Social Networks](https://arxiv.org/pdf/1809.08368.pdf) [AAMAS 2019]
+  - **Overview：**调研了两类基于相似度的链路预测攻击：局部和全局。对于局部度量，我们提出了一种最小化局部度量上界的算法，它对应于在基数约束下最大化子模函数。此外，我们确定了两种特殊情况，攻击单个链接和攻击一组节点，其中第一种情况确保对所有本地指标的最佳攻击，而后者确保对CND指标的最佳攻击。对于全局度量，我们证明了即使在攻击单个链接时，最小化Katz和最大化ACT的问题都是NP-Hard。然后针对这两个问题分别提出了一种有效的贪婪算法和一种有原则的启发式算法。
+
+
+
+## 6. **AMLab** in University of Amsterdam
 
 相关链接：
 
