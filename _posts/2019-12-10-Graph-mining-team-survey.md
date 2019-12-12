@@ -129,7 +129,8 @@ Our group’s research centers around the development of *robust machine learnin
 团队重要贡献:
 
 - GNN以及GNN的可解释性研究，应用于节点分类、动态网络分析、推荐系统
-- 
+
+  
 
 ### Recent publication
 
@@ -277,6 +278,16 @@ Our group’s research centers around the development of *robust machine learnin
   - **Overview：**设计了一个端到端框架DeepInf，学习用户的潜在特征表征来预测社会影响。一般情况下，Deeplnf将用户的局部网络作为输入到一个图神经网络中，学习其潜在的社会表征。我们设计的策略是将网络结构和用户特定的特性结合到卷积神经网络和注意力网络中。明显优于传统的基于特征工程的方法，这表明了表示学习对于社交应用的有效性。
 - [NetSMF: Large-Scale Network Embedding as Sparse Matrix Factorization](http://keg.cs.tsinghua.edu.cn/jietang/publications/www19-Qiu-et-al-NetSMF-Large-Scale-Network-Embedding.pdf) [www 2019]
   - **Overview：**研究了大规模网络嵌入问题。提出了大规模网络嵌入的稀疏矩阵分解(NetSMF)算法。NetSMF杠杆理论从光谱稀疏化，有效稀疏上述密集矩阵，使嵌入学习的效率显着提高。稀疏化后的矩阵在谱上与原始的稠密矩阵非常接近，理论上近似误差有界，这有助于保持学习嵌入的表示能力。
+
+#### 鲁棒性
+
+- [Graph Adversarial Training: Dynamically Regularizing Based on Graph Structure.](http://keg.cs.tsinghua.edu.cn/jietang/publications/TKDE20-Feng-et-al-Graph-Adversarial-Training.pdf) [TKDE]
+
+  - **Overview：**探讨了图上的对抗训练，旨在提高在图上学习的模型的鲁棒性和泛化能力。我们提出了图对抗训练(GAT)，它在学习构造和抵抗扰动时，考虑了连通实例的影响。给出了广义时变网络的一般形式，它可以看作是一个基于图结构的动态正则化方案。通过迭代生成攻击图平滑约束的反例和对反例的学习，该方法鼓励了对给定图的预测的平滑性，这表明该模型具有良好的泛化性。作为一种动态正则化技术，我们的方法是通用的，可用于训练大多数图神经网络模型。我们使用提出的方法训练了一个成熟的模型GCN来解决节点分类任务。
+
+    <center>
+        <img src="http://ww1.sinaimg.cn/large/005NduT8ly1g9toe65jf8j313e0dbh2a.jpg" width="900" height="200"/>
+    </center>
 
 #### 知识图谱
 
