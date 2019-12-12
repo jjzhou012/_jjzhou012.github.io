@@ -30,9 +30,9 @@ key: page-about
 
 **Bio**
 
-I am Jiajun Zhou, a student whose current research interests include graph mining and deep learning, especially for network security and knowledge graph reasoning. 
+I am Jiajun Zhou, a master's candidate whose current research interests include graph data mining and deep learning, especially for network security and knowledge graph reasoning. 
 
-Feel free to contact me through jjzhou012@163.com to talk about anything interesting on graph neural networks, etc.
+Feel free to contact me through jjzhou012@163.com to talk about anything interesting on graph/network analysis, etc.
 
 
 
