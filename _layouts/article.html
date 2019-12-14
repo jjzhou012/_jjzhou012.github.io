@@ -8,6 +8,8 @@ type: article
   source0=layout.sharing source1=page.sharing -%}
 {%- assign _sharing = __return -%}
 
+{%- include leancloud-analytics.html -%}
+
 <div class="layout--article">
   {%- include article/top/custom.html -%}
 
@@ -37,6 +39,12 @@ type: article
 </script> 
 <!-- Gitalk end -->
 
+<span id="/2018-04-04/leancloud-In-Jekyll/" class="add_leancloud_visitors" data-flag-title="在Jekyll上使用LeanCloud統計訪問人數">
+    <span class="octicon octicon-eye"></span>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span class="leancloud-visitors-count"></span>
+    <span class="post-meta-item-text">次瀏覽</span>
+</span>
   
   
   
