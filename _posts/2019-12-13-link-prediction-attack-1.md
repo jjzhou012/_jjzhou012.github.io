@@ -55,7 +55,6 @@ $$
 
 **Definition** : $\mathsf{CTR (Closed-Triad-Removal)}$. 对一个`evader` $w$，希望隐藏$H$中包含的关系，通过删除一条边$(v,w) \in E$:
 
-
 $$
 \exists x \in V:((v, x) \in E) \wedge((x, w) \in H)
 $$
@@ -66,6 +65,15 @@ $$
 
 如Figure 1所示，三条边$(x,w),(y,w),(z,w) \in H$，CTR算法通过检查所有的候选边$(v,w)$，寻找能影响$H$中最大数量边的$(v,w)$。图中移除$(v,w)$能破坏三个封闭三元组$(v,w,x),(v,w,y),(v,w,z)$。换句话说，如果$w$希望隐藏他和$x,y,z$的关系，那么他需要去和更多的$x,y,z$的朋友解除好友关系。
 
-
 ![845cf8326ccb4e6f690d383efcf7ed2.png](http://ww1.sinaimg.cn/mw690/005NduT8ly1g9v7zs7ms5j310n0id0vr.jpg)
+
+
+
+
+
+### The OTC heuristic
+
+Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$，不仅可以通过降低其相似性分数，也可以增加其领域内其他边的相似性分数来间接降低目标边$e$的分数排名，达到隐藏目标边的效果。OTC检查了$(v, w)$的所有可能选择，并选择了一种能最大程度降低H中非边排列的选择，同时确保在此过程中H中没有其他非边暴露;参见S6部分中的伪代码
+
+
 
