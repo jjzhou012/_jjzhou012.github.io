@@ -166,5 +166,5 @@ Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$
 
 ## Method
 
-令 $N_G(v)=\left\{w\in V: (v,w) \in E \right\}$ 表示节点 $v$ 的邻居节点集合。令 $N_G(v,w) = N_G(v) \cap N_G(w)$ 表示节点 $v$ 和 $w$ 的共同邻居。 
+令 $N_G(v)=\left\{w\in V: (v,w) \in E \right\}$ 表示节点 $v$ 的邻居节点集合。令 $N_G(v,w) = N_G(v) \cap N_G(w)$ 表示节点 $v$ 和 $w$ 的共同邻居。 令 $d_G(v)= \mid N_G(v) \mid$ 表示节点 $v$ 的度。
 
