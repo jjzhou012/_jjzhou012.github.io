@@ -126,8 +126,8 @@ Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$
 
 分析了无标度网络的两个变量的影响：
 
-- 网络节点数$n \in \{200,400,600,800 \}$
-- 平均度 $d\in \{4,6,8,10\}$
+- 网络节点数$n \in \left\{200,400,600,800 \right\}$
+- 平均度 $d\in \left\{4,6,8,10\right\}$
 
 具体来说，对于$n$和$d$的每个组合，我们生成50个无标度网络;对于每个这样的网络$G$，我们随机选择10个`evader`(度不小于9);对于每一个这样的`evader` $v$，我们创建了5个不同的集合$H$，每个集合$H$由$v$的3条随机边组成。$(G, v, H)$的每个实例构成一个单独的实验。
 
@@ -165,4 +165,6 @@ Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$
 
 
 ## Method
+
+令 $N_G(v)=\left\{w\in V: (v,w) \in E \right\}$ 表示节点 $v$ 的邻居节点集合。令 $N_G(v,w) = N_G(v) \cap N_G(w)$ 表示节点 $v$ 和 $w$ 的共同邻居。 
 
