@@ -45,6 +45,8 @@ key: link-prediction-attack-1
 直观地说，这些指标量化了相似性指标识别网络中缺失边的能力。本文中，缺失的边是`evader`未公开的关系，因此他的目标是最小化性能度量。形式上，`evader`所面临的问题定义如下:
 
 **Definition 1** $\mathsf{(Evading Link Prediction)}$.  对于一个网络$G$， $H \subset \bar{E}$ 表示需要被隐藏的`non-edges`，$\hat{A} \subseteq \bar{E} \backslash H$表示被增加的边集合， $\hat{R} \subseteq E$表示被删除的边集合，$b \in \mathbb{N}$表示攻击预算（最大的边修改数量，增或删），$s_G:\bar{E} \rightarrow \mathbb{R}$ 表示链路预测使用的相似性指标，$$f\in \left\{AUC, AP \right\}$$ 表示评价指标。该任务的目标是确定增边和删边的集合 $A^* \subseteq \hat{A}$ 和  $R^* \subseteq \hat{R}$ ，使结果 $E^\ast = (E\cup A^\ast ) \backslash R^\ast $ 存在于：
+
+
 $$
 \underset{E^{\prime} \in \{(E \cup A) \backslash R: A \subseteq \hat{A}, R \subseteq \hat{R},\mid A\mid +\mid R\mid  \leq b\}}{\arg \min } f\left(E^{\prime}, H, s_{G}\right)
 $$
@@ -169,4 +171,19 @@ Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$
 
 ## Method
 
-令 $N_G(v)=\left\{w\in V: (v,w) \in E \right\}$ 表示节点 $v$ 的邻居节点集合。令 $N_G(v,w) = N_G(v) \cap N_G(w)$ 表示节点 $v$ 和 $w$ 的共同邻居。 令 $d_G(v)= \mid N_G(v) \mid$ 表示节点 $v$ 的度。
+令 $$N_G(v)=\left\{w\in V: (v,w) \in E \right\}$$ 表示节点 $v$ 的邻居节点集合。令 $N_G(v,w) = N_G(v) \cap N_G(w)$ 表示节点 $v$ 和 $w$ 的共同邻居。 令 $d_G(v)= \mid N_G(v) \mid$ 表示节点 $v$ 的度。
+
+对于每一个`non-edge`的相似性分数，$(x,w) \in \bar{E}$，取决于下列因素：
+
+- *Factor 1: `non-edge`的共同邻居数*。 $\forall s \in S$ ， $s(x,w)$ 随着 $\mid N(x,w) \mid$ 的增大而增大。
+
+- *Factor 2: `non-edge`两端节点的度*。 $$\forall s \in S\backslash \left\{s^{CN},s^{AA},s^{RA}  \right\}$$ ，如果 $N(x,w) \neq \emptyset$ ，$s(x,w)$ 随着 $d(x),d(w)$ 的增大而减小；否则若 $N(x,w) = \emptyset$ ， $s(x,w)$ 不受 $d(x),d(w)$ 的影响。
+
+  对于 $$s \in \{s^{CN},s^{AA},s^{RA} \}$$ ，无论是否有共同邻居， $s(x,w)$ 都不受 $d(x),d(w)$ 的影响。
+
+- *Factor 3: 共同邻居的度*。对于 $$s \in \{s^{AA},s^{RA} \}$$ ，$s(x,w)$随着共同邻居的度增大而减小；其他的相似性指标不受影响。
+
+<!--增加一条边$(v,w)$，能够影响下列类型的边：-->
+
+
+
