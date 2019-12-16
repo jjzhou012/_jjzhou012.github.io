@@ -14,7 +14,13 @@ key: link-prediction-attack-1
 
 
 
-## Motivation 
+## Introduction
+
+可以说，数以亿计的Facebook用户都熟悉收到好友建议的经历，而许多收到此类建议的人都想知道Facebook是如何预测那些从未在网上公开过的关系的。这些建议以链路预测算法为指导，如果恶意使用，可能会侵犯我们选择公开哪些关系的基本权利。虽然这种政治上的担忧已经在文献中被提及，但这些研究却含蓄地假设了一个掌控全局的角色，而完全忽视了社会网络中的成员自己能够引发这种威胁的可能性。我们通过开发启发式算法来填补这一空白，这种启发式算法赋予了普通大众权力，为他们提供了一种随时可用的方法来隐藏他们认为敏感的任何关系，而不需要他们了解网络邻居之外的拓扑结构。虽然我们证明了确定隐藏这种关系的最佳方式是棘手的，但经验评估证明了我们的启发法在实践中是有效的，并揭示了解除精心挑选的朋友关系比建立朋友关系更能保护隐私。我们的分析还表明，链路预测算法在较小的网络和密度较高的网络中更容易被操纵。评估链路预测算法的容错性和攻击容忍度，可以发现要修改的连接的选择是至关重要的，因为随机选择可能会适得其反，最终暴露想要隐藏的关系。
+
+
+
+## Motivation
 
 - it is more beneficial to focus on “unfriending” carefully-chosen individuals rather than befriending new ones.
 
@@ -33,14 +39,12 @@ key: link-prediction-attack-1
 
 为了量化`non-edges`的暴露程度，使用了两个常见的评价指标：
 
-- `AUC` : area under the ROC curve
-- `AP` : average precision
+- `AUC` : $H$作为测试集，AUC衡量了$H$中需要隐藏的边的分数大于随机`non-edge`的分数的概率，越低证明隐藏效果越好；
+- `AP` : average precision，值在0~1之间，1说明$H$中需要隐藏的关系被完全暴露，0说明$H$中的关系全部隐藏；
 
 直观地说，这些指标量化了相似性指标识别网络中缺失边的能力。本文中，缺失的边是`evader`未公开的关系，因此他的目标是最小化性能度量。形式上，`evader`所面临的问题定义如下:
 
-**Definition 1** $\mathsf{(Evading Link Prediction)}$.  对于一个网络$G$， $H \subset \bar{E}$ 表示需要被隐藏的`non-edges`，$\hat{A} \subseteq \bar{E} \backslash H$表示被增加的边集合， $\hat{R} \subseteq E$表示被删除的边集合，$b \in \mathbb{N}$表示攻击预算（最大的边修改数量，增或删），$s_G:\bar{E} \rightarrow \mathbb{R}$ 表示链路预测使用的相似性指标， $f\in \{AUC, AP\}$ 表示评价指标。该任务的目标是确定增边和删边的集合 $A^* \subseteq \hat{A}$ 和  $R^* \subseteq \hat{R}$ ，使结果 $E^\ast = (E\cup A^\ast ) \backslash R^\ast $ 存在于：
-
-
+**Definition 1** $\mathsf{(Evading Link Prediction)}$.  对于一个网络$G$， $H \subset \bar{E}$ 表示需要被隐藏的`non-edges`，$\hat{A} \subseteq \bar{E} \backslash H$表示被增加的边集合， $\hat{R} \subseteq E$表示被删除的边集合，$b \in \mathbb{N}$表示攻击预算（最大的边修改数量，增或删），$s_G:\bar{E} \rightarrow \mathbb{R}$ 表示链路预测使用的相似性指标，![146e0c5925fd578599d0d682afce443.png](http://ww1.sinaimg.cn/large/005NduT8ly1g9yl2my8shj3057019dfm.jpg) $f\in \left\{AUC, AP \right\}$ 表示评价指标。该任务的目标是确定增边和删边的集合 $A^* \subseteq \hat{A}$ 和  $R^* \subseteq \hat{R}$ ，使结果 $E^\ast = (E\cup A^\ast ) \backslash R^\ast $ 存在于：
 $$
 \underset{E^{\prime} \in \{(E \cup A) \backslash R: A \subseteq \hat{A}, R \subseteq \hat{R},\mid A\mid +\mid R\mid  \leq b\}}{\arg \min } f\left(E^{\prime}, H, s_{G}\right)
 $$
@@ -60,6 +64,8 @@ $$
 \exists x \in V:((v, x) \in E) \wedge((x, w) \in H)
 $$
 
+>如何选择边删除：对$x$而言，$(v,x)\in E$，$(x,w)\in H$，满足条件时，$(v,w)$可删。
+
 如Figure 1所示，移除边$(v,w)$会破环网络中的封闭三元组。注意虽然$(v,w,x)$构成了封闭三元组，但是由于$(x,w)$未发布，所以`seeker`不清楚$(v,w,x)$是否构成了封闭三元组，在`seeker`眼里$(x,w)$是`non-edge`。
 
 移除边$(v,w)$会降低$(x,w)$的局部相似性分数。当移除一条边能破坏更多的封闭三元组，那么算法会更有效。
@@ -70,13 +76,93 @@ $$
 
 
 
-
-
 ### The OTC heuristic
 
 Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$，不仅可以通过降低其相似性分数，也可以增加其领域内其他边的相似性分数来间接降低目标边$e$的分数排名，达到隐藏目标边的效果。OTC检查了$(v, w)$的所有可能选择，并选择了一种能最大程度降低$H$中`non-edges`排列的方案，同时确保在此过程中$H$中没有其他`non-edges`暴露。
 
+- $\exists u \in V:((w, u) \in H) \wedge((v, u) \notin E)$ ;
+- $\exists x \in V:((x, v) \in E) \wedge((x, w) \in \bar{E} \backslash H)$ ;
+
+> 虽然没看懂这式子写的什么玩意儿，但大胆猜测：
+>
+> 1. $(w,u)$是要隐藏的关系，在连接$(v,w)$之后，它不能在封闭三角形中，这样会增大它的相似性分数，所以$(v,u)$之间不能存在关系；
+> 2. $(v,x)$对于$w$而言是连接紧密的陌生人，$w$和其中一个陌生人$v$建立关系，可以提升$x,w$的相似性分数，前提是$(x,w)$不能是要隐藏的关系，即$(x,w) \notin H = \bar{E}\backslash H$ ；
+
+如 Figure 2 所示，对于一个`evader`$w$想要隐藏关系$(w,u)$，可以通过与陌生人$v$建立关系$(w,v)$，来提升$(x,w)$和$(y,v)$的相似性分数，从而提升它们的相似度排名，间接降低$(w,u)$的相似度排名。
+
+在社交平台上，OTC方法可以按如下方式应用：如果$u$和$w$想要隐藏它们之间的关系，对于其中的$w$来说，他可以向一些人发送好友请求，这些人的好友和$w$也不是好友关系（越多越好）；或者说，向那些有高连接密度的陌生人发送好友申请。
+
+![c7756d480e15bf43950bdb6bd7a88cc.png](http://ww1.sinaimg.cn/mw690/005NduT8ly1g9ybicnclcj30s00bfmyy.jpg)
 
 
 
+## Evaluation
+
+根据测试集计算所有节点对的相似性分数，计算测试集的AUC和AP。
+
+### 实验一：两种启发式算法的攻击效果评估
+
+- 目标网络：电话通讯网络，248763个节点，829725条边；
+- $b=5$； 
+- 对每个相似性指标$s_G$，随机选择10个`evader`，每个`evader`度不小于9，防止在删边的时候变成孤立节点；
+- 对于每个`evader`，构造五个$H$，每个$H$包含随机选择的三条边；
+- 共产生$5*10=50$个实验；
+
+
+
+![1456a0059ab603809f104d3fc953279.png](http://ww1.sinaimg.cn/mw690/005NduT8ly1g9yfyly4foj30rv0ihdjg.jpg)
+
+
+
+可以看出，OTC的影响似乎可以忽略不计，CTR似乎更有效，两种启发式混合似乎没有产生任何协同效应。这表明，为了隐藏一段关系，一个人应该主要关注选择“解除好友关系”，而不是结交新朋友。
+
+同时也发现，OTC在小网络上会比较有效，CTR在小网络上依然很有效。
+
+
+
+### 实验二：攻击容错率的参数分析
+
+基于AUC和AP来评估相似性指标的攻击容错率。
+
+分析了无标度网络的两个变量的影响：
+
+- 网络节点数$n \in \{200,400,600,800 \}$
+- 平均度 $d\in \{4,6,8,10\}$
+
+具体来说，对于$n$和$d$的每个组合，我们生成50个无标度网络;对于每个这样的网络$G$，我们随机选择10个`evader`(度不小于9);对于每一个这样的`evader` $v$，我们创建了5个不同的集合$H$，每个集合$H$由$v$的3条随机边组成。$(G, v, H)$的每个实例构成一个单独的实验。
+
+总体而言，这些相似度指标的攻击容错率随$n$的增大而增大，随$d$的增大而减小。
+
+- 小网络上攻击成功率高；
+- 平均度越大，关系越多，攻击成功率越高；
+
+所以，在越大规模、越稀疏的网络上，越难以隐藏关系。
+
+
+
+![a24b66f59733e282ff61f971e245da0.png](http://ww1.sinaimg.cn/large/005NduT8ly1g9ykm9m9ozj30qx0jstep.jpg)
+
+
+
+### 实验三：重连方式对攻击效果的影响
+
+启发式方法指导的重连获得的攻击效果，是否能通过随机重连复现？
+
+启发式算法获取候选的边集合，然后选择最优边进行增删；随机重连在启发式算法获得的候选边集合中进行随机选择，然后增删。
+
+通过比较，可以得出：
+
+- 启发式的策略性重连优于随机重连；
+- 随机重连可以作为baseline;
+- 随机重连甚至还会暴露需要隐藏的关系，因为部分结果比值大于1；也就是说 :open_mouth: 随意行事反而会适得其反，最终暴露隐私！！！
+
+
+
+
+
+![f945b4beffbdce5390173540f0576a2.png](http://ww1.sinaimg.cn/large/005NduT8ly1g9ym6vp4fmj30rp0f142c.jpg)
+
+
+
+## Method
 
