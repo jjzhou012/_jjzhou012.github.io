@@ -44,7 +44,7 @@ key: link-prediction-attack-1
 
 直观地说，这些指标量化了相似性指标识别网络中缺失边的能力。本文中，缺失的边是`evader`未公开的关系，因此他的目标是最小化性能度量。形式上，`evader`所面临的问题定义如下:
 
-**Definition 1** $\mathsf{(Evading Link Prediction)}$.  对于一个网络$G$， $H \subset \bar{E}$ 表示需要被隐藏的`non-edges`，$\hat{A} \subseteq \bar{E} \backslash H$表示被增加的边集合， $\hat{R} \subseteq E$表示被删除的边集合，$b \in \mathbb{N}$表示攻击预算（最大的边修改数量，增或删），$s_G:\bar{E} \rightarrow \mathbb{R}$ 表示链路预测使用的相似性指标，$f\in \left\{AUC, AP \right\}$ 表示评价指标。该任务的目标是确定增边和删边的集合 $A^* \subseteq \hat{A}$ 和  $R^* \subseteq \hat{R}$ ，使结果 $E^\ast = (E\cup A^\ast ) \backslash R^\ast $ 存在于：
+**Definition 1** $\mathsf{(Evading Link Prediction)}$.  对于一个网络$G$， $H \subset \bar{E}$ 表示需要被隐藏的`non-edges`，$\hat{A} \subseteq \bar{E} \backslash H$表示被增加的边集合， $\hat{R} \subseteq E$表示被删除的边集合，$b \in \mathbb{N}$表示攻击预算（最大的边修改数量，增或删），$s_G:\bar{E} \rightarrow \mathbb{R}$ 表示链路预测使用的相似性指标，$$f\in \left\{AUC, AP \right\}$$ 表示评价指标。该任务的目标是确定增边和删边的集合 $A^* \subseteq \hat{A}$ 和  $R^* \subseteq \hat{R}$ ，使结果 $E^\ast = (E\cup A^\ast ) \backslash R^\ast $ 存在于：
 $$
 \underset{E^{\prime} \in \{(E \cup A) \backslash R: A \subseteq \hat{A}, R \subseteq \hat{R},\mid A\mid +\mid R\mid  \leq b\}}{\arg \min } f\left(E^{\prime}, H, s_{G}\right)
 $$
@@ -126,9 +126,11 @@ Definition  : $\mathsf{OTC(Open-Triad-Creation)}$. 想要隐藏目标边$e\in H$
 
 分析了无标度网络的两个变量的影响：
 
-- 网络节点数$n \in \left\{200,400,600,800 \right\}$
-- 平均度 $d\in \left\{4,6,8,10\right\}$
-- $a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right)$
+- 网络节点数$$n \in \left\{200,400,600,800 \right\}$$
+
+- 平均度 $$d\in \left\{4,6,8,10\right\}$$
+
+  
 
 具体来说，对于$n$和$d$的每个组合，我们生成50个无标度网络;对于每个这样的网络$G$，我们随机选择10个`evader`(度不小于9);对于每一个这样的`evader` $v$，我们创建了5个不同的集合$H$，每个集合$H$由$v$的3条随机边组成。$(G, v, H)$的每个实例构成一个单独的实验。
 
