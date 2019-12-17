@@ -143,7 +143,7 @@ $$
 >
 > ![344d3e49cd014af7e5b5ad532627fa6.png](http://ww1.sinaimg.cn/mw690/005NduT8ly1g9zq47cmwfj30g407dgmc.jpg)
 >
-> 上图中，$G$中存在的边构成了目标集$$H=\{(v_1,v_2),(v_1,v_3),(v_2,v_3),(v_2,v_4),(v_2,v_5),(v_2,v_6)\}$$，`vertex cover`的概念虽然看着模糊，但结合图来看还是很清晰易懂的，数学表示就是：$\min \mid V_c \mid \quad s.t. \  \forall e \in H, \exist v_i \in V_c: v_i \in e$ ，描述起来就是，目标集中的每一条边的其中一个节点一定存在于$V_c$中。图中所示，节点覆盖$$V_c=\{v_2,v_3\}$$，此时$k=\mid V_c \mid = 2$。
+> 上图中，$G$中存在的边构成了目标集$$H=\{(v_1,v_2),(v_1,v_3),(v_2,v_3),(v_2,v_4),(v_2,v_5),(v_2,v_6)\}$$，`vertex cover`的概念虽然看着模糊，但结合图来看还是很清晰易懂的，数学表示就是：$\min \mid V_c \mid \quad s.t. \  \forall e \in H, \exists v_i \in V_c: v_i \in e$ ，描述起来就是，目标集中的每一条边的其中一个节点一定存在于$V_c$中。图中所示，节点覆盖$$V_c=\{v_2,v_3\}$$，此时$k=\mid V_c \mid = 2$。
 
 上面两个决策问题是等价的，那么如何证明呢，以`CN`指标为例结合上图：
 
@@ -174,11 +174,11 @@ $$
 
 对于WCN指标，令$g_{ij}$为 $\operatorname{Sim}\left(u_{i}, u_{j}\right)$ 的分母，我们将之扩展为$L_{ij} \leq g_{ij} \leq U_{ij}$，其中$L_{ij}$通过删除$k$条边获得，$U_{ij}$为原始分母。
 
-> 以`Sørensen`指标为例，$\operatorname{Sim}\left(u_{i}, u_{j}\right)=\frac{2\left|N\left(u_{i}, u_{j}\right)\right|}{d\left(u_{i}\right)+d\left(u_{j}\right)}$，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
-> 
+> 以`Sørensen`指标为例，$$
+> \operatorname{sim}\left(u_{i}, u_{j}\right)=\frac{2\left|N\left(u_{i}, u_{j}\right)\right|}{d\left(u_{i}\right)+d\left(u_{j}\right)}
+> $$，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
 > $$
 > \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{U_{i j}} \leq \operatorname{Sim}\left(u_{i}, u_{j}\right) \leq \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{L_{i j}}
 > $$
 >
 > 令
-
