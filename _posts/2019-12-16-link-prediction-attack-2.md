@@ -172,13 +172,61 @@ $$
 
 近似算法的思路是通过将$f_t$函数的分母进行常数化扩展，得到一个上下界区间。
 
-对于WCN指标，令$g_{ij}$为 $\operatorname{Sim}\left(u_{i}, u_{j}\right)$ 的分母，我们将之扩展为$L_{ij} \leq g_{ij} \leq U_{ij}$，其中$L_{ij}$通过删除$k$条边获得，$U_{ij}$为原始分母。
+对于WCN指标，令$g_{ij}$为 $\operatorname{Sim}\left(u_{i}, u_{j}\right)$ 的分母，我们将之扩展为$L_{ij} \leq g_{ij} \leq U_{ij}$，其中$L_{ij}$通过删除$k$条边获得，$U_{ij}$为原始分母。以`Sørensen`指标为例，$$\operatorname{sim}\left(u_{i}, u_{j}\right)=\frac{2\left|N\left(u_{i}, u_{j}\right)\right|}{d\left(u_{i}\right)+d\left(u_{j}\right)}$$ ，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
 
-> 以`Sørensen`指标为例，$$
-> \operatorname{sim}\left(u_{i}, u_{j}\right)=\frac{2\left|N\left(u_{i}, u_{j}\right)\right|}{d\left(u_{i}\right)+d\left(u_{j}\right)}
-> $$，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
-> $$
-> \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{U_{i j}} \leq \operatorname{Sim}\left(u_{i}, u_{j}\right) \leq \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{L_{i j}}
-> $$
->
-> 令
+$$
+ \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{U_{i j}} \leq \operatorname{Sim}\left(u_{i}, u_{j}\right) \leq \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{L_{i j}}  \\
+ \Rightarrow \\
+ f_{t l}^{W C N} \leq f_{t}^{W C N} \leq f_{t u}^{W C N}
+$$
+
+对于CND指标，分母$f_r(S_r)$扩展为$f_{r}\left(S_{r}^{0}\right)-k \leq f_{r}\left(S_{r}\right) \leq f_{r}\left(S_{r}^{0}\right)$，其中$S_r^0$表示原始决策矩阵$X^0$的第$r$行，这样，相似性指标被扩展为:
+
+
+$$
+\sum_{r=1}^{m} W_{r} \frac{\sum i j \  x_{r i} x_{r j}}{f_{r}\left(S_{r}\right)} \leq f_t^{WCN} \leq \sum_{r=1}^{m} W_{r} \frac{\sum i j \  x_{r i} x_{r j}}{f_{r}\left(S_{r}\right)-k} \\
+\Rightarrow \\
+f_{t l}^{C N D} \leq f_{t}^{C N D} \leq f_{t u}^{C N D}
+$$
+
+
+由于$f_t^{WCN}$和$f_t^{CND}$的结构相似性，后续的分析中关注$f_t^{WCN}$，并且省略上标$WCN$。
+
+
+
+#### Optimizing Bounding Function
+
+考虑最小化$f_{tu}$，令$S'$表示攻击者删除的边集合，$S'$与决策矩阵$X'$关联。对于任意$S \subset S'$，有$X \geq X'$，$X$与$S$关联。定义集合函数$F(S)=f_{t u}\left(X^{0}\right)-f_{t u}(X)$，最小化$f_{tu}(X)$等价于：
+
+
+$$
+\max _{S \subset E_{Q}} F(S), \quad \text { s.t. }|S| \leq k
+$$
+
+
+**Theorem 3.4.**  $F(S)$是单调递增的次模函数。 
+
+**Proof.**  假设$S \subset S'$，$F(S) \leq F(S') \Leftrightarrow f_{t u}(X) \geq f_{t u}\left(X^{\prime}\right)$。令$C_i$是$X$的第$i$列（表示$$\{w_1,\cdots,w_m\}$$与$v_i$之间的连接情况），$u_i,u_j$的共同邻居$$|N(u_i,u_j)|=\langle C_i,C_j\rangle$$，$$\langle C_i,C_j\rangle$$表示内积。此时$$
+f_{t u}(X)=\sum_{i j} \frac{w_{i j}\left\langle C_{i}, C_{j}\right\rangle}{L_{i j}}
+$$ ，其中$w_{ij},L_{ij}$表示常数，因为$X \geq X'$，有$$
+\left\langle C_{i}, C_{j}\right\rangle \geq \langle C_{i}^{\prime}, C_{j}^{\prime}\rangle  \Rightarrow f_{t u}(X) \geq f_{t u}\left(X^{\prime}\right)$$。得证单调递增。
+
+下面证明$F(S)$为次模([submodular](https://www.zhihu.com/question/34720027))函数。
+
+令边$e\notin S'$与决策矩阵的第$p$行第$q$列元素关联，令$e\cup S$与$X^e$关联。$X$与$X^e$的区别就是$X^e$是在$X$的基础上删除了边$e$，即$x_{pq}^e =0$且$x_{pq}=1$。令$e\cup S'$与$X'^e$关联。定义  $$
+\Delta\left(e | S\right)=F\left(e \cup S\right)-F\left(S\right)
+$$ 和  $$\Delta\left(e | S^{\prime}\right)=F\left(e \cup S^{\prime}\right)-F\left(S^{\prime}\right)$$。 下面证明$$\Delta(e | S) \geq \Delta\left(e | S^{\prime}\right)$$。
+
+
+$$
+\begin{aligned} \Delta(e | S) &=f_{t u}(X)-f_{t u}\left(X^{e}\right)=\sum_{j} \frac{w_{j q}}{L_{j q}}\left\langle C_{j}, C_{q}\right\rangle-\sum_{j} \frac{w_{j q}}{L_{j q}}\langle C_{j}^{e}, C_{q}^{e}\rangle \\ &=\sum_{j} \frac{w_{j q}}{L_{j q}} x_{p j} \cdot x_{p q}-\sum_{j} \frac{w_{j q}}{L_{j q}} x_{p j}^{e} \cdot x_{p q}^{e}=\sum_{j} \frac{w_{j q}}{L_{j q}} x_{p j} \end{aligned}
+$$
+
+
+其中$\sum_j$计算所有索引对$(j,q)$关联的边$(u_j,u_q)\in H$，删除$e$只会改变决策矩阵的第$q$列。
+
+同理，$$
+\Delta\left(e | S\right) - \Delta\left(e | S^{\prime}\right)=\sum_{j} \frac{w_{j q}}{L_{j q}} x_{p j}^{\prime}
+$$， 则 $$
+\Delta\left(e | S^{\prime}\right)=\sum_{j} \frac{w_{j q}}{L_{j q}}\left(x_{p j}-x_{p j}^{\prime}\right)
+$$，因为 $$(x_{p j}-x_{p j}^{\prime}) \geq 0$$，则有$$\Delta\left(e | S\right) - \Delta\left(e | S^{\prime}\right) \geq 0$$。根据定义，$F(S)$为次模函数。
