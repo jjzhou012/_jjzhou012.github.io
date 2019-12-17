@@ -10,8 +10,6 @@ key: link-prediction-attack-2
 
 
 
-------
-
 
 
 ------
@@ -116,4 +114,71 @@ $$
 
 
 其中，$X^0$是原始的决策矩阵，$ \operatorname{Sum}(\cdot)$ 表示元素和。
+
+
+
+### Hardness Results
+
+先不限制隐藏的链路集$H$，分析了一般情况下，攻击所有的局部相似性指标都是NP难问题。
+
+**Theorem 3.3.** *Attacking local similarity metrics is NP-Hard.*
+
+考虑攻击者能否通过删除至多$k$条边，使总的相似度$f_t$不大于一个常数$\theta$？注意到$f_t$的最小值为0，那么问题来了，决策问题$P_L$：能否通过删除$k$条边使得$f_t=0$。
+
+:hushed::frowning::fearful: 作者在这里使用了一个`vertex cover` $V_c$的概念来简化这个问题，讨论两个问题：
+
+- 决策问题$P_L$：能否通过删除$k$条边使得$f_t=0$；
+- 节点覆盖的决策问题$P_{VC}$: 给定一个图$G$和一个整数$k$，是否存在$k$大小的节点覆盖；
+
+> 给出了一个实例：
+>
+> 给定图$G=(V,E)$和整数$k$，按以下步骤构造一个新的图$Q$：
+>
+> - 复制$G$中的所有节点，作为$Q$的节点，但不链接；
+> - $Q$中加入节点$w$，然后$w$和每个节点$v_i$链接；
+> - $Q$中加入$n=\mid V \mid$个节点$u_1, \cdots , u_n$，然后链接每一对$(u_i,v_i)$；
+> - 链接所有的节点对$(u_i,u_{i+1})$，$i=1,2,\cdots,n-1$；
+>
+> $Q$的隐藏链路目标集$$H=\{(v_i,v_j)\}$$为$G$中相应的边$(v_i,v_j)$构成。然后针对图$Q$和目标集$H$构造决策问题$P_L$。
+>
+> ![344d3e49cd014af7e5b5ad532627fa6.png](http://ww1.sinaimg.cn/mw690/005NduT8ly1g9zq47cmwfj30g407dgmc.jpg)
+>
+> 上图中，$G$中存在的边构成了目标集$$H=\{(v_1,v_2),(v_1,v_3),(v_2,v_3),(v_2,v_4),(v_2,v_5),(v_2,v_6)\}$$，`vertex cover`的概念虽然看着模糊，但结合图来看还是很清晰易懂的，数学表示就是：$\min \mid V_c \mid \quad s.t. \  \forall e \in H, \exist v_i \in V_c: v_i \in e$ ，描述起来就是，目标集中的每一条边的其中一个节点一定存在于$V_c$中。图中所示，节点覆盖$$V_c=\{v_2,v_3\}$$，此时$k=\mid V_c \mid = 2$。
+
+上面两个决策问题是等价的，那么如何证明呢，以`CN`指标为例结合上图：
+
+首先证明 $P_{VC} \Longrightarrow P_L$ 。
+
+- 假设一个节点覆盖$$V_c=\{v_1,\cdots,v_k\}$$，大小$\mid V_c \mid = k$；
+- 删掉$k$条边$$\{(v_1,w),\cdots, (v_k,w)\}$$可以令$f_t(H)=0$。理解一下，对于任意一条边$(v_i,v_j)\in H$，$v_i,v_j$中至少有一个节点一定存在于$V_c$。原本$H$中的任意边的两个节点都有共同邻居$w$，使得$CN(v_i,v_j)=1$，现在要删除边$$\{(v_1,w),\cdots, (v_k,w)\}$$，那么$H$中任意一条边$(v_i,v_j)$的两个节点的唯一一个共同邻居就没了，使得$CN(v_i,v_j)=0$，最终 $f_t(H)=0$。
+
+然后证明 $P_{L} \Longrightarrow P_{VC}$ 。
+
+- 假设我们删掉了$k$条边使得$f_t(H)=0$，那么每条被删掉的边一定是$(w,v_i)$，因为只有删掉含$w$的边才会让$f_t(H)$减小。
+- 假设删掉的$k$条边是$$\{(w,v_1), \cdots ,(w,v_k)\}$$，然后$$V_c=\{v_1,\cdots , v_k\}$$构成了节点覆盖。因为$\forall (v_i,v_j) \in H, CN(v_i,v_j) \geq 0, f_t(H)=0$意味着$\forall (v_i,v_j) \in H, CN(v_i,v_j) = 0$。在初始化的时候每条目标链接$(v_i,v_j)$都有一个共同邻居$w$，现在$CN(v_i,v_j) = 0$，势必是因为至少其中一条边$(w,v_i)$被删了，那么对所有的目标边来说，删掉的边整合一下$$set(\{(w,v_1), \cdots ,(w,v_n)\}) = \{(w,v_1), \cdots ,(w,v_k)\}$$，也就得到了最终删掉的$k$条不同的边，其中除$w$外的节点构成了节点覆盖$$V_c=\{v_1,\cdots , v_k\}$$。
+
+所以以上两个决策问题等价 $P_{VC} \Longleftrightarrow  P_L$ 。
+
+对于其他相似性指标，证明过程类似，就是在构造$Q$的时候有一些区别，比如：
+
+- 对于CND指标，构造的时候添加一些孤立节点和$w$相连，因为这类指标跟共同邻居的度有关；
+- 对于WCN指标，构造的时候为每个$v_i$添加一些邻居节点，保证它们的度都是正的；
+
+
+
+### Practical Attack
+
+由于一般情况下攻击局部度量是困难的，作者用了两种方法来获得较好的结果:近似算法和受限的特殊情况。
+
+近似算法的思路是通过将$f_t$函数的分母进行常数化扩展，得到一个上下界区间。
+
+对于WCN指标，令$g_{ij}$为 $\operatorname{Sim}\left(u_{i}, u_{j}\right)$ 的分母，我们将之扩展为$L_{ij} \leq g_{ij} \leq U_{ij}$，其中$L_{ij}$通过删除$k$条边获得，$U_{ij}$为原始分母。
+
+> 以`Sørensen`指标为例，$\operatorname{Sim}\left(u_{i}, u_{j}\right)=\frac{2\left|N\left(u_{i}, u_{j}\right)\right|}{d\left(u_{i}\right)+d\left(u_{j}\right)}$，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
+> 
+> $$
+> \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{U_{i j}} \leq \operatorname{Sim}\left(u_{i}, u_{j}\right) \leq \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{L_{i j}}
+> $$
+>
+> 令
 
