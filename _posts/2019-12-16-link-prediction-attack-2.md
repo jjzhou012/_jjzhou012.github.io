@@ -172,10 +172,10 @@ $$
 
 近似算法的思路是通过将$f_t$函数的分母进行常数化扩展，得到一个上下界区间。
 
-对于WCN指标，令$g_{ij}$为 $\operatorname{Sim}\left(u_{i}, u_{j}\right)$ 的分母，我们将之扩展为$L_{ij} \leq g_{ij} \leq U_{ij}$，其中$L_{ij}$通过删除$k$条边获得，$U_{ij}$为原始分母。以`Sørensen`指标为例，$$\operatorname{sim}\left(u_{i}, u_{j}\right)=\frac{2\left|N\left(u_{i}, u_{j}\right)\right|}{d\left(u_{i}\right)+d\left(u_{j}\right)}$$ ，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
+对于WCN指标，令$g_{ij}$为 $\operatorname{Sim}\left(u_{i}, u_{j}\right)$ 的分母，我们将之扩展为$L_{ij} \leq g_{ij} \leq U_{ij}$，其中$L_{ij}$通过删除$k$条边获得，$U_{ij}$为原始分母。以`Sørensen`指标为例，$$\operatorname{sim}\left(u_{i}, u_{j}\right)=\frac{2 \mid N\left(u_{i}, u_{j}\right)\mid}{d\left(u_{i}\right)+d\left(u_{j}\right)}$$ ，扩展分母得： $d_{i}^{0}+d_{j}^{0}-k \leq d\left(u_{i}\right)+d\left(u_{j}\right) \leq d_{i}^{0}+d_{j}^{0}$，这样，相似性指标被扩展为：
 
 $$
- \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{U_{i j}} \leq \operatorname{Sim}\left(u_{i}, u_{j}\right) \leq \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{L_{i j}}  \\
+\frac{\left|N\left(u_{i}, u_{j}\right)\right|}{U_{i j}} \leq \operatorname{Sim}\left(u_{i}, u_{j}\right) \leq \frac{\left|N\left(u_{i}, u_{j}\right)\right|}{L_{i j}}  \\
  \Rightarrow \\
  f_{t l}^{W C N} \leq f_{t}^{W C N} \leq f_{t u}^{W C N}
 $$
@@ -230,3 +230,10 @@ $$
 $$， 则 $$
 \Delta\left(e | S^{\prime}\right)=\sum_{j} \frac{w_{j q}}{L_{j q}}\left(x_{p j}-x_{p j}^{\prime}\right)
 $$，因为 $$(x_{p j}-x_{p j}^{\prime}) \geq 0$$，则有$$\Delta\left(e | S\right) - \Delta\left(e | S^{\prime}\right) \geq 0$$。根据定义，$F(S)$为次模函数。
+
+第三步，需要在基数约束下最小化这个单调递增的次模函数。这类问题典型的贪心算法能够实现最大值的$(1-1/e)$近似。贪心算法每一步删除一条能使$F(S)$产生最大增长的边，直到删除$k$条边。假设贪心算法输出一个次优解$S^\ast$，对应于$X_u^\ast$。令$f_t(X_u^\ast)$作为$f_t(X^\ast)$的近似。最后称该算法为*Approx-Local*。
+
+
+
+#### Bound Analysis
+
