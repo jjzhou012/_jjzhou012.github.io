@@ -26,7 +26,9 @@ key: link-prediction-attack-2
 
 然而，链路预测的许多场景中，如预测黑帮或恐怖主义网络中的链路，都是对抗性的，防守方通过操纵可观察信息来降低链路预测算法的性能，防止信息被过度挖掘。在传统的基于相似性的链路预测方法中，一个关键的假设是观测到的(子)网络是正确观测的。然而，就链路预测可能揭示的关系而言(即关联方更愿意隐藏的关系)，无论是为了保护隐私，还是为了避免被执法部门逮捕，它都引入了操纵网络测量的动机，以降低目标链接的相似性分数。
 
-为了系统化地研究一个攻击者`adversary`操纵链路预测的能力，论文将链路预测攻击视为一个优化问题，攻击者通过从可观测网络中移除一定量的边，来最小化目标链路集合的总体加权相似性分数。该论文对基于相似性的链路预测的删边攻击进行了全面的研究，重点研究了基于局部信息和全局信息的两类攻击方法。在此基础上提出了。。。
+为了系统化地研究一个攻击者`adversary`操纵链路预测的能力，论文将链路预测攻击视为一个优化问题，攻击者通过从可观测网络中移除一定量的边，来最小化目标链路集合的总体加权相似性分数。该论文对基于相似性的链路预测的删边攻击进行了全面的研究，重点研究了基于局部信息和全局信息的两类攻击方法。证明了计算所有这些指标的最优攻击是NP难的。
+
+
 
 
 
@@ -204,7 +206,7 @@ $$
 $$
 
 
-**Theorem 3.4.**  $F(S)$是单调递增的次模函数。 
+**Theorem 3.4.**  $F(S)$ *is a monotone increasing submodular function*. 
 
 **Proof.**  假设$S \subset S'$，$F(S) \leq F(S') \Leftrightarrow f_{t u}(X) \geq f_{t u}\left(X^{\prime}\right)$。令$C_i$是$X$的第$i$列（表示$$\{w_1,\cdots,w_m\}$$与$v_i$之间的连接情况），$u_i,u_j$的共同邻居$$|N(u_i,u_j)|=\langle C_i,C_j\rangle$$，$$\langle C_i,C_j\rangle$$表示内积。此时$$
 f_{t u}(X)=\sum_{i j} \frac{w_{i j}\left\langle C_{i}, C_{j}\right\rangle}{L_{i j}}
@@ -236,4 +238,95 @@ $$，因为 $$(x_{p j}-x_{p j}^{\prime}) \geq 0$$，则有$$\Delta\left(e | S\ri
 
 
 #### Bound Analysis
+
+从理论上分析了该近似算法的性能。
+
+令$X^*$，$X_u^*$和$X_l^*$分别表示$f_t$，$f_{tu}$和$f_{tl}$的最小值，定义$f_t$和$f_{tu}$之间的差距`gap`，$$
+\alpha(X)=f_{t u}(X)-f_{t}(X)
+$$，它是决策矩阵$X$的函数。
+
+**Theorem 3.5.**  The gap $\alpha (X)$ is an increasing function of $X$.
+
+**Proof.**  对于$\alpha (X)$中的一项 $$\alpha_{i j}(X)=\frac{w_{i j}}{L_{i j}}\langle C_{i}^{X}, C_{j}^{X}\rangle-\frac{w_{i j}}{g\left(d\left(u_{i}\right), d\left(u_{j}\right),\langle C_{i}^{X}, C_{j}^{X}\rangle\right)}\langle C_{i}^{X}, C_{j}^{X}\rangle$$ ，其中$C_i^X$表示$X$的第$i$列，将分母$$g(d\left(u_{i}\right), d\left(u_{j}\right),\langle C_{i}^{X}, C_{j}^{X}\rangle)$$简写为$g(X)$。
+
+当链接到$u_i$的一条边被删除时，$C_i^X$中对应的元素会被删除，得到的决策矩阵表示为$Y$，那么有$X \geq Y$。$Y$中元素的`gap`为$$\alpha_{i j}(Y)=w_{i j} (\frac{\langle C_{i}^{X}, C_{j}^{X}\rangle}{L_{i j}}-\frac{\langle C_{i}^{X}, C_{j}^{X}\rangle}{g(Y)})$$。那么:
+
+
+$$
+\frac{\alpha_{i j}(X)-\alpha_{i j}(Y)}{w_{i j}}=\frac{\left\langle C_{i}^{X}, C_{j}^{X}\right\rangle-\left\langle C_{i}^{Y}, C_{j}^{Y}\right\rangle}{L_{i j}}+\frac{\left\langle C_{i}^{Y}, C_{j}^{Y}\right\rangle}{g(Y)}-\frac{\left\langle C_{i}^{X}, C_{j}^{X}\right\rangle}{g(X)}
+$$
+
+
+因为$g$是$d(u_i),d(u_j)$的严格单调递增函数，$X \geq Y \Rightarrow g(X) \geq g(Y)$。因此：
+
+
+$$
+\begin{aligned} \frac{\alpha_{i j}(X)-\alpha_{i j}(Y)}{w_{i j}} & \geq \frac{\left\langle C_{i}^{X}, C_{j}^{X}\right\rangle-\left\langle C_{i}^{Y}, C_{j}^{Y}\right\rangle}{L_{i j}}+\frac{\left\langle C_{i}^{Y}, C_{j}^{Y}\right\rangle}{g(Y)}-\frac{\left\langle C_{i}^{X}, C_{j}^{X}\right\rangle}{g(Y)} \\ &=\left(\left\langle C_{i}^{X}, C_{j}^{X}\right\rangle-\left\langle C_{i}^{Y}, C_{j}^{Y}\right\rangle\right)\left(\frac{1}{L_{i j}}-\frac{1}{g(Y)}\right) \geq 0 \end{aligned}
+$$
+
+
+
+其中，$L_{ij}$是$g$的下界，故$L_{ij}\leq g(Y)$。因为$X=\sum_{ij} \alpha_{ij}(X)$，所以 $\alpha(X)\geq \alpha(Y)$。
+
+Theorem 3.5 表明了删除更多的边能使`gap`更小，即：
+$$
+\mathsf{delete \ \  more \ \  deges} \Rightarrow S\uparrow \Rightarrow X \downarrow \Rightarrow \alpha(X) \downarrow \Rightarrow  f_{t}(X) \rightarrow f_{t u}(X)
+$$
+实际最小值与近似算法输出的最小值的差距为：$$
+\mathrm{g}=f_{t}\left(X_{u}^{*}\right)-f_{t}\left(X^{*}\right)
+$$， 根据Theorem 3.5，可知：
+
+
+$$
+\mathrm{g} \leq f_{t u}\left(X_{u}^{*}\right)-f_{t}\left(X^{*}\right) \leq f_{t u}\left(X_{u}^{*}\right)-f_{t l}\left(X^{*}\right) \leq f_{t u}\left(X_{u}^{*}\right)-f_{t l}\left(X_{l}^{*}\right)
+$$
+
+
+这个`gap`取决于$X_u^*$和$X_l^*$。
+
+
+
+### Tractable Special Cases
+
+论文在简化了攻击模型后确定了两个重要的特殊情况。第一种情况考虑攻击单个目标链路，在线性时间内找到所有局部指标的最优攻击。第二种情况考虑攻击一组节点，目标是隐藏其中所有可能的链接。作者证明了在这种情况下可以找到非常适合CND度量的最优攻击。
+
+#### Attacking a Single Link
+
+当攻击的目标是单条链路$(u,v)$时，攻击者只会关注链接到它们的共同邻居 $$N(u,v)=\{w_i\}_{i=1}^s$$， 令 $x_{iu}=0$表示攻击者选择删除$w_i$和$u$之间的边。
+
+**Proposition 3.6**.  *For CND metrics, $$
+\operatorname{Sim}(u, v)=\sum_{i=1}^{s} \frac{x_{i u} x_{i v}}{g\left(d\left(w_{i}\right)\right)}
+$$, where $g$ is a non-decreasing function of $d(w_i)$.*
+
+对$WCN$指标，考虑元组$(u,w,v)$，其中$w$为$u,v$的共同邻居，将$(u,v)$周围的链路分为四类：$$
+E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其中$s$表示$u,v$的非共同邻居。当攻击者删边时，有四种可能的情况：
+
+- $(u,w),(w,v)$均被删除；
+- $(u,w)$被删，$(w,v)$保留；
+- $(u,w)$保留，$(w,v)$被删；
+- $(u,w),(w,v)$均保留；
+
+用整数变量$y_1,y_2,y_3$表示情况1，2，3的元组数量，令$y_4,y_5$表示$E_3,E_4$中被删掉的边数量。
+
+**Proposition 3.7.**  *A WCN metric can be written as $\operatorname{Sim}(u, v)=f(y_1,y_2,y_3,y_4,y_5)$ such that $f$ isdecreasing in $y_2$ and $y_3$ and $f$ is increasing in $y_4$ and $y_5$.*
+
+论文的分析中显示了最优攻击通常有$y_{1}^{*}=y_{4}^{*}=y_{5}^{*}=0$和$y_{2}^{*}+y_{3}^{*}=k$。也就是说，攻击者通常从$E_1 \cup E_2$中选择$k$条边进行删除。下面的定理说明了攻击者如何优化的选择边。
+
+**Theorem 3.8.**  The optimal attack on WCN metrics with a single target link selects arbitrary $y_2^\ast$ links from $E_1$ and $(k-y_2^*)$ links from $E_2$ to delete with the constraint that for any selected links $(u,w_1) \in E_1$ and $(v,w_2) \in E_2$, $w_1 \neq w_2$. The value of $y_2^*$ is the solution of a single-variable integer optimization problem.
+
+> 求解单变量整数优化问题的时间复杂度以$O(k)$为界。
+
+#### Attacking A Group of Nodes
+
+考虑这样的特殊情况:
+- 目标是一组节点$U$， $U$中每对节点之间的链路构成目标链路集$H$；
+- $H$中各环节权重相等。
+
+这种情况下，可以在多项式时间内找到CND度量的最优攻击。
+
+**Proposition 3.9.**  For CND metrics, the total similarity $f_t$ has the form $$\sum_{i=1}^{m} f_{i}\left(S_{i}\right)$$， where $S_i$ is the sum of the $i$th row of $X$ and $f_i(S_i)$ is a convex increasing function of $S_i$.
+
+命题3.9陈述了CND指标的$f_t$能够被写成一系列独立函数之和，每一个独立函数$f_i$是凸增函数。然后提出了一个贪心算法 *Greedy-CND*来最小化$f_t^{CND}$。*Greedy-CND*以初始化决策矩阵$X$的行和$S^0$为输入，然后每次删掉一条能使$f_t^{CND}$下降最多的边，直到删除$k$条边。
+
+
 
