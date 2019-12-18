@@ -77,8 +77,7 @@ $$
 
 ### Classification of Local Metrics
 
-**Definition 3.1.**    CND度量的相似性矩阵依赖如下形式：
-
+**Definition 3.1.**   CND度量的相似性矩阵依赖如下形式：
 
 $$
 f_t = \sum_{r=1}^{m} W_{r} \frac{\sum_{i, j \mid \left(u_{i}, u_{j}\right) \in H} x_{r i} \cdot x_{r j}}{f_{r}\left(S_{r}\right)}
@@ -107,7 +106,7 @@ WCN度量包括`jaccard`、`Salton`、`Hub Promoted`等。
 
 根据以上定义，理性的攻击者将会选择$W,U$之间的边进行删除，因为删除其他的边会导致$d(u_i)$或$d(w_i)$下降，使得相似性分数上升；而删除$W,U$之间的边会减少共同邻居数，使得相似性分数降低。
 
-整体相似性$f_t$由决策函数$X$决定，攻击局部相似性指标由此可以建模为一个优化问题，称 *Prob-Local*:
+整体相似性$f_t$由决策函数$X$决定，攻击局部相似性指标由此可以建模为一个优化问题，称 Prob-Local:
 
 
 $$
@@ -123,7 +122,7 @@ $$
 
 先不限制隐藏的链路集$H$，分析了一般情况下，攻击所有的局部相似性指标都是NP难问题。
 
-**Theorem 3.3.** *Attacking local similarity metrics is NP-Hard.*
+**Theorem 3.3.** Attacking local similarity metrics is NP-Hard.
 
 考虑攻击者能否通过删除至多$k$条边，使总的相似度$f_t$不大于一个常数$\theta$？注意到$f_t$的最小值为0，那么问题来了，决策问题$P_L$：能否通过删除$k$条边使得$f_t=0$。
 
@@ -205,8 +204,7 @@ $$
 \max _{S \subset E_{Q}} F(S), \quad \text { s.t. }|S| \leq k
 $$
 
-
-**Theorem 3.4.**  $F(S)$ *is a monotone increasing submodular function*. 
+**Theorem 3.4.**  $F(S)$ is a monotone increasing submodular function. 
 
 **Proof.**  假设$S \subset S'$，$F(S) \leq F(S') \Leftrightarrow f_{t u}(X) \geq f_{t u}\left(X^{\prime}\right)$。令$C_i$是$X$的第$i$列（表示$$\{w_1,\cdots,w_m\}$$与$v_i$之间的连接情况），$u_i,u_j$的共同邻居$$|N(u_i,u_j)|=\langle C_i,C_j\rangle$$，$$\langle C_i,C_j\rangle$$表示内积。此时$$
 f_{t u}(X)=\sum_{i j} \frac{w_{i j}\left\langle C_{i}, C_{j}\right\rangle}{L_{i j}}
@@ -233,7 +231,7 @@ $$， 则 $$
 \Delta\left(e | S^{\prime}\right)=\sum_{j} \frac{w_{j q}}{L_{j q}}\left(x_{p j}-x_{p j}^{\prime}\right)
 $$，因为 $$(x_{p j}-x_{p j}^{\prime}) \geq 0$$，则有$$\Delta\left(e | S\right) - \Delta\left(e | S^{\prime}\right) \geq 0$$。根据定义，$F(S)$为次模函数。
 
-第三步，需要在基数约束下最小化这个单调递增的次模函数。这类问题典型的贪心算法能够实现最大值的$(1-1/e)$近似。贪心算法每一步删除一条能使$F(S)$产生最大增长的边，直到删除$k$条边。假设贪心算法输出一个次优解$S^\ast$，对应于$X_u^\ast$。令$f_t(X_u^\ast)$作为$f_t(X^\ast)$的近似。最后称该算法为*Approx-Local*。
+第三步，需要在基数约束下最小化这个单调递增的次模函数。这类问题典型的贪心算法能够实现最大值的$(1-1/e)$近似。贪心算法每一步删除一条能使$F(S)$产生最大增长的边，直到删除$k$条边。假设贪心算法输出一个次优解$S^\ast$，对应于$X_u^\ast$。令$f_t(X_u^\ast)$作为$f_t(X^\ast)$的近似。最后称该算法为Approx-Local。
 
 
 
@@ -241,7 +239,7 @@ $$，因为 $$(x_{p j}-x_{p j}^{\prime}) \geq 0$$，则有$$\Delta\left(e | S\ri
 
 从理论上分析了该近似算法的性能。
 
-令$X^*$，$X_u^*$和$X_l^*$分别表示$f_t$，$f_{tu}$和$f_{tl}$的最小值，定义$f_t$和$f_{tu}$之间的差距`gap`，$$
+令$X^\ast$，$X_u^\ast$和$X_l^\ast$分别表示$f_t$，$f_{tu}$和$f_{tl}$的最小值，定义$f_t$和$f_{tu}$之间的差距`gap`，$$
 \alpha(X)=f_{t u}(X)-f_{t}(X)
 $$，它是决策矩阵$X$的函数。
 
@@ -273,16 +271,16 @@ $$
 \mathsf{delete \ \  more \ \  deges} \Rightarrow S\uparrow \Rightarrow X \downarrow \Rightarrow \alpha(X) \downarrow \Rightarrow  f_{t}(X) \rightarrow f_{t u}(X)
 $$
 实际最小值与近似算法输出的最小值的差距为：$$
-\mathrm{g}=f_{t}\left(X_{u}^{*}\right)-f_{t}\left(X^{*}\right)
+\mathrm{g}=f_{t}\left(X_{u}^{\ast}\right)-f_{t}\left(X^{\ast}\right)
 $$， 根据Theorem 3.5，可知：
 
 
 $$
-\mathrm{g} \leq f_{t u}\left(X_{u}^{*}\right)-f_{t}\left(X^{*}\right) \leq f_{t u}\left(X_{u}^{*}\right)-f_{t l}\left(X^{*}\right) \leq f_{t u}\left(X_{u}^{*}\right)-f_{t l}\left(X_{l}^{*}\right)
+\mathrm{g} \leq f_{t u}\left(X_{u}^{\ast}\right)-f_{t}\left(X^{\ast}\right) \leq f_{t u}\left(X_{u}^{\ast}\right)-f_{t l}\left(X^{\ast}\right) \leq f_{t u}\left(X_{u}^{\ast}\right)-f_{t l}\left(X_{l}^{\ast}\right)
 $$
 
 
-这个`gap`取决于$X_u^*$和$X_l^*$。
+这个`gap`取决于$X_u^\ast$和$X_l^\ast$。
 
 
 
@@ -294,9 +292,9 @@ $$
 
 当攻击的目标是单条链路$(u,v)$时，攻击者只会关注链接到它们的共同邻居 $$N(u,v)=\{w_i\}_{i=1}^s$$， 令 $x_{iu}=0$表示攻击者选择删除$w_i$和$u$之间的边。
 
-**Proposition 3.6**.  *For CND metrics, $$
+**Proposition 3.6**.  \astFor CND metrics, $$
 \operatorname{Sim}(u, v)=\sum_{i=1}^{s} \frac{x_{i u} x_{i v}}{g\left(d\left(w_{i}\right)\right)}
-$$, where $g$ is a non-decreasing function of $d(w_i)$.*
+$$, where $g$ is a non-decreasing function of $d(w_i)$.\ast
 
 对$WCN$指标，考虑元组$(u,w,v)$，其中$w$为$u,v$的共同邻居，将$(u,v)$周围的链路分为四类：$$
 E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其中$s$表示$u,v$的非共同邻居。当攻击者删边时，有四种可能的情况：
@@ -308,11 +306,11 @@ E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其�
 
 用整数变量$y_1,y_2,y_3$表示情况1，2，3的元组数量，令$y_4,y_5$表示$E_3,E_4$中被删掉的边数量。
 
-**Proposition 3.7.**  *A WCN metric can be written as $\operatorname{Sim}(u, v)=f(y_1,y_2,y_3,y_4,y_5)$ such that $f$ isdecreasing in $y_2$ and $y_3$ and $f$ is increasing in $y_4$ and $y_5$.*
+**Proposition 3.7.**  \astA WCN metric can be written as $\operatorname{Sim}(u, v)=f(y_1,y_2,y_3,y_4,y_5)$ such that $f$ isdecreasing in $y_2$ and $y_3$ and $f$ is increasing in $y_4$ and $y_5$.\ast
 
-论文的分析中显示了最优攻击通常有$y_{1}^{*}=y_{4}^{*}=y_{5}^{*}=0$和$y_{2}^{*}+y_{3}^{*}=k$。也就是说，攻击者通常从$E_1 \cup E_2$中选择$k$条边进行删除。下面的定理说明了攻击者如何优化的选择边。
+论文的分析中显示了最优攻击通常有$y_{1}^{\ast}=y_{4}^{\ast}=y_{5}^{\ast}=0$和$y_{2}^{\ast}+y_{3}^{\ast}=k$。也就是说，攻击者通常从$E_1 \cup E_2$中选择$k$条边进行删除。下面的定理说明了攻击者如何优化的选择边。
 
-**Theorem 3.8.**  The optimal attack on WCN metrics with a single target link selects arbitrary $y_2^\ast$ links from $E_1$ and $(k-y_2^*)$ links from $E_2$ to delete with the constraint that for any selected links $(u,w_1) \in E_1$ and $(v,w_2) \in E_2$, $w_1 \neq w_2$. The value of $y_2^*$ is the solution of a single-variable integer optimization problem.
+**Theorem 3.8.**  The optimal attack on WCN metrics with a single target link selects arbitrary $y_2^\ast$ links from $E_1$ and $(k-y_2^\ast)$ links from $E_2$ to delete with the constraint that for any selected links $(u,w_1) \in E_1$ and $(v,w_2) \in E_2$, $w_1 \neq w_2$. The value of $y_2^\ast$ is the solution of a single-variable integer optimization problem.
 
 > 求解单变量整数优化问题的时间复杂度以$O(k)$为界。
 
@@ -326,7 +324,7 @@ E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其�
 
 **Proposition 3.9.**  For CND metrics, the total similarity $f_t$ has the form $$\sum_{i=1}^{m} f_{i}\left(S_{i}\right)$$， where $S_i$ is the sum of the $i$th row of $X$ and $f_i(S_i)$ is a convex increasing function of $S_i$.
 
-命题3.9陈述了CND指标的$f_t$能够被写成一系列独立函数之和，每一个独立函数$f_i$是凸增函数。然后提出了一个贪心算法 *Greedy-CND*来最小化$f_t^{CND}$。*Greedy-CND*以初始化决策矩阵$X$的行和$S^0$为输入，然后每次删掉一条能使$f_t^{CND}$下降最多的边，直到删除$k$条边。
+命题3.9陈述了CND指标的$f_t$能够被写成一系列独立函数之和，每一个独立函数$f_i$是凸增函数。然后提出了一个贪心算法 Greedy-CND 来最小化$f_t^{CND}$。Greedy-CND以初始化决策矩阵$X$的行和$S^0$为输入，然后每次删掉一条能使$f_t^{CND}$下降最多的边，直到删除$k$条边。
 
 
 
