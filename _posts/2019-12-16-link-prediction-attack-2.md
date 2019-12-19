@@ -292,9 +292,9 @@ $$
 
 当攻击的目标是单条链路$(u,v)$时，攻击者只会关注链接到它们的共同邻居 $$N(u,v)=\{w_i\}_{i=1}^s$$， 令 $x_{iu}=0$表示攻击者选择删除$w_i$和$u$之间的边。
 
-**Proposition 3.6**.  \astFor CND metrics, $$
+**Proposition 3.6**.  For CND metrics, $$
 \operatorname{Sim}(u, v)=\sum_{i=1}^{s} \frac{x_{i u} x_{i v}}{g\left(d\left(w_{i}\right)\right)}
-$$, where $g$ is a non-decreasing function of $d(w_i)$.\ast
+$$, where $g$ is a non-decreasing function of $d(w_i)$.
 
 对$WCN$指标，考虑元组$(u,w,v)$，其中$w$为$u,v$的共同邻居，将$(u,v)$周围的链路分为四类：$$
 E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其中$s$表示$u,v$的非共同邻居。当攻击者删边时，有四种可能的情况：
@@ -306,7 +306,7 @@ E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其�
 
 用整数变量$y_1,y_2,y_3$表示情况1，2，3的元组数量，令$y_4,y_5$表示$E_3,E_4$中被删掉的边数量。
 
-**Proposition 3.7.**  \astA WCN metric can be written as $\operatorname{Sim}(u, v)=f(y_1,y_2,y_3,y_4,y_5)$ such that $f$ isdecreasing in $y_2$ and $y_3$ and $f$ is increasing in $y_4$ and $y_5$.\ast
+**Proposition 3.7.**  A WCN metric can be written as $\operatorname{Sim}(u, v)=f(y_1,y_2,y_3,y_4,y_5)$ such that $f$ isdecreasing in $y_2$ and $y_3$ and $f$ is increasing in $y_4$ and $y_5$.
 
 论文的分析中显示了最优攻击通常有$y_{1}^{\ast}=y_{4}^{\ast}=y_{5}^{\ast}=0$和$y_{2}^{\ast}+y_{3}^{\ast}=k$。也就是说，攻击者通常从$E_1 \cup E_2$中选择$k$条边进行删除。下面的定理说明了攻击者如何优化的选择边。
 
