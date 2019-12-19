@@ -328,3 +328,122 @@ E_{1}=\{(u, w)\}, E_{2}=\{(v, w)\}, E_{3}=\{(u, s)\}, E_{4}=\{(v, s)\}$$，其�
 
 
 
+## Attacking Global Metrics
+
+下面讨论了对两种全局相似性指标 `Katz`、`ACT`的攻击。
+
+对图$G_Q$，令 $$A \in\{0,1\}^{N \times N}$$ 表示邻接矩阵，$D$表示度矩阵。拉普拉斯矩阵为 $L=D-A$，伪逆矩阵为 $$L^{\dagger}=(L-E)^{-1}+E$$，$E$是一个$N\times N$矩阵每个元素都是$\frac{1}{N}$。用一个二值化的向量$$y\in \{0,1\}^M$$表示$E_Q$中的边的状态。令 $$y \leq y^{\prime}\left(A \leq A^{\prime}\right)$$ 是向量或矩阵的元素级的不等式。
+
+### Problem Formulation for Katz Similarity
+
+`Katz`相似度是一种常见的基于路径的相似度度量，对于一堆节点$(u，v)$，`Katz`定义为：
+
+
+$$
+\mathrm{Katz}(u, v)=\sum_{l=1}^{\infty} \beta^{l}\left|p a t h_{u, v}^{l}\right|=\left(\beta A+\beta^{2} A^{2}+\beta^{3} A^{3}+\cdots\right)_{u v}
+$$
+
+
+其中，$$\left|p a t h_{u, v}^{l}\right|$$ 表示$u,v$之间长度为$l$的路径数量，$\beta \gt 0$表示权重衰减因子。因为邻接矩阵$A$可以由$y$捕获，所以$\mathrm{Katz}(u, v)$可以视为$y$的函数，而且是一个递增函数。
+
+**Lemma 4.1.** $ \mathrm{Katz}(u, v)$是$y$的增函数。
+
+**Proof.**  令$A$和$A'$是$y$和$y'$的邻接矩阵。如果$y \leq y'$，则有$A\leq A'$。对于`Kate`相似性矩阵的第$j$项$\beta^j A^j$。$A$的每个元素都是非负的并且$\beta \gt 0$，有$\beta^{j} A^{j} \leq \beta^{j} A'^{j}$，对每个$j$，有$\mathrm{Katz}_{u v}(\mathbf{y}) \leq \mathrm{Katz}_{u v}\left(\mathbf{y}^{\prime}\right)$。
+
+因此，删除一条边总是会降低$\mathrm{Katz}_{u v}(\mathbf{y})$，因此攻击者肯定会删除$k$条边。所以最小化边$(u,v)的$`Kate`相似度可以用 Prob-Katz 方法定义：
+
+
+
+$$
+\min_y \  \operatorname { Katz } _ { u v } ( \mathbf { y } ) , \quad \text { s.t. } \quad \sum _ { i = 1 } ^ { M } y _ { i } = M - k , \mathbf { y } \in \{ 0,1 \} ^ { M }
+$$
+
+
+### <!--Problem Formulation for ACT-->
+
+<!--`ACT`以随机游走的方式测量两个结点之间的距离-->
+
+
+
+未完待续。。。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$$
+\begin{aligned} & \left( \Delta ^ { ( s + 1 ) } \left( e | S _ { p } \right) - \Delta ^ { ( s + 1 ) } \left( e | S _ { q } \right) \right) / \beta ^ { s + 1 } \\ = & \left( A _ { p } - G \right) ^ { s + 1 } - \left( A _ { p } \right) ^ { s + 1 } - \left( A _ { q } - G \right) ^ { s + 1 } + \left( A _ { q } \right) ^ { s + 1 } \\ = & \left( A _ { p } - G \right) ^ { s } A _ { p } - \left( A _ { p } \right) ^ { s + 1 } - \left( A _ { q } - G \right) ^ { s } A _ { q } + \left( A _ { q } \right) ^ { s + 1 } \\ - & \left[ \left( \quad A _ { p } - G \right) ^ { s + 1 } - \left( A _ { q } - G \right) ^ { s + 1 } \right] G \\ \leq & \left( A _ { p } - G \right) ^ { s } A _ { p } - \left( A _ { p } \right) ^ { s + 1 } - \left( A _ { q } - G \right) ^ { s } A _ { q } + \left( A _ { q } \right) ^ { s + 1 } \end{aligned}
+$$
