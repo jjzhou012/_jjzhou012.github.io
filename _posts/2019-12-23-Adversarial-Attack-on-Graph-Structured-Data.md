@@ -169,12 +169,14 @@ $$
 对于基准输入，用all-zero或者all-one的特征/邻接矩阵表示$1\rightarrow 0$或者$0 \rightarrow 1$的扰动。也就是说，当删边或者将特征从1变为0时，需要将邻接/特征矩阵改为all-zero；反之当增边或者将特征从0变为1时，需要将邻接/特征矩阵改为all-one。
 
 为了保证梯度的一致性和攻击的可操作性，$I G(F(X, A, t))[i, j]$（边攻击）可以近似如下：
+
 $$
 \left\{\begin{array}{l}
 {\frac{A_{i j}}{m} \times \sum_{k=1}^{m} \frac{\partial F\left(\frac{k}{m} \times\left(A_{i j}-0\right)\right)}{\partial A_{i j}}, \text { removing edges }} \\
 {\frac{1-A_{i j}}{m} \times \sum_{k=1}^{m} \frac{\partial F\left(A_{i j}+\frac{k}{m} \times\left(1-A_{i j}\right)\right)}{\partial A_{i j}}, \text { adding edges }}
 \end{array}\right.
 $$
+
 该公式其实是上述公式（7）的离散形式。
 
 
