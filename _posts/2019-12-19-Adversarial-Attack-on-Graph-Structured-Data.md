@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 图的对抗攻击：Adversarial Examples on Graph Data: Deep Insights into Attack and Defense
+title: 图的对抗攻击: Adversarial Examples on Graph Data: Deep Insights into Attack and Defense
 date: 2019-12-19 00:22:00 +0800
 tags: [Adversarial attack, Graph, Summary]
 categories: blog
