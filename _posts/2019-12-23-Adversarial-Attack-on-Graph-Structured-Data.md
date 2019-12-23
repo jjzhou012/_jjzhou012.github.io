@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 图的对抗攻击: Adversarial Examples on Graph Data: Deep Insights into Attack and Defense
-date: 2019-12-19 00:22:00 +0800
-tags: [Adversarial attack, Graph, Summary]
+title: 图的对抗攻击： Adversarial Examples on Graph Data: Deep Insights into Attack and Defense
+date: 2019-12-13 00:18:00 +0800
+tags: [Adversarial attack, Graph]
 categories: blog
 pageview: true
 key: Adversarial-Attack-on-Graph-1 
@@ -12,7 +12,7 @@ key: Adversarial-Attack-on-Graph-1
 
 论文链接：[https://www.ijcai.org/proceedings/2019/0669.pdf](https://www.ijcai.org/proceedings/2019/0669.pdf)
 
-吐槽一下，这篇论文有很多错误。。。(><)
+吐槽一下，这篇论文有很多错误。。。
 
 ## Introduction
 
