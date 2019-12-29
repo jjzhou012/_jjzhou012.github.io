@@ -125,7 +125,6 @@ $$
 \end{array}
 $$
 
-
 其中$$
 \mathcal{I}(\cdot, \cdot, \cdot): \mathcal{G} \times \mathcal{G} \times V \mapsto\{0,1\}
 $$是一个等价指示器，表示两个图$G, \tilde{G}$在分类语义下相同。在这个优化过程中，最大化修改过的图$\tilde{G}$被错误分类的置信度$$\mathbb{I}(\cdot)$$。
@@ -140,9 +139,9 @@ $$。
 
 
 
-攻击者的目标是欺骗分类器，而不是修改实例的标签，所以等价指示器需要进行如下设置：
+**攻击者的目标是欺骗分类器，而不是修改实例的标签，**所以等价指示器需要进行如下设置：
 
-- 明确的语义。在这种情况下，一个黄金标准的分类器$f^{\ast}$可以绝对正确的分类样本。等价指示器$\mathcal{I}(\cdot,\cdot,\cdot)$可以被定义为：
+- 不修改标签。在这种情况下，一个**黄金标准的分类器$f^{\ast}$可以绝对正确的分类样本**。等价指示器$\mathcal{I}(\cdot,\cdot,\cdot)$可以被定义为：
 
   $$
   \mathcal{I}(G, \tilde{G}, c)=\mathbb{I}\left(f^{*}(G, c)=f^{*}(\tilde{G}, c)\right)
@@ -202,8 +201,8 @@ Q^{*}\left(s_{t}, a_{t}\right)=r\left(s_{t}, a_{t}\right)+\gamma \max _{a^{\prim
 $$
 
 
-这里隐式的包含了一个贪婪的策略：
 
+表示当前$s_t$采取动作$a_t$后的即时奖励$r$，加上折价$\gamma$后的下一时刻最大奖励。这里隐式的包含了一个贪婪的策略：
 
 $$
 \pi\left(a_{t} | s_{t} ; Q^{*}\right)=\operatorname{argmax}_{a_{t}} Q^{*}\left(s_{t}, a_{t}\right)
@@ -297,4 +296,113 @@ $$
 
 
 上述方法命名为RL-S2V，因为它学习一个由S2V参数化的$Q$函数来执行攻击。
+
+
+
+
+
+### Other attacking methods
+
+RL-S2V适用于黑盒攻击。对于不同的攻击场景，其他算法或许更合适。
+
+#### Random sampling
+
+从图$G$中随机增删边，是最简单的攻击方式。当一个边操作行为$a_t=(u,v)$被采样时，只有当它满足语义约束$\mathcal{I}(\cdot, \cdot, \cdot)$时，我们才会接受它。它需要最少的信息进行攻击。尽管它很简单，但有时它可以获得很好的攻击效果。
+
+#### Gradient based white box attack
+
+梯度在修改连续结构的输入如图像等已经取得了成功，但是对于离散结构来说不太简单。回顾上面GNN模型的迭代过程，为每对节点$(u,v)\in V \times V$分配系数$\alpha_{u,v}$：
+
+
+$$
+\begin{aligned}
+\mu_{v}^{(k)}=h^{(k)}\left(\quad\left\{\alpha_{u, v}\left[w(u, v), x(u), \mu_{u}^{(k-1)}\right]\right\}_{u \in \mathcal{N}(v)}\right.  \cup \\
+\left\{\alpha_{u^{\prime}, v}\left[w\left(u^{\prime}, v\right), x\left(u^{\prime}\right), \mu_{u^{\prime}}^{(k-1)}\right]\right\}_{ u^{\prime} \notin \mathcal{N}(v)}, \\
+\left.x(v), \mu_{v}^{(k-1)}\right), k \in\{1,2, \ldots, K\}
+\end{aligned}
+$$
+
+
+令$$
+\alpha_{u, v}=\mathbb{I}(u \in \mathcal{N}(v))
+$$，也就是说$\alpha$是二值化的邻接矩阵，上述公式其实和上面的迭代过程有一样的效果。但是这些附加的系数给了我们关于边（不管存在与否）的梯度信息：
+
+
+$$
+\frac{\partial \mathcal{L}}{\partial \alpha_{u, v}}=\sum_{k=1}^{K} \frac{\partial \mathcal{L}^{\top}}{\partial \mu_{k}} \cdot \frac{\partial \mu_{k}}{\partial \alpha_{u, v}}
+$$
+
+
+为了攻击模型，通过进行梯度上升，即 $\alpha_{u, v} \leftarrow \alpha_{u, v}+\eta \frac{\partial \mathcal{L}}{\partial \alpha_{u, v}}$。但是攻击是在离散结构上进行的，只有$m$条边被允许增删。因此我们需要进行一个组合优化问题：
+
+
+$$
+\begin{aligned}
+\max _{\left\{u_{t}, v_{t}\right\}_{t=1}^{m}} &  \quad \sum_{t=1}^{m}\left|\frac{\partial \mathcal{L}}{\partial \alpha_{u_{t}, v_{t}}}\right| \\
+\text {s.t.} & \quad \tilde{G}=\operatorname{Modify}\left(G,\left\{\alpha_{u_{t}, v_{t}}\right\}_{t=1}^{m}\right) \\
+& \quad \mathcal{I}(G, \tilde{G}, c)=1
+\end{aligned}
+$$
+
+
+我们简单地使用贪心算法来求解上述优化问题。修改的边的系数集合为$$
+\left\{\alpha_{u_{t}, v_{t}}\right\}_{t=1}^{m}
+$$，通过以下方式持续的
+
+
+$$
+\hat{G}_{t+1}=\left\{\begin{array}{l}
+{\left(\hat{V}_{t}, \hat{E}_{t} \backslash\left(u_{t}, v_{t}\right)\right): \frac{\partial \mathcal{L}}{\partial \alpha_{u_{t}, v_{t}}}<0} \\
+{\left(\hat{V}_{t}, \hat{E}_{t} \cup\left\{\left(u_{t}, v_{t}\right)\right\}\right): \frac{\partial \mathcal{L}}{\partial \alpha_{u_{t}, v_{t}}}>0}
+\end{array}\right.
+$$
+
+
+也就是说，我们修改了最可能引起目标变化的边。根据梯度的符号，我们可以添加或删除边缘。我们把它命名为GradArgmax，因为它根据梯度信息进行贪婪选择。因为该方法需要梯度信息，所以属于白盒攻击。同时需要考虑所有节点对的梯度信息，所以时间复杂度为$$O(|V|^2)$$。如果没有近似的简化方法，这种梯度攻击就无法扩展到大网络。
+
+
+
+![cf4b0c0887888924c7d9f33045f82d4.png](http://ww1.sinaimg.cn/large/005NduT8ly1gadyiera5cj315a0hjdkz.jpg)
+
+
+
+#### Genetic algorithm
+
+论文提出了一种基于遗传算法的梯度攻击。对于给定的实例$(G,c,y)$和目标分类器$f$，算法涉及五个主要过程：
+
+- Population： 种群代表候选的修改方案，表示为$$
+  \mathcal{P}^{(r)}=\{\hat{G}_{j}^{(r)}\}_{j=1}^{\left|\mathcal{P}^{(r)}\right|}
+  $$，其中$\hat{G}_{j}^{(r)}$是对原始图的有效修改方案，$r=1,2,\ldots,R$表示进化代索引，$R$是最大的进化代数。
+
+- Fitness: 当前种群的每一个候选解决方案都需要一个适应度函数来评价其效果，本文使用目标模型的损失函数$$\mathcal{L}\left(f\left(\hat{G}_{j}^{(r)}, c\right), y\right)$$作为适应度函数。一个好的攻击方案应该令损失函数上升，因此适应度分数越大，表示该攻击方案越有效。
+
+  但是因为适应度是一个连续的分数，不适合于PBA-D，因为它只有分类标签可以利用。
+
+- Selection: 获得了当前种群的适应度函数，我们可以通过加权采样或者贪婪选择的方法，来选择“亲代”种群$\mathcal{P}^{(r)}_b$，进行下一代的繁衍。
+
+- Crossover: 在选择了种群$\mathcal{P}^{(r)}_b$后，随机选择两个候选图$\hat{G}_{1}, \hat{G}_{2} \in \mathcal{P}_{b}^{(r)}$，对它们的边进行交叉混合：
+
+$$
+\hat{G}^{\prime}=\left(V,\left(\hat{E}_{1} \cap \hat{E}_{2}\right) \cup \operatorname{rp}\left(\hat{E}_{1} \backslash \hat{E}_{2}\right) \cup \operatorname{rp}\left(\hat{E}_{2} \backslash \hat{E}_{1}\right)\right)
+$$
+
+​	其中$\operatorname{rp}(\cdot )$表示采样一个子集。
+
+- Mutation: 变异过程，对于一个候选攻击方案$\hat{G} \in \mathcal{P}^{(r)}$，假设修改的边是$$\delta E=\left\{\left(u_{t}, v_{t}\right)\right\}_{t=1}^{m}$$，对于每一条边$(u_t,v_t)$，以确定的变异概率替换其中的节点$\left(u_{t}, v^{\prime}\right)$或$\left(u^{\prime}, v_t\right)$。
+
+
+
+种群大小为$$
+\left|\mathcal{P}^{(r)}\right|
+$$，交叉概率、变异概率、进化代数都是可以被微调的超参数。由于适应度函数的限制，该方法只能在PBA-C方法下使用。于我们需要执行目标模型$f$来获得适应度分数，所以这种遗传算法的计算成本为$$O(|V|+|E|)$$ ，主要由GNN的计算成本构成。我们简单地将其命名为GeneticAlg，因为它是一个通用遗传算法框架的实例化。
+
+
+
+
+
+## Experiment
+
+- 对于 GeneticAlg ，设置种群大小为 $$|\mathcal{P}=100|$$，进化代数为$R=10$， 交叉率和变异率在$$\{0.1,\ldots,0.5\}$$之间微调。
+- 对于 RL-S2V ，设置S2V的传播深度在$$K=\{1,\ldots,5\}$$之中微调。
+- 对于 GradArgmax 和 RandSampling，无参数微调。
 
