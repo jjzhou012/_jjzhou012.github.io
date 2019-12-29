@@ -59,4 +59,4 @@ $$。
 
 这篇论文考虑两个不同的监督学习任务：
 
-- 归纳图分类
+- 基于归纳学习的图分类(Inductive Graph Classificatio)

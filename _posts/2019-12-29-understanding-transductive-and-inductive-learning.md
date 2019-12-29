@@ -30,7 +30,8 @@ $$，测试集（未标注）$\mathbf{X}_{t e}$，测试集不会出现在训练
 
 半监督学习的情况下，训练集为$$
 \mathcal{D}=\left\{\mathbf{X}_{t r}, \mathbf{y}_{t r}, \mathbf{X}_{un}\right\}
-$$，测试集$\mathbf{X}_{t e}$，此时$\mathbf{X}_{un}$与$\mathbf{X}_{t e}$都是未标注的，但是测试的$\mathbf{X}_{t e}$在训练时未见过。
+$$，测试集$$\mathbf{X}_{t e}
+$$，此时$$\mathbf{X}_{un}$$$与$$$\mathbf{X}_{t e}$$都是未标注的，但是测试的$$\mathbf{X}_{t e}$$训练时未见过。
 
 
 
@@ -38,7 +39,7 @@ $$，测试集$\mathbf{X}_{t e}$，此时$\mathbf{X}_{un}$与$\mathbf{X}_{t e}$�
 
 直推学习情况下，训练集为$$
 \mathcal{D}=\left\{\mathbf{X}_{t r}, \mathbf{y}_{t r}, \mathbf{X}_{un}\right\}
-$$，测试集$\mathbf{X}_{un}$，由于在训练时我们已经见过$\mathbf{X}_{un}$（利用了$\mathbf{X}_{un}$的特征信息），这时就叫做直推学习。
+$$，测试集$\mathbf{X}_{un}$，由于在训练时我们已经见过$$\mathbf{X}_{un}$$（利用了$$\mathbf{X}_{un}$$的特征信息），这时就叫做直推学习。
 
 很多人说用了测试数据是一种作弊行为，实则不然，因为这里只是用了**测试数据的特征**，而其标签我们是不知道的。
 
