@@ -51,6 +51,12 @@ key: graph-learn-resource
 
 
 
+### 3. Literature of Deep Learning for Graphs
+
+- github链接： https://github.com/DeepGraphLearning/LiteratureDL4Graph
+
+
+
 
 
 ## Part 3: 机器学习
