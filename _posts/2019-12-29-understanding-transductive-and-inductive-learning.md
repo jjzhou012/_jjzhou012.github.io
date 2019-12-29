@@ -31,7 +31,7 @@ $$，测试集（未标注）$\mathbf{X}_{t e}$，测试集不会出现在训练
 半监督学习的情况下，训练集为$$
 \mathcal{D}=\left\{\mathbf{X}_{t r}, \mathbf{y}_{t r}, \mathbf{X}_{un}\right\}
 $$，测试集$$\mathbf{X}_{t e}
-$$，此时$$\mathbf{X}_{un}$$$与$$$\mathbf{X}_{t e}$$都是未标注的，但是测试的$$\mathbf{X}_{t e}$$训练时未见过。
+$$，此时$$\mathbf{X}_{un}$$与$$\mathbf{X}_{t e}$$都是未标注的，但是测试的$$\mathbf{X}_{t e}$$训练时未见过。
 
 
 

@@ -59,4 +59,7 @@ $$。
 
 这篇论文考虑两个不同的监督学习任务：
 
-- 基于归纳学习的图分类(Inductive Graph Classificatio)
+- 基于归纳学习的图分类(Inductive Graph Classification)
+
+  每个图$G_i$有一个标签$$y_{i} \in \mathcal{Y}=\{1,2, \ldots, Y\}$$，$Y$是标签种类数量。数据集$$\mathcal{D}^{(i n d)}=\left\{\left(G_{i}, y_{i}\right)\right\}_{i=1}^{N}$$以图实例和图标签的组合表示
+
