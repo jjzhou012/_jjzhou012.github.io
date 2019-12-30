@@ -11,9 +11,9 @@ key: Adversarial-Attack-on-Graph-2
 
 
 ------
-论文链接：https://arxiv.org/pdf/1806.02371.pdf
+论文链接：[https://arxiv.org/pdf/1806.02371.pdf](https://arxiv.org/pdf/1806.02371.pdf)
 
-github链接：https://github.com/Hanjun-Dai/graph_adversarial_attack
+github链接：[https://github.com/Hanjun-Dai/graph_adversarial_attack](https://github.com/Hanjun-Dai/graph_adversarial_attack)
 
 
 
@@ -166,13 +166,12 @@ $$。
 
 给定一个实例$(G,c,y)$和一个目标分类器$f$，攻击过程被建模为有限视界马尔可夫决策过程$\mathcal{M}^{(m)}(f, G, c, y)$。马尔可夫决策过程定义如下：
 
-- **Action**   攻击者允许对图进行增删边，因此一个在时间$t$的简单action是$a_{t} \in \mathcal{A} \subseteq V \times V$，由于对边的修改有较大的时间复杂度，论文用一种分层action来分解行为空间。
+- **Action**:   攻击者允许对图进行增删边，因此一个在时间$t$的简单action是$a_{t} \in \mathcal{A} \subseteq V \times V$，由于对边的修改有较大的时间复杂度，论文用一种分层action来分解行为空间。
 
-- **State**    $t$时刻的状态$s_t$用元组$(\hat{G}_t,c)$表示，$\hat{G}_t$是一个源自$G$的部分修改的图。
+- **State**:    $t$时刻的状态$s_t$用元组$(\hat{G}_t,c)$表示，$\hat{G}_t$是一个源自$G$的部分修改的图。
 
-- **Reward**   攻击者的目的是欺骗目标分类器。因此，非零的奖励只在MDP结束时收到，奖励被定义为：
-
-  $$
+- **Reward**:   攻击者的目的是欺骗目标分类器。因此，非零的奖励只在MDP结束时收到，奖励被定义为：
+$$
   r((\tilde{G}, c))=\left\{\begin{array}{l}
   {1: f(\tilde{G}, c) \neq y} \\
   {-1: f(\tilde{G}, c)=y}
@@ -181,7 +180,7 @@ $$。
   
   在修改的中间步骤中，不会收到任何奖励。也就是说，$r\left(s_{t}, a_{t}\right)=0, \forall t=1,2, \dots, m-1$。在PBA-C攻击中，目标分类器的预测置信度可以访问，因此可以把预测的损失函数$r((\tilde{G}, c))=\mathcal{L}(f(\tilde{G}, c), y)$作为奖励，损失函数越大表示攻击效果越好。
   
-- Terminal 当$m$次攻击达到时，攻击过程结束。为了简化，本文关注固定长度的MDP。在修改量足够少就能实现攻击效果的情况下，我们可以简单地让代理修改虚边。
+- **Terminal**: 当$m$次攻击达到时，攻击过程结束。为了简化，本文关注固定长度的MDP。在修改量足够少就能实现攻击效果的情况下，我们可以简单地让代理修改虚边。
 
 给定以上设置，一个简单的MDP轨迹可以表示为：$\left(s_{1}, a_{1}, r_{1}, \dots, s_{m}, a_{m}, r_{m}, s_{m+1}\right)$，其中$$s_1=(G,c), s_t=(\hat{G}_t,c), \forall t\in \{2, \ldots ,m \}, s_{m+1}=(\tilde{G},c)$$。最后一步会得到奖励$r_{m}=r\left(s_{m}, a_{m}\right)=r((\tilde{G}, c))$，其他的中间过程奖励为0：$$
 r_{t}=0, \forall t \in\{1,2, \ldots, m-1\}
