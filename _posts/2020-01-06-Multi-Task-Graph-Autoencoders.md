@@ -20,8 +20,6 @@ github链接：[https://github.com/vuptran/graph-representation-learning](https:
 
 
 
-
-
 ## Challenges
 
 首先阐述了图上预测任务的难点：

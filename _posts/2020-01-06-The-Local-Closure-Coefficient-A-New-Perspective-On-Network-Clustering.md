@@ -1,6 +1,6 @@
 ---
 layout: article
-title: The Local Closure Coefficient: A New Perspective On Network Clustering
+title: The Local Closure Coefficient-A New Perspective On Network Clustering
 date: 2020-01-06 00:13:00 +0800
 tags: [Graph]
 categories: blog
@@ -9,6 +9,8 @@ key: The-Local-Closure-Coefficient
 ---
 
 
+
+------
 
 
 
