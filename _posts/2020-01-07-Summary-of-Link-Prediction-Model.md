@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Summary of Link Prediction Model
-date: 2019-01-07 00:21:00 +0800
+date: 2020-01-07 00:21:00 +0800
 tags: [Graph, Link prediction]
 categories: blog
 pageview: true
