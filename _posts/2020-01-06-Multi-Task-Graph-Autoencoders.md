@@ -1,14 +1,12 @@
 ---
 layout: article
 title: Multi-Task Graph Autoencoders
-date: 2019-01-06 00:21:00 +0800
+date: 2020-01-06 00:21:00 +0800
 tags: [Graph, Link prediction, Node classification]
 categories: blog
 pageview: true
 key: Multi-Task-Graph-Autoencoders
 ---
-
-
 
 
 
@@ -25,9 +23,9 @@ github链接：[https://github.com/vuptran/graph-representation-learning](https:
 首先阐述了图上预测任务的难点：
 
 - 极端的类标不平衡问题：链路预测中，已知存在的边（正链）明显少于已知缺失的边（负链），难以从稀疏的样本中学习到有效的信息；
-- 图结构的复杂性：边的有向/无向，加权/无权，高度稀疏
-
-
+- 图结构的复杂性：边的有向/无向，加权/无权，高度稀疏，边类型多；
+- 合并边信息:节点(或者边)有时由一组称为边信息的特征来描述，边信息可以对输入图的拓扑特征进行编码。节点和边缘上的这种显式数据并不总是可用的，并且被认为是可选的。一个有用的模型应该能够结合关于节点和/或边的可选边信息，以尽可能提高预测性能;
+- 效率和可扩展性:真实世界的图形数据集包含大量的节点和/或边。为了在实际应用中实现实用，模型必须具有内存和计算效率。
 
 
 
