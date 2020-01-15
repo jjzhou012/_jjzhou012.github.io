@@ -43,7 +43,7 @@ $$
 
 - **如何处理积分的优化过程；**
 
-  公式（1）其实就是$$p(\mathbf{x} | \mathbf{z} ; \theta)$$关于$$\mathbf{z}$$的期望。在优化的过程中，我们一定要取到能变换到$$\mathbf{x}$$的潜变量$$\mathbf{z}$$，只有这样才能通过优化参数最终获得期望的输出。但是如果潜变量的维度过高，对于大部分的$$\mathbf{z}$$，都不能生成与$$\mathbf{x}$$相似的样本，即$$p(\mathbf{x} | \mathbf{z} ; \theta)$$通常都接近于0。因此直接优化$$p(\mathbf{x})$$很难，所以我们还是得换一个优化目标。
+  公式（1）其实就是$$p(\mathbf{x} \mid \mathbf{z} ; \theta)$$关于$$\mathbf{z}$$的期望。在优化的过程中，我们一定要取到能变换到$$\mathbf{x}$$的潜变量$$\mathbf{z}$$，只有这样才能通过优化参数最终获得期望的输出。但是如果潜变量的维度过高，对于大部分的$$\mathbf{z}$$，都不能生成与$$\mathbf{x}$$相似的样本，即$$p(\mathbf{x} \mid  \mathbf{z} ; \theta)$$通常都接近于0。因此直接优化$$p(\mathbf{x})$$很难，所以我们还是得换一个优化目标。
 
 
 
@@ -51,7 +51,7 @@ $$
 
 那么既然$$p(\mathbf{x})$$这个概率分布中的很多潜变量$$\mathbf{z}$$不能被变换为与输入$$\mathbf{x}$$相似的样本，那么我们能否找到一个概率分布$$q(\mathbf{z})$$，使得这个$$q(\mathbf{z})$$分布中的$$\mathbf{z}$$被变换为我们需要的$$\mathbf{x}$$的概率更大呢？
 
-既然$$\mathbf{z}$$能变换为$$\mathbf{x}$$，那么相应的某一个$$\mathbf{x}$$也能对应一个$$\mathbf{z}$$，这里我们引入一个$$\mathbf{z}$$的后验概率分布$$p(\mathbf{z} | \mathbf{x})$$。通过后验概率分布我们可以以最大概率获得能变换为所需$$\mathbf{x}$$的$$\mathbf{z}$$。此时如果$$q(\mathbf{z})$$就是$$p(\mathbf{z} | \mathbf{x})$$的话那就再好不过了，但是现在后验概率分布无法获得。所以我们需要引入这个$$q(\mathbf{z} | \mathbf{x})$$分布来近似后验概率分布$$p(\mathbf{z} | \mathbf{x})$$，这就是变分（variational）的思想。
+既然$$\mathbf{z}$$能变换为$$\mathbf{x}$$，那么相应的某一个$$\mathbf{x}$$也能对应一个$$\mathbf{z}$$，这里我们引入一个$$\mathbf{z}$$的后验概率分布$$p(\mathbf{z} \mid \mathbf{x})$$。通过后验概率分布我们可以以最大概率获得能变换为所需$$\mathbf{x}$$的$$\mathbf{z}$$。此时如果$$q(\mathbf{z})$$就是$$p(\mathbf{z} \mid \mathbf{x})$$的话那就再好不过了，但是现在后验概率分布无法获得。所以我们需要引入这个$$q(\mathbf{z} \mid \mathbf{x})$$分布来近似后验概率分布$$p(\mathbf{z} \mid \mathbf{x})$$，这就是变分（variational）的思想。
 
 VAE的模型图如下所示：
 
@@ -60,9 +60,13 @@ VAE的模型图如下所示：
 $$\mathbf{x}$$是我们可以观测到的数据，也就是输入数据，输入数据受隐变量$$\mathbf{z}$$控制，即$$\mathbf{x}$$由隐变量$$\mathbf{z}$$产生：
 
 - $$\mathbf{x} \rightarrow \mathbf{z}$$: 从$$\mathbf{x}$$推断得到$$\mathbf{z}$$，生成$$\mathbf{z}$$的后验概率分布，视为推断模型，从自编码器的角度看就是编码器；
-- $$\mathbf{z} \rightarrow \mathbf{x}$$: 从隐变量中采样数据$$\mathbf{z}$$映射为与$$\mathbf{x}$$相似的样本数据，视为生成模型$$p_{\theta}(\mathbf{x} | \mathbf{z})$$，从自编码器的角度看就是解码器；
+- $$\mathbf{z} \rightarrow \mathbf{x}$$: 从隐变量中采样数据$$\mathbf{z}$$映射为与$$\mathbf{x}$$相似的样本数据，视为生成模型$$p_{\theta}(\mathbf{x} \mid \mathbf{z})$$，从自编码器的角度看就是解码器；
 
-那么为了使得$$q(\mathbf{z} | \mathbf{x})$$和$$p(\mathbf{z} | \mathbf{x})$$这两个分布尽可能的相似，可以通过最小化这两个分布之间的KL散度
+那么为了使得$$q(\mathbf{z} \mid \mathbf{x})$$和$$p(\mathbf{z} \mid  \mathbf{x})$$这两个分布尽可能的相似，可以通过最小化这两个分布之间的KL散度：
+
+
+
+
 
 
 
