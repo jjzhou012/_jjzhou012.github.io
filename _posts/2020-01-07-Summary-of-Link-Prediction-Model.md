@@ -1,8 +1,8 @@
 ---
 layout: article
-title: Summary of Link Prediction Model
+title: Summary of graph-based task model
 date: 2020-01-07 00:21:00 +0800
-tags: [Graph, Link prediction]
+tags: [Graph, Link prediction, Graph classification]
 categories: blog
 pageview: true
 key: Summary-of-Link-Prediction-Model
@@ -27,4 +27,14 @@ key: Summary-of-Link-Prediction-Model
 - SDNE: 
 
 - MF: Link prediction via matrix factorization.
+
+
+
+## 图分类模型
+
+| Model | Paper                                                        |
+| ----- | ------------------------------------------------------------ |
+| SEAL  | 2019: Semi-Supervised Graph Classification: A Hierarchical Graph Perspective |
+|       |                                                              |
+|       |                                                              |
 
