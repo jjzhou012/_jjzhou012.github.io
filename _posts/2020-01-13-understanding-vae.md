@@ -127,6 +127,10 @@ $$\mathbf{z}$$服从正态分布，那么$$(\mathbf{z-\mu})/\sigma = \epsilon$$�
 
 
 
+
+
+
+
 代码中的具体实现如下：
 
 
@@ -234,8 +238,9 @@ VAE与AE不同，VAE中的两个encoder，一个用于计算均值，一个用�
 
 转载：
 
-- https://kexue.fm/archives/5253
 
+
+- https://kexue.fm/archives/5253
 - https://zhuanlan.zhihu.com/p/55557709
 - https://github.com/bojone/vae
 
