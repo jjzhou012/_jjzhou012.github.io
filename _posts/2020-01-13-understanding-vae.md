@@ -154,7 +154,7 @@ z = Lambda(sampling, output_shape=(latent_dim,))([z_mean, z_log_var])
 
 整个VAE的过程如下：
 
-<img src="http://ww1.sinaimg.cn/large/005NduT8ly1gb0qslmqp3j30rd0nmwiv.jpg" alt="4168876662.png"  />
+<img src="http://ww1.sinaimg.cn/large/005NduT8ly1gb0qslmqp3j30rd0nmwiv.jpg" alt="4168876662.png" style="zoom: 50%;" />
 
 
 
