@@ -240,7 +240,7 @@ VAE与AE不同，VAE中的两个encoder，一个用于计算均值，一个用�
 
 
 
-- https://kexue.fm/archives/5253
-- https://zhuanlan.zhihu.com/p/55557709
-- https://github.com/bojone/vae
+- [https://kexue.fm/archives/5253](https://kexue.fm/archives/5253)
+- [https://zhuanlan.zhihu.com/p/55557709](https://zhuanlan.zhihu.com/p/55557709)
+- [https://github.com/bojone/vae](https://github.com/bojone/vae)
 
