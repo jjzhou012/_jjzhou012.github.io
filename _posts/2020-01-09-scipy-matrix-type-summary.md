@@ -59,4 +59,9 @@ lil_matrix((M,N), [dtype])
   print(lil.data)    # [list([]) list([2.0, 3.0]) list([]) list([4.0])]
   ```
 
-  
+
+
+
+
+
+— 待补充
