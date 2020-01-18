@@ -1,8 +1,8 @@
 ---
 layout: article
-title: Multi-Task Graph Autoencoders
+title: 用于多任务学习的图自编码器 —— Multi-Task Graph Autoencoders
 date: 2020-01-06 00:21:00 +0800
-tags: [Graph, Link prediction, Node classification]
+tags: [Graph, Link Prediction, Node Classification]
 categories: blog
 pageview: true
 key: Multi-Task-Graph-Autoencoders
