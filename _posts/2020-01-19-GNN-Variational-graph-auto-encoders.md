@@ -138,4 +138,5 @@ VGAE和GAE都在无节点特征的任务上获得了具有竞争力的结果。�
 
 <img src="http://ww1.sinaimg.cn/large/005NduT8ly1gb1u5d12qaj30di0d90vp.jpg" alt="c9cb795d62d34c2587236d3d42ca2cc.png" style="zoom:50%;" />
 
-这里存疑！留待思考。
+怎么理解呢，我觉得是因为encoder输出标准正态分布，而decoder做内积使得输出全都大于0，不符合标准正态分布，也就将嵌入向量推离了零中心。
+
