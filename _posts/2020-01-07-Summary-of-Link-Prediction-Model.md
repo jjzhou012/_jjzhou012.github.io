@@ -17,16 +17,17 @@ key: Summary-of-Link-Prediction-Model
 | SDNE  | 2016：Structural deep network embedding.                     |
 | MF    | 2011：Link prediction via matrix factorization.              |
 | VGAE  | 2016：Variational graph auto-encoders.                       |
-| MTGAE | 2018：Learning to Make Predictions on Graphs with Autoencoders. |
+| GAE   | 2016：Variational graph auto-encoders.                       |
 |       | 2014：A marginalized denoising method for link prediction in relational data. |
-|       |                                                              |
+| MTGAE | 2018：Learning to Make Predictions on Graphs with Autoencoders. |
 |       |                                                              |
 
 
 
 - SDNE: 
-
 - MF: Link prediction via matrix factorization.
+- https://github.com/graph-star-team/graph_star
+- https://github.com/MysteryVaibhav/RWR-GAE
 
 
 
