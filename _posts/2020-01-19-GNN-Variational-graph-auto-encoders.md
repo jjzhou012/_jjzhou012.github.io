@@ -31,7 +31,7 @@ VGAE是一个隐变量模型，学习了**无向图**的可解释的潜在表示
 
 ### 模型定义
 
-对于一个无向无权图$\mathcal{G=(V,E)}$，节点数为$$N=| \mathcal{V} |$$，邻接矩阵为$$\mathbf{A}$$（加自环），度矩阵为$$\mathbf{D}$$，潜变量矩阵为$$\mathbf{Z}_{N \times F}$$，节点特征矩阵为$$\mathbf{X}_{N \times D}$$。
+对于一个无向无权图$\mathcal{G=(V,E)}$，节点数为$$N=\mid \mathcal{V} \mid$$，邻接矩阵为$$\mathbf{A}$$（加自环），度矩阵为$$\mathbf{D}$$，潜变量矩阵为$$\mathbf{Z}_{N \times F}$$，节点特征矩阵为$$\mathbf{X}_{N \times D}$$。
 
 - 推断模型（编码器）
 
@@ -77,7 +77,7 @@ $$
   
   注意到几点：
   
-  - 这里的先验假设是$$p(\mathbf{Z})=\prod_{i} p\left(\mathbf{z}_{\mathbf{i}}\right)=\prod_{i} \mathcal{N}\left(\mathbf{z}_{i} | 0, \mathbf{I}\right)$$，即隐变量的分布符合标准正态分布；
+  - 这里的先验假设是$$p(\mathbf{Z})=\prod_{i} p\left(\mathbf{z}_{\mathbf{i}}\right)=\prod_{i} \mathcal{N}\left(\mathbf{z}_{i} \mid 0, \mathbf{I}\right)$$，即隐变量的分布符合标准正态分布；
   - 对于极度稀疏的$$\mathbf{A}$$，因为正负样本的极度不均衡带来的影响，所以在loss中对$A_{ij}=1$的项赋予新的权重是很有必要的；
   - 对于“采样操作”，这里使用了和VAE一样的“重参数”操作，保证模型可训练；
   - 对于没有特征的网络，使用单位矩阵代替特征矩阵；
@@ -104,7 +104,7 @@ $$
 $$
 
 
-其中$\sigma(\cdot)$是logistic sigmoid函数。
+其中$$\sigma(\cdot)$$是logistic sigmoid函数。
 
 损失函数衡量生成图和原始图之间的距离：
 
@@ -112,7 +112,6 @@ $$
 $$
 \mathcal{L}=\mathbb{E}_{q(\mathbf{Z} | \mathbf{X}, \mathbf{A})}[\log p(\mathbf{A} | \mathbf{Z})]
 $$
-
 
 ## 实验
 
