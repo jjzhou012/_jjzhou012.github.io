@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 图神经网络——GCN理解
+title: 图神经网络：图卷积神经网络(GCN)
 date: 2019-12-07 00:08:00 +0800
 tags: [GNN, Graph Embedding]
 categories: blog

@@ -28,6 +28,7 @@ key: Summary-of-Link-Prediction-Model
 - MF: Link prediction via matrix factorization.
 - https://github.com/graph-star-team/graph_star
 - https://github.com/MysteryVaibhav/RWR-GAE
+- 
 
 
 
