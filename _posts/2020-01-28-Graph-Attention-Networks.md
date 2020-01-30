@@ -16,7 +16,6 @@ key: Graph-Attention-Networks
 - tensorflow版本： [https://github.com/PetarV-/GAT](https://github.com/PetarV-/GAT)
 - keras版本：[https://github.com/danielegrattarola/keras-gat](https://github.com/danielegrattarola/keras-gat)
 - pytorch版本：[https://github.com/Diego999/pyGAT](https://github.com/Diego999/pyGAT)
-
 - for link prediction: [https://github.com/raunakkmr/GraphSAGE-and-GAT-for-link-prediction](https://github.com/raunakkmr/GraphSAGE-and-GAT-for-link-prediction)
 
 
@@ -120,7 +119,7 @@ $$
 
 ## 比较
 
-- GAT计算高效。self-attetion层可以在所有边上并行计算，输出特征可以在所有节点上并行计算；不需要特征分解或者其他内存耗费大的矩阵操作。单个head的GAT的时间复杂度为$$O\left(|V| F F^{\prime}+|E| F^{\prime}\right)$$。
+- GAT计算高效。self-attetion层可以在所有边上并行计算，输出特征可以在所有节点上并行计算；不需要特征分解或者其他内存耗费大的矩阵操作。单个head的GAT的时间复杂度为$$O\left(\mid V\mid F F^{\prime}+\mid E\mid F^{\prime}\right)$$。
 - 与GCN不同的是，GAT为同一邻域中的节点分配不同的重要性，提升了模型的性能。
 - 注意力机制以共享的方式应用于图中的所有边，因此它不依赖于对全局图结构的预先访问，也不依赖于对所有节点(特征)的预先访问(这是许多先前技术的限制)。
   - 不必要无向图。如果边$i\rightarrow j$不存在，可以忽略计算$e_{ij}$;
@@ -163,3 +162,10 @@ $$
 - 归纳学习
 
   ![99018f1ffd1351b1acf4c90cf7e1ff9.png](http://ww1.sinaimg.cn/large/005NduT8ly1gbdsz19osbj30yt0gsgp0.jpg)
+
+
+
+GAT layer            |  t-SNE + Attention coefficients on Cora
+:-------------------------:|:-------------------------:
+![](http://www.cl.cam.ac.uk/~pv273/images/gat.jpg)  |  ![](http://www.cl.cam.ac.uk/~pv273/images/gat_tsne.jpg)
+
