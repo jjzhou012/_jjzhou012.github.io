@@ -41,8 +41,7 @@ $$。
 
 在这个过程中特征向量的维度可能会改变，即$$F \rightarrow F^{\prime}$$。为了保留足够的表达能力，将输入特征转化为高阶特征，至少需要一个可学习的线性变换。例如，对于节点$i,j$，对它们的特征$$\vec{h}_{i},\vec{h}_{j}$$应用线性变换$$
 \mathbf{W} \in \mathbb{R}^{F^{\prime} \times F}
-$$，从$F$维转化为$F^{\prime}$维新特征$\vec{h}_{i}^{\prime},\vec{h}_{j}^{\prime}$：
-
+$$，从$F$维转化为$F^{\prime}$维新特征$$\vec{h}_{i}^{\prime}, \vec{h}_{j}^{\prime}$$：
 
 $$
 e_{i j}=a\left(\mathbf{W} \vec{h}_{i}, \mathbf{W} \vec{h}_{j}\right)
@@ -107,7 +106,7 @@ $$
 $$
 
 
-下面是$K=3$的多头注意力机制示意图。不同颜色的箭头表示不同注意力的计算过程，每个邻居做三次注意力计算，每次attention计算就是一个普通的self-attention，输出一个$\vec{h}_{i}^{\prime}$，最后将三个不同的$\vec{h}_{i}^{\prime}$进行拼接或取平均，得到最终的$\vec{h}_{i}^{\prime}$。
+下面是$K=3$的多头注意力机制示意图。不同颜色的箭头表示不同注意力的计算过程，每个邻居做三次注意力计算，每次attention计算就是一个普通的self-attention，输出一个$$\vec{h}_{i}^{\prime}$$，最后将三个不同的$$\vec{h}_{i}^{\prime}$$进行拼接或取平均，得到最终的$$\vec{h}_{i}^{\prime}$$。
 
 
 
@@ -122,7 +121,7 @@ $$
 - GAT计算高效。self-attetion层可以在所有边上并行计算，输出特征可以在所有节点上并行计算；不需要特征分解或者其他内存耗费大的矩阵操作。单个head的GAT的时间复杂度为$$O\left(\mid V\mid F F^{\prime}+\mid E\mid F^{\prime}\right)$$。
 - 与GCN不同的是，GAT为同一邻域中的节点分配不同的重要性，提升了模型的性能。
 - 注意力机制以共享的方式应用于图中的所有边，因此它不依赖于对全局图结构的预先访问，也不依赖于对所有节点(特征)的预先访问(这是许多先前技术的限制)。
-  - 不必要无向图。如果边$i\rightarrow j$不存在，可以忽略计算$e_{ij}$;
+  - 不必要无向图。如果边$i\rightarrow j$不存在，可以忽略计算$e_{ij}$；
   - 可以用于归纳学习；
 
 ## 评估
@@ -139,7 +138,6 @@ $$
 
   - 两层GAT模型，第一层多头注意力$K=8$，输出特征维度$F^{\prime}=8$（共64个特征），激活函数为指数线性单元（ELU）；
   - 第二层单头注意力，计算$C$个特征（$C$为分类数），接softmax激活函数；
-
   - 为了处理小的训练集，模型中大量采用正则化方法，具体为L2正则化；
   - dropout；
 
@@ -163,7 +161,7 @@ $$
 
   ![99018f1ffd1351b1acf4c90cf7e1ff9.png](http://ww1.sinaimg.cn/large/005NduT8ly1gbdsz19osbj30yt0gsgp0.jpg)
 
-
+- 可视化
 
 GAT layer            |  t-SNE + Attention coefficients on Cora
 :-------------------------:|:-------------------------:

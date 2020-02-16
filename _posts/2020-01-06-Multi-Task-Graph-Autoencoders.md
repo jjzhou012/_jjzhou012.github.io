@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 用于多任务学习的图自编码器 —— Multi-Task Graph Autoencoders
+title: 图神经网络：用于多任务学习的图自编码器（MTGAE）
 date: 2020-01-06 00:21:00 +0800
-tags: [Graph, Link Prediction, Node Classification]
+tags: [Graph, Link Prediction, Node Classification, GNN]
 categories: blog
 pageview: true
 key: Multi-Task-Graph-Autoencoders
@@ -176,9 +176,10 @@ $$被约束为$[0,1]$之间。
 
 
 $$
-\mathcal{L}_{\alpha \mathrm{MBCE}}=\mathcal{L}_{\mathrm{MBCE}\left(\mathbf{a}_{i}, \mathbf{\hat { a }}_{i}\right)}+\mathcal{L}_{\mathrm{CE}\left(\mathbf{x}_{i}, \hat{\mathbf{x}}_{i}\right)}   \\
-
+\begin{aligned}
+\mathcal{L}_{\alpha \mathrm{MBCE}}=\mathcal{L}_{\mathrm{MBCE}\left(\mathbf{a}_{i}, \mathbf{\hat { a }}_{i}\right)}+\mathcal{L}_{\mathrm{CE}\left(\mathbf{x}_{i}, \hat{\mathbf{x}}_{i}\right)} \\
 \mathcal{L}_{\mathrm{CE}\left(\mathrm{x}_{i}, \hat{\mathrm{x}}_{i}\right)}=-\mathrm{x}_{i} \log \left(\sigma\left(\hat{\mathrm{x}}_{i}\right)\right)-\left(1-\mathrm{x}_{i}\right) \log \left(1-\sigma\left(\hat{\mathrm{x}}_{i}\right)\right)
+\end{aligned}
 $$
 
 
@@ -192,8 +193,10 @@ $$
 
 
 $$
+\begin{aligned}
 \hat{\mathbf{y}}_{i}=\operatorname{softmax}\left(\tilde{\mathbf{z}}_{i}\right)=\frac{1}{\mathcal{Z}} \exp \left(\tilde{\mathbf{z}}_{i}\right) = \frac{1}{\sum \exp(\tilde{\mathbf{z}}_i)} \exp \left(\tilde{\mathbf{z}}_{i}\right)  \\
 \tilde{\mathbf{z}}_{i}=\mathbf{U} \cdot \operatorname{ReLU} \left(\mathbf{W}^{\mathrm{T}} \mathbf{z}_{i}+\mathbf{b}^{(3)}\right)+\mathbf{b}^{(5)}
+\end{aligned}
 $$
 
 

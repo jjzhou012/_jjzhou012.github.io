@@ -11,11 +11,10 @@ key: GNN-Variational-Graph-Auto-Encoders
 
 
 ------
-论文链接：[https://arxiv.org/abs/1611.07308](https://arxiv.org/abs/1611.07308)
-
-github链接：[https://github.com/tkipf/gae](https://github.com/tkipf/gae)
-
-papers with code: [https://paperswithcode.com/paper/variational-graph-auto-encoders](https://paperswithcode.com/paper/variational-graph-auto-encoders)
+- 论文链接：[https://arxiv.org/abs/1611.07308](https://arxiv.org/abs/1611.07308)
+- github链接：[https://github.com/tkipf/gae](https://github.com/tkipf/gae)
+- papers with code: [https://paperswithcode.com/paper/variational-graph-auto-encoders](https://paperswithcode.com/paper/variational-graph-auto-encoders)
+- GAE tutorial: [https://github.com/CrawlScript/TensorFlow-GAE-Tutorial](https://github.com/CrawlScript/TensorFlow-GAE-Tutorial)
 
 
 

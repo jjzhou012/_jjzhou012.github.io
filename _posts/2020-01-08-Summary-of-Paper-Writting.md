@@ -28,7 +28,7 @@ key: Summary-of-Paper-Writting
 
 - Advances in this direction are often categorized as … (这方面的进展可以归纳为…)
 
-- 
+- There has been a surge of algorithms that seek to …
 
 ## 模型评价/比较
 
@@ -59,6 +59,7 @@ key: Summary-of-Paper-Writting
 
 - 利用：leverage
 - 生成：yield
+- 缺点：drawback
 
 ### 形容词、副词
 
@@ -68,3 +69,8 @@ key: Summary-of-Paper-Writting
 
 - Nevertheless：然而、不过、虽然如此
 - 
+
+### 固定搭配
+
+- task agnostic：任务无关的
+
