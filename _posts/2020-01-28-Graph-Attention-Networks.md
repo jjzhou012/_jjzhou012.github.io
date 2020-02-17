@@ -2,7 +2,7 @@
 layout: article
 title: 图神经网络：图注意力网络(GAT)
 date: 2020-01-28 00:17:00 +0800
-tags: [GNN, Graph, Deep Learning]
+tags: [GNN, Graph, Node Classification]
 categories: blog
 pageview: true
 key: Graph-Attention-Networks

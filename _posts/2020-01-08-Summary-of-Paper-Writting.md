@@ -16,9 +16,8 @@ key: Summary-of-Paper-Writting
 
 阅读了这么多论文，对于英语不太强的我来说，有些精彩的表达方式确实值得借鉴。话不多说，抄录之☞。
 
-
-
-
+- 推荐工具：[http://www.phrasebank.manchester.ac.uk/](http://www.phrasebank.manchester.ac.uk/)
+- REF-N-WRITE：[https://www.ref-n-write.com/trial/academic-phrasebank/](https://www.ref-n-write.com/trial/academic-phrasebank/)
 
 ## 摘要
 
@@ -59,6 +58,7 @@ key: Summary-of-Paper-Writting
 
 - 利用：leverage
 - 生成：yield
+- 优点：merit
 - 缺点：drawback
 
 ### 形容词、副词
