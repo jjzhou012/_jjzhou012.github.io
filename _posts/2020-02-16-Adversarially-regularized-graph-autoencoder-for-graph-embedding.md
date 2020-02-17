@@ -11,7 +11,7 @@ key: Adversarially-regularized-graph-autoencoder-for-graph-embedding
 ------
 
 - 论文链接：[https://arxiv.org/pdf/1802.04407v2.pdf](https://arxiv.org/pdf/1802.04407v2.pdf)
-- github:[https://github.com/Ruiqi-Hu/ARGA](https://github.com/Ruiqi-Hu/ARGA)
+- github: [https://github.com/Ruiqi-Hu/ARGA](https://github.com/Ruiqi-Hu/ARGA)
 
 
 
@@ -129,7 +129,7 @@ $$
 
 
 
-其中 $$p(\mathbf{Z})=\prod_{i} p\left(\mathbf{z}_{i}\right)=\prod_{i} \mathcal{N}\left(\mathbf{z}_{i} | 0, \mathbf{I}\right)$$为先验高斯分布。
+其中 $$p(\mathbf{Z})=\prod_{i} p\left(\mathbf{z}_{i}\right)=\prod_{i} \mathcal{N}\left(\mathbf{z}_{i} \mid 0, \mathbf{I}\right)$$为先验高斯分布。
 
 
 
