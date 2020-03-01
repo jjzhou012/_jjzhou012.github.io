@@ -26,8 +26,9 @@ key: Summary-of-Paper-Writting
 ## 综述
 
 - Advances in this direction are often categorized as … (这方面的进展可以归纳为…)
-
 - There has been a surge of algorithms that seek to …
+- There are a limited number of existing reviews on the topic of …
+- To tackle these challenges, tremendous effort has been made towards this area, resulting in a rich literature of related papers and methods. 
 
 ## 模型评价/比较
 
