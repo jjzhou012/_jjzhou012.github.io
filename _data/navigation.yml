@@ -57,4 +57,4 @@ header:
   - titles:
       # @start locale config
       en      : &EN       Publication
-    url: /publication.html
+    url: /my-items/publication.html
