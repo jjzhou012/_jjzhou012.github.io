@@ -53,3 +53,8 @@ header:
       # @start locale config
       en      : &EN       Github
     url: https://github.com/jjzhou012/jjzhou012.github.io
+
+  - titles:
+      # @start locale config
+      en      : &EN       Publication
+    url: /publication.html
