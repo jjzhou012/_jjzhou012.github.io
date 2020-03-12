@@ -2,7 +2,7 @@
 layout: article
 title: windows10 安装tensorflow-gpu
 date: 2020-01-07 00:12:00 +0800
-tags: [Config]
+tags: [Tutorials]
 categories: blog
 pageview: true
 key: Install-tensorflow-gpu-in-win10

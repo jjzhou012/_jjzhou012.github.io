@@ -2,7 +2,7 @@
 layout: article
 title: Samba服务端与客户端安装配置
 date: 2019-02-21 00:07:00 +0800
-tag: [Config, Linux] 
+tag: [Tutorials, Linux] 
 categories: Tutorials
 pageview: true
 ---
