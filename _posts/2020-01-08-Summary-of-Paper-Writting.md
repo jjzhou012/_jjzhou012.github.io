@@ -30,6 +30,15 @@ key: Summary-of-Paper-Writting
 - There are a limited number of existing reviews on the topic of …
 - To tackle these challenges, tremendous effort has been made towards this area, resulting in a rich literature of related papers and methods. 
 
+## 方法
+
+- **[简化符号]** To simplify notations, we drop the subscript/superscript for the xxx, i.e. xxx.
+- In order to overcome this limitation, we develop a XXX method, which is a simple yet effective approach to ...
+
+
+
+
+
 ## 模型评价/比较
 
 - XXX always **produces a significant boost in** predictive performance.
@@ -43,6 +52,19 @@ key: Summary-of-Paper-Writting
 ## 实验说明
 
 - In this section, we **expound our protocol for the empirical evaluation of our models’ capability for** learning and generalization on the tasks of link prediction and semi-supervised node classification.
+- **[data split]** we split the data into disjoint test, and validation, sets of 1,000, and 500, examples, respectively.
+- **[data split]** Each dataset is separated into a training, testing set and validation set. The validation set contains 5% citation edges for hyperparameter optimization, the test set holds 10% citation edges to verify the performance, and the rest are used for training.
+- In comparison to the baselines, we evaluate our model on the same data splits over 10 runs with XXX and report mean AUC/AP scores for link prediction and accuracy scores for node classification.
+- **[parameter]** varying parameter XX from … to …
+
+### 图表
+
+- **[描述框架]** We introduce XXX, schematically depicted in Figure 1, capable of … for XXX task.
+  - **We introduce** the Multi-Task Graph Autoencoder (MTGAE) architecture, **schematically depicted in Figure 1, capable of** learning a shared representation of latent node embeddings from local graph topology and available explicit node features **for** LPNC. 
+- [图标题]
+  - Schematic depiction of XXX architecture.
+  - Illustration of the proposed XXX
+  - Illustration of applying XXX
 
 
 
@@ -61,6 +83,7 @@ key: Summary-of-Paper-Writting
 - 生成：yield
 - 优点：merit
 - 缺点：drawback
+- 包含：contain, comprise
 
 ### 形容词、副词
 
@@ -74,4 +97,6 @@ key: Summary-of-Paper-Writting
 ### 固定搭配
 
 - task agnostic：任务无关的
+- with the formal format as follows：正式格式如下
+- 
 
