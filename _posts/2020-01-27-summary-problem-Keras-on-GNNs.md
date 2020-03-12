@@ -2,7 +2,7 @@
 layout: article
 title: Keras 搭建图神经网络常见问题总结
 date: 2020-01-27 00:10:00 +0800
-tags: [Keras, GNN]
+tags: [Summary, Keras, GNN]
 categories: blog
 pageview: true
 key: Summary-of-keras-on-GNN

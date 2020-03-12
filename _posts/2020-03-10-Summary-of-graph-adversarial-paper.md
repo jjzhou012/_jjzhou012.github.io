@@ -2,7 +2,7 @@
 layout: article
 title: Summary of graph-adversarial paper 
 date: 2020-03-10 00:00:00 +0800
-tags: [Graph, Adversarial]
+tags: [Summary, Graph, Adversarial]
 categories: blog
 pageview: true
 key: Summary-of-graph-adversarial-paper 

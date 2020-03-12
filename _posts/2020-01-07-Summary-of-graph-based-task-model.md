@@ -2,7 +2,7 @@
 layout: article
 title: Summary of graph-based task model
 date: 2020-01-07 00:21:00 +0800
-tags: [Graph, Link Prediction, Graph Classification]
+tags: [Summary,	 Graph, Link Prediction, Graph Classification]
 categories: blog
 pageview: true
 key: Summary-of-graph-based-task-model
