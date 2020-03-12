@@ -28,15 +28,23 @@ key: page-about
 
 
 
-**Bio**
+## Bio
 
-I am Jiajun Zhou, a master's candidate whose current research interests include graph data mining and deep learning, especially for network security and knowledge graph reasoning. 
+I am Jiajun Zhou, a master's candidate affliated with [IVSN Lab](http://www.ivsn-group.com/) at Zhejiang University of Technology.
 
-Feel free to contact me through jjzhou012@163.com to talk about anything interesting on graph/network analysis, etc.
+My current research interests include graph data mining and deep learning, especially for graph adversarial learning. 
+
+I got bachelor degree from Zhejiang University of Technology.
 
 
 
-**About this blog**
+## Publications
 
-This blog is just a collection of reading notes, reviews, and tutorials.
+- [**Adversarial Enhancement for Community Detection in Complex Networks**](https://arxiv.org/abs/1911.01670). Arxiv
+
+
+
+## Contact
+
+- EMAIL: jjzhou012@163.com
 
