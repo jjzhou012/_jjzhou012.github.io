@@ -2,7 +2,7 @@
 layout: article
 title: 图的对抗攻击： Adversarial Attack on Graph Structured Data
 date: 2019-12-28 00:18:00 +0800
-tags: [Adversarial attack, Graph]
+tags: [Adversarial, Graph]
 categories: blog
 pageview: true
 key: Adversarial-Attack-on-Graph-2
@@ -176,10 +176,10 @@ $$
   {1: f(\tilde{G}, c) \neq y} \\
   {-1: f(\tilde{G}, c)=y}
   \end{array}\right.
-  $$
-  
+$$
+
   在修改的中间步骤中，不会收到任何奖励。也就是说，$r\left(s_{t}, a_{t}\right)=0, \forall t=1,2, \dots, m-1$。在PBA-C攻击中，目标分类器的预测置信度可以访问，因此可以把预测的损失函数$r((\tilde{G}, c))=\mathcal{L}(f(\tilde{G}, c), y)$作为奖励，损失函数越大表示攻击效果越好。
-  
+
 - **Terminal**: 当$m$次攻击达到时，攻击过程结束。为了简化，本文关注固定长度的MDP。在修改量足够少就能实现攻击效果的情况下，我们可以简单地让代理修改虚边。
 
 给定以上设置，一个简单的MDP轨迹可以表示为：$\left(s_{1}, a_{1}, r_{1}, \dots, s_{m}, a_{m}, r_{m}, s_{m+1}\right)$，其中$$s_1=(G,c), s_t=(\hat{G}_t,c), \forall t\in \{2, \ldots ,m \}, s_{m+1}=(\tilde{G},c)$$。最后一步会得到奖励$r_{m}=r\left(s_{m}, a_{m}\right)=r((\tilde{G}, c))$，其他的中间过程奖励为0：$$

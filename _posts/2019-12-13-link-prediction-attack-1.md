@@ -2,7 +2,7 @@
 layout: article
 title: 链路预测的攻击：How to Hide One’s Relationships from Link Prediction Algorithms
 date: 2019-12-13 00:08:00 +0800
-tags: [Adversarial attack, Link prediction]
+tags: [Adversarial, Link Prediction]
 categories: blog
 pageview: true
 key: link-prediction-attack-1

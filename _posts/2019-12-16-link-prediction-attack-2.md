@@ -2,7 +2,7 @@
 layout: article
 title: 链路预测的攻击：Attacking Similarity-Based Link Prediction in Social Networks
 date: 2019-12-16 00:20:00 +0800
-tags: [Adversarial attack, Link prediction]
+tags: [Adversarial, Link Prediction]
 categories: blog
 pageview: true
 key: link-prediction-attack-2

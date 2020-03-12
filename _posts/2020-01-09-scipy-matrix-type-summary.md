@@ -2,7 +2,7 @@
 layout: article
 title: scipy 矩阵类型
 date: 2020-01-09 00:13:00 +0800
-tags: [Summary, Scipy]
+tags: [Summary, Python]
 categories: blog
 pageview: true
 key: Scipy-matrix-type
