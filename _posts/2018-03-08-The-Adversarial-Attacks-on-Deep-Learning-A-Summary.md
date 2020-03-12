@@ -2,14 +2,14 @@
 layout: article
 title: 对抗攻击综述(1)：对抗样本产生与FGSM原理
 date: 2018-03-08 18:38:04 +0800
-tags: [Adversarial attack, Summary]
+tags: [Adversarial, Summary]
 categories: blog
 pageview: true
 ---
 
 
->作者：zjj  
-阅读文献：[EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES](https://arxiv.org/abs/1412.6572)
+
+> 阅读文献：[EXPLAINING AND HARNESSING ADVERSARIAL EXAMPLES](https://arxiv.org/abs/1412.6572)
 
 ##  对抗样本的线性解释
 

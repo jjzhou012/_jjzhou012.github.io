@@ -2,7 +2,7 @@
 layout: article
 title: The Adversarial Attacks methods
 date: 2018-03-08 18:38:04 +0800
-tags: [Adversarial attack, Summary]
+tags: [Adversarial, Summary]
 categories: blog
 pageview: true
 ---
