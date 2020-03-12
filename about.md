@@ -28,7 +28,7 @@ key: page-about
 
 
 
-## Bio
+### Bio
 
 I am Jiajun Zhou, a master's candidate affliated with [IVSN Lab](http://www.ivsn-group.com/) at Zhejiang University of Technology.
 
@@ -38,13 +38,13 @@ I got bachelor degree from Zhejiang University of Technology.
 
 
 
-## Publications
+### Publications
 
 - [**Adversarial Enhancement for Community Detection in Complex Networks**](https://arxiv.org/abs/1911.01670). Arxiv
 
 
 
-## Contact
+### Contact
 
 - EMAIL: jjzhou012@163.com
 
