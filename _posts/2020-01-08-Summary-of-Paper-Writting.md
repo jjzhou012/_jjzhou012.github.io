@@ -46,6 +46,7 @@ key: Summary-of-Paper-Writting
 - model1 **achieves competitive performance against** model2, and **significantly outperforms** model3.
 - We **empirically compare** our models **against** four strong baselines summarized in Table, which were designed specifically for XXX task.
 - This complexity is on par with the baseline methods such as …
+- We show that **this method obtains competitive results compared to state-of-the-art algorithms**.
 
 
 
@@ -56,8 +57,16 @@ key: Summary-of-Paper-Writting
 - **[data split]** Each dataset is separated into a training, testing set and validation set. The validation set contains 5% citation edges for hyperparameter optimization, the test set holds 10% citation edges to verify the performance, and the rest are used for training.
 - In comparison to the baselines, we evaluate our model on the same data splits over 10 runs with XXX and report mean AUC/AP scores for link prediction and accuracy scores for node classification.
 - **[parameter]** varying parameter XX from … to …
+  - fixing a = 1 then varying b from 1 to 100 …
+  - vary a in (1,2,3,4,5)
+  - select a from (1,2,3,4,5)
+  - 
 
 ### 图表
+
+- [折线图中的大起大落](https://zhuanlan.zhihu.com/p/24372300)
+- [折线图](http://blog.sina.com.cn/s/blog_5ac7f5100100soyp.html)
+- [折线图趋势](http://www.joozone.com/ielts/12268.html)
 
 - **[描述框架]** We introduce XXX, schematically depicted in Figure 1, capable of … for XXX task.
   - **We introduce** the Multi-Task Graph Autoencoder (MTGAE) architecture, **schematically depicted in Figure 1, capable of** learning a shared representation of latent node embeddings from local graph topology and available explicit node features **for** LPNC. 
@@ -65,6 +74,14 @@ key: Summary-of-Paper-Writting
   - Schematic depiction of XXX architecture.
   - Illustration of the proposed XXX
   - Illustration of applying XXX
+
+
+
+### 分析
+
+- These results provide positive answers to our motivating questions …
+- is roughly not sensitive to
+- For one of the exceptions (XXX), we speculated that the reason is …
 
 
 
@@ -82,21 +99,25 @@ key: Summary-of-Paper-Writting
 - 利用：leverage
 - 生成：yield
 - 优点：merit
-- 缺点：drawback
-- 包含：contain, comprise
+- 缺点：drawback, shortcoming
+- 包含：contain, comprise, consist of
 
 ### 形容词、副词
 
 - 在前面、提前：upfront
+- beforehand：adj.提前的；预先准备好的 adv.事先；预先
+- 上述的：aforementioned
+- 普遍的：ubiquitous
 
 ### 连接词
 
 - Nevertheless：然而、不过、虽然如此
-- 
+- whereas：然而、鉴于、反之
 
 ### 固定搭配
 
 - task agnostic：任务无关的
 - with the formal format as follows：正式格式如下
-- 
+- in terms of：依据；按照；在…方面；以…措词
+- to our knowledge: 
 
