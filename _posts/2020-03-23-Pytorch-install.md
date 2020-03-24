@@ -8,7 +8,16 @@ pageview: true
 key: install-pytorch
 ---
 
+## 镜像配置
 
+- 清华镜像源：[https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/win-64/](https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/win-64/)
+
+  ```
+  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  conda config --set show_channel_urls yes
+  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+  ```
 
 ## 环境依赖
 
@@ -20,18 +29,11 @@ key: install-pytorch
 | 1.4.0   | 3.6/3.7/3.8 | 9.2/10.1 | 1.14       |
 | 1.0.0   | 3.6/3.7     | 8.0      | 1.14       |
 
+```
+# cuda9.0 / py37 / tf1.14 / pytorch 1.1
+conda create -n tf14 python=3.7 tensorflow-gpu=1.14 cudatoolkit=9.0 pytorch=1.1.0 torchvision=0.3.0
 
-
-## 镜像配置
-
-- 清华镜像源：[https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/win-64/](https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/win-64/)
-
-  ```
-  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-  conda config --set show_channel_urls yes
-  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
-  ```
+```
 
 
 

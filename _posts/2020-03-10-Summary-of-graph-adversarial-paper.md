@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Summary of graph-adversarial paper 
+title: Summary of adversarial-learning paper 
 date: 2020-03-10 00:00:00 +0800
 tags: [Summary, Graph, Adversarial]
 categories: blog
@@ -18,8 +18,15 @@ key: Summary-of-graph-adversarial-paper
 
 
 
-## Github
+## Graph/Network
 
 - https://github.com/ChandlerBang/awesome-graph-attack-papers
 - https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph
 
+
+
+## Machine learning
+
+- http://www.cleverhans.io/
+- https://secml.readthedocs.io/
+- https://www.pluribus-one.it/research/sec-ml/sec-ml-research-area
