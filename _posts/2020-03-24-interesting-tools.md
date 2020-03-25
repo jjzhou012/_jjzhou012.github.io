@@ -14,11 +14,11 @@ key: interesting-tools
 
 ------
 
-喜欢一些有趣实用（花里胡哨:stuck_out_tongue_closed_eyes:）的小工具，整理之。
+喜欢一些有趣实用（花里胡哨:stuck_out_tongue_closed_eyes:）的小工具，整理分享之。
 
 
 
-## 学习工具
+## 学习
 
 - Typora
 
@@ -32,9 +32,39 @@ key: interesting-tools
 
 
 
+- MobaXterm
+
+  - 描述：有了[SSH客户端神器MobaXterm，是时候放弃putty、Xshell和CRT了](https://zhuanlan.zhihu.com/p/34455520)。
+
+    ​	  纯绿色，多协议，多session管理，支持远程桌面，多窗口分屏。。。总之，已经推荐给了很多小伙伴:stuck_out_tongue_closed_eyes:。
+
+  - 网址：[https://mobaxterm.mobatek.net/](https://mobaxterm.mobatek.net/)
+
+  - 预览：
+
+    ![9ab584468a0f31288af06f5f63c3c96.png](http://ww1.sinaimg.cn/large/005NduT8ly1gd5hul5r61j31ha0sqjuy.jpg)
+
+    ![7b42920d724449f8348417bef00edcf.png](http://ww1.sinaimg.cn/large/005NduT8ly1gd5hvbxlofj30si03ymx9.jpg)
 
 
 
+
+
+
+
+
+
+## 工具
+
+- FastStone Caputer
+
+  - 描述：集成了静态截图、动态截图、录屏（重点）、水印等功能，破解版更加！！！
+
+  - 网址：https://www.faststone.org/FSCaptureDetail.htm
+
+  - 预览：
+
+    <img src="http://ww1.sinaimg.cn/large/005NduT8ly1gd5hlkd1avj30fe0fndhw.jpg" alt="90f92d6f13f9bf15f51da9cdeb1dcf8.png" style="zoom:50%;" />
 
 
 
