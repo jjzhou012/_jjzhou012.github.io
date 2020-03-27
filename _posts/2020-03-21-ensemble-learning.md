@@ -1,16 +1,16 @@
 ---
 layout: article
-title: 机器学习：集成学习
+title: Machine Learning：Ensemble Learning
 date: 2020-03-21 00:10:00 +0800
-tags: [Machine learning]
+tags: [Machine Learning]
 categories: blog
 pageview: true
-key: ensemble-learning
+key: ensemble-learningLearning
 ---
 
 
 
-
+## 待整理
 
 - https://zhuanlan.zhihu.com/p/25836678
 - https://zhuanlan.zhihu.com/p/26890738
