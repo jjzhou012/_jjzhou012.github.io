@@ -14,14 +14,14 @@ key: delete-github-repos
 
 - Place these repositories that need to be deleted in the text file `repos.txt` as lines in the format of `username\repos-name` :
 
-  ```txt
+  ```latex
   username\NRLPapers
   username\KB2E
   username\Viterbi
   username\kdd2018
   ```
 
-- Apply for `token` with `delete repos` permission in [github](https://github.com/settings/tokens/new)
+- Apply for `token` with `delete repos` permission in [github](https://github.com/settings/tokens/new):
 
   ![27374b0e9d2cddc15f9903361fcbad8.png](http://ww1.sinaimg.cn/large/005NduT8ly1gcln7wx8hqj30fa02jmx0.jpg)
 
