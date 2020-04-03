@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Summary of graph data mining algorithms (deep model)
-date: 2020-04-03 00:10:00 +0800
+date: 2020-03-15 00:10:00 +0800
 tags: [Summary, Graph, Link prediction, Node Classification, Graph Classification, Adversarial]
 categories: blog
 pageview: true
@@ -16,11 +16,10 @@ A collection of graph task models, covering node classification, link prediction
 
 
 
-### Reference
+## Reference
 
 - https://paperswithcode.com/area/graphs
 - https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph
-- 
 
 
 
