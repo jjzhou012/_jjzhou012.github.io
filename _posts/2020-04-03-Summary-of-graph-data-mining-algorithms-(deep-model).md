@@ -18,8 +18,8 @@ A collection of graph task models, covering node classification, link prediction
 
 ## Reference
 
-- https://paperswithcode.com/area/graphs
-- https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph
+- [https://paperswithcode.com/area/graphs](https://paperswithcode.com/area/graphs)
+- [https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph](https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph)
 
 
 
