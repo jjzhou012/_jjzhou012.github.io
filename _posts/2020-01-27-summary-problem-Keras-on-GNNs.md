@@ -1,16 +1,17 @@
 ---
 layout: article
-title: Keras 搭建图神经网络常见问题总结
+title: Keras 常见问题总结
 date: 2020-01-27 00:10:00 +0800
-tags: [Summary, Keras, GNN]
+tags: [Summary, Keras, Deep Learning]
 categories: blog
 pageview: true
 key: Summary-of-keras-on-GNN
+
 ---
 
 ------
 
-## 模型输入
+## 模型输入输出
 
 ### **Problem 1：keras使用稀疏矩阵输入进行训练**
 
@@ -42,4 +43,96 @@ G = Input(batch_shape=(None, None), name='A', sparse=True)
 
 - [https://www.jianshu.com/p/a7dadd842f78](https://www.jianshu.com/p/a7dadd842f78)
 - [https://stackoverflow.com/questions/37609892/keras-sparse-matrix-issue](https://stackoverflow.com/questions/37609892/keras-sparse-matrix-issue)
+
+
+
+
+
+### **Problem 2：模型多输入多输出**
+
+当输入输出不止一个时，可用列表，元组或字典形式存放多变量，多个变量的样本数要一致；
+
+当存储形式为字典时，key为输出该变量的layer的names;
+
+```python
+# 单输入多输出
+# 字典
+self.vae.fit(x=x_train,
+             y={'output': x_train,
+                'z_vars': np.ones(shape=(x_train.shape[0], 2 * self.latent_dim))},
+             shuffle=True,
+             nb_epoch=self.nb_epoch,
+             batch_size=self.batch_size)
+
+# 多输入多输出
+# 列表+字典
+model.fit(x=[feature, adj],
+          y={'adj_rec': adj_label.toarray().flatten()[np.newaxis, :],
+             'Z_vars': np.zeros(shape=(1, adj_norm.shape[1], 32))},
+          batch_size=1, epochs=1, shuffle=False, verbose=0)
+```
+
+
+
+## Loss
+
+### **Problem 1：自定义loss的调用**
+
+keras.losses函数有一个get(identifier)方法。其中需要注意以下一点：
+
+如果identifier是可调用的一个函数名，也就是一个自定义的损失函数，这个损失函数返回值是一个张量。这样就轻而易举的实现了自定义损失函数。除了使用str和dict类型的identifier，我们也可以直接使用keras.losses包下面的损失函数。
+
+loss函数的输入为`(y_true, y_pred)`，所以自定义的loss函数的输入也要定义为`(y_true, y_pred)`（即使用不到）；
+
+```
+def kl_loss(self, y_true, y_pred):
+    z_mean, z_log_var = y_pred[:, :self.latent_dim], y_pred[:, self.latent_dim:]
+    return - 0.5 * K.mean(K.sum(1 + z_log_var - K.square(z_mean) - K.exp(z_log_var), axis=-1))
+
+losses = {
+            'output': 'mse',         # 通用loss
+            'z_vars': self.kl_loss	 # 自定义loss
+        }
+loss_weights = {
+        		'output': 1.0,
+        		'z_vars': 1.0
+        	   }
+```
+
+
+
+## Metrics
+
+在model.compile()函数中，optimizer和loss都是单数形式，只有metrics是复数形式。因为一个模型只能指明一个optimizer和loss，却可以指明多个metrics。metrics也是三者中处理逻辑最为复杂的一个。
+
+在keras最核心的地方keras.engine.train.py中有如下处理metrics的函数。这个函数其实就做了两件事：
+
+- 根据输入的metric找到具体的metric对应的函数
+- 计算metric张量
+
+在寻找metric对应函数时，有两种步骤：
+
+- 使用字符串形式指明准确率和交叉熵
+- 使用keras.metrics.py中的函数
+
+无论怎么使用metric，最终都会变成metrics包下面的函数。当使用字符串形式指明accuracy和crossentropy时，keras会非常智能地确定应该使用metrics包下面的哪个函数。因为metrics包下的那些metric函数有不同的使用场景，例如：
+
+- 有的处理的是one-hot形式的y_input(数据的类别)，有的处理的是非one-hot形式的y_input
+- 有的处理的是二分类问题的metric，有的处理的是多分类问题的metric
+
+当使用字符串“accuracy”和“crossentropy”指明metric时，keras会根据损失函数、输出层的shape来确定具体应该使用哪个metric函数。在任何情况下，直接使用metrics下面的函数名是总不会出错的。
+
+keras.metrics.py文件中也有一个get(identifier)函数用于获取metric函数。
+
+- 如果identifier是字符串或者字典，那么会根据identifier反序列化出一个metric函数。
+- 如果identifier本身就是一个函数名，那么就直接返回这个函数名。这种方式就为自定义metric提供了巨大便利。
+
+```
+# 为某一输出指定计算多个metrics
+metrics = {
+        	'adj_rec': [binary_accuracy, precision, recall, f1_score]
+    	  }
+
+vgae.compile(optimizer=adam, loss=losses, loss_weights=loss_weights, metrics=metrics)
+```
 
