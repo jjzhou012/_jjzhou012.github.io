@@ -451,26 +451,26 @@ A collection of graph task models, covering node classification, link prediction
   - [[Paper]](https://arxiv.org/pdf/1809.01093.pdf)
   - [[Code]](https://github.com/abojchevski/node_embedding_attack)
 - **Adversarial Attack on Graph Structured Data.** (ICML 2018). 
-  - [[Paper\]](https://arxiv.org/pdf/1806.02371.pdf) 
-  - [[Code\]](https://github.com/Hanjun-Dai/graph_adversarial_attack)
+  - [[Paper]](https://arxiv.org/pdf/1806.02371.pdf)
+  - [[Code]](https://github.com/Hanjun-Dai/graph_adversarial_attack)
 - **Fast Gradient Attack on Network Embedding.** (arxiv 2018). 
-  - [[Paper\]](https://arxiv.org/pdf/1809.02797.pdf) 
-  - [[Code\]](https://github.com/DSE-MSU/DeepRobust)
+  - [[Paper]](https://arxiv.org/pdf/1809.02797.pdf) 
+  - [[Code]](https://github.com/DSE-MSU/DeepRobust)
 - **Adversarial Attacks on Neural Networks for Graph Data.** (KDD 2018). 
-  - [[Paper\]](https://arxiv.org/pdf/1805.07984.pdf) 
-  - [[Code\]](https://github.com/danielzuegner/nettack)
+  - [[Paper]](https://arxiv.org/pdf/1805.07984.pdf) 
+  - [[Code]](https://github.com/danielzuegner/nettack)
 - **Adversarial Examples on Graph Data: Deep Insights into Attack and Defense.** (IJCAI 2019). 
-  - [[Paper\]](https://arxiv.org/pdf/1903.01610.pdf) 
-  - [[Code\]](https://github.com/DSE-MSU/DeepRobust)
+  - [[Paper]](https://arxiv.org/pdf/1903.01610.pdf) 
+  - [[Code]](https://github.com/DSE-MSU/DeepRobust)
 - **Topology Attack and Defense for Graph Neural Networks: An Optimization Perspective.** (ICJAI 2019). 
-  - [[Paper\]](https://arxiv.org/pdf/1906.04214.pdf) 
-  - [[Code\]](https://github.com/KaidiXu/GCN_ADV_Train)
+  - [[Paper]](https://arxiv.org/pdf/1906.04214.pdf) 
+  - [[Code]](https://github.com/KaidiXu/GCN_ADV_Train)
 - **Adversarial Attacks on Node Embeddings via Graph Poisoning.** (ICML 2019). 
-  - [[paper\]](https://arxiv.org/pdf/1809.01093.pdf) 
-  - [[code\]](https://github.com/abojchevski/node_embedding_attack)
+  - [[Paper]](https://arxiv.org/pdf/1809.01093.pdf) 
+  - [[Code]](https://github.com/abojchevski/node_embedding_attack)
 - **Adversarial Attacks on Graph Neural Networks via Meta Learning.** (ICLR 2019). 
-  - [[Paper\]](https://openreview.net/pdf?id=Bylnx209YX) 
-  - [[Code\]](https://github.com/danielzuegner/gnn-meta-attack)
+  - [[Paper]](https://openreview.net/pdf?id=Bylnx209YX) 
+  - [[Code]](https://github.com/danielzuegner/gnn-meta-attack)
 
 
 
@@ -486,25 +486,28 @@ A collection of graph task models, covering node classification, link prediction
 
 - **All You Need is Low (Rank): Defending Against Adversarial Attacks on Graphs.** (WSDM 2020). 
 
-    - [[Paper\]](https://dl.acm.org/doi/pdf/10.1145/3336191.3371789?download=true) 
-    - [[Code\]](https://github.com/DSE-MSU/DeepRobust/)
+    - [[Paper]](https://dl.acm.org/doi/pdf/10.1145/3336191.3371789?download=true) 
+    - [[Code]](https://github.com/DSE-MSU/DeepRobust/)
 
 - **Adversarial Examples on Graph Data: Deep Insights into Attack and Defense.** (IJCAI 2019). 
 
-    - [[Paper\]](https://arxiv.org/pdf/1903.01610.pdf) 
-    - [[Code\]](https://github.com/DSE-MSU/DeepRobust)
+    - [[Paper]](https://arxiv.org/pdf/1903.01610.pdf) 
+    - [[Code]](https://github.com/DSE-MSU/DeepRobust)
 
-- **Topology Attack and Defense for Graph Neural Networks: An Optimization Perspective.** *Kaidi Xu, Hongge Chen, Sijia Liu, Pin-Yu Chen, Tsui-Wei Weng, Mingyi Hong, Xue Lin.* ICJAI 2019. [[paper\]](https://arxiv.org/pdf/1906.04214.pdf) [[code\]](https://github.com/KaidiXu/GCN_ADV_Train)
+- **Topology Attack and Defense for Graph Neural Networks: An Optimization Perspective.**  (ICJAI 2019). 
+
+    - [[Paper]](https://arxiv.org/pdf/1906.04214.pdf) 
+    - [[Code]](https://github.com/KaidiXu/GCN_ADV_Train)
 
 
 
-### Certified Robustness 
+### Certified Robustness
 
 - **Certifiable Robustness to Graph Perturbations.**  (NeurIPS 2019). 
-  - [[Paper\]](https://arxiv.org/pdf/1910.14356.pdf)
-  - [[Code\]](https://github.com/abojchevski/graph_cert)
+  - [[Paper]](https://arxiv.org/pdf/1910.14356.pdf)
+  - [[Code]](https://github.com/abojchevski/graph_cert)
 
 - **Certifiable Robustness and Robust Training for Graph Convolutional Networks.** (KDD 2019). 
-  - [[Paper\]](https://arxiv.org/pdf/1906.12269.pdf) 
-  - [[Code\]](https://github.com/danielzuegner/robust-gcn)
+  - [[Paper]](https://arxiv.org/pdf/1906.12269.pdf) 
+  - [[Code]](https://github.com/danielzuegner/robust-gcn)
 
