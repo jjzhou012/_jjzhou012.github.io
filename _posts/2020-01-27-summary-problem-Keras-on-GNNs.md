@@ -91,13 +91,18 @@ IndexError: list index out of range
 
 
 
-### Problem 3：模型多输入时验证集设置
+## 验证集设置
+
+### Problem 1：模型多输入时验证集设置
 
 没找到多输入时model.fit中设置validation_data的例子，而且用validation_split也一样是错的，但是验证集又是必须用的，所以就把多输入改成单输入了，其实就是在输入之前先拼接，输入之后再拆分，费点功夫而已，单输入时validation_data是没问题的。
 
-### Problem 4：模型训练时验证集设置
+### Problem 2：模型训练时验证集设置
 
-参考链接：[https://www.jianshu.com/p/0c7af5fbcf72](https://www.jianshu.com/p/0c7af5fbcf72)
+参考链接：
+
+- [https://www.jianshu.com/p/0c7af5fbcf72](https://www.jianshu.com/p/0c7af5fbcf72)
+- [Test data being used for validation data](https://github.com/fchollet/keras/issues/1753)
 
 首先Keras的**fit函数中，传入的validation data并不用于更新权重**，只是用是来检测loss和accuracy等指标的。但是！作者说了，即使模型没有直接在validation data上训练，这也会导致信息泄露，模型会对validation data逐渐熟悉。所以这里我简单总结一下比较方便的data split方法。
 
@@ -107,6 +112,22 @@ IndexError: list index out of range
 4. 调参：更改layer，unit，加dropout，使用L2正则化，添加新feature等等
 5. 等调参结束后，拿着我们满意的参数，再一次在整个training data上进行训练，这一次就不用`validation_split`了。因为我们已经调好了参数，不需要观察输出的loss。
 6. 训练完之后，用`model.evaluate()`在test data上进行预测。
+
+
+
+### Problem 3: 验证集参数设置
+
+参考链接：https://blog.csdn.net/ygfrancois/java/article/details/84942803
+
+验证会进行在当前epoch结束后进行，
+
+- validation_steps：设置了验证使用的validation data steps数量(batch数量)，
+
+  应该不超过 `TotalvalidationSamples / ValidationBatchSize`
+
+  如validation batch size(没必要和train batch相等)=64，validation_steps=100，则会从validation data中取6400个数据用于验证(如果一次step后validation data set剩下的data足够下一次step，会继续从剩下的data set中选取，如果不够会重新循环)。
+
+  > 建议使用整个验证集用于验证，否则每次验证的结果没有太大可比性(使用的验证数据不同)，这种情况可以跳过validation_steps参数， 默认使用所有data来做validation。 如果验证数据集很大，全部使用验证会很耗时，可以设置固定大小的validation_steps=10，则在10个验证batch后，计算损失平均值给出结果。
 
 
 
