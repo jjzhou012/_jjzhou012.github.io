@@ -2,7 +2,7 @@
 layout: article
 title: Summary of graph data mining algorithms (deep model)
 date: 2020-03-15 00:10:00 +0800
-tags: [Summary, Graph, Link prediction, Node Classification, Graph Classification, Adversarial]
+tags: [Summary, Graph, Link Prediction, Node Classification, Graph Classification, Adversarial]
 categories: blog
 pageview: true
 key: Summary-of-graph-data-mining-algorithms
@@ -66,15 +66,15 @@ A collection of graph task models, covering node classification, link prediction
   - [[Paper]](https://arxiv.org/abs/1910.04807)
   - [[Pytorch]](https://github.com/Villafly/DeepLinker) 
 - **[MTGAE] Multi-Task Graph Autoencoders**
-  - TASK: link prediction, Node classification
+  - TASK: Link prediction, Node classification
   - [[Paper]](https://arxiv.org/pdf/1811.02798.pdf) 
   - [[Keras]](https://github.com/vuptran/graph-representation-learning) 
 - **[ARGA] Adversarially Regularized Graph Autoencoder for Graph Embedding**
-  - TASK: link prediction, graph clustering
+  - TASK: Link prediction, Graph clustering
   - [[Paper]](https://arxiv.org/pdf/1802.04407v2.pdf) 
   - [[Tensorflow]](https://github.com/Ruiqi-Hu/ARGA)
 - **[GraphStar] Graph Star Net for Generalized Multi-Task Learning**
-  - TASK: link prediction, Node classification, text classification, graph classification, sentiment analysis
+  - TASK: Link prediction, Node classification, Text classification, Graph classification, Sentiment analysis
   - [[Paper]](https://paperswithcode.com/paper/graph-star-net-for-generalized-multi-task-1)
   - [[Pytorch]](https://github.com/graph-star-team/graph_star)
 
@@ -85,15 +85,15 @@ A collection of graph task models, covering node classification, link prediction
 ## Multi-task Model
 
 - **[MTGAE] Multi-Task Graph Autoencoders**
-  - TASK: link prediction, Node classification
+  - TASK: Link prediction, Node classification
   - [[Paper]](https://arxiv.org/pdf/1811.02798.pdf) 
   - [[Keras]](https://github.com/vuptran/graph-representation-learning) 
 - **[ARGA] Adversarially Regularized Graph Autoencoder for Graph Embedding**
-  - TASK: link prediction, graph clustering
+  - TASK: Link prediction, Graph clustering
   - [[Paper]](https://arxiv.org/pdf/1802.04407v2.pdf) 
   - [[Tensorflow]](https://github.com/Ruiqi-Hu/ARGA)
 - **[GraphStar] Graph Star Net for Generalized Multi-Task Learning**
-  - TASK: link prediction, Node classification, text classification, graph classification, sentiment analysis
+  - TASK: Link prediction, Node classification, Text classification, Graph classification, Sentiment analysis
   - [[Paper]](https://paperswithcode.com/paper/graph-star-net-for-generalized-multi-task-1)
   - [[Pytorch]](https://github.com/graph-star-team/graph_star)
 
