@@ -31,11 +31,7 @@ keras的Sequential顺序模型是不支持稀疏输入的，如果非要用Seque
 G = Input(batch_shape=(None, None), name='A', sparse=True)
 ```
 
-
-
 **注意：**这么使用有一个问题，就是**指定的batch_size无效**，不管设置多大的batch_size，训练的时候都是按照batch_size为1来进行。
-
-
 
 #### 方法二：使用生成器方法实现
 
@@ -43,8 +39,6 @@ G = Input(batch_shape=(None, None), name='A', sparse=True)
 
 - [https://www.jianshu.com/p/a7dadd842f78](https://www.jianshu.com/p/a7dadd842f78)
 - [https://stackoverflow.com/questions/37609892/keras-sparse-matrix-issue](https://stackoverflow.com/questions/37609892/keras-sparse-matrix-issue)
-
-
 
 
 
@@ -70,7 +64,49 @@ model.fit(x=[feature, adj],
           y={'adj_rec': adj_label.toarray().flatten()[np.newaxis, :],
              'Z_vars': np.zeros(shape=(1, adj_norm.shape[1], 32))},
           batch_size=1, epochs=1, shuffle=False, verbose=0)
+
+# 指定验证集
+modelll.fit(x=[x_train, x_train], 
+            y=y_train, 
+            validation_data=([x_val, x_val], y_val), 
+            epochs=10, batch_size=64)
 ```
+
+常见报错：
+
+```
+ValueError: Error when checking model target: the list of Numpy arrays that you are passing to your model is not the size the model expected.
+```
+
+```
+Traceback (most recent call last):
+  File "/.../test.py", line 102, in <module>
+    model.fit(set, epochs=epochs, steps_per_epoch=steps)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py", line 1363, in fit
+    validation_steps=validation_steps)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training_arrays.py", line 187, in fit_loop
+    if issparse is not None and issparse(ins[i]) and not K.is_sparse(feed[i]):
+IndexError: list index out of range
+```
+
+
+
+### Problem 3：模型多输入时验证集设置
+
+没找到多输入时model.fit中设置validation_data的例子，而且用validation_split也一样是错的，但是验证集又是必须用的，所以就把多输入改成单输入了，其实就是在输入之前先拼接，输入之后再拆分，费点功夫而已，单输入时validation_data是没问题的。
+
+### Problem 4：模型训练时验证集设置
+
+参考链接：[https://www.jianshu.com/p/0c7af5fbcf72](https://www.jianshu.com/p/0c7af5fbcf72)
+
+首先Keras的**fit函数中，传入的validation data并不用于更新权重**，只是用是来检测loss和accuracy等指标的。但是！作者说了，即使模型没有直接在validation data上训练，这也会导致信息泄露，模型会对validation data逐渐熟悉。所以这里我简单总结一下比较方便的data split方法。
+
+1. 用sklearn的`train_test_split`来把数据分割为training data和test data.
+2. 用keras的模型fit时，不要使用`validation_data`这个参数（因为我们也没有准备validatoin data），而是直接使用`validation_split`这个参数，把training data中的一部分用来作为validation data就行了。
+3. 上面两步的目的是用来调参的，必须在validation data上进行验证，输出loss，观察变化。
+4. 调参：更改layer，unit，加dropout，使用L2正则化，添加新feature等等
+5. 等调参结束后，拿着我们满意的参数，再一次在整个training data上进行训练，这一次就不用`validation_split`了。因为我们已经调好了参数，不需要观察输出的loss。
+6. 训练完之后，用`model.evaluate()`在test data上进行预测。
 
 
 
@@ -84,7 +120,7 @@ keras.losses函数有一个get(identifier)方法。其中需要注意以下一�
 
 loss函数的输入为`(y_true, y_pred)`，所以自定义的loss函数的输入也要定义为`(y_true, y_pred)`（即使用不到）；
 
-```
+```python
 def kl_loss(self, y_true, y_pred):
     z_mean, z_log_var = y_pred[:, :self.latent_dim], y_pred[:, self.latent_dim:]
     return - 0.5 * K.mean(K.sum(1 + z_log_var - K.square(z_mean) - K.exp(z_log_var), axis=-1))
@@ -127,7 +163,7 @@ keras.metrics.py文件中也有一个get(identifier)函数用于获取metric函�
 - 如果identifier是字符串或者字典，那么会根据identifier反序列化出一个metric函数。
 - 如果identifier本身就是一个函数名，那么就直接返回这个函数名。这种方式就为自定义metric提供了巨大便利。
 
-```
+```python
 # 为某一输出指定计算多个metrics
 metrics = {
         	'adj_rec': [binary_accuracy, precision, recall, f1_score]
