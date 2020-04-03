@@ -20,6 +20,7 @@ A collection of graph task models, covering node classification, link prediction
 
 - [https://paperswithcode.com/area/graphs](https://paperswithcode.com/area/graphs)
 - [https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph](https://github.com/DSE-MSU/DeepRobust/tree/master/deeprobust/graph)
+- [https://github.com/benedekrozemberczki/awesome-graph-classification](https://github.com/benedekrozemberczki/awesome-graph-classification)
 
 
 
