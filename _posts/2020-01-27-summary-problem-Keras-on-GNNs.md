@@ -6,7 +6,6 @@ tags: [Summary, Keras, Deep Learning]
 categories: blog
 pageview: true
 key: Summary-of-keras-on-GNN
-
 ---
 
 ------
@@ -115,7 +114,7 @@ IndexError: list index out of range
 
 
 
-### Problem 3: 验证集参数设置
+### Problem 3：验证集参数设置
 
 参考链接：https://blog.csdn.net/ygfrancois/java/article/details/84942803
 
