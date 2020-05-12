@@ -356,3 +356,9 @@ with CustomObjectScope({'AttentionLayer': AttentionLayer}):
 from keras.models import model_from_json
 model = model_from_json(json_string, custom_objects={'AttentionLayer': AttentionLayer})
 ```
+
+
+
+## Reference
+
+- [Keras中文文档](https://keras.io/zh/getting-started/faq/#_6)
