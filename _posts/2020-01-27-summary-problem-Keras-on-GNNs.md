@@ -10,9 +10,9 @@ key: Summary-of-keras-on-GNN
 
 ------
 
-## 模型输入输出
+## 一、模型输入输出
 
-### **Problem 1：keras使用稀疏矩阵输入进行训练**
+### 1.1. keras使用稀疏矩阵输入进行训练
 
 稀疏矩阵一般用于表示那些数值为0的元素数目远大于非零元素数目的矩阵。图数据集一般都以稀疏矩阵表示其邻接矩阵。一般用普通的ndarray存储稀疏矩阵会造成很大的内存浪费，在python中可以使用scipy的sparse模块构建稀疏矩阵。
 
@@ -41,7 +41,7 @@ G = Input(batch_shape=(None, None), name='A', sparse=True)
 
 
 
-### **Problem 2：模型多输入多输出**
+### 1.2. 模型多输入多输出
 
 当输入输出不止一个时，可用列表，元组或字典形式存放多变量，多个变量的样本数要一致；
 
@@ -90,13 +90,15 @@ IndexError: list index out of range
 
 
 
-## 验证集设置
+## 二、验证集设置
 
-### Problem 1：模型多输入时验证集设置
+### 2.1. 模型多输入时验证集设置
 
 没找到多输入时model.fit中设置validation_data的例子，而且用validation_split也一样是错的，但是验证集又是必须用的，所以就把多输入改成单输入了，其实就是在输入之前先拼接，输入之后再拆分，费点功夫而已，单输入时validation_data是没问题的。
 
-### Problem 2：模型训练时验证集设置
+
+
+### 2.2. 模型训练时验证集设置
 
 参考链接：
 
@@ -114,7 +116,7 @@ IndexError: list index out of range
 
 
 
-### Problem 3：验证集参数设置
+### 2.3. 验证集参数设置
 
 参考链接：https://blog.csdn.net/ygfrancois/java/article/details/84942803
 
@@ -130,9 +132,9 @@ IndexError: list index out of range
 
 
 
-## Loss
+## 三、损失函数（loss）
 
-### **Problem 1：自定义loss的调用**
+### 3.1. 自定义loss的调用
 
 keras.losses函数有一个get(identifier)方法。其中需要注意以下一点：
 
@@ -157,7 +159,7 @@ loss_weights = {
 
 
 
-## Metrics
+## 四、评价指标（Metrics）
 
 在model.compile()函数中，optimizer和loss都是单数形式，只有metrics是复数形式。因为一个模型只能指明一个optimizer和loss，却可以指明多个metrics。metrics也是三者中处理逻辑最为复杂的一个。
 
@@ -192,3 +194,165 @@ metrics = {
 vgae.compile(optimizer=adam, loss=losses, loss_weights=loss_weights, metrics=metrics)
 ```
 
+
+
+
+
+## 五、模型保存与加载
+
+### 5.1. 模型保存
+
+#### 5.1.1. 完整保存模型
+
+使用`model.save()`完整地保存整个模型，将Keras模型和权重保存在一个`HDF5`文件中，该文件将包含：
+
+- 模型的结构，允许重新创建模型
+- 模型的权重
+- 训练配置项（损失函数，优化器）
+- 优化器状态，允许准确地从你上次结束的地方继续训练。
+
+```python
+model.save(fname)
+```
+
+#### 5.1.2. 保存模型结构
+
+使用`to_json()`方法或者`to_yaml()`将模型结构保存到`json`文件或者`yaml`文件。
+
+```python
+# 保存模型的结构
+json_string = model.to_json()		# 方式1
+open('model_architecture_1.json', 'w').write(json_string)
+yaml_string = model.to_yaml()		# 方式2
+open('model_arthitecture_2.yaml', 'w').write(yaml_string)
+```
+
+#### 5.1.3. 只保存模型权重
+
+只保留模型的权重可以通过`save_weights()`方法实现，也可以通过检查点`checkpoint`的设置实现。
+
+- 通过save_weights方法实现
+
+    ```python
+    # 保存模型的权重
+    model.save_weights('my_model_weights.h5')
+    ```
+
+- 通过设置检查点实现
+
+  通过创建[`ModelCheckpoint`](https://keras.io/zh/callbacks/#modelcheckpoint)类的实例来设置检查点，代码如下：
+
+  ```python
+  from keras.callbacks import ModelCheckpoint
+  
+  model = Sequential()
+  model.add(Dense(10, input_dim=784, kernel_initializer='uniform'))
+  model.add(Activation('softmax'))
+  model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
+  
+  # 如果验证损失下降， 那么在每个训练轮之后保存模型。
+  checkpointer = ModelCheckpoint(filepath='/tmp/weights.hdf5', monitor='val_loss', verbose=1, save_best_only=True)
+  model.fit(x_train, y_train, batch_size=128, epochs=20, verbose=0, validation_data=(X_test, Y_test), callbacks=[checkpointer])
+  ```
+
+#### 5.1.4. 保存模型图
+
+- 通过`model.summary()`打印模型的概述信息
+
+  <img src="http://ww1.sinaimg.cn/large/005NduT8ly1gepgwg7zrtj30d50auaa3.jpg" alt="7a58f2cd3d92ed3b40c32c51bcd991a.png" style="zoom: 80%;" />
+
+- 通过`plot_model()`方法保存模型的基本结构图
+
+  ```python
+  from keras.utils import plot_model
+  
+  # 保存模型的基本结构图
+  plot_model(model, 'model_plot.png')
+  ```
+
+  
+
+### 5.2. 模型加载
+
+#### 5.2.1. 加载整个模型
+
+加载整个模型，对应着5.1.1.中的保存整个模型，我们从保存模型信息的文件中获取模型的结构、模型的权重和优化器的配置信息，则可以使用数据继续训练模型。这里使用`load_model()`来加载整个模型。
+
+```python
+# 加载整个模型
+model = load_model('my_model.h5')
+```
+
+#### 5.2.2. 只加载模型结构
+
+```python
+# 从 JSON 重建模型：
+from keras.models import model_from_json
+open('model_architecture_1.json', 'w').read(json_string)
+model = model_from_json(json_string)
+
+# 从 YAML 重建模型：
+from keras.models import model_from_yaml
+open('model_architecture_2.yaml', 'w').read(yaml_string)
+model = model_from_yaml(yaml_string)
+```
+
+#### 5.2.3. 加载模型权重
+
+假设你有用于实例化模型的代码，则可以将保存的权重加载到具有相同结构的模型中：
+
+```python
+model.load_weights('my_model_weights.h5')
+```
+
+如果你需要将权重加载到不同的结构（有一些共同层）的模型中，例如微调或迁移学习，则可以按层的名字来加载权重：
+
+```python
+model.load_weights('my_model_weights.h5', by_name=True)
+```
+
+例子：
+
+```python
+"""
+假设原始模型如下所示：
+    model = Sequential()
+    model.add(Dense(2, input_dim=3, name='dense_1'))
+    model.add(Dense(3, name='dense_2'))
+    ...
+    model.save_weights(fname)
+"""
+
+# 新模型
+model = Sequential()
+model.add(Dense(2, input_dim=3, name='dense_1'))  # 将被加载
+model.add(Dense(10, name='new_dense'))  # 将不被加载
+
+# 从第一个模型加载权重；只会影响第一层，dense_1
+model.load_weights(fname, by_name=True)
+```
+
+#### 5.2.4. 处理已保存模型中的自定义层（或其他自定义对象）
+
+如果要加载的模型包含**自定义层**或**其他自定义类或函数**，则可以通过 `custom_objects` 参数将它们传递给加载机制：
+
+```python
+# 假设你的模型包含一个 AttentionLayer 类的实例
+model = load_model('my_model.h5', custom_objects={'AttentionLayer': AttentionLayer})
+```
+
+或者，你可以使用[自定义对象作用域](https://keras.io/utils/#customobjectscope)：
+
+```python
+from keras.utils import CustomObjectScope
+
+with CustomObjectScope({'AttentionLayer': AttentionLayer}):
+    model = load_model('my_model.h5')
+```
+
+自定义对象的处理与 `load_model`, `model_from_json`, `model_from_yaml` 的工作方式相同：
+
+```python
+from keras.models import model_from_json
+model = model_from_json(json_string, custom_objects={'AttentionLayer': AttentionLayer})
+```

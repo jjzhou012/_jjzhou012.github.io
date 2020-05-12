@@ -120,4 +120,4 @@ key: Summary-of-Paper-Writting
 - with the formal format as follows：正式格式如下
 - in terms of：依据；按照；在…方面；以…措词
 - to our knowledge: 
-
+- To bridge this gap；To solve the above question；

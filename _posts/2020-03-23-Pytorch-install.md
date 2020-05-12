@@ -19,6 +19,15 @@ key: install-pytorch
   conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
   ```
 
+- 解决下载超时问题
+
+  ```bash
+  conda config --set remote_connect_timeout_secs 40
+  conda config --set remote_read_timeout_secs 100
+  ```
+
+  
+
 ## 环境依赖
 
 我自己主要用的几个环境依赖
