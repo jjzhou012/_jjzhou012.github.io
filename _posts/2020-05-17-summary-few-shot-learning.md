@@ -2,7 +2,7 @@
 layout: article
 title: Summary：小样本学习综述
 date: 2020-05-17 00:10:00 +0800
-tags: [Summary, Writting]
+tags: [Summary]
 categories: blog
 pageview: true
 key: Summary-of-few-shot-learning
