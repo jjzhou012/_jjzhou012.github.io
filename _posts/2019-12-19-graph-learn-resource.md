@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 图/网络/图神经网络相关学习资源
+title: Summary：图/网络/图神经网络相关学习资源
 date: 2019-12-19 00:12:00 +0800
-tags: [Graph, GNN, Graph Embedding]
+tags: [Summary, Graph, GNN, Graph Embedding]
 categories: blog
 pageview: true
 key: graph-learn-resource

@@ -1,6 +1,6 @@
 ---
 layout: article
-title:  国内外 Graph mining 团队工作调研
+title: Summary：国内外 Graph mining 团队工作调研
 date: 2019-12-10 00:08:00 +0800
 tag: [Graph, Summary]
 categories: blog

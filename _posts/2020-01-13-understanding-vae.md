@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 理解变分自编码器
+title: Deep Learning：理解变分自编码器
 date: 2020-01-13 00:11:00 +0800
 tags: [Summary, Deep Learning]
 categories: blog

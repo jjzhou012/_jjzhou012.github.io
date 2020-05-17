@@ -1,6 +1,6 @@
 ---
 layout: article
-title: python高级编程基础——汇总
+title: Summary：python高级编程基础——汇总
 date: 2020-01-20 00:10:00 +0800
 tags: [Python, Summary]
 categories: blog

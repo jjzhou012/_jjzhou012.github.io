@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 理解“直推（transductive）学习”和“归纳（inductive）学习” 等
+title: Deep Learning：理解“直推（transductive）学习”和“归纳（inductive）学习” 等
 date: 2019-12-29 00:10:00 +0800
-tags: [Machine Learning]
+tags: [Deep Learning]
 categories: blog
 pageview: true
 key: understanding-transductive-and-inductive-learning
