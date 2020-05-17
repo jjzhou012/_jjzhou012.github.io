@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 图神经网络：对抗正则化图自编码器（ARGA）
+title: 图神经网络--对抗训练：对抗正则化图自编码器（ARGA）
 date: 2020-02-16 00:10:00 +0800
 tags: [Link Prediction, GNN]
 categories: blog
