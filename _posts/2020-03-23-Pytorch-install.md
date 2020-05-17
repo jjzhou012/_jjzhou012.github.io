@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Pytorch安装
+title: Tutorials：Pytorch安装
 date: 2020-03-23 00:10:00 +0800
 tags: [Tutorials]
 categories: blog

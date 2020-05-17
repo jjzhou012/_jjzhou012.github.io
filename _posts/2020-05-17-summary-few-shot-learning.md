@@ -1,7 +1,7 @@
 ---
 layout: article
-title: 综述：小样本学习
-date: 2020-01-08 00:10:00 +0800
+title: Summary：小样本学习综述
+date: 2020-05-17 00:10:00 +0800
 tags: [Summary, Writting]
 categories: blog
 pageview: true
@@ -10,8 +10,8 @@ key: Summary-of-few-shot-learning
 
 ------
 
-- paper: [Generalizing from a Few Examples: A Survey on Few-Shot Learning](https://arxiv.org/abs/1904.05046)
-- github: https://github.com/tata1661/FewShotPapers
+- Paper: [Generalizing from a Few Examples: A Survey on Few-Shot Learning](https://arxiv.org/abs/1904.05046)
+- Github: https://github.com/tata1661/FewShotPapers
 
 
 

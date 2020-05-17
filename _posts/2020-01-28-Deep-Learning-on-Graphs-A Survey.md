@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 图的深度学习综述：Deep Learning on Graphs-A Survey
+title: Summary：图的深度学习综述
 date: 2020-01-28 00:10:00 +0800
-tags: [GNN, Graph, Deep Learning]
+tags: [Summary, GNN, Graph, Deep Learning]
 categories: blog
 pageview: true
 key: Deep-Learning-on-Graphs-A Survey

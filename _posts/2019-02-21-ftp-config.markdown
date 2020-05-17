@@ -1,6 +1,6 @@
 ---
 layout: article
-title: FTP服务端与客户端安装配置
+title: Tutorials：FTP服务端与客户端安装配置
 date: 2019-02-21 00:07:00 +0800
 tag: [Tutorials, Linux] 
 categories: Tutorials

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: jupyterLab安装与配置
+title: Tutorials：jupyterLab安装与配置
 date: 2018-12-01 00:01:00 +0800
 tag: [Tutorials] 
 categories: Tutorials

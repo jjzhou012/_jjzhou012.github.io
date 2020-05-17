@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 教学篇：如何查找论文源代码
+title: Tutorials：如何查找论文源代码
 date: 2020-03-01 00:10:00 +0800
 tags: [Tutorials]
 categories: blog
@@ -35,7 +35,7 @@ key: how-to-find-source-code-of-paper
 
   - 网址： https://github.com/
 
-  - 例如
+  - 例如：搜论文名、模型名
 
     ![image-20200301130833046.png](http://ww1.sinaimg.cn/large/005NduT8ly1gcej36bod2j31hc0npadt.jpg)
 

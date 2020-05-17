@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 人工智能、图相关课程整理
+title: Summary：人工智能、图相关课程整理
 date: 2020-03-12 00:10:00 +0800
 tags: [Summary, AI, Graph]
 categories: blog

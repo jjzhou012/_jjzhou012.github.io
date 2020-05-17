@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Summary of Paper Writting
+title: Summary：Paper Writting
 date: 2020-01-08 00:10:00 +0800
 tags: [Summary, Writting]
 categories: blog

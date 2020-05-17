@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Keras 常见问题总结
+title: Summary：Keras 常见问题总结
 date: 2020-01-27 00:10:00 +0800
 tags: [Summary, Keras, Deep Learning]
 categories: blog

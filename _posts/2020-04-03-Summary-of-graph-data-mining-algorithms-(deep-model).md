@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Summary of graph data mining algorithms (deep model)
+title: Summary：graph data mining algorithms (deep model)
 date: 2020-03-15 00:10:00 +0800
 tags: [Summary, Graph, Link Prediction, Node Classification, Graph Classification, Adversarial]
 categories: blog

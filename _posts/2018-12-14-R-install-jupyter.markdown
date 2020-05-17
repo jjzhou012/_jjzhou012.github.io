@@ -1,6 +1,6 @@
 ---
 layout: article
-title: R语言安装与关联jupyter
+title: Tutorials：R语言安装与关联jupyter
 date: 2018-12-14 00:01:00 +0800
 tag: [Tutorials] 
 categories: Tutorials
