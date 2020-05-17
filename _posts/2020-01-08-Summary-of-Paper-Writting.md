@@ -101,18 +101,27 @@ key: Summary-of-Paper-Writting
 - 优点：merit
 - 缺点：drawback, shortcoming
 - 包含：contain, comprise, consist of
+- 应对，解决：tackle
 
 ### 形容词、副词
 
 - 在前面、提前：upfront
-- beforehand：adj.提前的；预先准备好的 adv.事先；预先
-- 上述的：aforementioned
+  - beforehand：adj.提前的；预先准备好的 adv.事先；预先
+  - 上述的：aforementioned
 - 普遍的：ubiquitous
+- 具体地：concretely， specifically
 
 ### 连接词
 
 - Nevertheless：然而、不过、虽然如此
+
 - whereas：然而、鉴于、反之
+
+- albeit：尽管specifically
+
+  - Albeit its prosperity：尽管取得了很大的成功
+
+  
 
 ### 固定搭配
 
@@ -120,4 +129,13 @@ key: Summary-of-Paper-Writting
 - with the formal format as follows：正式格式如下
 - in terms of：依据；按照；在…方面；以…措词
 - to our knowledge: 
-- To bridge this gap；To solve the above question；
+- To bridge this gap：To solve the above question；
+- data-intensive： 数据密集型
+- the pros and cons of：优缺点
+- categorize ... from three perspectives：分类
+  - With this taxonomy：基于这种分类
+- the emergence of：涌现，出现
+- **To name a few：例如，举例**
+- Bridging this gap between ... and ...：缩小差距
+- Driven by the academic goal for ... to ...：目标驱使
+- 
