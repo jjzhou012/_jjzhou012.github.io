@@ -22,7 +22,7 @@ key: interesting-tools
 
 - Typora
 
-  - 描述：强大的markdown文档编辑器，我的博客全是用它写的，已经推荐给了很多小伙伴。
+  - 描述：强大的markdown文档编辑器
 
   - 网址：[https://typora.io/](https://typora.io/)
 
@@ -36,7 +36,7 @@ key: interesting-tools
 
   - 描述：有了[SSH客户端神器MobaXterm，是时候放弃putty、Xshell和CRT了](https://zhuanlan.zhihu.com/p/34455520)。
 
-    ​	  纯绿色，多协议，多session管理，支持远程桌面，多窗口分屏。。。总之，已经推荐给了很多小伙伴:stuck_out_tongue_closed_eyes:。
+    ​	  纯绿色，多协议，多session管理，支持远程桌面，多窗口分屏。。。
 
   - 网址：[https://mobaxterm.mobatek.net/](https://mobaxterm.mobatek.net/)
 
@@ -48,7 +48,10 @@ key: interesting-tools
 
 
 
-
+- mathpix
+  - 描述：ocr识别公式，转化为md,latex等格式，笔记效率拉满！
+  - 网址：https://mathpix.com/
+  - 预览：
 
 
 

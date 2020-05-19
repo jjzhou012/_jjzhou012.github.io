@@ -14,7 +14,7 @@ key: Summary-of-Paper-Writting
 
 ## 写在前面
 
-阅读了这么多论文，对于英语不太强的我来说，有些精彩的表达方式确实值得借鉴。话不多说，抄录之☞。
+阅读了这么多论文（没那么多），有些精彩的表达方式确实值得借鉴。话不多说，笔记笔记☞。
 
 - 推荐工具：[http://www.phrasebank.manchester.ac.uk/](http://www.phrasebank.manchester.ac.uk/)
 - REF-N-WRITE：[https://www.ref-n-write.com/trial/academic-phrasebank/](https://www.ref-n-write.com/trial/academic-phrasebank/)
