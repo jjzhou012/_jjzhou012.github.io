@@ -12,8 +12,6 @@ key: NetGAN-Generating-Graphs-via-Random-Walks
 
 ------
 
-------
-
 - Paper: [NetGAN: Generating Graphs via Random Walks](https://arxiv.org/pdf/1803.00816.pdf)
 - Code: [https://github.com/danielzuegner/netgan](https://github.com/danielzuegner/netgan)
 
@@ -44,10 +42,24 @@ NetGAN采用了典型的GAN架构，由生成器$G$和判别器$D$构成。生�
 
 生成器的生成过程总结如下：
 
-![e09e082935364cfb9519a9b601569a6](C:\Users\jjzhou\AppData\Local\Temp\WeChat Files\e09e082935364cfb9519a9b601569a6.png)
+![345257293287304617](https://raw.githubusercontent.com/jjzhou012/image/master/img/20200520001027.png)
 
-论文考虑用lstm架构作为$f_{\theta}$。
+论文考虑用LSTM架构作为$f_{\theta}$。LSTM的记忆状态$\boldsymbol{m}_t$由cell状态$\boldsymbol{C}_t$和hidden状态$\boldsymbol{h}_t$表示。
 
 那么一个自然的问题可能会出现：“当随机游走是马尔可夫过程时，为什么要使用具有内存和时间相关性的模型？”(有偏随机游走的二阶马尔可夫)。或者换句话说，使用长度大于2的随机游走有什么好处?理论上，一个具有足够大容量的模型可以简单地记住图中所有现有的边并重构它们。然而，对于大型图来说，在实践中实现这一点是不可行的。更重要的是，纯记忆并不是NetGAN的目标，相反，NetGAN想要泛化和生成具有相似属性的图形，而不是精确的复制。更长时间的随机游走加上内存有助于模型学习数据中的拓扑结构和一般模式(例如，一致性结构)。
 
-在每一个时间步之后，网络$f_{\theta}$要在random walk中生成下一个节点，需要输出长度为$N$的，但是在这样的高维空间中运行会导致不必要的计算开销。为了解决这个问题，LSTM输出H< N的ot E RH，然后使用矩阵Wn E RHXN向上投影到IRN，这使我们能够有效地处理大型图。
+在每一个时间步之后，网络$f_{\theta}$要通过随机游走生成下一个节点，在采样的过程中，存在两个问题：
+
+- 需要输出长度为$N$的logit $\boldsymbol{p}_t$，但是在这样的高维空间中运行会导致不必要的计算开销。为了解决这个问题，令LSTM输出维度远小于$N$的$\boldsymbol{o}_t \in \mathbb{R}^H$，然后使用矩阵$\boldsymbol{W}_{up}\in \mathbb{R}^{H\times N}$ 对其进行向上投影到$\mathbb{R}^H$，这使我们能够有效地处理大型图。
+- 从类的概率分布中进行采样是一个不可导的过程，它会阻塞梯度流并防止反向传播。通过使用Straight-Through Gumsolve预测器来解决这一问题。
+
+
+
+
+
+
+
+整个模型示意图：
+
+![ca5f197971141592f36726c338b1e91](https://raw.githubusercontent.com/jjzhou012/image/master/img/20200520004437.png)
+
