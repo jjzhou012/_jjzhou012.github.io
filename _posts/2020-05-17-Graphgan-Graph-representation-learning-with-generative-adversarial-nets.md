@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 图神经网络--对抗训练：图对抗生成网络（GraphGAN）
+title: 图神经网络：用于表示学习的图对抗生成网络（GraphGAN）
 date: 2020-05-17 00:10:00 +0800
-tags: [Adversarial, GNN, Link Prediction, Node Classification, Graph]
+tags: [Adversarial Train, GNN, Link Prediction, Node Classification, Graph]
 categories: blog
 pageview: true
 key: Graphgan-Graph-representation-learning-with-generative-adversarial-nets

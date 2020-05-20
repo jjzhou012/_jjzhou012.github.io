@@ -136,6 +136,7 @@ key: Summary-of-Paper-Writting
   - With this taxonomy：基于这种分类
 - the emergence of：涌现，出现
 - **To name a few：例如，举例**
+  - for instance
 - Bridging this gap between ... and ...：缩小差距
 - Driven by the academic goal for ... to ...：目标驱使
 - 
