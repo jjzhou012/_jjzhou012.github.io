@@ -102,6 +102,8 @@ key: Summary-of-Paper-Writting
 - 缺点：drawback, shortcoming
 - 包含：contain, comprise, consist of
 - 应对，解决：tackle
+- 缓解：mitigate
+- 谋取，获取：enlist
 
 ### 形容词、副词
 
@@ -139,4 +141,8 @@ key: Summary-of-Paper-Writting
   - for instance
 - Bridging this gap between ... and ...：缩小差距
 - Driven by the academic goal for ... to ...：目标驱使
-- 
+- XXX generalizes poorly off … ： 不能很好的概括
+- with regard to： 关于
+- The defense makes a correct decision on an example x **if either** of the following applies:
+- draw from: 来自
+
