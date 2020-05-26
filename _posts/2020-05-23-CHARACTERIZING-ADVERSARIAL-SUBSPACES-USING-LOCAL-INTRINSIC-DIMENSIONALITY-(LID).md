@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 对抗样本检测：CHARACTERIZING ADVERSARIAL SUBSPACES USING LOCAL INTRINSIC DIMENSIONALITY (LID)
+title: 对抗样本检测：characterizing adversarial subspaces using local intrinsic dimensionality
 date: 2020-05-23 00:10:00 +0800
 tags: [DeepTest, Adversarial, CV]
 categories: blog
