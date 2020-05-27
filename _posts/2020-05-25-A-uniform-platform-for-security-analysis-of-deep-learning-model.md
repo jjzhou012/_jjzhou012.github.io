@@ -218,39 +218,39 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
   为了评估防御对测试集上的模型预测的影响，详细描述了应用防御前后预测的差异。
 
   - CRR（分类校准比）: 为之前被$$\mathbf{F}$$错误分类但被$$\mathbf{F}^{\mathrm{D}}$$正确分类的测试样本的百分比。
-  - 
+  
     $$
     C R R=\frac{1}{N} \sum_{i=1}^{N} \operatorname{count}\left(\mathbf{F}\left(X_{i}\right) \neq\right. \left.y_{i} \& \mathbf{F}^{\mathbf{D}}\left(X_{i}\right)=y_{i}\right)
     $$
-
+    
   - CSR（分类牺牲比）: 为之前被$$\mathbf{F}$$正确分类但被$$\mathbf{F}^{\mathrm{D}}$$错误分类的测试样本的百分比。
-  - 
-    $$
-    C S R=\frac{1}{N} \sum_{i=1}^{N} \operatorname{count}\left(\mathbf{F}\left(X_{i}\right) =\right. \left.y_{i} \& \mathbf{F}^{\mathbf{D}}\left(X_{i}\right)\neq y_{i}\right)
-    $$
-
+  
+  $$
+  C S R=\frac{1}{N} \sum_{i=1}^{N} \operatorname{count}\left(\mathbf{F}\left(X_{i}\right) =\right. \left.y_{i} \& \mathbf{F}^{\mathbf{D}}\left(X_{i}\right)\neq y_{i}\right)
+  $$
+  
   实际上，$$CAV=CRR-CSR$$。
-
+  
 - Classification Confidence Variance (CCV)
 
   虽然防御增强模型可能不会影响性能的准确性，但正确分类样本的预测置信度可能会显著降低。
 
   为了测量由防御增强模型引起的置信变化，我们定义：
-  
+
   $$
   C C V=\frac{1}{n} \sum_{i=1}^{n}\left|P\left(X_{i}\right)_{y_{i}}-P^{D}\left(X_{i}\right)_{y_{i}}\right|
   $$
-  
+
   其中，$$n<N$$是被$$\mathbf{F}$$和$$\mathbf{F}^{\mathrm{D}}$$同时分类正确的样本。
 
 - Classification Output Stability (COS)
 
   为了度量原始模型和防御增强模型之间的分类输出稳定性，我们使用JS散度来度量它们输出概率分布的相似性。在所有正确分类的样本上，我们平均了原始和防御增强模型输出之间的JS散度差异。
-  
+
   $$
   C O S=\frac{1}{n} \sum_{i=1}^{n} J S D\left(P\left(X_{i}\right) \| P^{D}\left(X_{i}\right)\right)
   $$
-  
+
   其中，$$n<N$$是被$$\mathbf{F}$$和$$\mathbf{F}^{\mathrm{D}}$$同时分类正确的样本。
 
 
