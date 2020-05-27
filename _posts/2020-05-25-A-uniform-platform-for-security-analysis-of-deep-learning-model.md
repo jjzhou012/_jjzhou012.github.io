@@ -70,14 +70,17 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
 - Average Confidence of Adversarial Class (ACAC)
 
   ACAC定义为对不正确类的平均预测置信度。
+  
   $$
   ACAC = \frac{1}{n} \sum_{i=1}^{n} P\left(X_{i}^{a}\right)_{F\left(X_{i}^{a}\right)}
   $$
+  
   $$n(n \le N)$$是成功的对抗样本的数量。
 
 - Average Confidence of True Class (ACTC)
 
   通过对对抗样本的true类的预测置信度进行平均，ACTC被用来进一步评估攻击在多大程度上脱离了ground truth。
+  
   $$
   A C T C=\frac{1}{n} \sum_{i=1}^{n} P\left(X_{i}^{a}\right)_{y_{i}}
   $$
@@ -89,9 +92,11 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
 - Average $$L_p$$ Distortion ($$ALD_p$$)
 
   平均$$L_p$$失真表示成功的对抗样本的平均标准化$$L_p$$失真。
+  
   $$
   A L D_{p}=\frac{1}{n} \sum_{i=1}^{n} \frac{\left\|X_{i}^{a}-X_{i}\right\|_{p}}{\left\|X_{i}\right\|_{p}}
   $$
+  
   $$ALD_p$$越小，对抗样本更加不可察觉。
 
 - Average Structural Similarity (ASS)
@@ -99,17 +104,21 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
   SSIM指标被用于量化图片之间的相似性，通常被认为比$$L_p$$范数更符合人类视觉感知。
 
   为了评估对抗样本的不可感知性，我们将ASS定义为所有成功对抗样本与其正常样本之间的平均SSIM相似性
+  
   $$
   A S S=\frac{1}{n} \sum_{i=1}^{n} S S I M\left(X_{i}^{a}, X_{i}\right)
   $$
+  
   ASS越大，对抗样本越不可感知。
 
 - Perturbation Sensitivity Distance (PSD)
 
   基于contrast masking theory，PSD用于评估人类对扰动的感知，其中
+  
   $$
   PSD = \frac{1}{n} \sum_{i=1}^{n} \sum_{j=1}^{m} \delta_{i, j} \operatorname{Sen}\left(R\left(x_{i, j}\right)\right)
   $$
+  
   其中，$$m$$是像素的数量，$$\delta_{i, j}$$表示第$$i$$个样本的第$$j$$个像素，$$R\left(x_{i, j}\right)$$表示$$x_{i,j}$$周围的方形区域，$$\operatorname{Sen}\left(R\left(x_{i, j}\right)\right)=1 / \operatorname{std}\left(R\left(x_{i, j}\right)\right)$$。
 
 
@@ -123,9 +132,11 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
   对抗样本的鲁棒性通过噪声容忍度估计，反映了对抗样本在保持误分类的类标不变的情况下所能承受的噪声量。
 
   NTE计算误分类类的概率与所有其他类的最大概率之间的差距，
+  
   $$
   NTE=\frac{1}{n} \sum_{i=1}^{n}\left[P\left(X_{i}^{a}\right)_{F\left(X_{i}^{a}\right)}-\max \left\{P\left(X_{i}^{a}\right)_{j}\right\}\right]
   $$
+  
   其中$$j \in\{1, \cdots, k\}$$，$$j \neq F\left(X_{i}^{a}\right)$$。
 
   NTE越大，对抗样本越鲁棒；
@@ -195,9 +206,11 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
 - Classification Accuracy Variance (CAV)
 
   防御增强模型应尽可能地保证对正常测试样本的分类精度。为了评估防御对准确性的影响，定义
+  
   $$
   C A V=A c c\left(\mathbf{F}^{\mathrm{D}}, T\right)-A c c(\mathbf{F}, T)
   $$
+  
   其中，$$A c c(\mathbf{F}, T)$$表示模型$$\mathbf{F}$$在数据集$$T$$上的精度。
 
 - Classification Rectify/Sacrifice Ratio (CRR/CSR)
@@ -205,11 +218,13 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
   为了评估防御对测试集上的模型预测的影响，详细描述了应用防御前后预测的差异。
 
   - CRR（分类校准比）: 为之前被$$\mathbf{F}$$错误分类但被$$\mathbf{F}^{\mathrm{D}}$$正确分类的测试样本的百分比。
+  - 
     $$
     C R R=\frac{1}{N} \sum_{i=1}^{N} \operatorname{count}\left(\mathbf{F}\left(X_{i}\right) \neq\right. \left.y_{i} \& \mathbf{F}^{\mathbf{D}}\left(X_{i}\right)=y_{i}\right)
     $$
 
   - CSR（分类牺牲比）: 为之前被$$\mathbf{F}$$正确分类但被$$\mathbf{F}^{\mathrm{D}}$$错误分类的测试样本的百分比。
+  - 
     $$
     C S R=\frac{1}{N} \sum_{i=1}^{N} \operatorname{count}\left(\mathbf{F}\left(X_{i}\right) =\right. \left.y_{i} \& \mathbf{F}^{\mathbf{D}}\left(X_{i}\right)\neq y_{i}\right)
     $$
@@ -221,17 +236,21 @@ key: DEEPSEC-A-uniform-platform-for-security-analysis-of-deep-learning-model
   虽然防御增强模型可能不会影响性能的准确性，但正确分类样本的预测置信度可能会显著降低。
 
   为了测量由防御增强模型引起的置信变化，我们定义：
+  
   $$
   C C V=\frac{1}{n} \sum_{i=1}^{n}\left|P\left(X_{i}\right)_{y_{i}}-P^{D}\left(X_{i}\right)_{y_{i}}\right|
   $$
+  
   其中，$$n<N$$是被$$\mathbf{F}$$和$$\mathbf{F}^{\mathrm{D}}$$同时分类正确的样本。
 
 - Classification Output Stability (COS)
 
   为了度量原始模型和防御增强模型之间的分类输出稳定性，我们使用JS散度来度量它们输出概率分布的相似性。在所有正确分类的样本上，我们平均了原始和防御增强模型输出之间的JS散度差异。
+  
   $$
   C O S=\frac{1}{n} \sum_{i=1}^{n} J S D\left(P\left(X_{i}\right) \| P^{D}\left(X_{i}\right)\right)
   $$
+  
   其中，$$n<N$$是被$$\mathbf{F}$$和$$\mathbf{F}^{\mathrm{D}}$$同时分类正确的样本。
 
 
