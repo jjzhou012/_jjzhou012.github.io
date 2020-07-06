@@ -23,10 +23,16 @@ key: Summary-of-Paper-Writting
 
 - We **present a novel XXX architecture capable of** learning a joint representation of both local graph structure and available node features for the multi-task learning of link prediction and node classification.
 
+
+
 ## 引言
 
 - To bridge this gap
 - To solve the above problem
+- To tackle these challenges
+- Bridging this gap between ... and ...：缩小差距
+
+
 
 ## 综述
 
@@ -35,10 +41,14 @@ key: Summary-of-Paper-Writting
 - There are a limited number of existing reviews on the topic of …
 - To tackle these challenges, tremendous effort has been made towards this area, resulting in a rich literature of related papers and methods. 
 
+
+
 ## 方法
 
 - **[简化符号]** To simplify notations, we drop the subscript/superscript for the xxx, i.e. xxx.
 - In order to overcome this limitation, we develop a XXX method, which is a simple yet effective approach to ...
+
+
 
 ## 模型评价/比较
 
@@ -48,6 +58,8 @@ key: Summary-of-Paper-Writting
 - We **empirically compare** our models **against** four strong baselines summarized in Table, which were designed specifically for XXX task.
 - This complexity is on par with the baseline methods such as …
 - We show that **this method obtains competitive results compared to state-of-the-art algorithms**.
+
+
 
 ## 实验说明
 
@@ -77,22 +89,13 @@ key: Summary-of-Paper-Writting
 
 - 结合图表分析
   - These results **provide positive answers** to our motivating questions …
-
   - **from the evolution results,** we can observe that
-
   - table 1 shows\reports ……, **indicating** that …
-
   - As shown\visualized in …
-
-    
-
 - 参数敏感性
-
   - is roughly not sensitive to
   - is not strictly sensitive to different hyperparameter settings.
-
 - 猜想，推测，例外
-
   - For one of the exceptions (XXX), we **speculated** that the reason is …
 
 
@@ -158,7 +161,6 @@ key: Summary-of-Paper-Writting
 - the emergence of：涌现，出现
 - **To name a few：例如，举例**
   - for instance
-- Bridging this gap between ... and ...：缩小差距
 - Driven by the academic goal for ... to ...：目标驱使
 - XXX generalizes poorly off … ： 不能很好的概括
 - with regard to： 关于
