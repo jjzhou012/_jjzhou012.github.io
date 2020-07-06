@@ -23,6 +23,11 @@ key: Summary-of-Paper-Writting
 
 - We **present a novel XXX architecture capable of** learning a joint representation of both local graph structure and available node features for the multi-task learning of link prediction and node classification.
 
+## 引言
+
+- To bridge this gap
+- To solve the above problem
+
 ## 综述
 
 - Advances in this direction are often categorized as … (这方面的进展可以归纳为…)
@@ -35,10 +40,6 @@ key: Summary-of-Paper-Writting
 - **[简化符号]** To simplify notations, we drop the subscript/superscript for the xxx, i.e. xxx.
 - In order to overcome this limitation, we develop a XXX method, which is a simple yet effective approach to ...
 
-
-
-
-
 ## 模型评价/比较
 
 - XXX always **produces a significant boost in** predictive performance.
@@ -47,8 +48,6 @@ key: Summary-of-Paper-Writting
 - We **empirically compare** our models **against** four strong baselines summarized in Table, which were designed specifically for XXX task.
 - This complexity is on par with the baseline methods such as …
 - We show that **this method obtains competitive results compared to state-of-the-art algorithms**.
-
-
 
 ## 实验说明
 
@@ -60,7 +59,6 @@ key: Summary-of-Paper-Writting
   - fixing a = 1 then varying b from 1 to 100 …
   - vary a in (1,2,3,4,5)
   - select a from (1,2,3,4,5)
-  - 
 
 ### 图表
 
@@ -75,13 +73,27 @@ key: Summary-of-Paper-Writting
   - Illustration of the proposed XXX
   - Illustration of applying XXX
 
-
-
 ### 分析
 
-- These results provide positive answers to our motivating questions …
-- is roughly not sensitive to
-- For one of the exceptions (XXX), we speculated that the reason is …
+- 结合图表分析
+  - These results **provide positive answers** to our motivating questions …
+
+  - **from the evolution results,** we can observe that
+
+  - table 1 shows\reports ……, **indicating** that …
+
+  - As shown\visualized in …
+
+    
+
+- 参数敏感性
+
+  - is roughly not sensitive to
+  - is not strictly sensitive to different hyperparameter settings.
+
+- 猜想，推测，例外
+
+  - For one of the exceptions (XXX), we **speculated** that the reason is …
 
 
 
@@ -93,6 +105,13 @@ key: Summary-of-Paper-Writting
 
 
 ## 高级词汇
+
+### 缩略词
+
+- e.g.: 例如 (for example)
+- i.e.: 即，也就是 (id est)
+- aka: 又名，亦称 (also known as)
+- w.r.t: with regard to/with reference to 关于
 
 ### 动词
 
@@ -116,14 +135,14 @@ key: Summary-of-Paper-Writting
 ### 连接词
 
 - Nevertheless：然而、不过、虽然如此
-
 - whereas：然而、鉴于、反之
-
 - albeit：尽管specifically
 
   - Albeit its prosperity：尽管取得了很大的成功
-
-  
+- moreover
+- furthermore
+- overall
+- Notably
 
 ### 固定搭配
 
@@ -145,4 +164,6 @@ key: Summary-of-Paper-Writting
 - with regard to： 关于
 - The defense makes a correct decision on an example x **if either** of the following applies:
 - draw from: 来自
+- meagre amount of：少量的，贫瘠的
+- is compatible with：兼容
 
