@@ -27,12 +27,23 @@ key: Summary-of-Paper-Writting
 
 ## 引言
 
-- To bridge this gap
-- To solve the above problem
-- To tackle these challenges
-- Bridging this gap between ... and ...：缩小差距
-
-
+- 缩小差距、解决问题
+  - To bridge this gap
+  - To solve the above problem
+  - To tackle these challenges
+  - Bridging this gap between ... and ...：缩小差距
+- 引起关注
+  - attract considerable attention
+  - increasing attention is drawn to
+- 转折
+  - Despite the advances of；即使进步
+- 提出idea
+  - propose = take an effective approach = introduce
+  - aim = the idea is 
+  - effectively utilize
+  - establish\introduce a framework
+  - the application of … **to** …
+  - … is employed here：被使用
 
 ## 综述
 
@@ -40,13 +51,23 @@ key: Summary-of-Paper-Writting
 - There has been a surge of algorithms that seek to …
 - There are a limited number of existing reviews on the topic of …
 - To tackle these challenges, tremendous effort has been made towards this area, resulting in a rich literature of related papers and methods. 
+- one of the dominating paradigms is  
 
 
 
 ## 方法
 
+> 方法部分涉及到we的时候，可用one can代替，即：
+>
+> we => one can
+>
+> we can’t => one cannot
+
+
+
 - **[简化符号]** To simplify notations, we drop the subscript/superscript for the xxx, i.e. xxx.
 - In order to overcome this limitation, we develop a XXX method, which is a simple yet effective approach to ...
+- 使用
 
 
 
@@ -123,9 +144,10 @@ key: Summary-of-Paper-Writting
 - 优点：merit
 - 缺点：drawback, shortcoming
 - 包含：contain, comprise, consist of
-- 应对，解决：tackle
+- 应对，解决，操作：tackle, handle
 - 缓解：mitigate
 - 谋取，获取：enlist
+- 实现：achieve => accomplish
 
 ### 形容词、副词
 
@@ -134,6 +156,7 @@ key: Summary-of-Paper-Writting
   - 上述的：aforementioned
 - 普遍的：ubiquitous
 - 具体地：concretely， specifically
+- 令人满意地：satisfactorily
 
 ### 连接词
 
@@ -146,6 +169,7 @@ key: Summary-of-Paper-Writting
 - furthermore
 - overall
 - Notably
+- Intuitively：直观的
 
 ### 固定搭配
 

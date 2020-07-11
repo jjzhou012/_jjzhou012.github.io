@@ -32,7 +32,7 @@ key: page-about
 
 I am Jiajun Zhou, a master's candidate affliated with [IVSN Lab](http://www.ivsn-group.com/) at Zhejiang University of Technology.
 
-My current research interests include graph data mining and deep learning, especially for graph adversarial learning. 
+My current research interests include graph data mining and deep learning, especially for graph adversarial/ enhancement learning. 
 
 I got bachelor degree from Zhejiang University of Technology.
 
@@ -40,7 +40,9 @@ I got bachelor degree from Zhejiang University of Technology.
 
 ### Publications
 
-- [**Adversarial Enhancement for Community Detection in Complex Networks**](https://arxiv.org/abs/1911.01670). Arxiv
+- 陈晋音, 周嘉俊, 沈诗婧, 郑海斌, & 宣琦. (2019). [深度学习人脸识别系统的对抗攻击算法研究](http://xwxt.sict.ac.cn/CN/abstract/abstract5069.shtml). *小型微型计算机系统*, (8), 28.
+- [**Adversarial Enhancement for Community Detection in Complex Networks**](https://arxiv.org/abs/1911.01670).  Arxiv
+- [M-Evolve: Structural-Mapping-based Data Augmentation for Graph Classification]().  Arxiv
 
 
 
