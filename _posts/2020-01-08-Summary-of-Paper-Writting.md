@@ -21,7 +21,11 @@ key: Summary-of-Paper-Writting
 
 ## 摘要
 
-- We **present a novel XXX architecture capable of** learning a joint representation of both local graph structure and available node features for the multi-task learning of link prediction and node classification.
+- 方法
+  - We **present a novel XXX architecture capable of** learning a joint representation of both local graph structure and available node features for the multi-task learning of link prediction and node classification.
+- 结尾
+  - Its experimental results show unprecedented performance, working consistently well on a wide range of problems.
+    
 
 
 
@@ -32,9 +36,10 @@ key: Summary-of-Paper-Writting
   - To solve the above problem
   - To tackle these challenges
   - Bridging this gap between ... and ...：缩小差距
-- 引起关注
+- 引起关注，流形
   - attract considerable attention
   - increasing attention is drawn to
+  - The past few years have **seen the growing prevalence of** XXX on application domains such as image
 - 转折
   - Despite the advances of；即使进步
 - 提出idea
@@ -63,11 +68,9 @@ key: Summary-of-Paper-Writting
 >
 > we can’t => one cannot
 
-
-
 - **[简化符号]** To simplify notations, we drop the subscript/superscript for the xxx, i.e. xxx.
 - In order to overcome this limitation, we develop a XXX method, which is a simple yet effective approach to ...
-- 使用
+- the tie is broken by comparing …
 
 
 
@@ -79,6 +82,8 @@ key: Summary-of-Paper-Writting
 - We **empirically compare** our models **against** four strong baselines summarized in Table, which were designed specifically for XXX task.
 - This complexity is on par with the baseline methods such as …
 - We show that **this method obtains competitive results compared to state-of-the-art algorithms**.
+- Due to the large literature, we could not compare to every graph kernel, but to some classi- cal ones and those closely related to our approach.
+- and ran DGCNN **using exactly the same folds as used in** graph kernels **in all the 100 runs of each dataset.**
 
 
 
@@ -113,11 +118,23 @@ key: Summary-of-Paper-Writting
   - **from the evolution results,** we can observe that
   - table 1 shows\reports ……, **indicating** that …
   - As shown\visualized in …
+  
+- 符合预期
+
+  - These results meet our expectation since …
+
+- 猜想，推测，例外
+
+  - For one of the exceptions (XXX), we **speculated** that the reason is …
+  - 结果有好、有持平，如何分析
+    - ![e8a7e2a160c6d212acb744cf5716f9c](https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20200711220058.png)
+
 - 参数敏感性
+
   - is roughly not sensitive to
   - is not strictly sensitive to different hyperparameter settings.
-- 猜想，推测，例外
-  - For one of the exceptions (XXX), we **speculated** that the reason is …
+
+  
 
 
 
@@ -125,6 +142,21 @@ key: Summary-of-Paper-Writting
 
 - our work ……, **whereas previous related methods** ……
 - We provide **a comprehensive empirical evaluation of our models on** nine benchmark graph-structured datasets **and demonstrate significant improvement over related methods** for graph representation learning.
+
+
+
+## 致谢
+
+- 感谢审稿人
+  - and gracious reviewers for constructive feedback on the paper.
+
+
+
+## 其他
+
+- 脚注
+  - 符号特殊说明
+    - [符号简化]：For notational convenience, we assume that
 
 
 
@@ -170,6 +202,7 @@ key: Summary-of-Paper-Writting
 - overall
 - Notably
 - Intuitively：直观的
+- In this regard：在这点上，从这方面
 
 ### 固定搭配
 
