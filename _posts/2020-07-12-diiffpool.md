@@ -11,7 +11,6 @@ key: GNN-diffpool
 ------
 
 - Paper: [Hierarchical graph representation learning with differentiable pooling](https://arxiv.org/abs/1806.08804)
-
 - Code: [https://github.com/RexYing/diffpool](https://github.com/RexYing/diffpool)
 - pytorch-geometric pooling层实现：[link](https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.dense.diff_pool.dense_diff_pool)
 
@@ -134,6 +133,7 @@ DIFFPOOL方法通过使用GNN模型的输出学习节点上的cluster assignment
 假设$$S^{(l)}$$预计算好了，给定邻接矩阵$$A^{(l)}$$和节点嵌入$$Z^{(l)}$$的情况下，DiffPool层的运算为$$\left(A^{(l+1)}, X^{(l+1)}\right)=\text { DIFFPOOL }\left(A^{(l)}, Z^{(l)}\right)$$，表示图的粗化过程，生成一个新的邻接矩阵$$A^{(l+1)}$$和节点嵌入向量$$Z^{(l+1)}$$。
 
 具体过程如下：
+
 $$
 X^{(l+1)}=S^{(l)^{T}} Z^{(l)} \in \mathbb{R}^{n_{l+1} \times d} \\
 $$
@@ -177,9 +177,11 @@ $$
 - 在实践中，仅使用来自图分类任务的梯度信号很难训练pooling GNN(公式4)。这是一个非凸优化问题，并且在训练中pooling GNN很容易陷入局部极小值。为了缓解这个问题，使用一个辅助的链路预测目标来训练pooling GNN。
 
   在每一层$l$上，最小化如下损失函数
+  
   $$
   L_{\mathrm{LP}}= \mid \mid A^{(l)}, S^{(l)} S^{(l)^{T}}\mid\mid_{F}
   $$
+  
   其中$$\mid\mid \cdot\mid\mid _F$$表示Frobenius范数。
 
   > 分配矩阵$$S^{(l)}$$相当于一个编码操作，$$S^{(l)}S^{(l)^{T}}$$类似于一个自编码器的重构过程，这部分辅助损失函数的设计相当于一个用图重构来解决链路预测问题，保证优化后的分配矩阵$$S^{(l)}$$在粗化的过程中能更好的提取$$A^{(l)}$$的潜在特征（节点与周围节点的链接信息，起到更好的cluster作用）。
@@ -187,9 +189,11 @@ $$
 - 深层次上的邻接矩阵$$A^{(l)}$$是低层assignment矩阵的函数，在训练过程中会发生变化。pooling GNN的另一个重要特性(公式4)是，为每个节点的输出cluster通常都应该接近one-hot向量，以便清楚地定义每个cluster或子图的成员关系（避免重叠）。
 
   因此通过最小化如下损失函数来正则化cluster assignment的熵
+  
   $$
   L_{\mathrm{E}}=\frac{1}{n} \sum_{i=1}^{n} H\left(S_{i}\right)
   $$
+  
   其中$H$为熵函数，$S_i$为$S$的第$i$行。
 
   > 自信息是熵的基础，**自信息表示某一事件发生时所带来的信息量的多少**，当事件发生的概率越大，则自信息越小。
