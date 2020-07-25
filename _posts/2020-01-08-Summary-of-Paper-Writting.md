@@ -49,11 +49,15 @@ key: Summary-of-Paper-Writting
 
 ## 二、Introduction
 
+- **问题难**
+  - is intractable in：棘手的
+
 - **缩小差距、解决问题**
   - Bridge/narrow this gap between ... and ...：缩小差距
   - narrow the gap：缩小差距
   - To solve the above problem
   - To tackle these challenges
+  - To bypass this difficulty, motivated by [17]
 - **引起关注，流行**
   - attract considerable attention
   - increasing attention is drawn to
@@ -84,8 +88,12 @@ key: Summary-of-Paper-Writting
 - 创新点
   - our work ……, **whereas previous related methods** ……
   - We provide **a comprehensive empirical evaluation of our models on** nine benchmark graph-structured datasets **and demonstrate significant improvement over related methods** for graph representation learning.
-
+- to the best of our knowledge, has not been studied before
   
+
+
+
+- The remainder of this paper is organized as follows. 
 
 
 
@@ -98,6 +106,7 @@ key: Summary-of-Paper-Writting
 - one of the dominating paradigms is  
 - XXX generalizes poorly off … ： 不能很好的概括
 - In an approach more akin to A, or B, than C：一种更类似于AB而不是C的方法；
+- A is helpful but far from sufficient, whereas 
 
 
 
@@ -144,6 +153,7 @@ key: Summary-of-Paper-Writting
   - Schematic depiction of XXX architecture.
   - Illustration of the proposed XXX
   - Illustration of applying XXX
+  - depict
 - 图表内容说明
   - Table 2 is organized per architecture (row), per dataset (column), and original-graph and modified-graph settings (within-row). We bold best-performance per architecture and dataset,
 
