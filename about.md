@@ -28,7 +28,7 @@ key: page-about
 
 
 
-### 🎓 Bio 
+### 🎓 Education
 
 I am Jiajun Zhou, a master's candidate 👨‍🎓 affliated with [IVSN Lab](http://www.ivsn-group.com/) at Zhejiang University of Technology.
 
