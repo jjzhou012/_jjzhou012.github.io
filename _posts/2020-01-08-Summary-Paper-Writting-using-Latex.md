@@ -38,7 +38,7 @@ key: Summary-of-Paper-Writting-Using-Latex
 
 
 
-### 1.2 图片与上下文
+### 1.2 图片/表格与上下文
 
 ```latex
 \vspace{-0.8cm}   
