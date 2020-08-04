@@ -40,9 +40,10 @@ I got bachelor degree from Zhejiang University of Technology.
 
 ### Publications
 
-- 陈晋音, 周嘉俊, 沈诗婧, 郑海斌, & 宣琦. (2019). [深度学习人脸识别系统的对抗攻击算法研究](http://xwxt.sict.ac.cn/CN/abstract/abstract5069.shtml). *小型微型计算机系统*, (8), 28.
-- [**Adversarial Enhancement for Community Detection in Complex Networks**](https://arxiv.org/abs/1911.01670).  Arxiv
-- [M-Evolve: Structural-Mapping-based Data Augmentation for Graph Classification]().  Arxiv
+- [Jccs] 陈晋音,周嘉俊,沈诗婧,郑海斌,宣琦. [深度学习人脸识别系统的对抗攻击算法研究](http://xwxt.sict.ac.cn/CN/Y2019/V40/I8/1723)[J]. 小型微型计算机系统, 2019, 40(8): 1723-1728. CHEN Jin-yin,ZHOU Jia-jun,SHEN Shi-jing,ZHENG Hai-bin,XUAN Qi. Research of Adversarial Attack Method in Face Recognition System. Journal of Chinese Computer Systems, 2019, 40(8): 1723-1728.
+- [CIKM2020] [Data Augmentation for Graph Classification.]()
+- [Arxiv] [Adversarial Enhancement for Community Detection in Complex Networks](https://arxiv.org/abs/1911.01670). 
+- [Arxiv] [M-Evolve: Structural-Mapping-based Data Augmentation for Graph Classification](https://arxiv.org/abs/2007.05700).  
 
 
 
