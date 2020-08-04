@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: article
 titles:
   # @start locale config
-  en      : &EN       About
+  en      : &EN       👨‍🎓 Bio
   en-GB   : *EN
   en-US   : *EN
   en-CA   : *EN
@@ -26,11 +26,13 @@ titles:
 key: page-about
 ---
 
+------
+
 
 
 ### 🎓 Education
 
-I am Jiajun Zhou, a master's candidate 👨‍🎓 affliated with [IVSN Lab](http://www.ivsn-group.com/) at Zhejiang University of Technology.
+I am Jiajun Zhou, a master's candidate affliated with [IVSN Lab](http://www.ivsn-group.com/) at Zhejiang University of Technology.
 
 My current research interests include graph data mining and deep learning, especially for graph adversarial/ enhancement learning. 
 
@@ -49,6 +51,6 @@ I got bachelor degree from Zhejiang University of Technology.
 
 ### 📧 Contact 
 
-- 📧: jjzhou012@163.com
-- 📧: jjzhou@zjut.edu.cn
+- 📧: [jjzhou012@163.com]()
+- 📧: [jjzhou@zjut.edu.cn]()
 
