@@ -107,6 +107,7 @@ key: Summary-of-Paper-Writting
 - XXX generalizes poorly off … ： 不能很好的概括
 - In an approach more akin to A, or B, than C：一种更类似于AB而不是C的方法；
 - A is helpful but far from sufficient, whereas 
+- share the same drawback as
 
 
 
