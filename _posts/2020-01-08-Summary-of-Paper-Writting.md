@@ -88,6 +88,7 @@ key: Summary-of-Paper-Writting
 - 创新点
   - our work ……, **whereas previous related methods** ……
   - We provide **a comprehensive empirical evaluation of our models on** nine benchmark graph-structured datasets **and demonstrate significant improvement over related methods** for graph representation learning.
+  - The core contribution of this paper is two-fold, which is summarized as follows.
 - to the best of our knowledge, has not been studied before
   
 
@@ -167,6 +168,7 @@ key: Summary-of-Paper-Writting
   - **from the evolution results,** we can observe that
   - table 1 shows\reports ……, **indicating** that …
   - As shown\visualized in …
+  - For sake of visualization brevity：
 - **指标提升数值**
   - GAUG-M improves 4.6% (GCN), 4.8% (GSAGE), 10.9% (GAT) and 5.7% (JK-NET). GAUG-O improves 4.1%, 2.1%, 6.3% and 4.9%, respectively.
 - 符合预期
@@ -224,6 +226,7 @@ key: Summary-of-Paper-Writting
 - i.e.: 即，也就是 (id est)
 - aka: 又名，亦称 (also known as)
 - w.r.t: with regard to/with reference to 关于
+- N.B.：注意
 
 ### 动词
 
@@ -245,6 +248,8 @@ key: Summary-of-Paper-Writting
 - 普遍的：ubiquitous
 - 具体地：concretely， specifically
 - 令人满意地：satisfactorily
+- underneath：背后，在。。后面（learn important patterns underneath the input graph）
+- illuminating：启发式的
 
 ### 连接词、搭配
 
@@ -280,6 +285,10 @@ key: Summary-of-Paper-Writting
 - is compatible with：兼容
 - attend to A over B：关注A而不是B
 - in an approach reminiscent of：让人想起，回忆起，联想到
+- XXX for brevity:可以用于缩写（we refer to as Graph Contrastive learning with Adaptive augmentation, GCA for brevity.）
+- shed light on：阐明
+- be skewed for: 倾斜，偏向于
+- coincide with：等同于，一致
 
 
 

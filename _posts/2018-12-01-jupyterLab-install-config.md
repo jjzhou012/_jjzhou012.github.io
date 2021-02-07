@@ -11,6 +11,8 @@ pageview: true
 
 ## Linux安装jupyterLab
 
+> 参考：[https://zhuanlan.zhihu.com/p/166425946](https://zhuanlan.zhihu.com/p/166425946)
+
 - ### 安装jupyterlab
 
   ```
