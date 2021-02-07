@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 神经网络结构:Graph Structure of Neural Networks
+title: 神经网络结构：Graph Structure of Neural Networks
 date: 2020-09-07 00:11:00 +0800
 tags: [Deep Learning, GNN, Graph]
 categories: blog
