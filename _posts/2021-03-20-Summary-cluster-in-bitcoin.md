@@ -83,6 +83,7 @@ key: summary-of-cluster-in-bitcoin
   > 2. if two (or more) addresses are used as inputs to the same transaction, then they are controlled by the same user.
   > 3. assumes that the input addresses of a particular transaction are possessed by the same entity.
   > 4. the addresses of the input end of a transaction are under the control of the same entity.
+  > 5. The multiple input heuristic is based on the idea that multiple UTXOs which are used as input for a transaction are most likely controlled by the same entity.
 
 - 分类：Heuristic based on transaction inputs only
 
@@ -113,6 +114,7 @@ key: summary-of-cluster-in-bitcoin
 
   > 1. One of the defining features of the Bitcoin protocol is the way that bitcoins must be spent. When the bitcoins re- deemed as the output of a transaction are spent, they must be spent all at once: the only way to divide them is through the use of a change address, in which the excess from the input address is sent back to the sender. 
   > 2. In the current implementation of Bitcoin, a new address—the “shadow” address [1]—is automatically created and used to collect back the “change” that results from any transaction issued by the user. Besides the reliance on pseudonyms, shadow addresses constitute the only mechanism adopted by Bitcoin to strengthen the privacy of its users.
+  > 3. the change heuristic assumes that a previously unused one-time change address created by a transaction is likely controlled by the same entity that created the transaction.
 
 - 分类：Heuristics based on inputs and outputs of transactions
 
@@ -164,14 +166,41 @@ key: summary-of-cluster-in-bitcoin
 
 
 
-## 3.2 以太坊
+### 3.2 以太坊
 
 由于比特币和以太坊在交易模式上的区别，现有的用于比特币的地址聚类方法不适用于以太坊的交易模型。
 
-- 论文：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
+#### 3.2.1 Deposit Address Reuse 
+
+==向同一存款地址发送资金的多个地址可能属于同一实体。==
+
+- 出处：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
   - 代码：[https://github.com/etherclust/etherclust](https://github.com/etherclust/etherclust)
-  - 脉络：
-    - 
+
+  - 简述：
+
+    为了将资产贷到正确的账户，交易所通常会创建所谓的存款地址，然后将收到的资金转到一个主地址。由于每个客户都创建了这些存款地址，因此<u>向同一存款地址发送资金的多个地址很可能由同一实体控制</u>。
+
+    如何去确定存款地址：它们的特点是它们将收到的款项转到一个主要的外汇账户。<u>由于交易所必须支付交易费用，转寄的金额往往比收到的金额略少。</u>在大多数情况下，存款地址是EOAs，但它们也可以是CAs。
+
+    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210326234206.png" alt="image-20210326234206354"  />
+
+    两个关键参数用于确定存款地址：
+
+    - 接收和转发的最大金额差异：$a_{max}$：对应于在转发过程中支付的交易费用。
+
+    - 接受和转发的最大时间差异：$t_{max}$：时间限制保证了转发特性，避免冲突匹配。
+
+      > - 如果存款地址是CAs，交易费用为0，因为EoA在创建交易的时候支付了费用；
+      > - 如果足够小的Ether被转移到一个存款地址，交易所可能会等待更多的存款，以使其足够支付交易费用；
+      > - 交易费用无法通过token支付，所以这种情况下$a_{max}=0$；
+
+      > - 有时交易所之间会相互发送资金。由于这些地址可能在转发跟踪中意外地作为存款地址出现，所以我们排除已知的交换地址；
+      > - 要求存款地址只转发到一个单一的交易所地址
+
+  - 实现：
+
+    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210327003902.png" alt="image-20210327003902158" style="zoom:80%;" />
 
 
 
@@ -179,11 +208,11 @@ key: summary-of-cluster-in-bitcoin
 
 
 
-# 四、Dynamic、Evolving
+## 四、Dynamic、Evolving
 
 ==比特币交易有时间属性，可以利用动态网络分析方法，研究交易网络演化。==
 
-## 4.1 Dynamic network evolving
+### 4.1 Dynamic network evolving
 
 - 论文：(2018) <u>Community Detection and Observation in Large-scale Transaction-based Networks</u>
     - 代码：
@@ -227,11 +256,11 @@ key: summary-of-cluster-in-bitcoin
 
   
 
-# 五、Recommendation
+## 五、Recommendation
 
 对聚类的结果做推荐（一般用于以太坊）
 
-## 5.1 Advertisement
+### 5.1 Advertisement
 
 - 论文：(2021) <u>Community Detection in Blockchain Social Networks</u>
 
