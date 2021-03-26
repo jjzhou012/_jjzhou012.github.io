@@ -46,12 +46,17 @@ I got bachelor degree from Zhejiang University of Technology.
 - **[CIKM2020]** Data Augmentation for Graph Classification
   - [Arxiv](https://arxiv.org/abs/2009.09863)
   - [ACM](https://dl.acm.org/doi/abs/10.1145/3340531.3412086) 
-- **[IEEE Trans NSE]** M-Evolve: Structural-Mapping-based Data Augmentation for Graph Classification
+- **[IEEE TNSE]** M-Evolve: Structural-Mapping-based Data Augmentation for Graph Classification
   - [Arxiv](https://arxiv.org/abs/2007.05700) 
   - [IEEE Xplore](https://ieeexplore.ieee.org/document/9237158)
-- Adversarial Enhancement for Community Detection in Complex Networks
+- RobustECD: Robust Enhancement for Community Detection in Complex Networks
   - [Arxiv](https://arxiv.org/abs/1911.01670)
-  - Under review
+  - Under review (IEEE TKDE)
+- - [Arxiv](https://arxiv.org/abs/1911.01670)
+  - Under review (IEEE TKDE)
+- Sampling Subgraph Network with Application to Graph Classification
+  - [Arxiv](https://arxiv.org/abs/2102.05272)
+  - Under review (IEEE TNSE)
 
 
 
