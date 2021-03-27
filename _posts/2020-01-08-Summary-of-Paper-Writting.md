@@ -65,6 +65,7 @@ key: Summary-of-Paper-Writting
   - have seen **widespread adoption** in fields such as
   - the emergence of：涌现，出现
   - … have emerged as a rising approach for …
+  - has gained a foothold in：站稳脚跟
 - **转折**
   - Despite the advances of；即使进步
 - **启发**
@@ -175,6 +176,7 @@ key: Summary-of-Paper-Writting
   - These results meet our expectation since …
 - 猜想，推测，例外
   - For one of the exceptions (XXX), we **speculated** that the reason is …
+  - While not impossible：虽然不是不可能
   - 结果有好、有持平，如何分析
     - ![e8a7e2a160c6d212acb744cf5716f9c](https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20200711220058.png)
 - 参数敏感性
@@ -258,6 +260,7 @@ key: Summary-of-Paper-Writting
 - albeit：尽管specifically
 
   - Albeit its prosperity：尽管取得了很大的成功
+  - Notwithstanding：尽管，虽然
 - moreover
 - furthermore
 - overall
@@ -269,6 +272,7 @@ key: Summary-of-Paper-Writting
 - **To name a few：例如，举例**
   - for instance
 - Armed with this insight：按照这样的直觉
+- While not impossible：虽然不是不可能
 
 ### 固定搭配
 

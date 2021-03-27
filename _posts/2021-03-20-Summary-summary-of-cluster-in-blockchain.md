@@ -148,6 +148,19 @@ key: summary-of-cluster-in-blockchain
 
 
 
+- (2017) **Behavior pattern clustering in blockchain networks**
+
+  交易行为分析
+
+  - 代码：[https://github.com/cakcora/Chainoba/tree/master/clustering](https://github.com/cakcora/Chainoba/tree/master/clustering)
+  - 方法：
+    - 将节点的交易量提取为时间序列；
+    - 提出Behavior Pattern Clustering算法对时间序列进行聚类；
+      - 利用时间序列相似性指标`DTW distance`进行聚类中心初始化；
+      - 迭代更新聚类中心；
+
+
+
 ## 3. Cluster in Ethereum
 
 - (2018) **De-anonymisation in Ethereum Using Existing Methods for Bitcoin**
@@ -162,9 +175,26 @@ key: summary-of-cluster-in-blockchain
 
 
 - (2020) **Address clustering heuristics for Ethereum**
+
+  提出了三种启发式方法来聚类以太坊中的账户。
+
+  - 方法：
+
+    - Deposit Address Reuse 
+
+      ==向同一存款地址发送资金的多个地址可能属于同一实体。==
+
+    - Airdrop Multi-participation
+
+      ==用户通常会将空投获得的所有token汇总到一个账户，我们可以利用这个模式来识别多次接收token的单个实体。==
+
+    - Self-authorization
+
+      ==用户授权他们拥有的其他地址，自授权。==
+
   - Code: [https://github.com/etherclust/etherclust](https://github.com/etherclust/etherclust)
 
-
+  
 
 - 
 

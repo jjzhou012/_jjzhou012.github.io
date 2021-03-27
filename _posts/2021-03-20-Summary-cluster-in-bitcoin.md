@@ -60,6 +60,10 @@ key: summary-of-cluster-in-bitcoin
   用户、Dapp聚类, 广告推荐
   
   - **对象：**以太坊
+  
+- Behavior pattern analysis
+
+  交易行为模式分析
 
 
 
@@ -183,7 +187,7 @@ key: summary-of-cluster-in-bitcoin
 
     如何去确定存款地址：它们的特点是它们将收到的款项转到一个主要的外汇账户。<u>由于交易所必须支付交易费用，转寄的金额往往比收到的金额略少。</u>在大多数情况下，存款地址是EOAs，但它们也可以是CAs。
 
-    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210326234206.png" alt="image-20210326234206354"  />
+    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210326234206.png" alt="image-20210326234206354" style="zoom:67%;" />
 
     两个关键参数用于确定存款地址：
 
@@ -200,11 +204,38 @@ key: summary-of-cluster-in-bitcoin
 
   - 实现：
 
-    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210327003902.png" alt="image-20210327003902158" style="zoom:80%;" />
+    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210327003902.png" alt="image-20210327003902158" style="zoom: 67%;" />
 
 
 
+#### 3.2.2 Airdrop Multi-participation
 
+==用户通常会将空投获得的所有token汇总到一个账户，我们可以利用这个模式来识别多次接收token的单个实体。==
+
+- 出处：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
+
+  - 代码：[https://github.com/etherclust/etherclust](https://github.com/etherclust/etherclust)
+
+  - 简述：
+
+    空投是一种流行的分配令牌的机制。在以太坊区块链上，它们是通过智能合约执行的。智能合约的所有者可以根据过去的活动随机选择收件人，也可以要求用户通过在线表单进行注册。这些注册过程中的某些过程要求用户在社交媒体上执行某些操作，例如发布文章或成为关注者。分配给每个用户的令牌数量是固定的，或基于现有帐户余额。如果金额是固定的，则有诱骗系统的动机。
+
+    单个用户可以使用多个电子邮件地址注册并使用多个社交媒体帐户执行操作。空投完成后，用户将在其所有注册地址上收到令牌。<u>由于在所有账户上管理令牌是困难的，因此用户通常会收集令牌并将其汇总到一个地址。</u> 
+
+    <img src="https://raw.githubusercontent.com/jjzhou012/image/master/blogImg20210327143513.png" alt="image-20210327143513738" style="zoom: 67%;" />
+
+
+
+#### 3.2.3 Self-authorization
+
+==用户授权他们拥有的其他地址，自授权。==
+
+- 出处：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
+  - 代码：[https://github.com/etherclust/etherclust](https://github.com/etherclust/etherclust)
+
+  - 简述：
+
+    ERC20令牌标准需要一个approve函数来允许另一个地址代表实际所有者使用令牌。通过执行，发送者地址获得对有限数量令牌的访问权。该功能主要用于连接智能合约，特别是去中心化交易所。虽然使用智能合约是主要目的，但这种类型的授权也可以用于常规EOA地址。这里将在<u>假设有用户批准他们拥有的另一个地址的情况下使用该功能。我们将此过程称为自授权。</u>
 
 
 
@@ -212,7 +243,7 @@ key: summary-of-cluster-in-bitcoin
 
 ==比特币交易有时间属性，可以利用动态网络分析方法，研究交易网络演化。==
 
-### 4.1 Dynamic network evolving
+### 4.1 Snapshot + clustering
 
 - 论文：(2018) <u>Community Detection and Observation in Large-scale Transaction-based Networks</u>
     - 代码：
@@ -256,11 +287,13 @@ key: summary-of-cluster-in-bitcoin
 
   
 
+
+
 ## 五、Recommendation
 
 对聚类的结果做推荐（一般用于以太坊）
 
-### 5.1 Advertisement
+### 5.1 Networking + clustering
 
 - 论文：(2021) <u>Community Detection in Blockchain Social Networks</u>
 
@@ -277,4 +310,20 @@ key: summary-of-cluster-in-bitcoin
     - 利用谱聚类算法进行社团检测
 
     - 检测结果用于广告推荐
+
+
+
+## 六、Behavior Pattern Analysis
+
+### 6.1 Time Sequence + clustering
+
+- 论文：(2017) <u>Behavior pattern clustering in blockchain networks</u>
+  - 代码：[https://github.com/cakcora/Chainoba/tree/master/clustering](https://github.com/cakcora/Chainoba/tree/master/clustering)
+  - 方法：
+    - 将节点的交易量提取为时间序列；
+    - 提出Behavior Pattern Clustering算法对时间序列进行聚类；
+      - 利用时间序列相似性指标`DTW distance`进行聚类中心初始化；
+      - 迭代更新聚类中心；
+
+
 
