@@ -42,26 +42,26 @@ key: summary-of-cluster-in-bitcoin
 
 ## 二、任务总结
 
-- Entity Recognition (User Re-identification, Address clustering)
+- **Entity Recognition (User Re-identification, Address clustering)**
 
   确定用户的多重（相同功能）地址。
 
   - **对象：**比特币
   - fraud detection
 
-- Dynamic community detection for tracking network evolving
+- **Dynamic community detection for tracking network evolving**
 
   动态社区检测，追踪网络演化
 
   - **对象：**比特币、以太坊
 
-- Advertising recommendation
+- **Advertising recommendation**
 
   用户、Dapp聚类, 广告推荐
   
   - **对象：**以太坊
   
-- Behavior pattern analysis
+- **Behavior pattern analysis**
 
   交易行为模式分析
 
@@ -77,7 +77,7 @@ key: summary-of-cluster-in-bitcoin
 
 #### 3.1.1 Heuristic 1 - *multi-input heuristic*
 
-==Multi-input heuristic: 交易输入的多个地址属于同一用户控制。==
+**==Multi-input heuristic: 交易输入的多个地址属于同一用户控制。==**
 
 - 出处：(2013) [An analysis of anonymity in the bitcoin system](https://arxiv.org/abs/1107.4524)
 
@@ -105,7 +105,7 @@ key: summary-of-cluster-in-bitcoin
 
 #### 3.1.2 Heuristic 2 - *shadow heuristic*
 
-==Shadow heuristic: 交易输出中存在的零钱地址(change/shadow address)，属于交易输入所属的用户。==
+**==Shadow heuristic: 交易输出中存在的零钱地址(change/shadow address)，属于交易输入所属的用户。==**
 
 - 出处：
 
@@ -176,7 +176,7 @@ key: summary-of-cluster-in-bitcoin
 
 #### 3.2.1 Deposit Address Reuse 
 
-==向同一存款地址发送资金的多个地址可能属于同一实体。==
+**==向同一存款地址发送资金的多个地址可能属于同一实体。==**
 
 - 出处：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
   - 代码：[https://github.com/etherclust/etherclust](https://github.com/etherclust/etherclust)
@@ -210,7 +210,7 @@ key: summary-of-cluster-in-bitcoin
 
 #### 3.2.2 Airdrop Multi-participation
 
-==用户通常会将空投获得的所有token汇总到一个账户，我们可以利用这个模式来识别多次接收token的单个实体。==
+**==用户通常会将空投获得的所有token汇总到一个账户，我们可以利用这个模式来识别多次接收token的单个实体。==**
 
 - 出处：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
 
@@ -228,7 +228,7 @@ key: summary-of-cluster-in-bitcoin
 
 #### 3.2.3 Self-authorization
 
-==用户授权他们拥有的其他地址，自授权。==
+**==用户授权他们拥有的其他地址，自授权。==**
 
 - 出处：[Address Clustering Heuristics for Ethereum](https://fc20.ifca.ai/preproceedings/31.pdf)
   - 代码：[https://github.com/etherclust/etherclust](https://github.com/etherclust/etherclust)
@@ -241,11 +241,14 @@ key: summary-of-cluster-in-bitcoin
 
 ## 四、Dynamic、Evolving
 
-==比特币交易有时间属性，可以利用动态网络分析方法，研究交易网络演化。==
+**==比特币交易有时间属性，可以利用动态网络分析方法，研究交易网络演化。==**
 
 ### 4.1 Snapshot + clustering
 
 - 论文：(2018) <u>Community Detection and Observation in Large-scale Transaction-based Networks</u>
+
+    时间切片网络+聚类，分析网络社区演化。
+
     - 代码：
       - [https://github.com/dalwar23/neochain](https://github.com/dalwar23/neochain)
       - [https://github.com/pinebud/neochain](https://github.com/pinebud/neochain)
@@ -295,7 +298,7 @@ key: summary-of-cluster-in-bitcoin
 
 ### 5.1 Networking + clustering
 
-- 论文：(2021) <u>Community Detection in Blockchain Social Networks</u>
+- 论文：(2021) [<u>Community Detection in Blockchain Social Networks</u>](https://arxiv.org/abs/2101.06406)
 
   - 脉络：
 
@@ -317,13 +320,65 @@ key: summary-of-cluster-in-bitcoin
 
 ### 6.1 Time Sequence + clustering
 
-- 论文：(2017) <u>Behavior pattern clustering in blockchain networks</u>
+- 论文：(2017) [<u>Behavior pattern clustering in blockchain networks</u>](https://www.semanticscholar.org/paper/Behavior-pattern-clustering-in-blockchain-networks-Huang-Liu/433c8b1160247d96aa4c5b84993c4b160523f2d3)
   - 代码：[https://github.com/cakcora/Chainoba/tree/master/clustering](https://github.com/cakcora/Chainoba/tree/master/clustering)
   - 方法：
     - 将节点的交易量提取为时间序列；
     - 提出Behavior Pattern Clustering算法对时间序列进行聚类；
       - 利用时间序列相似性指标`DTW distance`进行聚类中心初始化；
       - 迭代更新聚类中心；
+
+
+
+### 6.2 Feature + clustering
+
+- 论文：(2015) [Identifying Bitcoin users by transaction behavior](https://vmonaco.com/papers/Identifying%20Bitcoin%20Users%20by%20Transaction%20Behavior.pdf)
+
+  - 方法：
+
+    - 提出了一些特征
+
+      - `Random time-interval (RTI)`：连续事务时间戳之间的时间间隔，以秒为单位。值总是非负的，表示事务行为的速度。
+        $$
+        R T I_{i}=t_{i}-t_{i-1}
+        $$
+
+      - `Hour of day (HOD)`：一天中交易发生的时间（小时）。
+        $$
+        H O D_{i}=t_{i} / / 3600 \bmod 24
+        $$
+
+      - `Time of hour (TOH)`：一个小时开始后经过的秒数。
+        $$
+        T O H_{i}=t_{i} \bmod 3600
+        $$
+
+      - `Time of day (TOD)` ：一天开始后经过的秒数。
+        $$
+        T O D_{i}=t_{i} \bmod 86400
+        $$
+
+      - `Coin flow (CF)`：用户的比特币价值吞吐量。
+        $$
+        C F_{i}=b_{i}
+        $$
+
+      - `Input/output balance (IOB)`：从其他<u>用户</u>获得的输入减去发送给其他<u>用户</u>的输出。
+        $$
+        I O B_{i}=u_{i}^{i n}-u_{i}^{o u t}
+        $$
+        
+
+- 论文：(2019) [BITSCOPE: Scaling Bitcoin Address Deanonymization using Multi-Resolution Clustering](https://izgzhen.github.io/bitscope-public/paper.pdf)
+
+  多分辨率地址聚类。
+
+  - Resource: [https://izgzhen.github.io/bitscope-public/](https://izgzhen.github.io/bitscope-public/)
+  - 方法：
+    - 提出了一些aggregated features，进行账户分类；
+    - 利用迭代搜索提取子图，进行社团检测；
+
+
 
 
 
