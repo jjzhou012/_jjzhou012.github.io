@@ -31,12 +31,11 @@ key: summary-of-data-augmentation
   - Task: Node Classification
   
 - (KDD 2020) **NodeAug: Semi-Supervised Node Classification with Data Augmentation**
-
   - [[Paper]](https://www.kdd.org/kdd2020/accepted-papers/view/nodeaug-semi-supervised-node-classification-with-data-augmentation)
   - Task: Node Classification
 
 - (Progresses in Artificial Intelligence and Neural Systems) **Efficient data augmentation using graph imputation neural networks**
-  - [[Paper](https://arxiv.org/pdf/1906.08502.pdf)]
+  - [[Paper]](https://arxiv.org/pdf/1906.08502.pdf)
   - [[Slide]](https://spindro.github.io/files/ggnn.pdf)
   
 - (Arxiv) **Data Augmentation View on Graph Convolutional Network and the Proposal of Monte Carlo Graph Learning**
