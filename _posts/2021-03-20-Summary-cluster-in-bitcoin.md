@@ -380,5 +380,25 @@ key: summary-of-cluster-in-bitcoin
 
 
 
+- 论文：(2019) [Characterizing entities in the bitcoin blockchain](https://arxiv.org/abs/1810.11956)
 
+  实体（用户）分类， 提取大量特征，机器学习分类
+
+  - 方法
+    - 定义:
+      - Address-transaction graph
+      - Entity-transaction graph
+      - Discrete time graph
+      - Motif
+    - 实体分类：
+      - 多输入启发式
+      - 特征定义
+        - Address feature
+        - Entity feature
+        - Temporal feature
+        - Centrality feature
+        - Motif feature
+      - 分类器
+        - lightGBM
+        - LR
 
