@@ -66,6 +66,16 @@ key: summary-of-data-augmentation
 - (ICML 2020) **Contrastive Multi-View Representation Learning on Graphs**
   - [[Paper]](https://arxiv.org/abs/2006.05582)
   - [[Code]](https://github.com/kavehhassani/mvgrl)
+- (AAAI 2021) **Contrastive and Generative Graph Convolutional Networks for Graph-based Semi-Supervised Learning**
+  - [[Paper]](https://arxiv.org/abs/2009.07111)
+- (WWW 2021 workshop) **SelfGNN: Self-supervised Graph Neural Networks without explicit negative sampling**
+  - [[Paper]](https://arxiv.org/abs/2103.14958)
+  - [[Code]](https://github.com/zekarias-tilahun/SelfGNN)
+- (Arxiv) **Self-supervised Learning on Graphs: Deep Insights and New Direction**
+  - [[Paper]](https://arxiv.org/pdf/2006.10141.pdf)
+  - [[Code]](https://github.com/ChandlerBang/SelfTask-GNN)
+- (Arxiv) **Self-enhanced GNN: Improving graph neural networks using model outputs**
+  - [[Paper]](https://arxiv.org/pdf/2002.07518.pdf)
 
 ### Others
 
