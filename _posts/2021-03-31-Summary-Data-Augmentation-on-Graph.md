@@ -27,6 +27,7 @@ key: summary-of-data-augmentation
   - [[Paper]](https://arxiv.org/pdf/2006.06830.pdf)
   - [[Code]](https://github.com/zhao-tong/GAug?utm_source=catalyzex.com)
   - Task: Node Classification
+  - Summary：利用GAE链路预测，对类内边和类间边进行增删。
 - (KDD 2020) **NodeAug: Semi-Supervised Node Classification with Data Augmentation**
   - [[Paper]](https://www.kdd.org/kdd2020/accepted-papers/view/nodeaug-semi-supervised-node-classification-with-data-augmentation)
   - Task: Node Classification
@@ -38,14 +39,22 @@ key: summary-of-data-augmentation
   - [[Code]](https://github.com/DongHande/MCGL?utm_source=catalyzex.com)
 - (Neurocomputing) **Regularization graph convolutional networks with data augmentation**
   - [[Paper]](https://www.sciencedirect.com/science/article/pii/S0925231220320427?casa_token=Ddsp9P7qcTwAAAAA:OUh4etv2XDGgT_2njIDegYAbcl0pNd4fUOURNWH2sd_k6GX75MM3qc2TfdFfUH9snRAJIwY1q1s)
-
-    
+- (Arxiv）**Data Augmentation View on Graph Convolutional Network and the Proposal of Monte Carlo Graph Learning**
+  - [[Paper]](https://arxiv.org/abs/2006.13090)
+  - [[Code]](https://github.com/DongHande/MCGL)
+  - Task: Node Classification
+- (Arxiv) **GraphMix: Regularized Training of Graph Neural Networks for Semi-Supervised Learning**
+  - [[Paper]](https://arxiv.org/pdf/1909.11715.pdf)
+  - [[Code]](https://github.com/vikasverma1077/GraphMix)
 
 ### Adversarial
 - (Arxiv) **FLAG: Adversarial Data Augmentation for Graph Neural Networks** 
   - [[Paper]](https://arxiv.org/abs/2010.09891)
   - [[Code]](https://github.com/devnkong/FLAG)
   - Comment: [[iclr-reviewer]](https://openreview.net/forum?id=mj7WsaHYxj)
+- (IEEE TKDE 2019) **Graph Adversarial Training: Dynamically Regularizing Based on Graph Structure**
+  - [[Paper]](https://arxiv.org/abs/1902.08226)
+  - [[Code]](https://github.com/fulifeng/GraphAT)
 
 ### Graph Contrastive Learning
 - (ICLR 2019) **Deep graph infomax**
