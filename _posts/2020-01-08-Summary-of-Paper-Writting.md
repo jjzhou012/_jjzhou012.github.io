@@ -125,6 +125,7 @@ key: Summary-of-Paper-Writting
 - In order to overcome this limitation, we develop a XXX method, which is a simple yet effective approach to ...
 - the tie is broken by comparing …
 - and α is a hyperparameter **mediating** the influence of
+- This scheme is named as NodeAug, **short for** Node-Parallel Augmentation：缩写
 
 
 
@@ -140,6 +141,7 @@ key: Summary-of-Paper-Writting
   - fixing a = 1 then varying b from 1 to 100 …
   - vary a in (1,2,3,4,5)
   - select a from (1,2,3,4,5)
+  - alter a among (1,2,3,4,5)
 
 
 
@@ -182,7 +184,8 @@ key: Summary-of-Paper-Writting
 - 参数敏感性
   - is roughly not sensitive to
   - is not strictly sensitive to different hyperparameter settings.
-
+- Finally, we conduct **ablation studies** to show the influence of different components of NodeAug, as well as the sensitivity with respect to the hyper-parameters ofNodeAug. 敏感性分析的另一种说法
+  
 - 性能
   - 泛化能力弱
     - XXX generalizes poorly off … ： 不能很好的概括
@@ -198,6 +201,7 @@ key: Summary-of-Paper-Writting
 - We show that **this method obtains competitive results compared to state-of-the-art algorithms**.
 - **Due to the large literature, we could not compare to every** graph kernel, **but to some** classical ones and those closely related to our approach.
 - and ran DGCNN **using exactly the same folds as used in** graph kernels **in all the 100 runs of each dataset.**
+- XXX improves the models **by a significant margin** in terms of the test accuracy.
 
 
 
@@ -293,6 +297,9 @@ key: Summary-of-Paper-Writting
 - shed light on：阐明
 - be skewed for: 倾斜，偏向于
 - coincide with：等同于，一致
+- for the sake of efficiency：为了提高效率
+  - for the sake of：为了。。。目的
+- XXX is succinct without：简洁
 
 
 
