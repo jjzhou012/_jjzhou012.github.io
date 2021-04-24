@@ -2,11 +2,27 @@
 layout: article
 title: Tutorials：Pytorch安装
 date: 2020-03-23 00:10:00 +0800
-tags: [Tutorials]
+tags: [Tutorials, Pytorch]
 categories: blog
 pageview: true
 key: install-pytorch
 ---
+
+## 虚拟环境迁移
+
+- 导出
+
+  ```bash
+  conda env export > environment.yaml 
+  ```
+
+- 导入
+
+  ```bash
+  conda env create -f environment.yaml
+  ```
+
+
 
 ## 镜像配置
 
@@ -37,6 +53,7 @@ key: install-pytorch
 | 1.1.0   | 3.6/3.7     | 9.0      | 1.14       |
 | 1.4.0   | 3.6/3.7/3.8 | 9.2/10.1 | 1.14       |
 | 1.0.0   | 3.6/3.7     | 8.0      | 1.14       |
+|         |             | 10.2     |            |
 
 ```
 # cuda9.0 / py37 / tf1.14 / pytorch 1.1
@@ -64,8 +81,10 @@ conda create -n tf14 python=3.7 tensorflow-gpu=1.14 cudatoolkit=9.0 pytorch=1.1.
   conda install pytorch==1.0.0 torchvision==0.2.1 cuda80
   # cuda 9.0
   conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0
+  # cuda 10.2
+conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.2
   ```
-
+  
   > 早期版本参考： [https://pytorch.org/get-started/previous-versions/](https://pytorch.org/get-started/previous-versions/)
 
 
